@@ -1,0 +1,23 @@
+# --- Local dev only ---
+.serve.ps1
+.tmp/
+.DS_Store
+Thumbs.db
+
+# Editor / agent state
+.vscode/
+.claude/
+
+# Source-only folders — the live versions live in /assets and /video_content
+brand_logos/
+meet_your_new_digital_marketing_partner/
+
+# Raw video originals (the renamed faq-1/2/3.mp4 are what the site references)
+video_content/SnapInsta.*
+
+# Secrets and OS junk
+.env
+.env.*
+credentials.json
+token.json
+*.log

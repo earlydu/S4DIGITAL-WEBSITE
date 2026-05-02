@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog &mdash; s4digital</title>
+<meta name="description" content="Notes, frameworks and case studies from the s4digital growth studio. Marketing for EV installers, energy brands and tech businesses." />
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+
+<style>
+:root{
+  --blue:#3EA3FC;
+  --blue-2:#1f8ce8;
+  --blue-3:#0f6fc8;
+  --orange:#FF6A2C;
+  --orange-2:#e2541a;
+  --ink:#0d0d0f;
+  --ink-2:#1a1a1d;
+  --muted:#6a6a72;
+  --paper:#ffffff;
+  --paper-2:#f5f6f8;
+  --paper-3:#eef0f4;
+  --line:#e6e7ec;
+  --line-2:#d6d8df;
+  --max:1320px;
+  --gutter:clamp(20px,3.2vw,44px);
+  --radius:22px;
+  --radius-lg:28px;
+  --sans:'Satoshi',-apple-system,BlinkMacSystemFont,Segoe UI,system-ui,sans-serif;
+  --ast-src:url('assets/32wh.png');
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{color:var(--ink);font-family:var(--sans);font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  overflow-x:hidden;
+  background:linear-gradient(180deg,#d8ecff 0%,#e6f1fb 22%,#f1f6fb 48%,#fbfcfd 75%,#ffffff 100%) no-repeat,#ffffff;
+  background-size:100% 1100px,100% 100%;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+::selection{background:var(--blue);color:#fff}
+
+.ast{display:inline-block;background-color:currentColor;-webkit-mask:var(--ast-src) center/contain no-repeat;mask:var(--ast-src) center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
+.shell{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);position:relative}
+.eyebrow{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(62,163,252,.18)}
+.kw{color:var(--blue);font-weight:900}
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.02em;transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn .arrow{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:12px;font-weight:900;transition:transform .25s ease}
+.btn:hover .arrow{transform:rotate(-45deg)}
+.btn--orange{background:var(--orange);color:#fff;box-shadow:0 14px 36px -16px rgba(255,106,44,.55);animation:ctaWobble 5s ease-in-out infinite}
+.btn--orange .arrow{background:#fff;color:var(--orange)}
+.btn--orange:hover{background:var(--orange-2);animation:none;transform:translateY(-1px)}
+@keyframes ctaWobble{0%,82%,100%{transform:rotate(0)}86%{transform:rotate(-1deg) scale(1.015)}90%{transform:rotate(1deg) scale(1.015)}94%{transform:rotate(-.5deg)}98%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.btn--orange{animation:none}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:55;background:rgba(255,255,255,.86);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--line);padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.nav__logo img{height:26px;width:auto}
+.nav__links{display:flex;gap:6px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:6px}
+.nav__links a{padding:8px 18px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink-2);transition:background .25s ease, color .25s ease}
+.nav__links a:hover{background:#fff}
+.nav__links a.is-active{background:var(--ink);color:#fff}
+.nav__cta{display:flex;align-items:center;gap:14px}
+.theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease}
+.theme-toggle:hover{transform:rotate(20deg)}
+.theme-toggle svg{width:16px;height:16px}
+.theme-toggle .icon-moon{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-moon{display:block}
+@media (max-width:980px){.nav__links{display:none}}
+
+/* blog hero */
+.bhero{padding:84px 0 48px;text-align:center;position:relative;overflow:hidden}
+.bhero .ast-bg{position:absolute;top:6%;right:-10%;width:min(50vw,440px);aspect-ratio:1;color:rgba(13,13,15,.05);animation:spin 80s linear infinite;z-index:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bhero__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;position:relative;z-index:1}
+.bhero h1{font-weight:900;font-size:clamp(48px,7vw,104px);line-height:.98;letter-spacing:-.04em}
+.bhero h1 .kw{color:var(--blue)}
+.bhero p{font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:var(--ink-2);max-width:60ch}
+
+/* category chips */
+.bcats{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:22px 0 14px;padding-inline:var(--gutter)}
+.bcats button{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink-2);font-size:12.5px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background .25s ease, color .25s ease, border-color .25s ease}
+.bcats button:hover{background:var(--paper-2)}
+.bcats button.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* featured post */
+.bfeat{padding:32px 0 16px}
+.bfeat__card{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius-lg);padding:18px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease}
+.bfeat__card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -32px rgba(13,13,15,.18)}
+.bfeat__media{aspect-ratio:5/4;border-radius:var(--radius);overflow:hidden;position:relative;background:linear-gradient(160deg,#3EA3FC 0%,#0f6fc8 60%,#0a4d8a 100%)}
+.bfeat__media .badge{position:absolute;left:16px;top:16px;background:#fff;color:var(--ink);padding:7px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.bfeat__media .ast{position:absolute;right:-30px;bottom:-30px;width:200px;aspect-ratio:1;color:rgba(255,255,255,.15);animation:spin 60s linear infinite}
+.bfeat__copy{padding:14px 22px 18px}
+.bfeat__copy .meta{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em;margin-bottom:18px}
+.bfeat__copy .meta strong{color:var(--blue);text-transform:uppercase;letter-spacing:.18em}
+.bfeat__copy h2{font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
+.bfeat__copy p{font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:54ch;margin-bottom:22px}
+.bfeat__copy .read{display:inline-flex;align-items:center;gap:10px;font-weight:800;border-bottom:1.5px solid var(--ink);padding:4px 0;font-size:14px;transition:color .25s ease, border-color .25s ease}
+.bfeat__copy .read:hover{color:var(--blue);border-color:var(--blue)}
+@media (max-width:880px){.bfeat__card{grid-template-columns:1fr;gap:18px}}
+
+/* post grid */
+.bgrid{padding:48px 0 80px}
+.bgrid__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bpost{display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.bpost:hover{transform:translateY(-4px)}
+.bpost__media{aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;position:relative;background:#0d0d0f;transition:filter .25s ease}
+.bpost__media .ast{position:absolute;right:-25px;bottom:-25px;width:140px;aspect-ratio:1;color:rgba(255,255,255,.14);animation:spin 70s linear infinite}
+.bpost__media .badge{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.92);color:var(--ink);padding:6px 10px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.bpost--a .bpost__media{background:radial-gradient(500px 380px at 30% 30%,rgba(255,255,255,.18),transparent 60%),linear-gradient(160deg,#3EA3FC 0%,#0f6fc8 100%)}
+.bpost--b .bpost__media{background:linear-gradient(160deg,#0d0d0f 0%,#1d2029 100%)}
+.bpost--c .bpost__media{background:radial-gradient(500px 380px at 70% 70%,rgba(255,106,44,.45),transparent 60%),linear-gradient(160deg,#1f2126 0%,#3a3c40 100%)}
+.bpost--d .bpost__media{background:radial-gradient(500px 380px at 30% 30%,rgba(62,163,252,.5),transparent 60%),linear-gradient(160deg,#101317 0%,#1d2029 100%)}
+.bpost--e .bpost__media{background:linear-gradient(160deg,#1f8ce8 0%,#0f6fc8 70%,#0a4d8a 100%)}
+.bpost--f .bpost__media{background:linear-gradient(160deg,#FF6A2C 0%,#c2410c 100%)}
+.bpost__meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.bpost__meta .cat{color:var(--blue);text-transform:uppercase;letter-spacing:.18em}
+.bpost__meta .dot{width:3px;height:3px;border-radius:50%;background:currentColor}
+.bpost h3{font-weight:800;font-size:20px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);transition:color .25s ease}
+.bpost:hover h3{color:var(--blue)}
+.bpost p{font-size:14px;line-height:1.55;color:var(--ink-2);max-width:42ch}
+@media (max-width:880px){.bgrid__inner{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.bgrid__inner{grid-template-columns:1fr}}
+
+/* newsletter */
+.bnews{padding:80px 0 80px}
+.bnews__card{position:relative;background:linear-gradient(160deg,#0d0d0f 0%,#15171c 60%,#1d2029 100%);color:#fff;border-radius:var(--radius-lg);padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;overflow:hidden}
+.bnews__card::before{content:"";position:absolute;right:-10%;top:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(62,163,252,.35),transparent 60%);pointer-events:none}
+.bnews__copy{position:relative;z-index:1}
+.bnews__copy .eyebrow{color:#fff}
+.bnews__copy h3{font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 12px;max-width:18ch}
+.bnews__copy h3 .kw{color:var(--blue)}
+.bnews__copy p{font-size:15px;line-height:1.6;color:#cfd0d6;max-width:46ch}
+.bnews__form{position:relative;z-index:1;display:flex;gap:10px;flex-direction:column}
+.bnews__form input{padding:16px 18px;border-radius:14px;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:600;font-size:14.5px;transition:border-color .2s ease, background .2s ease}
+.bnews__form input::placeholder{color:rgba(255,255,255,.7)}
+.bnews__form input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.14)}
+.bnews__form button{padding:16px 22px;border-radius:14px;background:var(--orange);color:#fff;font-weight:800;font-size:14px;cursor:pointer;transition:background .2s ease}
+.bnews__form button:hover{background:var(--orange-2)}
+@media (max-width:880px){.bnews__card{grid-template-columns:1fr;gap:28px;padding:32px}}
+
+/* footer */
+.footer{background:var(--ink);color:#cfd0d6;padding:64px var(--gutter) 28px}
+.footer__inner{max-width:var(--max);margin-inline:auto}
+.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer__brand img{height:24px;margin-bottom:18px;filter:brightness(0) invert(1)}
+.footer__brand p{font-size:14px;line-height:1.6;max-width:34ch;color:#a5a6ae}
+.footer__brand .socials{display:flex;gap:8px;margin-top:22px}
+.footer__brand .socials a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:var(--blue);transition:background .25s ease, color .25s ease, border-color .25s ease}
+.footer__brand .socials a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.footer__brand .socials svg{width:14px;height:14px}
+.footer__col h4{font-size:13px;letter-spacing:.04em;font-weight:800;margin-bottom:18px;color:#fff}
+.footer__col ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer__col a:hover{color:#fff}
+.footer__col address{font-style:normal;font-size:14px;line-height:1.65;color:#a5a6ae}
+.footer__col address a{color:#a5a6ae}
+.footer__col address a:hover{color:#fff}
+.footer__bottom{display:flex;justify-content:space-between;gap:18px;padding-top:24px;font-size:12px;color:#83848c;flex-wrap:wrap}
+.footer__bottom a:hover{color:#fff}
+@media (max-width:880px){.footer__top{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:540px){.footer__top{grid-template-columns:1fr}}
+
+/* Smooth theme transition during the swap */
+.is-themeing,
+.is-themeing *{
+  transition-property:background-color,color,border-color,fill,stroke,box-shadow,filter,opacity !important;
+  transition-duration:.55s !important;
+  transition-timing-function:cubic-bezier(.4,0,.2,1) !important;
+}
+
+/* DARK MODE */
+[data-theme="dark"]{
+  --paper:#0d0d0f;--paper-2:#15171c;--paper-3:#1d2029;
+  --line:#262830;--line-2:#3a3c44;
+  --ink:#f3f4f7;--ink-2:#cfd1d8;--muted:#8b8d96;
+}
+[data-theme="dark"] body{background:linear-gradient(180deg,#0a1828 0%,#0d1422 22%,#0d1019 48%,#0c0d11 75%,#0d0d0f 100%) no-repeat,#0d0d0f;background-size:100% 1100px,100% 100%}
+[data-theme="dark"] .nav{background:rgba(13,13,15,.78);border-bottom-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .nav__links{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .nav__links a{color:#cfd1d8}
+[data-theme="dark"] .nav__links a:hover{background:rgba(255,255,255,.06);color:#fff}
+[data-theme="dark"] .nav__links a.is-active{background:#fff;color:#0d0d0f}
+[data-theme="dark"] .nav__logo img{filter:brightness(0) invert(1)}
+[data-theme="dark"] .btn{background:#fff;color:#0d0d0f}
+[data-theme="dark"] .btn .arrow{background:#0d0d0f;color:#fff}
+[data-theme="dark"] .btn--orange{background:var(--orange);color:#fff}
+[data-theme="dark"] .btn--orange .arrow{background:#fff;color:var(--orange)}
+[data-theme="dark"] .btn--orange:hover{background:var(--orange-2)}
+[data-theme="dark"] .theme-toggle{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+[data-theme="dark"] .bcats button{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#cfd1d8}
+[data-theme="dark"] .bcats button:hover{background:rgba(255,255,255,.08)}
+[data-theme="dark"] .bcats button.is-active{background:#fff;color:#0d0d0f;border-color:#fff}
+[data-theme="dark"] .bfeat__card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .bnews__card{background:linear-gradient(160deg,#15171c 0%,#1d2029 60%,#26282f 100%)}
+[data-theme="dark"] .footer{background:#000}
+</style>
+</head>
+<body>
+
+<!-- Icons (subset) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ig" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r=".9" fill="currentColor"/></symbol>
+  <symbol id="li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43A2.06 2.06 0 113.28 5.37 2.06 2.06 0 015.34 7.43zM7.12 20.45H3.55V9h3.57v11.45z"/></symbol>
+</svg>
+
+<!-- NAV -->
+<header class="nav">
+  <a class="nav__logo" href="index.html" aria-label="s4digital home">
+    <img src="assets/s4digital-logo.png" alt="s4digital" />
+  </a>
+  <nav class="nav__links" aria-label="primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#calculator">Leak Finder</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="blog.html" class="is-active">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+  <div class="nav__cta">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a class="btn btn--orange" href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="bhero">
+  <span class="ast ast-bg"></span>
+  <div class="shell bhero__inner">
+    <span class="eyebrow"><span class="dot"></span>The s4 journal</span>
+    <h1>Notes on growing <span class="kw">EV and energy</span> brands online</h1>
+    <p>Frameworks, case studies and uncomfortable truths from the agency side of the energy transition. Written by Earl and the team. Short reads only.</p>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="bcats" role="tablist">
+  <button class="is-active" data-cat="all">All</button>
+  <button data-cat="strategy">Strategy</button>
+  <button data-cat="content">Content</button>
+  <button data-cat="ads">Paid Ads</button>
+  <button data-cat="case">Case studies</button>
+  <button data-cat="ai">AI &amp; Automation</button>
+</div>
+
+<!-- FEATURED -->
+<section class="bfeat">
+  <div class="shell">
+    <a class="bfeat__card" href="#">
+      <div class="bfeat__media">
+        <span class="badge">Featured</span>
+        <span class="ast"></span>
+      </div>
+      <div class="bfeat__copy">
+        <div class="meta"><strong>Case study</strong><span>10 min read</span><span>15 Apr 2026</span></div>
+        <h2>How we generated &pound;1M in revenue from three ad campaigns</h2>
+        <p>The full breakdown of the offer, the creative testing approach, the audience structure and the unglamorous spreadsheet work that turned three Meta campaigns into seven figures for an EV charging installer.</p>
+        <span class="read">Read the case study &rarr;</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- POST GRID -->
+<section class="bgrid">
+  <div class="shell">
+    <div class="bgrid__inner" id="postsGrid">
+      <a class="bpost bpost--a" data-cat="strategy" href="#">
+        <div class="bpost__media"><span class="badge">Strategy</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">Strategy</span><span class="dot"></span><span>6 min read</span></div>
+        <h3>The buyer journey for EV installers, end to end</h3>
+        <p>What actually happens between a homeowner Googling "EV charger" and the wall-mounted unit getting commissioned, and where most installers lose them.</p>
+      </a>
+
+      <a class="bpost bpost--b" data-cat="content" href="#">
+        <div class="bpost__media"><span class="badge">Content</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">Content</span><span class="dot"></span><span>4 min read</span></div>
+        <h3>One content day, thirty assets: our content multiplier</h3>
+        <p>The shoot list, the kit list and the cut-down recipe we use to turn a single half-day on site into a month of social, web and sales content.</p>
+      </a>
+
+      <a class="bpost bpost--c" data-cat="ads" href="#">
+        <div class="bpost__media"><span class="badge">Paid Ads</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">Paid Ads</span><span class="dot"></span><span>5 min read</span></div>
+        <h3>Why most EV ad accounts are wasting 60% of spend</h3>
+        <p>The four account-structure mistakes we see in nearly every audit, and the fixes that bring cost-per-install back into a sensible range.</p>
+      </a>
+
+      <a class="bpost bpost--d" data-cat="case" href="#">
+        <div class="bpost__media"><span class="badge">Case study</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">Case study</span><span class="dot"></span><span>7 min read</span></div>
+        <h3>A &pound;60k install project from a single LinkedIn post</h3>
+        <p>The post itself, the story behind it, and the inbound conversation that turned into a commercial site survey within 48 hours.</p>
+      </a>
+
+      <a class="bpost bpost--e" data-cat="ai" href="#">
+        <div class="bpost__media"><span class="badge">AI</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">AI &amp; Automation</span><span class="dot"></span><span>8 min read</span></div>
+        <h3>Lead routing that pays for itself in week one</h3>
+        <p>The CRM, the agents and the n8n workflow we plug in to make sure no enquiry waits longer than five minutes for a human reply.</p>
+      </a>
+
+      <a class="bpost bpost--f" data-cat="strategy" href="#">
+        <div class="bpost__media"><span class="badge">Strategy</span><span class="ast"></span></div>
+        <div class="bpost__meta"><span class="cat">Strategy</span><span class="dot"></span><span>5 min read</span></div>
+        <h3>What "premium" actually means for an installer brand</h3>
+        <p>Why "we're the high-end one" only works when the buying experience, the photography and the follow-up all back it up. A short rant.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="bnews">
+  <div class="shell">
+    <div class="bnews__card">
+      <div class="bnews__copy">
+        <span class="eyebrow"><span class="dot" style="background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2)"></span>Subscribe</span>
+        <h3>One <span class="kw">growth note</span> a week, no fluff</h3>
+        <p>A short Friday email with one thing we tried, one thing that worked, and one number you should be tracking. Unsubscribe any time.</p>
+      </div>
+      <form class="bnews__form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="assets/s4digital-logo.png" alt="s4digital" />
+        <p>We help future-focused businesses grow online with content, strategy, and smart digital marketing.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/earlduncan" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ig"/></svg></a>
+          <a href="https://www.linkedin.com/in/earlcan/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#li"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">Consulting</a></li>
+          <li><a href="index.html#services">Email Marketing</a></li>
+          <li><a href="index.html#services">Paid Advertising</a></li>
+          <li><a href="index.html#services">Photography</a></li>
+          <li><a href="index.html#services">Social Media</a></li>
+          <li><a href="index.html#services">Video Marketing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#testimonials">Projects</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Get In Touch</h4>
+        <address>
+          124 City Road<br>
+          London<br>
+          EC1V 2NX<br><br>
+          Email: <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> s4digital. All rights reserved.</span>
+      <span><a href="#">Privacy</a> &middot; <a href="#">Cookies</a> &middot; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Theme: auto by default, fades between modes based on local time of day.
+  // Manual click locks the chosen theme.
+  (function(){
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+
+    const legacy = localStorage.getItem('s4-theme');
+    if (legacy && !localStorage.getItem('s4-theme-mode')) {
+      localStorage.setItem('s4-theme-mode', legacy);
+      localStorage.removeItem('s4-theme');
+    }
+    const getMode = () => localStorage.getItem('s4-theme-mode') || 'auto';
+    const setMode = (m) => localStorage.setItem('s4-theme-mode', m);
+
+    const SUN = [
+      [8.0,16.25],[7.5,17.0],[6.5,18.0],[6.25,19.83],
+      [5.5,20.5],[4.75,21.25],[5.0,21.25],[5.75,20.5],
+      [6.5,19.5],[7.25,18.5],[7.5,16.5],[8.0,16.0]
+    ];
+    const isDarkHours = (d = new Date()) => {
+      const [rise, set] = SUN[d.getMonth()];
+      const hour = d.getHours() + d.getMinutes()/60;
+      return hour < rise || hour >= set;
+    };
+    const fadeTo = (theme) => {
+      if (root.getAttribute('data-theme') === theme) return;
+      root.classList.add('is-themeing');
+      root.setAttribute('data-theme', theme);
+      window.setTimeout(() => root.classList.remove('is-themeing'), 700);
+    };
+
+    const mode = getMode();
+    if (mode === 'auto') root.setAttribute('data-theme', isDarkHours() ? 'dark' : 'light');
+    else root.setAttribute('data-theme', mode);
+
+    window.setInterval(() => { if (getMode() === 'auto') fadeTo(isDarkHours() ? 'dark' : 'light'); }, 5*60*1000);
+
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      fadeTo(next);
+      setMode(next);
+    });
+  })();
+
+  // Category filter
+  (function(){
+    const cats = document.querySelectorAll('.bcats button');
+    const posts = document.querySelectorAll('.bpost');
+    cats.forEach(c => c.addEventListener('click', () => {
+      cats.forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      const cat = c.dataset.cat;
+      posts.forEach(p => {
+        p.style.display = (cat === 'all' || p.dataset.cat === cat) ? '' : 'none';
+      });
+    }));
+  })();
+</script>
+</body>
+</html>
