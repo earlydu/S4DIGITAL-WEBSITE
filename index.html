@@ -294,7 +294,7 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .strip__logos{display:flex;align-items:center;gap:64px;flex-shrink:0}
 .lg{display:inline-flex;align-items:center;justify-content:center;height:42px;color:var(--ink-2);opacity:.72;transition:opacity .25s ease;white-space:nowrap}
 .lg:hover{opacity:1}
-.lg img{height:34px;width:auto;max-width:180px;object-fit:contain;display:block;filter:grayscale(100%) contrast(.85);transition:filter .25s ease, transform .25s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
+.lg img{height:34px;width:auto;max-width:180px;object-fit:contain;display:block;filter:grayscale(100%) contrast(.85);transition:filter .25s ease, transform .25s ease}
 .lg:hover img{filter:grayscale(0) contrast(1)}
 .lg__text{font-weight:900;letter-spacing:-.025em;font-size:22px;display:inline-flex;align-items:center;gap:6px}
 .lg__text .ast{width:12px;height:12px;color:var(--blue)}
@@ -887,8 +887,8 @@ body.is-no-scroll{overflow:hidden}
 [data-theme="dark"] .stat{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .strip{background:transparent;border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .lg{opacity:1}
-[data-theme="dark"] .lg img{filter:brightness(0) invert(1);opacity:.78;transition:opacity .25s ease, transform .25s ease;will-change:opacity;transform:translateZ(0)}
-[data-theme="dark"] .lg:hover img{filter:brightness(0) invert(1);opacity:1;transform:translateZ(0) scale(1.03)}
+[data-theme="dark"] .lg img{filter:brightness(0) invert(1);opacity:.78;transition:opacity .25s ease, transform .25s ease}
+[data-theme="dark"] .lg:hover img{filter:brightness(0) invert(1);opacity:1;transform:scale(1.03)}
 /* yesss-electrical PNG ships with a solid black background + colored letters.
    Force the colored letters to white while keeping the black box intact. */
 [data-theme="dark"] .lg img[src*="yesss"]{filter:grayscale(1) brightness(2.4) contrast(1.1);mix-blend-mode:normal;opacity:1}
