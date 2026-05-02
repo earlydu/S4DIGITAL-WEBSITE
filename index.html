@@ -275,14 +275,26 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;background:var(--paper);position:relative;overflow:hidden}
 .strip__inner{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
 .strip__label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--muted);max-width:16ch;line-height:1.5}
-.strip__viewport{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
-.strip__track{display:flex;align-items:center;gap:64px;width:max-content;animation:logoScroll 60s linear infinite}
+.strip__viewport{
+  position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  isolation:isolate;
+  -webkit-transform:translateZ(0);transform:translateZ(0);
+}
+.strip__track{
+  display:flex;align-items:center;gap:64px;width:max-content;
+  animation:logoScroll 60s linear infinite;
+  will-change:transform;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  -webkit-perspective:1000;perspective:1000;
+}
 .strip:hover .strip__track{animation-play-state:paused}
-@keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes logoScroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .strip__logos{display:flex;align-items:center;gap:64px;flex-shrink:0}
 .lg{display:inline-flex;align-items:center;justify-content:center;height:42px;color:var(--ink-2);opacity:.72;transition:opacity .25s ease;white-space:nowrap}
 .lg:hover{opacity:1}
-.lg img{height:34px;width:auto;max-width:180px;object-fit:contain;display:block;filter:grayscale(100%) contrast(.85);transition:filter .25s ease, transform .25s ease}
+.lg img{height:34px;width:auto;max-width:180px;object-fit:contain;display:block;filter:grayscale(100%) contrast(.85);transition:filter .25s ease, transform .25s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
 .lg:hover img{filter:grayscale(0) contrast(1)}
 .lg__text{font-weight:900;letter-spacing:-.025em;font-size:22px;display:inline-flex;align-items:center;gap:6px}
 .lg__text .ast{width:12px;height:12px;color:var(--blue)}
@@ -875,8 +887,8 @@ body.is-no-scroll{overflow:hidden}
 [data-theme="dark"] .stat{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .strip{background:transparent;border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .lg{opacity:1}
-[data-theme="dark"] .lg img{filter:brightness(0) invert(1);opacity:.78;transition:opacity .25s ease, transform .25s ease}
-[data-theme="dark"] .lg:hover img{filter:brightness(0) invert(1);opacity:1;transform:scale(1.03)}
+[data-theme="dark"] .lg img{filter:brightness(0) invert(1);opacity:.78;transition:opacity .25s ease, transform .25s ease;will-change:opacity;transform:translateZ(0)}
+[data-theme="dark"] .lg:hover img{filter:brightness(0) invert(1);opacity:1;transform:translateZ(0) scale(1.03)}
 /* yesss-electrical PNG ships with a solid black background + colored letters.
    Force the colored letters to white while keeping the black box intact. */
 [data-theme="dark"] .lg img[src*="yesss"]{filter:grayscale(1) brightness(2.4) contrast(1.1);mix-blend-mode:normal;opacity:1}
@@ -1622,21 +1634,27 @@ body.is-no-scroll{overflow:hidden}
       <div class="footer__col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Consulting</a></li>
-          <li><a href="#services">Email Marketing</a></li>
           <li><a href="#services">Paid Advertising</a></li>
           <li><a href="#services">Photography</a></li>
           <li><a href="#services">Social Media</a></li>
+          <li><a href="#services">Consulting</a></li>
+          <li><a href="#services">Email Marketing</a></li>
           <li><a href="#services">Video Marketing</a></li>
+          <li><a href="#services">AI Automation</a></li>
+          <li><a href="#services">Web Design and Development</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#testimonials">Projects</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#calculator">Leak Finder</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="blog.html">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer__col">
