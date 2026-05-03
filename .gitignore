@@ -21,3 +21,5 @@ video_content/SnapInsta.*
 credentials.json
 token.json
 *.log
+.env
+.env.local

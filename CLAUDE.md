@@ -38,6 +38,23 @@ When you hit an error:
 **3. Keep workflows current**
 Workflows should evolve as you learn. When you find better methods, discover constraints, or encounter recurring issues, update the workflow. That said, don't create or overwrite workflows without asking unless I explicitly tell you to. These are your instructions and need to be preserved and refined, not tossed after one use.
 
+## Development Workflow
+
+- All changes are made and tested locally first.
+- Use localhost as the default environment for development and testing.
+- Do NOT push, commit, or sync any changes to GitHub unless explicitly instructed.
+- Do NOT deploy or trigger any Vercel updates unless explicitly instructed.
+
+## Deployment Flow
+
+- GitHub is the single source of truth for production.
+- Once changes are approved, they will be committed and pushed to GitHub.
+- Vercel will automatically deploy from GitHub after a push.
+
+## Key Rule
+
+- Never assume deployment. Always wait for explicit instruction before committing or pushing changes.
+
 ## The Self-Improvement Loop
 
 Every failure is a chance to make the system stronger:
