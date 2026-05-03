@@ -235,3 +235,22 @@ const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent =
   document.querySelectorAll('a.btn[href*="#contact"]').forEach(a => a.addEventListener('click', openBook));
   document.querySelectorAll('a.btn[href*="#calculator"]').forEach(a => a.addEventListener('click', openLeak));
 })();
+
+// Back to top button
+(function(){
+  const existing = document.getElementById('toTop');
+  const btn = existing || (() => {
+    const b = document.createElement('button');
+    b.className = 'to-top';
+    b.id = 'toTop';
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Back to top');
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 14 12 8 18 14"/></svg>';
+    document.body.appendChild(b);
+    return b;
+  })();
+  const onScroll = () => { btn.classList.toggle('is-visible', window.scrollY > 400); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  onScroll();
+})();

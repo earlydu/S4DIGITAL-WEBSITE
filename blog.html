@@ -231,6 +231,26 @@ body.is-no-scroll{overflow:hidden}
 [data-theme="dark"] .bfeat__card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .bnews__card{background:linear-gradient(160deg,#15171c 0%,#1d2029 60%,#26282f 100%)}
 [data-theme="dark"] .footer{background:#000}
+
+/* Back to top */
+.to-top{position:fixed;left:24px;bottom:24px;z-index:115;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;border:1px solid rgba(255,255,255,.08);box-shadow:0 14px 30px -14px rgba(13,13,15,.5);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s linear .35s, background .25s ease}
+.to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s, background .25s ease}
+.to-top:hover{background:var(--orange);transform:translateY(-2px)}
+.to-top svg{width:18px;height:18px}
+[data-theme="dark"] .to-top{background:#fff;color:var(--ink);border-color:rgba(0,0,0,.08)}
+[data-theme="dark"] .to-top:hover{background:var(--orange);color:#fff}
+@media (max-width:540px){.to-top{left:16px;bottom:16px;width:42px;height:42px}}
+
+/* Dynamic SVG animations */
+@keyframes svgGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,106,44,0))}50%{filter:drop-shadow(0 0 8px rgba(255,106,44,.85))}}
+@keyframes svgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes svgDrip{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(6px);opacity:.35}}
+@keyframes svgShimmer{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{opacity:.5;filter:drop-shadow(0 0 4px rgba(255,255,255,.5))}}
+svg .anim-glow{animation:svgGlow 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+svg .anim-float{animation:svgFloat 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+svg .anim-drip{animation:svgDrip 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+svg .anim-shimmer{animation:svgShimmer 2.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){svg .anim-glow,svg .anim-float,svg .anim-drip,svg .anim-shimmer{animation:none}}
 </style>
 </head>
 <body>
@@ -243,24 +263,24 @@ body.is-no-scroll{overflow:hidden}
 
 <!-- NAV -->
 <header class="nav">
-  <a class="nav__logo" href="index.html" aria-label="s4digital home">
+  <a class="nav__logo" href="/" aria-label="s4digital home">
     <img src="assets/s4digital-logo.png" alt="s4digital" />
   </a>
   <nav class="nav__links" aria-label="primary">
-    <a href="index.html">Home</a>
-    <a href="index.html#calculator">Leak Finder</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="blog.html" class="is-active">Blog</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="/">Home</a>
+    <a href="/#calculator">Leak Finder</a>
+    <a href="/#services">Services</a>
+    <a href="/#about">About</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog" class="is-active">Blog</a>
+    <a href="/#faq">FAQ</a>
   </nav>
   <div class="nav__cta">
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <a class="btn btn--orange" href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+    <a class="btn btn--orange" href="/#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
     <button class="nav__burger" id="navBurger" type="button" aria-label="Open menu" aria-controls="mnav" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="13" x2="21" y2="13"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
     </button>
@@ -271,16 +291,16 @@ body.is-no-scroll{overflow:hidden}
   <button class="mnav__close" id="mnavClose" type="button" aria-label="Close menu">&times;</button>
   <span class="mnav__brand">Menu</span>
   <ul class="mnav__links">
-    <li><a href="index.html" data-mnav-link>Home</a></li>
-    <li><a href="index.html#calculator" data-mnav-link>Leak Finder</a></li>
-    <li><a href="index.html#services" data-mnav-link>Services</a></li>
-    <li><a href="index.html#about" data-mnav-link>About</a></li>
-    <li><a href="index.html#pricing" data-mnav-link>Pricing</a></li>
-    <li><a href="blog.html" data-mnav-link>Blog</a></li>
-    <li><a href="index.html#faq" data-mnav-link>FAQ</a></li>
+    <li><a href="/" data-mnav-link>Home</a></li>
+    <li><a href="/#calculator" data-mnav-link>Leak Finder</a></li>
+    <li><a href="/#services" data-mnav-link>Services</a></li>
+    <li><a href="/#about" data-mnav-link>About</a></li>
+    <li><a href="/#pricing" data-mnav-link>Pricing</a></li>
+    <li><a href="/blog" data-mnav-link>Blog</a></li>
+    <li><a href="/#faq" data-mnav-link>FAQ</a></li>
   </ul>
   <div class="mnav__cta">
-    <a class="btn btn--orange" data-mnav-link href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+    <a class="btn btn--orange" data-mnav-link href="/#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
   </div>
   <div class="mnav__foot">
     <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
@@ -314,19 +334,11 @@ body.is-no-scroll{overflow:hidden}
 <!-- FEATURED -->
 <section class="bfeat">
   <div class="shell">
-    <a class="bfeat__card" href="blog/90-day-playbook-ev-scale.html">
+    <a class="bfeat__card" href="/blog/90-day-playbook-ev-scale">
       <div class="bfeat__media">
         <span class="badge">Featured</span>
         <span class="ast"></span>
-        <svg class="thumb" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line x1="20" y1="100" x2="180" y2="100" stroke="#fff" stroke-width="1.5" opacity=".3"/>
-          <polyline points="20,90 50,82 80,68 110,50 140,32 170,18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="50" cy="82" r="5" fill="#fff"/>
-          <circle cx="110" cy="50" r="5" fill="#FF6A2C"/>
-          <circle cx="170" cy="18" r="6" fill="#FF6A2C"/>
-          <text x="20" y="118" font-family="Satoshi" font-weight="800" font-size="9" fill="rgba(255,255,255,.6)">DAY 0</text>
-          <text x="170" y="118" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="9" fill="rgba(255,255,255,.6)">DAY 90</text>
-        </svg>
+        <svg class="thumb" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="98" x2="186" y2="98" stroke="rgba(255,255,255,.25)" stroke-width="1"/><path d="M20 90 L60 90 L60 70 L100 70 L100 46 L140 46 L140 22 L180 22" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><line x1="60" y1="90" x2="60" y2="76" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle cx="60" cy="90" r="5.5" fill="rgba(255,255,255,.9)"/><text x="60" y="93" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f">1</text><text x="60" y="112" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="7" fill="rgba(255,255,255,.7)">DAY 30</text><line x1="100" y1="70" x2="100" y2="56" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle cx="100" cy="70" r="5.5" fill="rgba(255,255,255,.9)"/><text x="100" y="73" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f">2</text><text x="100" y="112" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="7" fill="rgba(255,255,255,.7)">DAY 60</text><line x1="140" y1="46" x2="140" y2="32" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle class="anim-glow" cx="140" cy="46" r="6.5" fill="#FF6A2C"/><text x="140" y="49" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="#fff">3</text><text x="140" y="112" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#FF6A2C">DAY 90</text><polygon points="180,22 174,18 174,26" fill="#FF6A2C"/><rect class="anim-glow" x="146" y="4" width="44" height="14" rx="7" fill="#FF6A2C" style="animation-delay:.5s"/><text x="168" y="14" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="#fff" letter-spacing="1.5">SCALE</text></svg>
       </div>
       <div class="bfeat__copy">
         <div class="meta"><strong>Strategy</strong><span>13 min read</span><span>Latest</span></div>
@@ -342,108 +354,54 @@ body.is-no-scroll{overflow:hidden}
 <section class="bgrid">
   <div class="shell">
     <div class="bgrid__inner" id="postsGrid">
-      <a class="bpost bpost--a" data-cat="strategy" href="blog/consistent-enquiries-every-month.html">
+      <a class="bpost bpost--a" data-cat="strategy" href="/blog/consistent-enquiries-every-month">
         <div class="bpost__media"><span class="badge">Strategy</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="20" y="32" width="48" height="36" rx="6" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="1.5"/>
-            <text x="44" y="56" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#fff">A</text>
-            <rect x="76" y="32" width="48" height="36" rx="6" fill="#FF6A2C"/>
-            <text x="100" y="56" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#fff">B</text>
-            <rect x="132" y="32" width="48" height="36" rx="6" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="1.5"/>
-            <text x="156" y="56" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#fff">C</text>
-            <polygon points="68,46 76,50 68,54" fill="#fff"/>
-            <polygon points="124,46 132,50 124,54" fill="#fff"/>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="80" x2="186" y2="80" stroke="rgba(255,255,255,.25)" stroke-width="1"/><rect x="20" y="62" width="22" height="18" rx="3" fill="rgba(255,255,255,.4)"/><rect x="48" y="54" width="22" height="26" rx="3" fill="rgba(255,255,255,.55)"/><rect x="76" y="44" width="22" height="36" rx="3" fill="rgba(255,255,255,.7)"/><rect x="104" y="34" width="22" height="46" rx="3" fill="rgba(255,255,255,.85)"/><rect x="132" y="24" width="22" height="56" rx="3" fill="#fff"/><rect class="anim-glow" x="160" y="14" width="22" height="66" rx="3" fill="#FF6A2C"/><rect x="14" y="4" width="80" height="18" rx="9" fill="#fff"/><text x="54" y="17" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#0d0d0f">+47/MO ↑</text><text x="100" y="94" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="rgba(255,255,255,.7)" letter-spacing="2">EVERY MONTH, ON AUTOPILOT</text></svg>
         </div>
         <div class="bpost__meta"><span class="cat">Strategy</span><span class="dot"></span><span>10 min read</span></div>
         <h3>How EV installers generate consistent enquiries every month</h3>
         <p>Without referrals, without cold ad spend that never compounds. The three-part system every working installer marketing engine uses, and how to build yours in 30 days.</p>
       </a>
 
-      <a class="bpost bpost--b" data-cat="case" href="blog/ev-installer-website-conversion.html">
+      <a class="bpost bpost--b" data-cat="case" href="/blog/ev-installer-website-conversion">
         <div class="bpost__media"><span class="badge">Conversion</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="20" y="20" width="160" height="60" rx="6" fill="rgba(255,255,255,.12)" stroke="#fff" stroke-width="1.5"/>
-            <line x1="32" y1="36" x2="120" y2="36" stroke="#fff" stroke-width="2.5"/>
-            <line x1="32" y1="48" x2="100" y2="48" stroke="#fff" stroke-width="2" opacity=".55"/>
-            <rect x="32" y="58" width="44" height="12" rx="4" fill="#FF6A2C"/>
-            <rect x="84" y="58" width="40" height="12" rx="4" fill="rgba(255,255,255,.25)"/>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 14 L180 14 L120 56 L120 86 L80 86 L80 56 Z" fill="rgba(255,255,255,.08)" stroke="#fff" stroke-width="1.5"/><g fill="#fff"><circle cx="36" cy="22" r="2"/><circle cx="56" cy="22" r="2"/><circle cx="76" cy="22" r="2"/><circle cx="96" cy="22" r="2"/><circle cx="116" cy="22" r="2"/><circle cx="136" cy="22" r="2"/><circle cx="156" cy="22" r="2"/></g><text x="100" y="50" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="22" fill="#FF6A2C">60%</text><text x="100" y="60" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="5.5" fill="#fff" letter-spacing="2">LEADS LOST</text><circle cx="100" cy="78" r="3" fill="#fff"/><ellipse class="anim-drip" cx="46" cy="44" rx="2.4" ry="3.6" fill="#FF6A2C"/><ellipse class="anim-drip" cx="38" cy="58" rx="2.4" ry="3.6" fill="#FF6A2C" opacity=".75" style="animation-delay:.3s"/><ellipse class="anim-drip" cx="160" cy="44" rx="2.4" ry="3.6" fill="#FF6A2C" style="animation-delay:.6s"/><ellipse class="anim-drip" cx="168" cy="58" rx="2.4" ry="3.6" fill="#FF6A2C" opacity=".75" style="animation-delay:.9s"/><ellipse class="anim-drip" cx="42" cy="72" rx="2.2" ry="3.2" fill="#FF6A2C" opacity=".55" style="animation-delay:1.2s"/><ellipse class="anim-drip" cx="164" cy="72" rx="2.2" ry="3.2" fill="#FF6A2C" opacity=".55" style="animation-delay:1.5s"/></svg>
         </div>
         <div class="bpost__meta"><span class="cat">Conversion</span><span class="dot"></span><span>11 min read</span></div>
         <h3>Why your EV installation website loses 60% of its leads</h3>
         <p>The seven leaks costing installers most of their inbound, ranked by impact. A 7-day fix plan you can actually ship, with no designer required.</p>
       </a>
 
-      <a class="bpost bpost--c" data-cat="ads" href="blog/paid-ads-ev-installers.html">
+      <a class="bpost bpost--c" data-cat="ads" href="/blog/paid-ads-ev-installers">
         <div class="bpost__media"><span class="badge">Paid Ads</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line x1="20" y1="80" x2="180" y2="80" stroke="#fff" stroke-width="1.5" opacity=".3"/>
-            <polyline points="20,30 50,40 80,55 110,68 140,74 170,78" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="20" cy="30" r="5" fill="#fff"/>
-            <circle cx="80" cy="55" r="5" fill="#fff"/>
-            <circle cx="170" cy="78" r="5" fill="#fff"/>
-            <text x="20" y="22" font-family="Satoshi" font-weight="800" font-size="9" fill="#fff">£420</text>
-            <text x="170" y="92" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="9" fill="#fff" opacity=".7">£140</text>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="82" x2="186" y2="82" stroke="rgba(255,255,255,.3)" stroke-width="1"/><ellipse cx="50" cy="80" rx="22" ry="3" fill="rgba(0,0,0,.25)"/><rect x="30" y="68" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="58" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="48" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="38" width="40" height="12" rx="3" fill="rgba(255,255,255,.9)"/><rect x="30" y="28" width="40" height="12" rx="3" fill="rgba(255,255,255,.95)"/><rect x="30" y="18" width="40" height="12" rx="3" fill="#fff"/><text x="50" y="13" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">£420</text><line x1="80" y1="50" x2="116" y2="50" stroke="#fff" stroke-width="2" stroke-linecap="round"/><polygon points="116,44 124,50 116,56" fill="#fff"/><rect class="anim-glow" x="76" y="35" width="48" height="14" rx="7" fill="#FF6A2C"/><text x="100" y="45" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">−67%</text><ellipse cx="150" cy="80" rx="22" ry="3" fill="rgba(0,0,0,.25)"/><rect class="anim-glow" x="130" y="68" width="40" height="12" rx="3" fill="#FF6A2C" style="animation-delay:.5s"/><rect class="anim-glow" x="130" y="58" width="40" height="12" rx="3" fill="#FF6A2C" style="animation-delay:.8s"/><text x="150" y="52" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">£140</text></svg>
         </div>
         <div class="bpost__meta"><span class="cat">Paid Ads</span><span class="dot"></span><span>11 min read</span></div>
         <h3>How to lower cost per install on Meta and Google ads</h3>
         <p>The four account-structure mistakes we see in nearly every audit, and the targeted fixes that bring cost-per-install back into a sensible range within 30 days.</p>
       </a>
 
-      <a class="bpost bpost--d" data-cat="strategy" href="blog/local-seo-for-ev-installers.html">
+      <a class="bpost bpost--d" data-cat="strategy" href="/blog/local-seo-for-ev-installers">
         <div class="bpost__media"><span class="badge">SEO</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="100" cy="50" r="36" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
-            <circle cx="100" cy="50" r="22" fill="none" stroke="#fff" stroke-width="2" opacity=".55"/>
-            <circle cx="100" cy="50" r="10" fill="#FF6A2C"/>
-            <text x="100" y="54" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">YOU</text>
-            <line x1="100" y1="14" x2="100" y2="6" stroke="#fff" stroke-width="2"/>
-            <line x1="100" y1="86" x2="100" y2="94" stroke="#fff" stroke-width="2"/>
-            <line x1="64" y1="50" x2="56" y2="50" stroke="#fff" stroke-width="2"/>
-            <line x1="136" y1="50" x2="144" y2="50" stroke="#fff" stroke-width="2"/>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="12" y="10" width="176" height="80" rx="8" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="1.2"/><g stroke="#fff" stroke-width=".5" opacity=".18"><line x1="12" y1="30" x2="188" y2="30"/><line x1="12" y1="50" x2="188" y2="50"/><line x1="12" y1="70" x2="188" y2="70"/><line x1="48" y1="10" x2="48" y2="90"/><line x1="100" y1="10" x2="100" y2="90"/><line x1="152" y1="10" x2="152" y2="90"/></g><path d="M12 60 Q 60 52 100 56 T 188 50" fill="none" stroke="#fff" stroke-width="1.5" opacity=".3"/><path d="M68 10 Q 78 36 92 54 T 116 90" fill="none" stroke="#fff" stroke-width="1.5" opacity=".3"/><g opacity=".55"><path d="M34 70 c0 -4 3 -7 7 -7 s7 3 7 7 c0 5 -7 12 -7 12 s-7 -7 -7 -12z" fill="#fff"/></g><g opacity=".55"><path d="M154 24 c0 -4 3 -7 7 -7 s7 3 7 7 c0 5 -7 12 -7 12 s-7 -7 -7 -12z" fill="#fff"/></g><g class="anim-float"><path d="M84 22 c0 -8 7 -14 16 -14 s16 6 16 14 c0 12 -16 28 -16 28 s-16 -16 -16 -28z" fill="#FF6A2C"/><circle cx="100" cy="22" r="7" fill="#fff"/><text x="100" y="25.5" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#FF6A2C">1</text></g><rect x="32" y="68" width="136" height="14" rx="7" fill="#fff"/><circle cx="42" cy="75" r="3" fill="none" stroke="#0d0d0f" stroke-width="1.4"/><line x1="44.2" y1="77.2" x2="47" y2="80" stroke="#0d0d0f" stroke-width="1.4" stroke-linecap="round"/><text x="105" y="78" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f" letter-spacing="1.5">EV INSTALLER NEAR ME</text></svg>
         </div>
         <div class="bpost__meta"><span class="cat">SEO</span><span class="dot"></span><span>12 min read</span></div>
         <h3>Local SEO for EV installers: rank in your area without ads</h3>
         <p>How to own the map pack, rank for "EV installer near me", and stop paying for clicks you should be getting free. A 30-day local SEO sprint.</p>
       </a>
 
-      <a class="bpost bpost--e" data-cat="ai" href="blog/ev-lead-follow-up-system.html">
+      <a class="bpost bpost--e" data-cat="ai" href="/blog/ev-lead-follow-up-system">
         <div class="bpost__media"><span class="badge">Follow-up</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line x1="40" y1="50" x2="160" y2="50" stroke="rgba(255,255,255,.3)" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <circle cx="40" cy="50" r="10" fill="#FF6A2C"/>
-            <text x="40" y="54" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">1</text>
-            <circle cx="100" cy="50" r="10" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="1.5"/>
-            <text x="100" y="54" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">2</text>
-            <circle cx="160" cy="50" r="10" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="1.5"/>
-            <text x="160" y="54" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">3</text>
-            <text x="40" y="78" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="8" fill="rgba(255,255,255,.7)">60s</text>
-            <text x="100" y="78" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="8" fill="rgba(255,255,255,.7)">30m</text>
-            <text x="160" y="78" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="8" fill="rgba(255,255,255,.7)">14d</text>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="74" cy="52" r="36" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="2"/><path d="M44 76 A36 36 0 1 1 104 76" fill="none" stroke="#fff" stroke-width="2" opacity=".22"/><path class="anim-glow" d="M44 76 A36 36 0 0 1 56 32" fill="none" stroke="#FF6A2C" stroke-width="3.5" stroke-linecap="round"/><line x1="74" y1="52" x2="54" y2="34" stroke="#FF6A2C" stroke-width="3" stroke-linecap="round"/><circle cx="74" cy="52" r="4" fill="#fff"/><text x="74" y="76" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">&lt; 5 MIN</text><text x="74" y="22" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="6" fill="rgba(255,255,255,.65)" letter-spacing="1.5">REPLY TIME</text><rect class="anim-glow" x="124" y="32" width="62" height="42" rx="9" fill="#FF6A2C" style="animation-delay:.5s"/><text x="155" y="55" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="20" fill="#fff">21×</text><text x="155" y="67" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="6" fill="#fff" letter-spacing="1.5">CLOSE RATE</text></svg>
         </div>
         <div class="bpost__meta"><span class="cat">Follow-up</span><span class="dot"></span><span>10 min read</span></div>
         <h3>The follow-up system that turns slow EV enquiries into installs</h3>
         <p>The exact stack, templates and 14-day nurture sequence that doubles close rate without any new traffic. Setup in one Saturday.</p>
       </a>
 
-      <a class="bpost bpost--f" data-cat="content" href="blog/content-plan-ev-installers.html">
+      <a class="bpost bpost--f" data-cat="content" href="/blog/content-plan-ev-installers">
         <div class="bpost__media"><span class="badge">Content</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="22" y="20" width="32" height="60" rx="6" fill="#3EA3FC"/>
-            <rect x="58" y="20" width="32" height="60" rx="6" fill="#FF6A2C"/>
-            <rect x="94" y="20" width="32" height="60" rx="6" fill="rgba(255,255,255,.7)"/>
-            <rect x="130" y="20" width="32" height="60" rx="6" fill="#1f8ce8"/>
-            <rect x="166" y="20" width="14" height="60" rx="6" fill="#FFC23C" opacity=".7"/>
-            <text x="38" y="92" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="rgba(255,255,255,.7)">M</text>
-            <text x="74" y="92" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="rgba(255,255,255,.7)">T</text>
-            <text x="110" y="92" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="rgba(255,255,255,.7)">W</text>
-            <text x="146" y="92" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="rgba(255,255,255,.7)">T</text>
-            <text x="173" y="92" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="rgba(255,255,255,.7)">F</text>
-          </svg>
+          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="20" y="10" width="22" height="9" rx="2" fill="#3EA3FC"/><rect class="anim-shimmer" x="46" y="10" width="22" height="9" rx="2" fill="#FF6A2C"/><rect x="72" y="10" width="22" height="9" rx="2" fill="rgba(255,255,255,.85)"/><rect x="98" y="10" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect x="124" y="10" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".7"/><rect x="150" y="10" width="22" height="9" rx="2" fill="#FFC23C"/><rect class="anim-shimmer" x="20" y="23" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".75" style="animation-delay:.3s"/><rect x="46" y="23" width="22" height="9" rx="2" fill="#3EA3FC"/><rect x="72" y="23" width="22" height="9" rx="2" fill="rgba(255,255,255,.55)"/><rect x="98" y="23" width="22" height="9" rx="2" fill="#FFC23C" opacity=".8"/><rect class="anim-shimmer" x="124" y="23" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:.6s"/><rect x="150" y="23" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect x="20" y="36" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect class="anim-shimmer" x="46" y="36" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".8" style="animation-delay:.9s"/><rect x="72" y="36" width="22" height="9" rx="2" fill="#FFC23C"/><rect x="98" y="36" width="22" height="9" rx="2" fill="rgba(255,255,255,.85)"/><rect x="124" y="36" width="22" height="9" rx="2" fill="#3EA3FC"/><rect class="anim-shimmer" x="150" y="36" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".7" style="animation-delay:1.2s"/><rect x="20" y="49" width="22" height="9" rx="2" fill="rgba(255,255,255,.7)"/><rect x="46" y="49" width="22" height="9" rx="2" fill="#FFC23C" opacity=".8"/><rect class="anim-shimmer" x="72" y="49" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:1.5s"/><rect x="98" y="49" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".75"/><rect x="124" y="49" width="22" height="9" rx="2" fill="rgba(255,255,255,.55)"/><rect class="anim-shimmer" x="150" y="49" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".85" style="animation-delay:1.8s"/><rect class="anim-shimmer" x="20" y="62" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:.5s"/><rect x="46" y="62" width="22" height="9" rx="2" fill="rgba(255,255,255,.6)"/><rect x="72" y="62" width="22" height="9" rx="2" fill="#3EA3FC"/><rect x="98" y="62" width="22" height="9" rx="2" fill="#FFC23C"/><rect class="anim-shimmer" x="124" y="62" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".75" style="animation-delay:.8s"/><rect x="150" y="62" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".55"/></g><rect x="36" y="78" width="128" height="16" rx="8" fill="#fff"/><text x="100" y="89" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#0d0d0f" letter-spacing="1.5">30 DAYS · 10 MIN/DAY</text></svg>
         </div>
         <div class="bpost__meta"><span class="cat">Content</span><span class="dot"></span><span>9 min read</span></div>
         <h3>A 30-day content plan for EV installers with no time</h3>
@@ -485,27 +443,27 @@ body.is-no-scroll{overflow:hidden}
       <div class="footer__col">
         <h4>Services</h4>
         <ul>
-          <li><a href="index.html#services">Paid Advertising</a></li>
-          <li><a href="index.html#services">Photography</a></li>
-          <li><a href="index.html#services">Social Media</a></li>
-          <li><a href="index.html#services">Consulting</a></li>
-          <li><a href="index.html#services">Email Marketing</a></li>
-          <li><a href="index.html#services">Video Marketing</a></li>
-          <li><a href="index.html#services">AI Automation</a></li>
-          <li><a href="index.html#services">Web Design and Development</a></li>
+          <li><a href="/#services">Paid Advertising</a></li>
+          <li><a href="/#services">Photography</a></li>
+          <li><a href="/#services">Social Media</a></li>
+          <li><a href="/#services">Consulting</a></li>
+          <li><a href="/#services">Email Marketing</a></li>
+          <li><a href="/#services">Video Marketing</a></li>
+          <li><a href="/#services">AI Automation</a></li>
+          <li><a href="/#services">Web Design and Development</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#calculator">Leak Finder</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
-          <li><a href="index.html#testimonials">Testimonials</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#calculator">Leak Finder</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -525,8 +483,20 @@ body.is-no-scroll{overflow:hidden}
   </div>
 </footer>
 
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 14 12 8 18 14"/></svg>
+</button>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  (function(){
+    const btn = document.getElementById('toTop');
+    if(!btn) return;
+    const onScroll = () => { btn.classList.toggle('is-visible', window.scrollY > 400); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    onScroll();
+  })();
 
   // Mobile menu drawer
   (function(){
