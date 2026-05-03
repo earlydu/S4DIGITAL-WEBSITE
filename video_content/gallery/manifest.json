@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "chargy-bcorp",
+    "title": "char.gy",
+    "client": "B-Corp brand film",
+    "src": "video_content/gallery/chargy-bcorp.mp4",
+    "poster": "video_content/gallery/chargy-bcorp.jpg",
+    "aspect": "16x9"
+  },
+  {
+    "slug": "easee-wycombe",
+    "title": "Easee",
+    "client": "Wycombe Square install",
+    "src": "video_content/gallery/easee-wycombe.mp4",
+    "poster": "video_content/gallery/easee-wycombe.jpg",
+    "aspect": "16x9"
+  },
+  {
+    "slug": "fully-charged-23",
+    "title": "Fully Charged Show",
+    "client": "Event highlights 2023",
+    "src": "video_content/gallery/fully-charged-23.mp4",
+    "poster": "video_content/gallery/fully-charged-23.jpg",
+    "aspect": "16x9"
+  }
+]

@@ -480,6 +480,109 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .vcard.is-playing .vcard__play, .vcard.is-playing .vcard__thumb{display:none}
 @media (max-width:880px){.videos__head{grid-template-columns:1fr;gap:18px}.videos__grid{grid-template-columns:1fr}.vcard{aspect-ratio:16/10}}
 
+/* gallery — bruut-style horizontal stack with mixed aspect ratios, active card centred */
+.gal{padding:120px 0 100px;position:relative;overflow:hidden}
+.gal__head{display:grid;grid-template-columns:1fr;gap:14px;align-items:end;margin-bottom:42px;max-width:760px}
+.gal__head h2{font-weight:900;font-size:clamp(40px,5.4vw,80px);line-height:.95;letter-spacing:-.03em}
+.gal__head h2 .kw{color:var(--blue)}
+.gal__head p{font-size:15.5px;line-height:1.6;max-width:54ch;color:var(--ink-2)}
+
+.gal__viewport{
+  position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+}
+.gal__track{
+  display:flex;align-items:center;gap:18px;
+  padding-inline:max(16px, calc(50% - 280px));
+  scroll-snap-type:x mandatory;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  cursor:grab;
+}
+.gal__track:active{cursor:grabbing}
+.gal__track::-webkit-scrollbar{display:none}
+
+.gal-card{
+  position:relative;flex-shrink:0;
+  height:clamp(320px,52vw,560px);
+  border-radius:var(--radius);overflow:hidden;
+  background:#0d0d0f;
+  scroll-snap-align:center;scroll-snap-stop:always;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, opacity .35s ease;
+  box-shadow:0 24px 60px -32px rgba(13,13,15,.35);
+  opacity:.6;
+}
+.gal-card.is-active{opacity:1;box-shadow:0 30px 70px -28px rgba(13,13,15,.45)}
+.gal-card:hover{transform:translateY(-4px)}
+
+/* Aspect-driven widths, height fixed */
+.gal-card[data-aspect="16x9"]{aspect-ratio:16/9}
+.gal-card[data-aspect="9x16"]{aspect-ratio:9/16}
+.gal-card[data-aspect="1x1"]{aspect-ratio:1/1}
+.gal-card[data-aspect="4x5"]{aspect-ratio:4/5}
+.gal-card[data-aspect="4x3"]{aspect-ratio:4/3}
+
+.gal-card video,
+.gal-card img.gal-card__poster,
+.gal-card iframe{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border:0;
+}
+.gal-card iframe{background:#000}
+
+.gal-card__caption{
+  position:absolute;left:14px;top:14px;z-index:3;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  pointer-events:none;
+}
+.gal-card__caption span{
+  background:#0d0d0f;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;
+  padding:5px 10px;border-radius:6px;line-height:1;
+}
+.gal-card__caption .client{background:var(--orange);color:#fff}
+
+.gal-card__hint{
+  position:absolute;right:14px;top:14px;z-index:3;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;
+  font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;display:none;align-items:center;gap:6px;
+}
+.gal-card.is-active .gal-card__hint{display:inline-flex}
+.gal-card__hint .pulse{width:6px;height:6px;border-radius:50%;background:#3afc7a;animation:pulse 1.6s ease-in-out infinite;box-shadow:0 0 0 3px rgba(58,252,122,.25)}
+
+.gal__loading{padding:60px 0;text-align:center;color:var(--muted);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+
+/* Floating control bar overlay — sits at bottom of the gallery, above any native video controls */
+.gal-overlay{
+  position:absolute;z-index:20;
+  bottom:64px;right:max(20px,calc(50% - 280px));
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 6px 6px 14px;border-radius:999px;
+  background:rgba(13,13,15,.78);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  box-shadow:0 18px 40px -18px rgba(0,0,0,.5);
+}
+.gal-overlay__counter{font-size:12px;font-weight:800;letter-spacing:.04em;color:rgba(255,255,255,.7);font-variant-numeric:tabular-nums;padding-right:4px;min-width:40px;text-align:center;white-space:nowrap}
+.gal-overlay__counter strong{color:#fff}
+.gal-overlay__btn{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:0;color:#fff;cursor:pointer;
+  display:grid;place-items:center;
+  transition:background .2s ease, transform .2s ease, opacity .2s ease;
+}
+.gal-overlay__btn:hover{background:rgba(255,255,255,.2)}
+.gal-overlay__btn:disabled{opacity:.3;cursor:not-allowed}
+.gal-overlay__btn svg{width:15px;height:15px}
+.gal-overlay__btn--mute.is-on{background:var(--orange)}
+.gal-overlay__btn--mute.is-on:hover{background:var(--orange-2)}
+@media (max-width:880px){
+  .gal__head h2{white-space:normal}
+  .gal__track{gap:12px;padding-inline:max(12px, calc(50% - 200px))}
+  .gal-card{height:clamp(280px,72vw,440px)}
+  .gal-overlay{bottom:14px;right:14px}
+}
+
 /* services */
 .services{padding:90px 0;position:relative;isolation:isolate;overflow:hidden}
 .services__bg{--ast-w:min(44vw,420px);position:absolute;left:-12%;top:calc(50% - var(--ast-w) / 2);width:var(--ast-w);aspect-ratio:1;color:rgba(13,13,15,.05);z-index:-1;animation:spin 100s linear infinite;pointer-events:none}
@@ -829,6 +932,72 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal.is-in{opacity:1;transform:none}
 
+/* Cookie consent banner — bottom-right, glass card with brand styling */
+.cookie{
+  position:fixed;right:24px;bottom:24px;z-index:120;
+  width:min(380px,calc(100vw - 48px));
+  background:rgba(13,13,15,.92);backdrop-filter:blur(14px);
+  color:#fff;border-radius:18px;padding:20px 22px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08);
+  transform:translateY(140%);opacity:0;visibility:hidden;
+  transition:transform .55s cubic-bezier(.2,.8,.2,1), opacity .35s ease, visibility 0s linear .55s;
+}
+.cookie.is-open{transform:translateY(0);opacity:1;visibility:visible;transition:transform .55s cubic-bezier(.2,.8,.2,1), opacity .35s ease, visibility 0s}
+.cookie__head{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:rgba(255,255,255,.6)}
+.cookie__head .ast{width:14px;height:14px;color:var(--blue)}
+.cookie p{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85);margin-bottom:14px}
+.cookie p a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.cookie__row{display:flex;gap:8px;align-items:center}
+.cookie__btn{
+  flex:1;padding:11px 14px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.02em;
+  cursor:pointer;border:0;transition:background .2s ease, color .2s ease, transform .2s ease;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.cookie__btn--accept{background:var(--orange);color:#fff;box-shadow:0 14px 30px -14px rgba(255,106,44,.6)}
+.cookie__btn--accept:hover{background:var(--orange-2);transform:translateY(-1px)}
+.cookie__btn--reject{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.14)}
+.cookie__btn--reject:hover{background:rgba(255,255,255,.12)}
+
+/* 30-second irresistible offer popup */
+.offer{
+  position:fixed;inset:0;z-index:200;display:none;
+  align-items:center;justify-content:center;padding:24px;
+  background:rgba(13,13,15,.72);backdrop-filter:blur(8px);
+}
+.offer.is-open{display:flex;animation:bookFade .3s ease}
+.offer__panel{
+  position:relative;width:100%;max-width:520px;
+  background:linear-gradient(160deg,#0d0d0f 0%,#15171c 60%,#1d2029 100%);
+  color:#fff;border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:0 60px 120px -30px rgba(0,0,0,.55);
+  animation:bookSlide .4s cubic-bezier(.2,.8,.2,1);
+}
+.offer__panel::before{content:"";position:absolute;right:-30%;top:-30%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,44,.35),transparent 60%);pointer-events:none}
+.offer__close{
+  position:absolute;right:14px;top:14px;z-index:5;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14);
+  display:grid;place-items:center;cursor:pointer;font-size:18px;font-weight:900;line-height:1;
+  transition:background .2s ease, transform .2s ease;
+}
+.offer__close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}
+.offer__body{padding:36px 32px 32px;position:relative;z-index:1}
+.offer__tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,106,44,.18);color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:16px}
+.offer__tag .pulse{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px rgba(255,106,44,.25);animation:pulse 1.6s ease-in-out infinite}
+.offer__panel h3{font-weight:900;font-size:clamp(24px,3.4vw,32px);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px;max-width:18ch}
+.offer__panel h3 .kw{color:var(--orange)}
+.offer__panel p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:18px;max-width:42ch}
+.offer__list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;padding:0}
+.offer__list li{display:flex;align-items:flex-start;gap:11px;font-size:14px;line-height:1.5;color:#dcdee5}
+.offer__list li::before{content:"\2713";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(62,163,252,.2);color:var(--blue);display:inline-grid;place-items:center;font-weight:900;font-size:11px;margin-top:1px}
+.offer__cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:15px 22px;border-radius:999px;background:var(--orange);color:#fff;font-weight:800;font-size:14px;cursor:pointer;width:100%;animation:ctaWobble 5s ease-in-out infinite;animation-delay:.4s;box-shadow:0 18px 40px -16px rgba(255,106,44,.55)}
+.offer__cta:hover{background:var(--orange-2);animation:none}
+.offer__cta .arrow{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--orange);display:grid;place-items:center;font-size:12px;font-weight:900}
+.offer__small{margin-top:12px;font-size:12px;color:rgba(255,255,255,.55);text-align:center;line-height:1.5}
+.offer__dismiss{display:block;background:none;border:0;color:rgba(255,255,255,.55);font-size:12px;text-decoration:underline;cursor:pointer;margin:8px auto 0;font-family:inherit}
+.offer__dismiss:hover{color:#fff}
+@media (max-width:520px){.offer__body{padding:28px 22px 24px}}
+
 /* Lead capture modal (Download the breakdown) */
 .leak{
   position:fixed;inset:0;z-index:200;display:none;
@@ -1007,6 +1176,15 @@ body.is-no-scroll{overflow:hidden}
 [data-theme="dark"] .feat__hub{filter:drop-shadow(0 38px 60px rgba(0,0,0,.55))}
 [data-theme="dark"] .gsys__figure img{filter:brightness(.95)}
 [data-theme="dark"] .pricing__note,[data-theme="dark"] .pcard__note{color:#8b8d96}
+/* Background asterisks: switch from dark-on-light to light-on-dark in dark mode */
+[data-theme="dark"] .hero__bg,
+[data-theme="dark"] .hero__bg-2,
+[data-theme="dark"] .services__bg,
+[data-theme="dark"] .about__bg,
+[data-theme="dark"] .dfy__bg,
+[data-theme="dark"] .calc__bg,
+[data-theme="dark"] .pricing__bg{color:rgba(255,255,255,.06)}
+[data-theme="dark"] .cta__giant{color:rgba(255,255,255,.22)}
 
 /* Asterisk cursor follower */
 .cursor-ast{
@@ -1267,13 +1445,13 @@ body.is-no-scroll{overflow:hidden}
       <div class="about__copy">
         <span class="eyebrow"><span class="dot"></span>Why work with us</span>
         <h2>You stop hoping. <span class="kw">You start scaling.</span></h2>
-        <p class="signed">Hi, I&rsquo;m Earl. I built S4Digital for one reason: <span class="kw">EV installers deserve a system, not a hope</span>.</p>
+        <p class="signed">Hi, I&rsquo;m Earl. I built S4Digital for one reason: <span class="kw">EV installers and energy brands deserve a system, not a hope</span>.</p>
         <ul class="about__bullets">
           <li>Consistent enquiries every month, not feast or famine</li>
           <li>Stop relying on word of mouth and chance referrals</li>
           <li>Know exactly where your next install is coming from</li>
           <li>Scale without scaling overheads or admin headaches</li>
-          <li>Stop wasting ad spend on agencies that don&rsquo;t get the EV sector</li>
+          <li>Stop wasting ad spend on agencies that don&rsquo;t get the EV and energy sector</li>
         </ul>
         <div class="row">
           <span class="tag"><span class="dot"></span>Founder-led</span>
@@ -1317,7 +1495,7 @@ body.is-no-scroll{overflow:hidden}
         <span class="eyebrow"><span class="dot"></span>The system behind predictable lead flow</span>
         <h2 style="margin-top:14px">The S4 Growth System<span class="tm">&trade;</span></h2>
       </div>
-      <p>Designed specifically for EV installers, energy companies and technical businesses with long buying cycles and high-value projects. A proven framework that turns attention into pipeline.</p>
+      <p>Designed specifically for EV installers and energy brands with long buying cycles and high-value projects. A proven framework that turns attention into pipeline.</p>
     </div>
 
     <figure class="gsys__figure">
@@ -1342,7 +1520,7 @@ body.is-no-scroll{overflow:hidden}
     <div class="calc__head">
       <span class="eyebrow"><span class="dot"></span>Leak Finder &middot; free tool</span>
       <h2>Find Out How Many Leads<br><span class="kw">You Are Losing</span></h2>
-      <p>Most EV installers are losing thousands in potential revenue every month without realising it. Find your exact number in 30 seconds.</p>
+      <p>Most EV installers and energy brands are losing thousands in potential revenue every month without realising it. Find your exact number in 30 seconds.</p>
     </div>
 
     <div class="calc__card">
@@ -1585,6 +1763,37 @@ body.is-no-scroll{overflow:hidden}
   </div>
 </section>
 
+<!-- SOME OF OUR WORK — bruut-style horizontal gallery -->
+<section class="gal" id="work">
+  <div class="shell">
+    <div class="gal__head">
+      <span class="eyebrow"><span class="dot"></span>Selected work</span>
+      <h2 style="margin-top:14px">Some of <span class="kw">our work</span></h2>
+      <p>Real installs, brand films and case studies we&rsquo;ve produced for EV and energy clients. Click, swipe or use the arrows to flick through.</p>
+    </div>
+  </div>
+
+  <div class="gal__viewport">
+    <div class="gal__track" id="galTrack">
+      <div class="gal__loading">Loading work&hellip;</div>
+    </div>
+
+    <div class="gal-overlay" id="galOverlay" aria-label="Gallery controls">
+      <span class="gal-overlay__counter"><strong id="galPos">1</strong>&nbsp;/&nbsp;<span id="galTotal">3</span></span>
+      <button class="gal-overlay__btn gal-overlay__btn--mute" id="galMute" type="button" aria-pressed="false" aria-label="Unmute videos">
+        <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </button>
+      <button class="gal-overlay__btn" id="galPrev" type="button" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="gal-overlay__btn" id="galNext" type="button" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <span class="ast services__bg" aria-hidden="true"></span>
@@ -1592,7 +1801,7 @@ body.is-no-scroll{overflow:hidden}
     <div class="services__head">
       <div>
         <span class="eyebrow"><span class="dot"></span>The system, broken down</span>
-        <h2 style="margin-top:14px">What you<br><span class="kw">actually get</span></h2>
+        <h2 style="margin-top:14px">What you <span class="kw">get</span></h2>
       </div>
       <a class="btn btn--orange" data-book href="#contact"><span>Get my free growth audit</span><span class="arrow">&rarr;</span></a>
     </div>
@@ -1608,7 +1817,7 @@ body.is-no-scroll{overflow:hidden}
       <div class="svc">
         <div class="svc__row"><div class="svc__num">02</div><div class="svc__name">Content That Converts</div><div class="svc__tag">Video &middot; Photo &middot; Social</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Sales-focused video, photography and social posts that answer the questions buyers ask before the call. Built around install jobs, real customers and the trust signals that move EV buyers off the fence.</p>
+          <p>Sales-focused video, photography and social posts that answer the questions buyers ask before the call. Built around install jobs, real customers and the trust signals that move EV and energy buyers off the fence.</p>
           <div class="svc__chips"><span>Content days</span><span>Reels</span><span>Case studies</span><span>Drone</span><span>Editing</span></div>
         </div></div>
       </div>
@@ -1851,10 +2060,265 @@ body.is-no-scroll{overflow:hidden}
 <!-- jsPDF for client-side personalised PDF generation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+<!-- Cookie consent (persists choice in localStorage) -->
+<aside class="cookie" id="cookieBanner" role="region" aria-label="Cookie notice">
+  <div class="cookie__head"><span class="ast" aria-hidden="true"></span> Cookies</div>
+  <p>We use a few essential cookies to make the site work, plus optional analytics so we can see what content actually helps people. <a href="#">Read our cookie policy</a>.</p>
+  <div class="cookie__row">
+    <button class="cookie__btn cookie__btn--reject" id="cookieReject" type="button">Essential only</button>
+    <button class="cookie__btn cookie__btn--accept" id="cookieAccept" type="button">Accept all</button>
+  </div>
+</aside>
+
+<!-- 30-second irresistible offer popup — routes into the Leak Finder -->
+<div class="offer" id="offerModal" role="dialog" aria-modal="true" aria-label="Free Leak Finder" aria-hidden="true">
+  <div class="offer__panel">
+    <button class="offer__close" id="offerClose" type="button" aria-label="Close">&times;</button>
+    <div class="offer__body">
+      <span class="offer__tag"><span class="pulse"></span>30-second tool, free</span>
+      <h3>Find out what your funnel is <span class="kw">costing you</span>.</h3>
+      <p>Spotted you&rsquo;re still here. Plug five numbers into our Leak Finder and we&rsquo;ll send a personalised breakdown of where you&rsquo;re losing leads, what it&rsquo;s costing each month, and the three fixes we&rsquo;d run first.</p>
+      <ul class="offer__list">
+        <li>Personalised to your business in under 30 seconds</li>
+        <li>A branded PDF in your inbox with your numbers</li>
+        <li>The three priority fixes, ranked by recovered revenue</li>
+      </ul>
+      <a class="offer__cta" id="offerCta" href="#calculator"><span>Show me what I&rsquo;m losing</span><span class="arrow">&rarr;</span></a>
+      <p class="offer__small">Free. No call required. Auto-delivered to your inbox.</p>
+      <button class="offer__dismiss" id="offerDismiss" type="button">No thanks, I&rsquo;d rather not know</button>
+    </div>
+  </div>
+</div>
+
 <div class="cursor-ast" id="cursorAst" aria-hidden="true"></div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== Selected work gallery (bruut-style) =====
+  (function(){
+    const track = document.getElementById('galTrack');
+    const prev = document.getElementById('galPrev');
+    const next = document.getElementById('galNext');
+    const mute = document.getElementById('galMute');
+    const posEl = document.getElementById('galPos');
+    const totalEl = document.getElementById('galTotal');
+    if (!track) return;
+
+    let items = [];
+    let muted = true;
+    let inView = false; // section visibility — videos only play when scrolled into view
+
+    const render = (data) => {
+      items = data;
+      totalEl.textContent = items.length;
+      track.innerHTML = items.map((it, i) => {
+        if (it.youtube) {
+          const ytId = it.youtube;
+          return `<article class="gal-card" data-aspect="${it.aspect||'16x9'}" data-i="${i}" data-yt="${ytId}">
+            <div class="gal-card__caption"><span class="client">${it.client||''}</span><span>${it.title||''}</span></div>
+            <span class="gal-card__hint"><span class="pulse"></span>Now playing</span>
+            <iframe data-src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=0&rel=0&playsinline=1" title="${it.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </article>`;
+        }
+        // First two cards eagerly preload so the opening videos start instantly
+        const eager = i < 2;
+        const preload = eager ? 'auto' : 'metadata';
+        const srcAttr = eager ? `src="${it.src}"` : `data-src="${it.src}"`;
+        return `<article class="gal-card" data-aspect="${it.aspect||'16x9'}" data-i="${i}">
+          <div class="gal-card__caption"><span class="client">${it.client||''}</span><span>${it.title||''}</span></div>
+          <span class="gal-card__hint"><span class="pulse"></span>Now playing</span>
+          <img class="gal-card__poster" src="${it.poster}" alt="" loading="lazy" />
+          <video preload="${preload}" playsinline muted loop controls poster="${it.poster}" ${srcAttr} data-src="${it.src}"></video>
+        </article>`;
+      }).join('');
+      bind();
+    };
+
+    const cards = () => Array.from(track.querySelectorAll('.gal-card'));
+    const videos = () => Array.from(track.querySelectorAll('.gal-card video'));
+
+    const setActive = (i) => {
+      const cs = cards();
+      i = Math.max(0, Math.min(cs.length - 1, i));
+      cs.forEach((c, idx) => c.classList.toggle('is-active', idx === i));
+      posEl.textContent = i + 1;
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= cs.length - 1;
+    };
+
+    const goTo = (i) => {
+      const cs = cards();
+      const c = cs[i];
+      if (!c) return;
+      // Centre the card in the viewport
+      const target = c.offsetLeft + c.offsetWidth / 2 - track.clientWidth / 2;
+      track.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    };
+
+    const bind = () => {
+      // Click/tap a card -> advance to it
+      cards().forEach(c => c.addEventListener('click', e => {
+        // Don't intercept clicks on native video controls
+        const v = c.querySelector('video');
+        if (v && e.target === v) {
+          const rect = v.getBoundingClientRect();
+          if (e.clientY > rect.bottom - 50) return;
+        }
+        const i = parseInt(c.dataset.i, 10);
+        goTo(i);
+      }));
+
+      // Update active card based on which is closest to the centre of the viewport
+      let raf = 0;
+      track.addEventListener('scroll', () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const cs = cards();
+          const centre = track.scrollLeft + track.clientWidth / 2;
+          let best = 0, bestDist = Infinity;
+          cs.forEach((c, idx) => {
+            const cardCentre = c.offsetLeft + c.offsetWidth / 2;
+            const dist = Math.abs(cardCentre - centre);
+            if (dist < bestDist) { bestDist = dist; best = idx; }
+          });
+          // Active card plays (only if section is in view). Adjacent cards preload. Distant stay metadata-only.
+          videos().forEach((v, idx) => {
+            const distance = Math.abs(idx - best);
+            if (idx === best) {
+              if (!v.src && v.dataset.src) v.src = v.dataset.src;
+              v.preload = 'auto';
+              v.muted = muted;
+              if (inView) v.play().catch(()=>{}); else v.pause();
+            } else if (distance === 1) {
+              // Pre-warm neighbours so swiping is instant
+              if (!v.src && v.dataset.src) v.src = v.dataset.src;
+              v.preload = 'auto';
+              v.pause();
+            } else {
+              v.pause();
+              if (v.src) { v.preload = 'metadata'; }
+            }
+          });
+          // YouTube cards: only load iframe when active to save bandwidth
+          cs.forEach((c, idx) => {
+            const f = c.querySelector('iframe');
+            if (f && idx === best && !f.src && f.dataset.src) f.src = f.dataset.src;
+          });
+          setActive(best);
+        });
+      }, { passive: true });
+
+      // Mouse drag to swipe
+      let isDown = false, startX = 0, startScroll = 0, moved = 0;
+      track.addEventListener('mousedown', e => {
+        if (e.target.tagName === 'IFRAME') return;
+        if (e.target.tagName === 'VIDEO') {
+          const rect = e.target.getBoundingClientRect();
+          if (e.clientY > rect.bottom - 50) return; // leave the controls alone
+        }
+        isDown = true; moved = 0;
+        startX = e.clientX; startScroll = track.scrollLeft;
+        track.style.scrollSnapType = 'none';
+        track.style.scrollBehavior = 'auto';
+      });
+      window.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        moved = Math.abs(dx);
+        track.scrollLeft = startScroll - dx;
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        track.style.scrollSnapType = '';
+        track.style.scrollBehavior = '';
+        if (moved > 30) {
+          const dir = track.scrollLeft > startScroll ? 1 : -1;
+          const cs = cards();
+          const cur = cs.findIndex(c => c.classList.contains('is-active'));
+          goTo(cur + dir);
+        }
+      });
+
+      // Arrow buttons
+      if (prev) prev.addEventListener('click', () => { const i = cards().findIndex(c => c.classList.contains('is-active')); goTo(i - 1); });
+      if (next) next.addEventListener('click', () => { const i = cards().findIndex(c => c.classList.contains('is-active')); goTo(i + 1); });
+
+      setActive(0);
+      // Trigger initial scroll handler so the first video starts
+      setTimeout(() => track.dispatchEvent(new Event('scroll')), 100);
+    };
+
+    // Mute toggle (affects all current and future videos)
+    if (mute) {
+      const sun = mute.querySelector('.icon-off');
+      const moon = mute.querySelector('.icon-on');
+      mute.addEventListener('click', () => {
+        muted = !muted;
+        videos().forEach(v => { v.muted = muted; });
+        mute.classList.toggle('is-on', !muted);
+        mute.setAttribute('aria-pressed', String(!muted));
+        mute.setAttribute('aria-label', muted ? 'Unmute videos' : 'Mute videos');
+        if (sun && moon) { sun.style.display = muted ? '' : 'none'; moon.style.display = muted ? 'none' : ''; }
+        if (!muted) {
+          const v = videos()[cards().findIndex(c => c.classList.contains('is-active'))];
+          if (v) v.play().catch(()=>{});
+        }
+      });
+    }
+
+    // Section-visibility observer: only play videos when the gallery is in the viewport.
+    // When the user scrolls past while a video is playing with sound, auto-mute and pause.
+    const sectionEl = document.getElementById('work');
+    if (sectionEl && 'IntersectionObserver' in window) {
+      const setMuteUI = (m) => {
+        if (!mute) return;
+        const sun = mute.querySelector('.icon-off');
+        const moon = mute.querySelector('.icon-on');
+        mute.classList.toggle('is-on', !m);
+        mute.setAttribute('aria-pressed', String(!m));
+        mute.setAttribute('aria-label', m ? 'Unmute videos' : 'Mute videos');
+        if (sun && moon) { sun.style.display = m ? '' : 'none'; moon.style.display = m ? 'none' : ''; }
+      };
+      const sectionIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          inView = e.isIntersecting;
+          if (!inView) {
+            // Scrolling out — pause everything, force-mute if user had unmuted
+            videos().forEach(v => v.pause());
+            if (!muted) {
+              muted = true;
+              videos().forEach(v => { v.muted = true; });
+              setMuteUI(true);
+            }
+          } else {
+            // Scrolling in — resume the active video
+            const cs = cards();
+            const i = cs.findIndex(c => c.classList.contains('is-active'));
+            const v = videos()[i];
+            if (v) {
+              v.muted = muted;
+              v.play().catch(()=>{});
+            }
+          }
+        });
+      }, { threshold: 0.15 });
+      sectionIO.observe(sectionEl);
+    }
+
+    // Load manifest from local file (built by .tools/encode-gallery.ps1).
+    // Fallback: small inline list if manifest isn't there yet.
+    fetch('video_content/gallery/manifest.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => render(data))
+      .catch(() => {
+        // Inline fallback so the section still renders even before encoding completes
+        render([
+          { slug:'placeholder', title:'Encoding videos…', client:'s4digital', src:'', poster:'assets/s4growthhub.png', aspect:'16x9' }
+        ]);
+      });
+  })();
 
   // Lead Leak Calculator: live calc + bridge text + lead capture modal + PDF generation
   (function(){
@@ -2075,6 +2539,59 @@ body.is-no-scroll{overflow:hidden}
       submit.disabled = false; submit.querySelector('span').textContent = 'Email me the breakdown';
       modal.classList.add('is-success');
     });
+  })();
+
+  // Cookie consent banner (show until accepted/rejected; persists in localStorage)
+  (function(){
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    const decided = localStorage.getItem('s4-cookies');
+    if (!decided) {
+      // small delay so it slides up after the page settles
+      setTimeout(() => banner.classList.add('is-open'), 800);
+    }
+    const dismiss = (choice) => {
+      localStorage.setItem('s4-cookies', choice);
+      banner.classList.remove('is-open');
+    };
+    document.getElementById('cookieAccept').addEventListener('click', () => dismiss('accepted'));
+    document.getElementById('cookieReject').addEventListener('click', () => dismiss('essential'));
+  })();
+
+  // 30-second irresistible offer popup (shows once per visitor; respects dismissal)
+  (function(){
+    const modal = document.getElementById('offerModal');
+    const close = document.getElementById('offerClose');
+    const dismiss = document.getElementById('offerDismiss');
+    if (!modal || !close) return;
+    if (localStorage.getItem('s4-offer-seen')) return;
+
+    const open = () => {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-no-scroll');
+      localStorage.setItem('s4-offer-seen', '1');
+    };
+    const closeIt = () => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-no-scroll');
+    };
+
+    // Fire after 30 seconds on page
+    let timer = setTimeout(open, 30000);
+    // Cancel if visitor leaves the tab so they get a chance when they come back
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearTimeout(timer);
+      else if (!localStorage.getItem('s4-offer-seen')) timer = setTimeout(open, 30000);
+    });
+
+    close.addEventListener('click', closeIt);
+    dismiss.addEventListener('click', closeIt);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeIt(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeIt(); });
+    // CTA closes the popup and lets the smooth-scroll handler move them to #calculator
+    document.getElementById('offerCta')?.addEventListener('click', () => { closeIt(); });
   })();
 
   // Mobile menu drawer

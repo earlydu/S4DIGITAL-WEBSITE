@@ -15,6 +15,12 @@ meet_your_new_digital_marketing_partner/
 # Raw video originals (the renamed faq-1/2/3.mp4 are what the site references)
 video_content/SnapInsta.*
 
+# Heavy gallery source videos — only the compressed /gallery copies are committed
+video_content/Videos from notion/
+
+# Encoding helpers (kept local)
+.tools/
+
 # Secrets and OS junk
 .env
 .env.*
