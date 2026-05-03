@@ -74,7 +74,7 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .theme-toggle .icon-moon{display:none}
 [data-theme="dark"] .theme-toggle .icon-sun{display:none}
 [data-theme="dark"] .theme-toggle .icon-moon{display:block}
-@media (max-width:980px){.nav__links{display:none}}
+@media (max-width:980px){.nav__links{display:none}.nav__cta>.theme-toggle{display:none}}
 @media (max-width:640px){.nav__cta .btn--orange span:not(.arrow){display:none}.nav__cta .btn--orange{padding:10px;width:38px;height:38px}.nav__cta .btn--orange .arrow{margin:0}}
 
 .nav__burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;flex-shrink:0;align-items:center;justify-content:center;transition:background .25s ease, border-color .25s ease, color .25s ease}
@@ -95,15 +95,18 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .mnav__links a::after{content:"\2192";opacity:.4;font-size:.6em;font-weight:700;transition:opacity .25s ease, transform .35s cubic-bezier(.2,.8,.2,1)}
 .mnav__links a:hover{color:var(--blue)}
 .mnav__links a:hover::after{opacity:1;transform:translateX(6px)}
-.mnav__cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.mnav__cta .btn{justify-content:center;padding:16px 22px;font-size:14px}
+.mnav__cta{margin-top:24px;display:flex;align-items:center;gap:10px}
+.mnav__cta .btn{flex:1;justify-content:center;padding:16px 22px;font-size:14px}
+.mnav__theme{flex-shrink:0;width:auto;height:50px;padding:0 18px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.04em}
+.mnav__theme:hover{transform:none}
+.mnav__theme-label{display:inline-block}
 .mnav__foot{margin-top:18px;display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
 .mnav__foot a{color:var(--ink-2);font-weight:700}
 .mnav__foot .sep{opacity:.4}
 
 /* blog hero */
-.bhero{padding:84px 0 48px;text-align:center;position:relative}
-.bhero .ast-bg{position:absolute;top:6%;right:-10%;width:min(50vw,440px);aspect-ratio:1;color:rgba(13,13,15,.05);animation:spin 80s linear infinite;z-index:0}
+.bhero{padding:84px 0 48px;text-align:center;position:relative;isolation:isolate}
+.bhero .ast-bg{position:absolute;top:6%;right:-10%;width:min(50vw,440px);aspect-ratio:1;color:rgba(13,13,15,.05);animation:spin 80s linear infinite;z-index:-1;pointer-events:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .bhero__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;position:relative;z-index:1}
 .bhero h1{font-weight:900;font-size:clamp(48px,7vw,104px);line-height:.98;letter-spacing:-.04em}
@@ -277,6 +280,11 @@ body.is-no-scroll{overflow:hidden}
   </ul>
   <div class="mnav__cta">
     <a class="btn btn--orange" data-mnav-link href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+    <button class="theme-toggle mnav__theme" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span class="mnav__theme-label">Theme</span>
+    </button>
   </div>
   <div class="mnav__foot">
     <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
@@ -500,12 +508,11 @@ body.is-no-scroll{overflow:hidden}
 
     window.setInterval(() => { if (getMode() === 'auto') fadeTo(isDarkHours() ? 'dark' : 'light'); }, 5*60*1000);
 
-    if (!btn) return;
-    btn.addEventListener('click', () => {
+    document.querySelectorAll('.theme-toggle').forEach(b => b.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       fadeTo(next);
       setMode(next);
-    });
+    }));
   })();
 
   // Category filter
