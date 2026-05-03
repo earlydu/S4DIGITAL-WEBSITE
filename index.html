@@ -584,6 +584,12 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
   .gal-card{height:clamp(280px,72vw,440px)}
   .gal-overlay{bottom:14px;right:14px}
 }
+@media (max-width:540px){
+  /* On phones: fit each video to the phone width; let the aspect ratio drive height */
+  .gal__track{gap:10px;padding-inline:4vw}
+  .gal-card{height:auto;width:92vw;max-width:92vw}
+  .gal__viewport{-webkit-mask-image:none;mask-image:none}
+}
 
 /* services */
 .services{padding:90px 0;position:relative;isolation:isolate;overflow:hidden}
