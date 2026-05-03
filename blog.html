@@ -75,9 +75,34 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 [data-theme="dark"] .theme-toggle .icon-sun{display:none}
 [data-theme="dark"] .theme-toggle .icon-moon{display:block}
 @media (max-width:980px){.nav__links{display:none}}
+@media (max-width:640px){.nav__cta .btn--orange span:not(.arrow){display:none}.nav__cta .btn--orange{padding:10px;width:38px;height:38px}.nav__cta .btn--orange .arrow{margin:0}}
+
+.nav__burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;flex-shrink:0;align-items:center;justify-content:center;transition:background .25s ease, border-color .25s ease, color .25s ease}
+.nav__burger:hover{background:var(--paper-2)}
+.nav__burger svg{width:20px;height:20px}
+@media (max-width:980px){.nav__burger{display:inline-flex}}
+[data-theme="dark"] .nav__burger{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+
+.mnav{position:fixed;inset:0;z-index:80;background:var(--paper);display:flex;flex-direction:column;padding:88px var(--gutter) 32px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s linear .35s}
+.mnav.is-open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s}
+.mnav__close{position:absolute;right:var(--gutter);top:14px;width:40px;height:40px;border-radius:50%;background:var(--paper-2);color:var(--ink);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;font-size:20px;font-weight:900;line-height:1;transition:background .25s ease, transform .25s ease, color .25s ease}
+.mnav__close:hover{background:var(--ink);color:#fff;transform:rotate(90deg)}
+[data-theme="dark"] .mnav__close{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#fff}
+.mnav__brand{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:16px}
+.mnav__links{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
+.mnav__links li{border-bottom:1px solid var(--line);overflow:hidden}
+.mnav__links a{display:flex;align-items:center;justify-content:space-between;padding:18px 0;font-weight:900;font-size:clamp(24px,5.4vw,32px);letter-spacing:-.025em;color:var(--ink);transition:color .25s ease}
+.mnav__links a::after{content:"\2192";opacity:.4;font-size:.6em;font-weight:700;transition:opacity .25s ease, transform .35s cubic-bezier(.2,.8,.2,1)}
+.mnav__links a:hover{color:var(--blue)}
+.mnav__links a:hover::after{opacity:1;transform:translateX(6px)}
+.mnav__cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.mnav__cta .btn{justify-content:center;padding:16px 22px;font-size:14px}
+.mnav__foot{margin-top:18px;display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.mnav__foot a{color:var(--ink-2);font-weight:700}
+.mnav__foot .sep{opacity:.4}
 
 /* blog hero */
-.bhero{padding:84px 0 48px;text-align:center;position:relative;overflow:hidden}
+.bhero{padding:84px 0 48px;text-align:center;position:relative}
 .bhero .ast-bg{position:absolute;top:6%;right:-10%;width:min(50vw,440px);aspect-ratio:1;color:rgba(13,13,15,.05);animation:spin 80s linear infinite;z-index:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 .bhero__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;position:relative;z-index:1}
@@ -167,6 +192,7 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .footer__bottom a:hover{color:#fff}
 @media (max-width:880px){.footer__top{grid-template-columns:1fr 1fr;gap:32px}}
 @media (max-width:540px){.footer__top{grid-template-columns:1fr}}
+body.is-no-scroll{overflow:hidden}
 
 /* Smooth theme transition during the swap */
 .is-themeing,
@@ -231,8 +257,35 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
     <a class="btn btn--orange" href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+    <button class="nav__burger" id="navBurger" type="button" aria-label="Open menu" aria-controls="mnav" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="13" x2="21" y2="13"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+    </button>
   </div>
 </header>
+
+<aside class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <button class="mnav__close" id="mnavClose" type="button" aria-label="Close menu">&times;</button>
+  <span class="mnav__brand">Menu</span>
+  <ul class="mnav__links">
+    <li><a href="index.html" data-mnav-link>Home</a></li>
+    <li><a href="index.html#calculator" data-mnav-link>Leak Finder</a></li>
+    <li><a href="index.html#services" data-mnav-link>Services</a></li>
+    <li><a href="index.html#about" data-mnav-link>About</a></li>
+    <li><a href="index.html#pricing" data-mnav-link>Pricing</a></li>
+    <li><a href="blog.html" data-mnav-link>Blog</a></li>
+    <li><a href="index.html#faq" data-mnav-link>FAQ</a></li>
+  </ul>
+  <div class="mnav__cta">
+    <a class="btn btn--orange" data-mnav-link href="index.html#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+  </div>
+  <div class="mnav__foot">
+    <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
+    <span class="sep">&middot;</span>
+    <a href="https://www.instagram.com/earlduncan" target="_blank" rel="noopener">Instagram</a>
+    <span class="sep">&middot;</span>
+    <a href="https://www.linkedin.com/in/earlcan/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</aside>
 
 <!-- HERO -->
 <section class="bhero">
@@ -395,6 +448,20 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu drawer
+  (function(){
+    const burger = document.getElementById('navBurger');
+    const menu = document.getElementById('mnav');
+    const closeBtn = document.getElementById('mnavClose');
+    if (!burger || !menu || !closeBtn) return;
+    const open = () => { menu.classList.add('is-open'); menu.setAttribute('aria-hidden','false'); burger.setAttribute('aria-expanded','true'); document.body.classList.add('is-no-scroll'); };
+    const close = () => { menu.classList.remove('is-open'); menu.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.classList.remove('is-no-scroll'); };
+    burger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    menu.querySelectorAll('[data-mnav-link]').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('is-open')) close(); });
+  })();
 
   // Theme: auto by default, fades between modes based on local time of day.
   // Manual click locks the chosen theme.
