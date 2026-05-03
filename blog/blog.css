@@ -277,3 +277,15 @@ svg .anim-drip{animation:svgDrip 1.8s ease-in-out infinite;transform-box:fill-bo
 svg .anim-shimmer{animation:svgShimmer 2.2s ease-in-out infinite}
 svg .anim-pan{animation:svgPan 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 @media (prefers-reduced-motion:reduce){svg .anim-glow,svg .anim-float,svg .anim-drip,svg .anim-shimmer,svg .anim-pan{animation:none}}
+
+/* Contrast safety: dark shapes (#0d0d0f / #000) inside infographics blend into the dark-mode background.
+   Lift them to a mid-dark grey so the geometry is still visible but white text on top stays legible. */
+[data-theme="dark"] .infographic svg rect[fill="#0d0d0f"],
+[data-theme="dark"] .infographic svg circle[fill="#0d0d0f"],
+[data-theme="dark"] .infographic svg path[fill="#0d0d0f"],
+[data-theme="dark"] .infographic svg polygon[fill="#0d0d0f"],
+[data-theme="dark"] .infographic svg ellipse[fill="#0d0d0f"],
+[data-theme="dark"] .infographic svg rect[fill="#000"],
+[data-theme="dark"] .infographic svg circle[fill="#000"],
+[data-theme="dark"] .infographic svg path[fill="#000"],
+[data-theme="dark"] .infographic svg polygon[fill="#000"]{fill:#3a3c44}
