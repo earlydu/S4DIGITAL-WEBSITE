@@ -187,10 +187,11 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .hero{position:relative;isolation:isolate;overflow:hidden;padding:96px 0 64px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero__inner{max-width:1080px;margin-inline:auto;display:flex;flex-direction:column;align-items:center;gap:30px;position:relative;z-index:2;padding-inline:var(--gutter);width:100%}
 .hero h1{
-  font-weight:900;font-size:clamp(44px,7vw,104px);letter-spacing:-.04em;color:var(--ink);
+  font-weight:900;font-size:clamp(34px,5.6vw,80px);letter-spacing:-.035em;color:var(--ink);
   display:flex;flex-direction:column;align-items:center;gap:.06em;line-height:1;
 }
 .hero h1 .line{display:block;white-space:nowrap;line-height:1}
+@media (max-width:540px){.hero h1 .line{white-space:normal}}
 .hero__rotator{
   position:relative;display:inline-block;
   height:1.24em;
@@ -206,6 +207,9 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .hero__rotator .word.is-active{transform:translate(-50%, 0);opacity:1}
 .hero__rotator .word.is-out{transform:translate(-50%, -110%);opacity:0}
 
+.hero__badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,106,44,.12);border:1px solid rgba(255,106,44,.35);color:var(--orange);font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.hero__badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,106,44,.18)}
+[data-theme="dark"] .hero__badge{background:rgba(255,106,44,.14);border-color:rgba(255,106,44,.4)}
 .hero__sub{font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:var(--ink-2);max-width:60ch}
 .hero__ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .hero__trust{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;font-size:13px;color:var(--muted);font-weight:600}
@@ -413,6 +417,9 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .about__copy .signed{font-weight:900;font-size:18px;color:var(--ink);margin-bottom:18px}
 .about__copy .signed .kw{color:var(--blue)}
 .about__copy p{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin-bottom:14px;max-width:54ch}
+.about__bullets{list-style:none;padding:0;margin:18px 0 24px;display:flex;flex-direction:column;gap:12px;max-width:54ch}
+.about__bullets li{display:flex;align-items:flex-start;gap:13px;font-size:15.5px;line-height:1.5;color:var(--ink-2);font-weight:600}
+.about__bullets li::before{content:"\2713";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(62,163,252,.14);color:var(--blue);display:inline-grid;place-items:center;font-weight:900;font-size:12px;margin-top:2px}
 .about__copy .row{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
 .about__copy .row .tag{background:#fff}
 @media (max-width:980px){.about__grid{grid-template-columns:1fr;gap:36px}.about__media{max-width:520px}}
@@ -622,6 +629,19 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .lead__offer .cta .arrow{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--orange);display:grid;place-items:center;font-size:12px;font-weight:900}
 .lead__offer .note{margin-top:14px;font-size:12px;color:#83848c;line-height:1.5}
 @media (max-width:880px){.lead__card{grid-template-columns:1fr;gap:28px;padding:32px}}
+
+/* guarantee strip */
+.grntee{padding:24px 0 48px}
+.grntee__card{display:flex;align-items:center;gap:24px;padding:24px 32px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(255,106,44,.08),rgba(62,163,252,.08));border:1px solid rgba(255,106,44,.25);max-width:980px;margin:0 auto}
+.grntee__icon{flex-shrink:0;width:54px;height:54px;border-radius:50%;background:rgba(255,106,44,.15);color:var(--orange);display:grid;place-items:center}
+.grntee__icon svg{width:26px;height:26px}
+.grntee__copy{flex:1}
+.grntee__lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.grntee__copy h3{font-weight:900;font-size:clamp(20px,2.4vw,30px);line-height:1.15;letter-spacing:-.015em;margin-bottom:6px}
+.grntee__copy h3 .kw{color:var(--blue)}
+.grntee__copy p{font-size:14px;line-height:1.5;color:var(--ink-2);margin:0}
+[data-theme="dark"] .grntee__card{background:linear-gradient(135deg,rgba(255,106,44,.1),rgba(62,163,252,.1));border-color:rgba(255,106,44,.35)}
+@media (max-width:680px){.grntee__card{flex-direction:column;text-align:center;padding:24px 20px}}
 
 /* pricing */
 .pricing{padding:120px 0 60px;background:transparent;position:relative;isolation:isolate;overflow:hidden}
@@ -1084,8 +1104,9 @@ body.is-no-scroll{overflow:hidden}
   <span class="ast hero__bg" aria-hidden="true"></span>
   <span class="ast hero__bg-2" aria-hidden="true"></span>
   <div class="hero__inner">
+    <span class="hero__badge"><span class="dot"></span>20+ qualified leads in 60 days, or we work free</span>
     <h1>
-      <span class="line">We help</span>
+      <span class="line">Predictable enquiries for</span>
       <span class="hero__rotator" aria-live="polite">
         <span class="ghost">Service Providers</span>
         <span class="word is-active">EV Installers</span>
@@ -1094,24 +1115,23 @@ body.is-no-scroll{overflow:hidden}
         <span class="word">Manufacturers</span>
         <span class="word">Energy Brands</span>
       </span>
-      <span class="line">grow online</span>
+      <span class="line">in 60 days.</span>
     </h1>
 
     <p class="hero__sub">
-      Strategy, paid media, content and digital systems built around the way modern energy brands actually win customers. <span class="kw">Honest, sharp, accountable</span>.
+      Ads, content and automated follow-up wired into one engine. <span class="kw">Stop relying on referrals.</span> Know exactly where your next install is coming from.
     </p>
 
     <div class="hero__ctas">
-      <a class="btn btn--orange btn--lg" data-book href="#contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
-      <a class="btn btn--ghost btn--lg" data-book href="#contact">
-        <svg style="width:14px;height:14px" aria-hidden="true"><use href="#phone-call"/></svg>
-        <span>Book a call</span>
+      <a class="btn btn--orange btn--lg" data-book href="#contact"><span>Get my free growth audit</span><span class="arrow">&rarr;</span></a>
+      <a class="btn btn--ghost btn--lg" href="#calculator">
+        <span>See what you're losing</span><span class="arrow">&rarr;</span>
       </a>
     </div>
 
     <div class="hero__trust">
-      <span class="check">Free 30-min consult</span>
-      <span class="check">No commitment</span>
+      <span class="check">No long-term contracts</span>
+      <span class="check">Cancel anytime</span>
       <span class="check">UK based team</span>
     </div>
   </div>
@@ -1207,21 +1227,21 @@ body.is-no-scroll{overflow:hidden}
   <div class="shell">
     <div class="stats__head">
       <div>
-        <span class="eyebrow"><span class="dot"></span>Numbers, not opinions</span>
+        <span class="eyebrow"><span class="dot"></span>Real numbers, real installs</span>
         <h2 style="margin-top:14px">Results we put a <span class="kw">name next to</span></h2>
       </div>
       <a class="btn btn--ghost" href="#testimonials"><span>Hear from clients</span><span class="arrow">&rarr;</span></a>
     </div>
     <div class="stats__grid">
-      <div class="stat">
-        <span class="stat__hint">Live projects</span>
-        <div class="stat__big">75<sup>+</sup></div>
-        <div class="stat__lbl">Energy brands and installers we&rsquo;ve launched and still support today.</div>
-      </div>
       <div class="stat stat--blue">
-        <span class="stat__hint">Average uplift</span>
-        <div class="stat__big">+184<sup>%</sup></div>
-        <div class="stat__lbl">Year-one organic traffic across the last 12 client engagements.</div>
+        <span class="stat__hint">Revenue generated</span>
+        <div class="stat__big">&pound;1<sup>M+</sup></div>
+        <div class="stat__lbl">Generated from &pound;2,000 of ad spend across three campaigns for one EV installer.</div>
+      </div>
+      <div class="stat">
+        <span class="stat__hint">Single-post win</span>
+        <div class="stat__big">&pound;60<sup>k</sup></div>
+        <div class="stat__lbl">Commercial install project closed off the back of one LinkedIn post.</div>
       </div>
     </div>
   </div>
@@ -1245,14 +1265,16 @@ body.is-no-scroll{overflow:hidden}
       </div>
 
       <div class="about__copy">
-        <span class="eyebrow"><span class="dot"></span>About s4digital</span>
-        <h2>Meet Your New <span class="kw">Digital Marketing Partner</span></h2>
-        <p class="signed">Hello, I&rsquo;m Earl, Founder at <span class="kw">S4Digital</span></p>
-        <p>For years, I&rsquo;ve worked with EV installers, manufacturers, solar companies, and smart tech brands to help them grow online using marketing that actually works.</p>
-        <p>I&rsquo;ve seen too many great businesses waste money on generic agencies, random tactics, and strategies that don&rsquo;t fit their industry.</p>
-        <p>So I built S4Digital around one belief: <span class="kw">marketing should be stupid simple, commercially smart, and most importantly, perform</span>.</p>
-        <p>Today, we specialise in helping EV, energy and tech companies turn their online presence into a lead-generation machine, so they can scale their business whilst focusing on what they do best.</p>
-        <p>If you&rsquo;re serious about growing and you&rsquo;re tired of marketing that doesn&rsquo;t convert, schedule your complimentary growth audit below.</p>
+        <span class="eyebrow"><span class="dot"></span>Why work with us</span>
+        <h2>You stop hoping. <span class="kw">You start scaling.</span></h2>
+        <p class="signed">Hi, I&rsquo;m Earl. I built S4Digital for one reason: <span class="kw">EV installers deserve a system, not a hope</span>.</p>
+        <ul class="about__bullets">
+          <li>Consistent enquiries every month, not feast or famine</li>
+          <li>Stop relying on word of mouth and chance referrals</li>
+          <li>Know exactly where your next install is coming from</li>
+          <li>Scale without scaling overheads or admin headaches</li>
+          <li>Stop wasting ad spend on agencies that don&rsquo;t get the EV sector</li>
+        </ul>
         <div class="row">
           <span class="tag"><span class="dot"></span>Founder-led</span>
           <span class="tag"><span class="dot"></span>EV &amp; energy specialist</span>
@@ -1270,7 +1292,7 @@ body.is-no-scroll{overflow:hidden}
     <div class="videos__head">
       <div>
         <span class="eyebrow"><span class="dot"></span>Hear from our clients</span>
-        <h2 style="margin-top:14px">Real founders, <span class="kw">real results</span></h2>
+        <h2 style="margin-top:14px">Real founders<br><span class="kw">Real results</span></h2>
       </div>
       <p>Two short stories from the operators we work with every day. How they turned organic content and paid campaigns into real revenue, real installs, and a pipeline they can plan around.</p>
     </div>
@@ -1313,159 +1335,14 @@ body.is-no-scroll{overflow:hidden}
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <span class="ast pricing__bg" aria-hidden="true"></span>
-  <div class="shell">
-    <div class="pricing__head">
-      <span class="eyebrow"><span class="dot"></span>Pricing</span>
-      <h2>Choose the <span class="kw">growth system</span> that fits your business</h2>
-      <p>From DIY tools to fully managed lead generation systems, S4 Digital helps you turn attention into qualified enquiries</p>
-    </div>
-
-    <div class="pricing__grid">
-      <article class="pcard">
-        <span class="pcard__tag">Always on</span>
-        <div class="pcard__name">Momentum</div>
-        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;1,800</span><span class="per">/month</span></div>
-        <p class="pcard__desc">Best for businesses that need consistency and a stronger online presence</p>
-        <div class="pcard__divider"></div>
-        <ul>
-          <li>1 content day per month</li>
-          <li>8 to 12 social media posts</li>
-          <li>Photo or video content</li>
-          <li>Basic landing page or funnel support</li>
-          <li>Light email or SMS follow-up setup</li>
-          <li>Monthly reporting</li>
-          <li>Ongoing support</li>
-        </ul>
-        <a class="pcard__cta" href="#contact"><span>Start Building Momentum</span><span class="arrow">&rarr;</span></a>
-      </article>
-
-      <article class="pcard pcard--featured">
-        <span class="pcard__badge">Most Popular</span>
-        <span class="pcard__tag">Done for you</span>
-        <div class="pcard__name">Growth System</div>
-        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;2,500</span><span class="per">/month</span></div>
-        <p class="pcard__desc">A complete done-for-you lead generation system designed to bring in consistent, qualified enquiries</p>
-        <div class="pcard__divider"></div>
-        <ul>
-          <li>1 to 2 content days per month</li>
-          <li>Multi-platform social media management</li>
-          <li>Paid ads setup and management</li>
-          <li>Landing pages and conversion optimisation</li>
-          <li>CRM setup and automations</li>
-          <li>Lead tracking and reporting</li>
-          <li>Ongoing strategy and optimisation</li>
-        </ul>
-        <a class="pcard__cta" href="#contact"><span>Build My Growth System</span><span class="arrow">&rarr;</span></a>
-      </article>
-
-      <article class="pcard">
-        <span class="pcard__tag">Hands-on partnership</span>
-        <div class="pcard__name">Scale Partner</div>
-        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;4,000</span><span class="per">/month</span></div>
-        <p class="pcard__desc">A hands-on growth partnership focused on scaling what already works and maximising results</p>
-        <div class="pcard__divider"></div>
-        <ul>
-          <li>Everything in Growth System</li>
-          <li>2 to 4 content days per month</li>
-          <li>Advanced ad testing and scaling</li>
-          <li>Full funnel build</li>
-          <li>Email marketing and nurture sequences</li>
-          <li>Sales pipeline optimisation</li>
-          <li>Weekly check-ins</li>
-          <li>Optional performance or commission structure</li>
-        </ul>
-        <a class="pcard__cta" href="#contact"><span>Scale With S4 Digital</span><span class="arrow">&rarr;</span></a>
-      </article>
-    </div>
-
-    <p class="pricing__note">All packages are tailored to your business, goals and available ad budget. Ad spend is not included.</p>
-  </div>
-</section>
-
-<!-- DONE-FOR-YOU PROJECTS -->
-<section class="dfy" id="projects">
-  <span class="ast dfy__bg" aria-hidden="true"></span>
-  <div class="shell">
-    <div class="dfy__head">
-      <span class="eyebrow"><span class="dot"></span>Done-for-you projects</span>
-      <h2><span class="kw">High-Impact</span> Growth Projects</h2>
-      <p>Not ready for a monthly system? Start with a focused project designed to fix a specific part of your marketing and generate results fast</p>
-    </div>
-
-    <div class="dfy__grid">
-      <article class="dfy-card">
-        <div class="dfy-card__num">01</div>
-        <h3 class="dfy-card__title">Lead Generation Funnel Build</h3>
-        <p class="dfy-card__desc">A complete funnel setup including landing page, lead capture and basic automations designed to turn traffic into enquiries</p>
-      </article>
-      <article class="dfy-card">
-        <div class="dfy-card__num">02</div>
-        <h3 class="dfy-card__title">Paid Ads Launch</h3>
-        <p class="dfy-card__desc">Full setup of Meta or Google ad campaigns with tracking in place so you can start generating qualified leads</p>
-      </article>
-      <article class="dfy-card">
-        <div class="dfy-card__num">03</div>
-        <h3 class="dfy-card__title">CRM and Automation Setup</h3>
-        <p class="dfy-card__desc">A fully structured pipeline with email and SMS follow-ups so no lead is missed or forgotten</p>
-      </article>
-      <article class="dfy-card">
-        <div class="dfy-card__num">04</div>
-        <h3 class="dfy-card__title">Content Day</h3>
-        <p class="dfy-card__desc">Capture a month's worth of photo and video content in a single day, ready to be used across your channels</p>
-      </article>
-      <article class="dfy-card">
-        <div class="dfy-card__num">05</div>
-        <h3 class="dfy-card__title">Website or Landing Page Build</h3>
-        <p class="dfy-card__desc">A high-converting website or landing page designed to generate enquiries, not just look good</p>
-      </article>
-    </div>
-
-    <div class="dfy__cta">
-      <a class="btn btn--orange btn--lg" data-book href="#contact"><span>Enquire for a Custom Project</span><span class="arrow">&rarr;</span></a>
-    </div>
-    <p class="dfy__note">All projects are scoped based on your business needs and goals</p>
-  </div>
-</section>
-
-<!-- LEAD MAGNET -->
-<section class="lead">
-  <div class="shell">
-    <div class="lead__card">
-      <div class="lead__copy">
-        <span class="eyebrow"><span class="dot"></span>Not sure where to start?</span>
-        <h3>Get a clear breakdown of <span class="kw">where you are losing leads</span> and what to fix first</h3>
-        <p>A focused audit of your current marketing, end to end. We pull on the website, the funnel, the lead handling, the ads and the competitors, and hand you a 90-day plan you can act on the same week.</p>
-      </div>
-      <div class="lead__offer">
-        <span class="tagline">EV and Energy Growth Audit</span>
-        <div class="name">Audit + 90-day plan</div>
-        <div class="price"><span class="num">&pound;197</span><span class="one">one-off</span></div>
-        <ul>
-          <li>Website and funnel review</li>
-          <li>Lead handling analysis</li>
-          <li>Content and ads gap breakdown</li>
-          <li>Competitor insights</li>
-          <li>90-day growth plan</li>
-          <li>30 to 45 minute strategy call</li>
-        </ul>
-        <a class="cta" data-book href="#contact"><span>Get My Growth Audit</span><span class="arrow">&rarr;</span></a>
-        <p class="note">If you decide to work with us, the &pound;197 is deducted from your first month</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LEAD LEAK CALCULATOR -->
+<!-- LEAD LEAK CALCULATOR (moved above pricing — pain → solution flow) -->
 <section class="calc" id="calculator">
   <span class="ast calc__bg" aria-hidden="true"></span>
   <div class="shell">
     <div class="calc__head">
       <span class="eyebrow"><span class="dot"></span>Leak Finder &middot; free tool</span>
-      <h2>Find Out How Many Leads <span class="kw">You Are Losing</span></h2>
-      <p>Most businesses are missing out on thousands in potential revenue every month without realising it</p>
+      <h2>Find Out How Many Leads<br><span class="kw">You Are Losing</span></h2>
+      <p>Most EV installers are losing thousands in potential revenue every month without realising it. Find your exact number in 30 seconds.</p>
     </div>
 
     <div class="calc__card">
@@ -1552,73 +1429,208 @@ body.is-no-scroll{overflow:hidden}
   </div>
 </section>
 
+<!-- GUARANTEE STRIP — bridge to pricing -->
+<section class="grntee">
+  <div class="shell">
+    <div class="grntee__card">
+      <div class="grntee__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="grntee__copy">
+        <span class="grntee__lbl">Our guarantee</span>
+        <h3>20+ qualified leads in 60 days, <span class="kw">or we work for free</span></h3>
+        <p>No long-term contracts. Cancel anytime. We carry the risk so you don&rsquo;t have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <span class="ast pricing__bg" aria-hidden="true"></span>
+  <div class="shell">
+    <div class="pricing__head">
+      <span class="eyebrow"><span class="dot"></span>Pricing</span>
+      <h2>Pick the <span class="kw">lead generation system</span> that fits where you are right now</h2>
+      <p>Designed to generate qualified enquiries every month. No long-term contracts. Cancel anytime.</p>
+    </div>
+
+    <div class="pricing__grid">
+      <article class="pcard">
+        <span class="pcard__tag">Foundation</span>
+        <div class="pcard__name">Lead Foundation</div>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;1,800</span><span class="per">/month</span></div>
+        <p class="pcard__desc"><strong>Designed to generate 5 to 10 qualified enquiries per month</strong> for installers building their first repeatable pipeline</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>1 content day per month</li>
+          <li>8 to 12 social media posts</li>
+          <li>Photo or video content</li>
+          <li>Basic landing page or funnel support</li>
+          <li>Light email or SMS follow-up setup</li>
+          <li>Monthly reporting</li>
+          <li>No long-term contract, cancel anytime</li>
+        </ul>
+        <a class="pcard__cta" href="#contact"><span>Start Lead Foundation</span><span class="arrow">&rarr;</span></a>
+      </article>
+
+      <article class="pcard pcard--featured">
+        <span class="pcard__badge">Most Popular</span>
+        <span class="pcard__tag">Done for you</span>
+        <div class="pcard__name">Lead Engine</div>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;2,500</span><span class="per">/month</span></div>
+        <p class="pcard__desc"><strong>Designed to generate 15 to 25 qualified enquiries per month</strong>, guaranteed in 60 days or we work for free</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>1 to 2 content days per month</li>
+          <li>Multi-platform social media management</li>
+          <li>Paid ads setup and management</li>
+          <li>Landing pages and conversion optimisation</li>
+          <li>CRM setup and automations</li>
+          <li>Lead tracking and weekly reporting</li>
+          <li>20+ leads in 60 days guarantee</li>
+        </ul>
+        <a class="pcard__cta" href="#contact"><span>Build My Lead Engine</span><span class="arrow">&rarr;</span></a>
+      </article>
+
+      <article class="pcard">
+        <span class="pcard__tag">Market dominance</span>
+        <div class="pcard__name">Market Leader System</div>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;4,000</span><span class="per">/month</span></div>
+        <p class="pcard__desc"><strong>Designed to generate 30+ qualified enquiries per month</strong> for installers ready to dominate their region</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>Everything in Lead Engine</li>
+          <li>2 to 4 content days per month</li>
+          <li>Advanced ad testing and scaling</li>
+          <li>Full funnel build</li>
+          <li>Email marketing and nurture sequences</li>
+          <li>Sales pipeline optimisation</li>
+          <li>Weekly strategy check-ins</li>
+          <li>Optional performance or commission structure</li>
+        </ul>
+        <a class="pcard__cta" href="#contact"><span>Become the Market Leader</span><span class="arrow">&rarr;</span></a>
+      </article>
+    </div>
+
+    <p class="pricing__note">All packages are tailored to your business, goals and available ad budget. Ad spend is not included. No long-term contracts. Cancel anytime.</p>
+  </div>
+</section>
+
+<!-- DONE-FOR-YOU PROJECTS -->
+<section class="dfy" id="projects">
+  <span class="ast dfy__bg" aria-hidden="true"></span>
+  <div class="shell">
+    <div class="dfy__head">
+      <span class="eyebrow"><span class="dot"></span>Done-for-you projects</span>
+      <h2><span class="kw">High-Impact</span> Growth Projects</h2>
+      <p>Not ready for a monthly system? Start with a focused project designed to fix a specific part of your marketing and generate results fast</p>
+    </div>
+
+    <div class="dfy__grid">
+      <article class="dfy-card">
+        <div class="dfy-card__num">01</div>
+        <h3 class="dfy-card__title">Website &amp; Funnel Build</h3>
+        <p class="dfy-card__desc">A high-converting website or landing page with lead capture and basic automations, designed to turn traffic into enquiries, not just look good</p>
+      </article>
+      <article class="dfy-card">
+        <div class="dfy-card__num">02</div>
+        <h3 class="dfy-card__title">Paid Ads Launch</h3>
+        <p class="dfy-card__desc">Full setup of Meta or Google ad campaigns with tracking and creative in place so you can start generating qualified leads from week one</p>
+      </article>
+      <article class="dfy-card">
+        <div class="dfy-card__num">03</div>
+        <h3 class="dfy-card__title">CRM and Automation Setup</h3>
+        <p class="dfy-card__desc">A fully structured pipeline with email and SMS follow-ups, AI agents and speed-to-lead so no enquiry is ever missed or forgotten</p>
+      </article>
+      <article class="dfy-card">
+        <div class="dfy-card__num">04</div>
+        <h3 class="dfy-card__title">Content Day</h3>
+        <p class="dfy-card__desc">Capture a month&rsquo;s worth of sales-focused photo and video content in a single day, edited and ready to use across every channel</p>
+      </article>
+    </div>
+
+    <div class="dfy__cta">
+      <a class="btn btn--orange btn--lg" data-book href="#contact"><span>Enquire for a Custom Project</span><span class="arrow">&rarr;</span></a>
+    </div>
+    <p class="dfy__note">All projects are scoped based on your business needs and goals</p>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="lead">
+  <div class="shell">
+    <div class="lead__card">
+      <div class="lead__copy">
+        <span class="eyebrow"><span class="dot"></span>Not sure where to start?</span>
+        <h3>Get a clear breakdown of <span class="kw">where you are losing leads</span> and what to fix first</h3>
+        <p>A focused audit of your current marketing, end to end. We pull on the website, the funnel, the lead handling, the ads and the competitors, and hand you a 90-day plan you can act on the same week.</p>
+      </div>
+      <div class="lead__offer">
+        <span class="tagline">EV and Energy Growth Audit</span>
+        <div class="name">Audit + 90-day plan</div>
+        <div class="price"><span class="num">&pound;197</span><span class="one">one-off</span></div>
+        <ul>
+          <li>Website and funnel review</li>
+          <li>Lead handling analysis</li>
+          <li>Content and ads gap breakdown</li>
+          <li>Competitor insights</li>
+          <li>90-day growth plan</li>
+          <li>30 to 45 minute strategy call</li>
+        </ul>
+        <a class="cta" data-book href="#contact"><span>Get My Growth Audit</span><span class="arrow">&rarr;</span></a>
+        <p class="note">If you decide to work with us, the &pound;197 is deducted from your first month</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <span class="ast services__bg" aria-hidden="true"></span>
   <div class="shell">
     <div class="services__head">
       <div>
-        <span class="eyebrow"><span class="dot"></span>What we can do</span>
-        <h2 style="margin-top:14px">Our <span class="kw">services</span></h2>
+        <span class="eyebrow"><span class="dot"></span>The system, broken down</span>
+        <h2 style="margin-top:14px">What you<br><span class="kw">actually get</span></h2>
       </div>
-      <a class="btn btn--orange" href="#contact"><span>Get in touch</span><span class="arrow">&rarr;</span></a>
+      <a class="btn btn--orange" data-book href="#contact"><span>Get my free growth audit</span><span class="arrow">&rarr;</span></a>
     </div>
 
     <div class="services__list">
       <div class="svc is-open">
-        <div class="svc__row"><div class="svc__num">01</div><div class="svc__name">Paid Advertising</div><div class="svc__tag">Meta &middot; Google &middot; YouTube</div><div class="svc__icon">+</div></div>
+        <div class="svc__row"><div class="svc__num">01</div><div class="svc__name">Lead Generation</div><div class="svc__tag">Ads &middot; Search &middot; Social</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Targeted ads that reach the right people, locally and nationally, without burning your budget. We blend creative testing with conversion-led landing pages and clean attribution.</p>
-          <div class="svc__chips"><span>Meta Ads</span><span>Google Ads</span><span>YouTube</span><span>Retargeting</span><span>Landing pages</span><span>Attribution</span></div>
+          <p>Paid ads, organic content and local SEO working together to drop qualified enquiries straight into your inbox. We test creative, track every click, and only spend where it pays.</p>
+          <div class="svc__chips"><span>Meta Ads</span><span>Google Ads</span><span>YouTube</span><span>LinkedIn</span><span>Local SEO</span><span>Retargeting</span></div>
         </div></div>
       </div>
       <div class="svc">
-        <div class="svc__row"><div class="svc__num">02</div><div class="svc__name">Photography</div><div class="svc__tag">Site &middot; Product &middot; Team</div><div class="svc__icon">+</div></div>
+        <div class="svc__row"><div class="svc__num">02</div><div class="svc__name">Content That Converts</div><div class="svc__tag">Video &middot; Photo &middot; Social</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>High-quality photo shoots across all your brand, product, install and team needs. We bring the kit, the lighting and the eye that makes installs look as professional as they are.</p>
-          <div class="svc__chips"><span>On-site</span><span>Product</span><span>Headshots</span><span>Drone</span><span>Editing</span></div>
+          <p>Sales-focused video, photography and social posts that answer the questions buyers ask before the call. Built around install jobs, real customers and the trust signals that move EV buyers off the fence.</p>
+          <div class="svc__chips"><span>Content days</span><span>Reels</span><span>Case studies</span><span>Drone</span><span>Editing</span></div>
         </div></div>
       </div>
       <div class="svc">
-        <div class="svc__row"><div class="svc__num">03</div><div class="svc__name">Social Media</div><div class="svc__tag">Strategy &middot; Production</div><div class="svc__icon">+</div></div>
+        <div class="svc__row"><div class="svc__num">03</div><div class="svc__name">Automated Follow-Up</div><div class="svc__tag">CRM &middot; Email &middot; SMS</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Manage your social presence with monthly content plans, on-channel production and editorial that&rsquo;s on-brand, not on a hamster wheel of trends.</p>
-          <div class="svc__chips"><span>Content calendars</span><span>Reels</span><span>Carousels</span><span>Community</span></div>
+          <p>The leads you already have, worked properly. CRM, email and SMS sequences plus AI agents that reply within 60 seconds, qualify, book and never let a hot enquiry go cold.</p>
+          <div class="svc__chips"><span>HubSpot</span><span>GoHighLevel</span><span>Klaviyo</span><span>n8n</span><span>AI agents</span><span>Speed-to-lead</span></div>
         </div></div>
       </div>
       <div class="svc">
-        <div class="svc__row"><div class="svc__num">04</div><div class="svc__name">Consulting</div><div class="svc__tag">Strategy &middot; Growth</div><div class="svc__icon">+</div></div>
+        <div class="svc__row"><div class="svc__num">04</div><div class="svc__name">Conversion Web</div><div class="svc__tag">Sites &middot; Landing pages &middot; Funnels</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Need a plan? We help you figure out what to do, where to show up, and how to make sure it actually compounds. We deliver clear quarterly KPIs and an honest dashboard.</p>
-          <div class="svc__chips"><span>Audit</span><span>Roadmap</span><span>Workshops</span><span>Reporting</span></div>
+          <p>Websites and landing pages built to turn visitors into enquiries, not just look good. Fast, ranked, mobile-first, edit-it-yourself, and tied directly to the campaigns driving traffic.</p>
+          <div class="svc__chips"><span>Webflow</span><span>Framer</span><span>WordPress</span><span>Next.js</span><span>SEO ready</span></div>
         </div></div>
       </div>
       <div class="svc">
-        <div class="svc__row"><div class="svc__num">05</div><div class="svc__name">Email Marketing</div><div class="svc__tag">Lifecycle &middot; Automation</div><div class="svc__icon">+</div></div>
+        <div class="svc__row"><div class="svc__num">05</div><div class="svc__name">Strategy &amp; Reporting</div><div class="svc__tag">Audits &middot; KPIs &middot; Optimisation</div><div class="svc__icon">+</div></div>
         <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Build longer relationships with the people who matter most. We design and send emails that get opened, read, and clicked, without the spam folder.</p>
-          <div class="svc__chips"><span>Klaviyo</span><span>Mailchimp</span><span>Lifecycle</span><span>Automations</span></div>
-        </div></div>
-      </div>
-      <div class="svc">
-        <div class="svc__row"><div class="svc__num">06</div><div class="svc__name">Video Marketing</div><div class="svc__tag">Production &middot; Story &middot; Edit</div><div class="svc__icon">+</div></div>
-        <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Short, sharp and hard to scroll past. We produce video that lifts your show-up rate, your conversion rate, and your brand at the same time.</p>
-          <div class="svc__chips"><span>Story</span><span>Production</span><span>Edit</span><span>Motion</span><span>Distribution</span></div>
-        </div></div>
-      </div>
-      <div class="svc">
-        <div class="svc__row"><div class="svc__num">07</div><div class="svc__name">AI Automation</div><div class="svc__tag">Workflows &middot; Agents &middot; CRM</div><div class="svc__icon">+</div></div>
-        <div class="svc__panel"><div class="svc__panel-inner">
-          <p>We deploy AI agents and automations that handle the work no human should be doing twice. Lead routing, follow-up sequences, quote prep, content repurposing, all wired into your CRM and tracked end-to-end.</p>
-          <div class="svc__chips"><span>n8n</span><span>Make</span><span>Zapier</span><span>OpenAI</span><span>HubSpot</span><span>GoHighLevel</span></div>
-        </div></div>
-      </div>
-      <div class="svc">
-        <div class="svc__row"><div class="svc__num">08</div><div class="svc__name">Web Design and Development</div><div class="svc__tag">Brand sites &middot; Funnels &middot; CMS</div><div class="svc__icon">+</div></div>
-        <div class="svc__panel"><div class="svc__panel-inner">
-          <p>Marketing sites and lead generation funnels designed to convert. Built fast, built to rank, and built to be edited by your team without breaking. We work in Webflow, Framer, WordPress and bespoke code where it counts.</p>
-          <div class="svc__chips"><span>Webflow</span><span>Framer</span><span>WordPress</span><span>Next.js</span><span>Shopify</span><span>SEO ready</span></div>
+          <p>Quarterly planning, weekly reporting and the audits that keep the system honest. You always know what worked, what didn&rsquo;t, and where the next pound of ad spend is going.</p>
+          <div class="svc__chips"><span>Audits</span><span>Roadmap</span><span>KPI dashboards</span><span>Weekly reports</span></div>
         </div></div>
       </div>
     </div>
@@ -1631,7 +1643,7 @@ body.is-no-scroll{overflow:hidden}
     <div class="faq__head">
       <div>
         <span class="eyebrow"><span class="dot"></span>FAQ</span>
-        <h2 style="margin-top:14px">Got questions? We have <span class="kw">answers</span></h2>
+        <h2 style="margin-top:14px">Got questions?<br><span class="kw">We have answers</span></h2>
       </div>
       <p style="font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:42ch">Couldn&rsquo;t find what you&rsquo;re after? Drop us a line at <a href="mailto:earl@s4digi.com" style="color:var(--blue);font-weight:700;border-bottom:1.5px solid var(--blue)">earl@s4digi.com</a> and a real human will reply.</p>
     </div>
