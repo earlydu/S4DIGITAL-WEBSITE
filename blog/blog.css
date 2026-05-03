@@ -261,7 +261,7 @@ body.is-no-scroll{overflow:hidden}
 .to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s, background .25s ease}
 .to-top:hover{background:var(--orange);transform:translateY(-2px)}
 .to-top svg{width:18px;height:18px}
-[data-theme="dark"] .to-top{background:#fff;color:var(--ink);border-color:rgba(0,0,0,.08)}
+[data-theme="dark"] .to-top{background:#fff;color:#0d0d0f;border-color:rgba(0,0,0,.08)}
 [data-theme="dark"] .to-top:hover{background:var(--orange);color:#fff}
 @media (max-width:540px){.to-top{left:16px;bottom:16px;width:42px;height:42px}}
 
