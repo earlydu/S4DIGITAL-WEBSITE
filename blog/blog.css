@@ -173,8 +173,10 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 [data-theme="dark"] .infographic h4{color:#fff}
 [data-theme="dark"] .infographic .infographic__lbl{color:rgba(255,255,255,.55)}
 [data-theme="dark"] .infographic .cap{color:rgba(255,255,255,.55)}
-/* SVG text fills inside infographics: lift dark fills to white in dark mode so numbers and labels stay readable */
-[data-theme="dark"] .infographic svg text{fill:#fff}
+/* SVG text fills inside infographics: dark text on the white card bg (#0d0d0f / #6a6a72)
+   lifts to white in dark mode. Text on coloured bars (fill="#fff" or fill="#000") is left
+   alone so white-on-coloured stays white and black-on-light-bar stays black. */
+[data-theme="dark"] .infographic svg text[fill="#0d0d0f"]{fill:#fff}
 [data-theme="dark"] .infographic svg text[fill="#6a6a72"]{fill:rgba(255,255,255,.55)}
 [data-theme="dark"] .infographic svg line[stroke="#6a6a72"]{stroke:rgba(255,255,255,.4)}
 /* Hero card text always white (cards are dark in both modes), no override needed but keep callouts readable */
