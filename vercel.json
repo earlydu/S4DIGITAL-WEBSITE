@@ -2,13 +2,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/services", "destination": "/index.html" },
-    { "source": "/pricing", "destination": "/index.html" },
-    { "source": "/about", "destination": "/index.html" },
-    { "source": "/faq", "destination": "/index.html" },
-    { "source": "/calculator", "destination": "/index.html" },
-    { "source": "/contact", "destination": "/index.html" },
-    { "source": "/work", "destination": "/index.html" },
-    { "source": "/testimonials", "destination": "/index.html" }
+    { "source": "/services", "destination": "/" },
+    { "source": "/pricing", "destination": "/" },
+    { "source": "/about", "destination": "/" },
+    { "source": "/faq", "destination": "/" },
+    { "source": "/calculator", "destination": "/" },
+    { "source": "/contact", "destination": "/" },
+    { "source": "/work", "destination": "/" },
+    { "source": "/testimonials", "destination": "/" }
   ]
 }
