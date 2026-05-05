@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/services", "destination": "/index.html" },
+    { "source": "/pricing", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/faq", "destination": "/index.html" },
+    { "source": "/calculator", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/work", "destination": "/index.html" },
+    { "source": "/testimonials", "destination": "/index.html" }
+  ]
 }

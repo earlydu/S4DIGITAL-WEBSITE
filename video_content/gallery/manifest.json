@@ -16,11 +16,19 @@
     "aspect": "16x9"
   },
   {
-    "slug": "fully-charged-23",
-    "title": "Fully Charged Show",
-    "client": "Event highlights 2023",
-    "src": "video_content/gallery/fully-charged-23.mp4",
-    "poster": "video_content/gallery/fully-charged-23.jpg",
+    "slug": "grace-webb",
+    "title": "Grace Webb",
+    "client": "Brand film",
+    "src": "video_content/gallery/grace-webb.mp4",
+    "poster": "video_content/gallery/grace-webb.jpg",
     "aspect": "16x9"
+  },
+  {
+    "slug": "value-tip",
+    "title": "Growth tip",
+    "client": "s4digital",
+    "src": "video_content/gallery/value-tip.mp4",
+    "poster": "video_content/gallery/value-tip.jpg",
+    "aspect": "9x16"
   }
 ]
