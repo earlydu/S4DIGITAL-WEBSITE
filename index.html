@@ -2126,20 +2126,26 @@ body.is-no-scroll{overflow:hidden}
   })();
 
   // Section URL routing: /services, /pricing, /about, /faq, /calculator, /contact, /work, /testimonials
-  // - On load: if URL is one of those paths, scroll to the matching section.
+  // - On load: if URL is one of those paths, scroll to the matching section (offset for sticky nav).
   // - Same-page anchor clicks (#services etc.) push the clean /section URL via history.pushState
   //   so the address bar reads s4digi.com/services instead of s4digi.com/#services.
   (function(){
     const sections = ['calculator','services','about','pricing','faq','contact','work','testimonials'];
+    const navOffset = () => {
+      const n = document.querySelector('.nav');
+      return (n ? n.getBoundingClientRect().height : 0) + 8;
+    };
+    const scrollToId = (id, behavior) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - navOffset();
+      window.scrollTo({ top, behavior: behavior || 'smooth' });
+    };
     const path = (window.location.pathname || '').replace(/\/$/, '');
     const m = path.match(/^\/([a-z-]+)$/);
     if (m && sections.includes(m[1])) {
-      const id = m[1];
       // Wait a frame so layout has settled, then jump to the section
-      requestAnimationFrame(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
-      });
+      requestAnimationFrame(() => scrollToId(m[1], 'auto'));
     }
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       // Skip the booking / leak-finder buttons — they open modals via [data-book]/[data-leak]
@@ -2147,10 +2153,9 @@ body.is-no-scroll{overflow:hidden}
       const id = a.getAttribute('href').slice(1);
       if (!sections.includes(id)) return;
       a.addEventListener('click', (e) => {
-        const el = document.getElementById(id);
-        if (!el) return;
+        if (!document.getElementById(id)) return;
         e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollToId(id, 'smooth');
         try { history.pushState(null, '', '/' + id); } catch (_) {}
       });
     });

@@ -231,9 +231,10 @@ const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent =
   });
 
   // Auto-wire CTA buttons across the blog page
-  // Any .btn link pointing at the home page #contact or #calculator anchors opens the matching modal in-page.
-  document.querySelectorAll('a.btn[href*="#contact"]').forEach(a => a.addEventListener('click', openBook));
-  document.querySelectorAll('a.btn[href*="#calculator"]').forEach(a => a.addEventListener('click', openLeak));
+  // Any .btn link pointing at the contact or calculator route opens the matching modal in-page.
+  // Matches both the legacy /#contact hash style and the current clean /contact URL.
+  document.querySelectorAll('a.btn[href*="contact"]').forEach(a => a.addEventListener('click', openBook));
+  document.querySelectorAll('a.btn[href*="calculator"]').forEach(a => a.addEventListener('click', openLeak));
 })();
 
 // Back to top button
