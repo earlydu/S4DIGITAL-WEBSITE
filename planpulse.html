@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PlanPulse - Your content. Planned. Perfected. | s4digital</title>
+<meta name="description" content="PlanPulse by s4digital: generate a smart, UK-aware social content calendar for any trade or service business in seconds." />
+<link rel="icon" type="image/png" href="brand_logos/planpulse%20logo.png" />
+<link rel="apple-touch-icon" href="brand_logos/planpulse%20logo.png" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<style>
+:root{
+  --blue:#3EA3FC;
+  --blue-2:#1f8ce8;
+  --blue-3:#0f6fc8;
+  --orange:#FF6A2C;
+  --orange-2:#e2541a;
+  --ink:#0d0d0f;
+  --ink-2:#1a1a1d;
+  --muted:#6a6a72;
+  --paper:#ffffff;
+  --paper-2:#f5f6f8;
+  --paper-3:#eef0f4;
+  --line:#e6e7ec;
+  --line-2:#d6d8df;
+  --max:980px;
+  --gutter:clamp(18px,3.2vw,40px);
+  --radius:22px;
+  --radius-sm:12px;
+  --sans:'Satoshi',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+
+  --ig:#E1306C;
+  --fb:#1877F2;
+  --li:#0A66C2;
+  --tt:#000000;
+  --yt:#FF0000;
+  --em:#F59E0B;
+  --tw:#000000;
+}
+[data-theme="dark"]{
+  --ink:#eef1f6;
+  --ink-2:#c2c8d4;
+  --muted:#8b91a2;
+  --paper:#10141f;
+  --paper-2:#171c29;
+  --paper-3:#1f2636;
+  --line:#262d3d;
+  --line-2:#36405a;
+}
+[data-theme="dark"] body{
+  background:linear-gradient(180deg,#0a0d15 0%,#0d1117 40%,#0d1117 100%) no-repeat,#0d1117;
+  background-size:100% 1200px,100% 100%;
+}
+[data-theme="dark"] .card,
+[data-theme="dark"] .cal-cell,
+[data-theme="dark"] .pcard,
+[data-theme="dark"] .pf-opt,
+[data-theme="dark"] .icon-btn,
+[data-theme="dark"] .modal,
+[data-theme="dark"] .btn--ghost,
+[data-theme="dark"] .chip,
+[data-theme="dark"] .gate input{background:var(--paper)}
+[data-theme="dark"] textarea#brief:focus,
+[data-theme="dark"] .controls input:focus,
+[data-theme="dark"] .controls select:focus,
+[data-theme="dark"] .modal input:focus,
+[data-theme="dark"] .modal select:focus{background:var(--paper-3)}
+[data-theme="dark"] .toggle button.is-active{background:var(--blue);color:#fff}
+[data-theme="dark"] .hero h1 .grad{background:linear-gradient(120deg,#7cc4ff,var(--blue));-webkit-background-clip:text;background-clip:text}
+[data-theme="dark"] input[type=date]{color-scheme:dark}
+[data-theme="dark"] .pf-opt:not(.sel) svg{color:var(--ink-2)}
+[data-theme="dark"] .pcard__type{background:var(--paper-3)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{color:var(--ink);font-family:var(--sans);font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(180deg,#d8ecff 0%,#e6f1fb 20%,#f1f6fb 46%,#fbfcfd 74%,#ffffff 100%) no-repeat,
+    #ffffff;
+  background-size:100% 1200px, 100% 100%;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+::selection{background:var(--blue);color:#fff}
+
+.shell{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- top bar ---------- */
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 8px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand__mark{width:42px;height:42px;border-radius:11px;overflow:hidden;display:grid;place-items:center;box-shadow:0 10px 26px -12px rgba(62,163,252,.75)}
+.brand__mark img{width:100%;height:100%;object-fit:cover;display:block}
+.brand__name{font-weight:900;font-size:21px;letter-spacing:-.02em;line-height:1}
+.brand__by{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.01em}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);background:#fff;display:grid;place-items:center;font-size:18px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.icon-btn:hover{transform:translateY(-1px);border-color:var(--blue);box-shadow:0 8px 20px -12px rgba(62,163,252,.6)}
+
+/* ---------- rotating s4d asterisk (brand motif) ---------- */
+.ast{display:inline-block;background-color:currentColor;-webkit-mask:url('assets/32wh.png') center/contain no-repeat;mask:url('assets/32wh.png') center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
+.hero__ast{position:absolute;z-index:-1;pointer-events:none;color:rgba(13,13,15,.06);animation:spin 80s linear infinite}
+.hero__ast.a1{top:-26px;right:6px;width:150px;height:150px}
+.hero__ast.a2{bottom:-46px;left:0;width:108px;height:108px;color:rgba(62,163,252,.10);animation-duration:110s;animation-direction:reverse}
+[data-theme="dark"] .hero__ast{color:rgba(255,255,255,.05)}
+[data-theme="dark"] .hero__ast.a2{color:rgba(62,163,252,.12)}
+@media (prefers-reduced-motion:reduce){.hero__ast{animation:none}}
+
+/* ---------- header / hero ---------- */
+header.hero{text-align:center;padding:30px 0 26px;position:relative;overflow:hidden;isolation:isolate}
+.hero__badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;background:rgba(255,106,44,.12);border:1px solid rgba(255,106,44,.35);color:var(--orange);font-weight:800;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase}
+.hero__badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,106,44,.18)}
+.hero h1{font-size:clamp(34px,6vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.02;margin:18px 0 10px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--blue),var(--blue-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__tag{font-size:clamp(15px,1.6vw,18px);color:var(--ink-2);font-weight:600}
+
+/* ---------- card ---------- */
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,30px);box-shadow:0 30px 70px -50px rgba(13,13,15,.35)}
+.card+.card{margin-top:22px}
+
+.field-label{display:block;font-weight:800;font-size:13.5px;letter-spacing:-.01em;margin:0 0 8px}
+textarea#brief{width:100%;min-height:150px;resize:vertical;border:1.5px solid var(--line-2);border-radius:var(--radius-sm);padding:15px 16px;font:inherit;font-weight:500;line-height:1.5;color:var(--ink);background:var(--paper-2);transition:border-color .2s,box-shadow .2s,background .2s}
+textarea#brief:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(62,163,252,.14)}
+
+/* niche chips */
+.chips-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chips-row .lbl{width:100%;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.chip{padding:7px 13px;border-radius:999px;border:1px solid var(--line-2);background:#fff;font-size:12.5px;font-weight:700;color:var(--ink-2);transition:transform .15s,border-color .2s,color .2s,background .2s}
+.chip:hover{transform:translateY(-1px);border-color:var(--blue);color:var(--blue-3)}
+.chip.lead{border-color:rgba(62,163,252,.5);background:rgba(62,163,252,.08);color:var(--blue-3)}
+
+/* tips */
+.tips{margin-top:16px;border:1px dashed var(--line-2);border-radius:var(--radius-sm);overflow:hidden;background:var(--paper-2)}
+.tips>summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:800;font-size:13px;display:flex;align-items:center;gap:8px}
+.tips>summary::-webkit-details-marker{display:none}
+.tips>summary::before{content:"💡"}
+.tips[open]>summary{border-bottom:1px dashed var(--line-2)}
+.tips .tips__body{padding:12px 16px 16px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.tips ul{margin:0;padding-left:18px}
+.tips li{margin:5px 0}
+
+/* controls row */
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media (max-width:560px){.controls{grid-template-columns:1fr}}
+.controls input[type=date],.controls select{width:100%;border:1.5px solid var(--line-2);border-radius:var(--radius-sm);padding:12px 14px;font:inherit;font-weight:600;color:var(--ink);background:var(--paper-2);transition:border-color .2s,box-shadow .2s}
+.controls input[type=date]:focus,.controls select:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(62,163,252,.14)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:800;font-size:14px;letter-spacing:.01em;transition:transform .22s,background .22s,box-shadow .22s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn--orange{background:var(--orange);box-shadow:0 16px 40px -16px rgba(255,106,44,.6)}
+.btn--orange:hover{background:var(--orange-2)}
+.btn--block{width:100%;margin-top:18px;font-size:15.5px;padding:16px 22px}
+.btn--ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line-2)}
+.btn--ghost:hover{border-color:var(--ink)}
+.btn[disabled]{opacity:.55;pointer-events:none}
+.btn--sm{padding:10px 16px;font-size:13px}
+
+/* loading */
+#loading{display:none;text-align:center;padding:46px 20px}
+#loading.show{display:block}
+.spinner{width:46px;height:46px;border-radius:50%;border:4px solid rgba(62,163,252,.18);border-top-color:var(--blue);margin:0 auto 18px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loading p{font-weight:800;font-size:16px}
+#loading small{color:var(--muted);font-weight:600}
+
+/* error */
+.errbox{display:none;border:1px solid rgba(225,48,108,.35);background:rgba(225,48,108,.06);color:#9c1d46;border-radius:var(--radius-sm);padding:16px 18px;margin-top:16px;font-weight:600;line-height:1.5}
+.errbox.show{display:block}
+
+/* output */
+#output{display:none}
+#output.show{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.out-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.toggle{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:5px}
+.toggle button{padding:9px 18px;border-radius:999px;font-size:13.5px;font-weight:800;color:var(--ink-2);transition:background .2s,color .2s}
+.toggle button.is-active{background:var(--ink);color:#fff}
+.exports{display:flex;gap:8px;flex-wrap:wrap}
+
+/* platform badges */
+.pf{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:800;color:#fff;letter-spacing:.01em}
+.pf::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.85)}
+.pf-Instagram{background:var(--ig)}.pf-Facebook{background:var(--fb)}.pf-LinkedIn{background:var(--li)}
+.pf-TikTok{background:var(--tt)}.pf-Email{background:var(--em)}.pf-Twitter{background:var(--tw)}.pf-X{background:#000}
+.pf-YouTube{background:var(--yt)}
+
+/* calendar */
+.cal-month{margin-bottom:26px}
+.cal-month__title{font-weight:900;font-size:18px;letter-spacing:-.02em;margin-bottom:12px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-dow{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:4px}
+.cal-cell{min-height:84px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:6px;display:flex;flex-direction:column;gap:4px;overflow:hidden}
+.cal-cell.empty{background:transparent;border:0}
+.cal-cell.has-aware{border-color:rgba(245,158,11,.7);box-shadow:inset 0 0 0 1px rgba(245,158,11,.4)}
+.cal-cell.today{outline:2px solid var(--blue);outline-offset:-2px}
+.cal-num{font-size:12px;font-weight:800;color:var(--ink-2)}
+.cal-aware{font-size:9.5px;font-weight:800;color:#a96a00;background:rgba(245,158,11,.15);border-radius:5px;padding:1px 5px;line-height:1.3}
+.cal-pill{font-size:9.5px;font-weight:800;color:#fff;border-radius:5px;padding:2px 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:transform .12s,filter .12s}
+.cal-pill:hover{transform:translateY(-1px);filter:brightness(1.06)}
+@media (max-width:680px){.cal-cell{min-height:62px}.cal-pill{font-size:0;padding:5px}.cal-pill::after{content:attr(data-short);font-size:9px}}
+
+/* list view */
+.list-stack{display:flex;flex-direction:column;gap:12px}
+.pcard{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.pcard:hover{border-color:var(--line-2);box-shadow:0 16px 40px -32px rgba(13,13,15,.5)}
+.pcard.aware{border-color:rgba(245,158,11,.6)}
+.pcard__top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;cursor:pointer}
+.pcard__date{font-weight:900;font-size:14px;letter-spacing:-.01em;min-width:108px}
+.pcard__date small{display:block;font-size:11px;color:var(--muted);font-weight:700}
+.pcard__type{font-size:11.5px;font-weight:800;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.pcard__topic{flex:1;min-width:160px;font-weight:800;font-size:14.5px;letter-spacing:-.01em}
+.pcard__chev{color:var(--muted);font-size:13px;transition:transform .25s}
+.pcard.open .pcard__chev{transform:rotate(180deg)}
+.pcard__awarebar{font-size:11.5px;font-weight:800;color:#a96a00;background:rgba(245,158,11,.14);padding:6px 16px;display:flex;align-items:center;gap:7px}
+.pcard__body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.pcard.open .pcard__body{max-height:700px}
+.pcard__inner{padding:0 16px 16px;display:flex;flex-direction:column;gap:11px}
+.pcard__inner .row{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.pcard__inner .k{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+.tip{background:rgba(62,163,252,.07);border:1px solid rgba(62,163,252,.25);border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600;color:var(--blue-3)}
+.hashtags{display:flex;flex-wrap:wrap;gap:6px}
+.hashtag{font-size:11.5px;font-weight:700;color:var(--blue-3);background:rgba(62,163,252,.1);border-radius:6px;padding:3px 8px}
+.cap{background:var(--paper-2);border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.55}
+
+/* settings modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(13,13,15,.45);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex;animation:fade .25s ease}
+.modal{background:#fff;border-radius:var(--radius);max-width:460px;width:100%;padding:26px;box-shadow:0 40px 100px -40px rgba(13,13,15,.6)}
+.modal h2{font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+.modal p.sub{font-size:13.5px;color:var(--muted);font-weight:600;line-height:1.5;margin-bottom:16px}
+.modal label{font-weight:800;font-size:13px;display:block;margin:14px 0 6px}
+.modal input,.modal select{width:100%;border:1.5px solid var(--line-2);border-radius:10px;padding:12px 14px;font:inherit;font-weight:600;background:var(--paper-2)}
+.modal input:focus,.modal select:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(62,163,252,.14)}
+.modal .note{font-size:12px;color:var(--muted);font-weight:600;margin-top:8px;display:flex;gap:7px;align-items:flex-start}
+.modal .actions{display:flex;gap:10px;margin-top:22px}
+
+/* upgrade / email capture */
+.gate{display:none;border:1px solid rgba(255,106,44,.4);background:rgba(255,106,44,.07);border-radius:var(--radius-sm);padding:18px;margin-top:16px}
+.gate.show{display:block}
+.gate h3{font-size:16px;font-weight:900;letter-spacing:-.01em}
+.gate p{font-size:13.5px;color:var(--ink-2);font-weight:600;margin:6px 0 12px;line-height:1.5}
+.gate .grow{display:flex;gap:10px;flex-wrap:wrap}
+.gate input{flex:1;min-width:200px;border:1.5px solid var(--line-2);border-radius:999px;padding:12px 16px;font:inherit;font-weight:600;background:#fff}
+.gate input:focus{outline:0;border-color:var(--orange)}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);background:var(--ink);color:#fff;font-weight:700;font-size:13.5px;padding:13px 20px;border-radius:999px;z-index:200;transition:transform .35s cubic-bezier(.2,.9,.3,1.3);box-shadow:0 18px 40px -16px rgba(0,0,0,.5)}
+#toast.show{transform:translate(-50%,0)}
+
+/* footer */
+footer{text-align:center;padding:34px 0 44px;color:var(--muted);font-size:12.5px;font-weight:600}
+footer a{color:var(--blue-3);font-weight:800}
+
+/* topnav action group */
+.topnav__actions{display:flex;align-items:center;gap:10px}
+
+/* section label inside input card */
+.sec{margin-top:20px}
+.sec__title{font-weight:800;font-size:13.5px;letter-spacing:-.01em;margin:0 0 9px;display:flex;align-items:baseline;gap:8px}
+.sec__title small{font-weight:600;font-size:11.5px;color:var(--muted);letter-spacing:0}
+
+/* platform selector */
+.pf-select{display:flex;flex-wrap:wrap;gap:9px}
+.pf-opt{--brand:var(--ink);display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 11px;border-radius:12px;border:1.5px solid var(--line-2);background:#fff;font-size:13px;font-weight:800;color:var(--ink-2);transition:transform .15s,border-color .2s,background .2s,box-shadow .2s,color .2s}
+.pf-opt svg{width:18px;height:18px;color:var(--brand);transition:color .2s}
+.pf-opt:hover{transform:translateY(-1px);border-color:var(--brand)}
+.pf-opt.sel{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 10px 24px -14px var(--brand)}
+.pf-opt.sel svg{color:#fff}
+.pf-opt .tick{width:15px;height:15px;display:none}
+.pf-opt.sel .tick{display:block}
+
+/* option chips (tone / goals) */
+.opt-chips{display:flex;flex-wrap:wrap;gap:8px}
+.opt-chip{padding:8px 14px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;font-size:12.5px;font-weight:700;color:var(--ink-2);transition:transform .15s,border-color .2s,background .2s,color .2s}
+.opt-chip:hover{transform:translateY(-1px);border-color:var(--blue)}
+.opt-chip.sel{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 10px 24px -14px var(--blue)}
+[data-theme="dark"] .opt-chip{background:var(--paper)}
+
+/* crosspost + warning in list cards */
+.cross{display:flex;flex-wrap:wrap;gap:6px}
+.cross .mini{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#fff;border-radius:6px;padding:3px 8px}
+.cross .mini svg{width:12px;height:12px;color:#fff}
+.warn{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.45);border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:700;color:#a96a00;line-height:1.5}
+[data-theme="dark"] .warn{color:#ffcd6b}
+.pcard__cross{display:inline-flex;gap:4px;align-items:center}
+.pcard__cross .dotc{width:9px;height:9px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px var(--line-2)}
+
+/* refine box */
+#refine{margin-top:18px}
+#refine textarea{width:100%;min-height:70px;resize:vertical;border:1.5px solid var(--line-2);border-radius:var(--radius-sm);padding:12px 14px;font:inherit;font-weight:500;line-height:1.5;color:var(--ink);background:var(--paper-2)}
+#refine textarea:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(62,163,252,.14)}
+[data-theme="dark"] #refine textarea:focus{background:var(--paper-3)}
+.refine-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px}
+.refine-row .grow{flex:1;min-width:220px}
+
+/* print / PDF cover */
+#printHeader{display:none}
+.ph-cover{display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:8px}
+.ph-cover img{width:54px;height:54px;border-radius:12px}
+.ph-cover h2{font-size:24px;font-weight:900;letter-spacing:-.02em}
+.ph-cover .meta{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.ph-summary{font-size:12px;color:var(--ink-2);margin:10px 0 4px;font-weight:600}
+
+/* print */
+@media print{
+  body{background:#fff;color:#000}
+  .topnav,header.hero,#input-card,#loading,.out-head,.gate,#toast,#refine,footer .noprint{display:none!important}
+  .card{box-shadow:none;border:0;padding:0}
+  #calendarView{display:none!important}
+  #listView{display:block!important}
+  #printHeader{display:block!important;margin-bottom:18px}
+  .cal-pill{font-size:9px!important;padding:2px 6px!important}
+  .pcard__body{max-height:none!important}
+  .pcard,.cal-cell{break-inside:avoid;border:1px solid #ccc!important;background:#fff!important;color:#000!important}
+  .pcard{margin-bottom:8px}
+  .pcard__topic,.pcard__date,.cal-num{color:#000!important}
+  .pcard__type{background:#f0f1f4!important;color:#000!important}
+  .tip,.cap,.warn{background:#f7f8fa!important}
+  .ph-cover h2,.ph-cover{color:#000!important;border-color:#000!important}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="topnav">
+    <div class="brand">
+      <div class="brand__mark"><img src="brand_logos/planpulse%20logo.png" alt="PlanPulse logo" /></div>
+      <div>
+        <div class="brand__name">PlanPulse</div>
+        <div class="brand__by">Powered by S4 Digital - s4digi.com</div>
+      </div>
+    </div>
+    <div class="topnav__actions">
+      <button class="icon-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="openSettings" title="API settings" aria-label="API settings">⚙️</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <span class="ast hero__ast a1" aria-hidden="true"></span>
+    <span class="ast hero__ast a2" aria-hidden="true"></span>
+    <span class="hero__badge"><span class="dot"></span>AI Content Calendar Generator</span>
+    <h1>Your content. <span class="grad">Planned. Perfected.</span></h1>
+    <p class="hero__tag">Generate a smart, UK-aware content calendar for your business in seconds.</p>
+  </header>
+
+  <!-- INPUT -->
+  <section class="card" id="input-card">
+    <label class="field-label" for="brief">Tell me about your business</label>
+    <textarea id="brief" placeholder="e.g. I run an EV charger installation company in Manchester called VoltFit. We install home & commercial chargers, do EV-ready consumer unit upgrades and solar tie-ins. Target customers are homeowners 30–55 and small fleet operators. Goals: more installs via Instagram and LinkedIn. We want to post 4× a week on Instagram, twice on LinkedIn, plus a monthly email newsletter."></textarea>
+
+    <div class="chips-row">
+      <span class="lbl">Quick start - pick a trade to autofill an example</span>
+      <button class="chip lead" type="button" data-niche="ev">⚡ EV Charger Installer</button>
+      <button class="chip" type="button" data-niche="plumber">🔧 Plumber</button>
+      <button class="chip" type="button" data-niche="electrician">💡 Electrician</button>
+      <button class="chip" type="button" data-niche="roofer">🏠 Roofer</button>
+      <button class="chip" type="button" data-niche="landscaper">🌿 Landscaper</button>
+      <button class="chip" type="button" data-niche="solar">☀️ Solar / Renewables</button>
+      <button class="chip" type="button" data-niche="builder">🧱 Builder / Renovations</button>
+      <button class="chip" type="button" data-niche="cafe">☕ Café / Local Shop</button>
+    </div>
+
+    <details class="tips">
+      <summary>Tips for best results</summary>
+      <div class="tips__body">
+        <ul>
+          <li><strong>Name your business and location</strong> - it helps tailor tone and local hooks.</li>
+          <li><strong>List your core services</strong> and your ideal customer (age, type, B2B/B2C).</li>
+          <li><strong>State your goals</strong> (leads, bookings, brand awareness) and which platforms matter.</li>
+          <li><strong>Give posting frequency</strong> per platform (e.g. "4× a week on Instagram, 2× on LinkedIn").</li>
+          <li><strong>Mention anything seasonal</strong> - offers, busy periods, new products.</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="sec">
+      <p class="sec__title">Which platforms? <small>tap to select one or more</small></p>
+      <div class="pf-select" id="platformSelect"></div>
+    </div>
+
+    <div class="sec">
+      <p class="sec__title">Tone of voice <small>how should you come across?</small></p>
+      <div class="opt-chips" id="toneSelect"></div>
+    </div>
+
+    <div class="sec">
+      <p class="sec__title">Business goals <small>select any that apply</small></p>
+      <div class="opt-chips" id="goalSelect"></div>
+    </div>
+
+    <div class="controls">
+      <div>
+        <label class="field-label" for="startDate">When should the calendar start?</label>
+        <input type="date" id="startDate" />
+      </div>
+      <div>
+        <label class="field-label" for="duration">Duration</label>
+        <select id="duration">
+          <option value="14">2 Weeks</option>
+          <option value="30" selected>1 Month</option>
+          <option value="90">3 Months</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn--orange btn--block" id="generateBtn">Generate My Content Plan ⚡</button>
+    <div class="errbox" id="errbox"></div>
+  </section>
+
+  <!-- LOADING -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Crafting your content plan…</p>
+    <small id="loadingSub">Mapping platforms, post types and UK seasonal hooks</small>
+  </div>
+
+  <!-- OUTPUT -->
+  <section id="output">
+    <div class="out-head">
+      <div class="toggle" role="tablist">
+        <button id="tabCalendar" class="is-active">📅 Calendar View</button>
+        <button id="tabList">📋 List View</button>
+      </div>
+      <div class="exports">
+        <button class="btn btn--ghost btn--sm" id="btnCopy">📋 Copy</button>
+        <button class="btn btn--ghost btn--sm" id="btnCsv">⬇ CSV</button>
+        <button class="btn btn--ghost btn--sm" id="btnPdf">📄 Download PDF</button>
+        <button class="btn btn--ghost btn--sm" id="btnRegen">🔄 Regenerate</button>
+      </div>
+    </div>
+
+    <div class="gate" id="gate">
+      <h3>You’ve used your free plans 🎉</h3>
+      <p>Pop in your email to unlock <strong>unlimited generations + CSV/PDF export</strong>, free while in beta. We’ll only send the occasional growth tip from S4 Digital.</p>
+      <div class="grow">
+        <input type="email" id="gateEmail" placeholder="you@business.co.uk" />
+        <button class="btn btn--orange btn--sm" id="gateUnlock">Unlock</button>
+      </div>
+    </div>
+
+    <div class="card" id="viewWrap">
+      <div id="printHeader"></div>
+      <div id="calendarView"></div>
+      <div id="listView" style="display:none"></div>
+    </div>
+
+    <div class="card" id="refine" style="display:none">
+      <p class="sec__title" style="margin-top:0">✏️ Refine this plan <small>add instructions and regenerate</small></p>
+      <textarea id="refineInput" placeholder="e.g. Add more video content, focus on offers in the last week, mention our 10-year guarantee, fewer LinkedIn posts, punchier captions…"></textarea>
+      <div class="refine-row">
+        <button class="btn btn--orange btn--sm" id="refineApply">Apply changes ⚡</button>
+        <button class="btn btn--ghost btn--sm" id="refineClear">Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="noprint">Built by S4 Digital · <a href="https://s4digi.com" target="_blank" rel="noopener">s4digi.com</a> · PlanPulse v1.0</span>
+  </footer>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-bg" id="settingsModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="API settings">
+    <h2>⚙️ API Settings</h2>
+    <p class="sub">PlanPulse calls the Claude API directly from your browser. Add your Anthropic API key to start generating.</p>
+    <label for="apiKey">Anthropic API key</label>
+    <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off" />
+    <label for="modelSel">Model</label>
+    <select id="modelSel">
+      <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 - fast &amp; economical</option>
+      <option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6 - best value &amp; quality</option>
+      <option value="claude-opus-4-7">Claude Opus 4.7 - maximum quality (pricier)</option>
+    </select>
+    <div class="note">🔒 <span>Your API key is stored locally in your browser only. It never touches an S4 Digital server. Get a key at <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--blue-3);font-weight:800">console.anthropic.com</a>.</span></div>
+    <div class="actions">
+      <button class="btn btn--ghost" id="closeSettings" style="flex:1">Cancel</button>
+      <button class="btn btn--orange" id="saveSettings" style="flex:1">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+
+/* ============== constants ============== */
+const LS_KEY = "planpulse_api_key";
+const LS_MODEL = "planpulse_model";
+const LS_COUNT = "planpulse_gen_count";
+const LS_UNLOCKED = "planpulse_unlocked";
+const FREE_LIMIT = 2;
+
+const VALID_MODELS = ["claude-haiku-4-5-20251001","claude-sonnet-4-6","claude-opus-4-7"];
+const DEFAULT_MODEL = "claude-sonnet-4-6";
+
+const SHORT = {Instagram:"IG",Facebook:"FB",LinkedIn:"LI",TikTok:"TT",YouTube:"YT",Email:"✉",Twitter:"X",X:"X"};
+const PF_VAR = {Instagram:"ig",Facebook:"fb",LinkedIn:"li",TikTok:"tt",YouTube:"yt",Email:"em",Twitter:"tw",X:"tw"};
+function pfColor(p){return "var(--"+(PF_VAR[p]||"li")+")";}
+
+/* brand logo glyphs (Simple Icons paths) */
+const PF_ICONS = {
+  Instagram:'<path d="M7.03.084c-1.277.06-2.149.264-2.911.563-.789.308-1.458.72-2.123 1.388C1.33 2.698.92 3.367.612 4.157.314 4.92.11 5.792.05 7.07.001 8.347 0 8.756 0 12.017c0 3.262.013 3.668.072 4.948.06 1.277.264 2.149.563 2.911.308.79.72 1.459 1.388 2.124.665.668 1.334 1.08 2.123 1.388.762.299 1.634.503 2.911.563 1.28.058 1.687.072 4.948.072 3.262 0 3.668-.014 4.948-.072 1.277-.06 2.15-.264 2.911-.563.79-.308 1.459-.72 2.124-1.388.668-.665 1.08-1.334 1.388-2.124.299-.762.503-1.634.563-2.911.058-1.28.072-1.686.072-4.948 0-3.261-.014-3.67-.072-4.948-.06-1.278-.264-2.15-.563-2.913-.308-.789-.72-1.458-1.388-2.122C21.302.805 20.633.392 19.843.084 19.08-.215 18.208-.42 16.93-.48 15.65-.539 15.244-.553 11.982-.553L12.017.084zm-.717 2.166c.318-.014.683-.017 1.687-.017 3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.413.56.218.96.478 1.38.898.42.42.68.82.898 1.38.164.422.36 1.057.413 2.227.058 1.265.07 1.645.07 4.848 0 3.204-.012 3.584-.07 4.85-.054 1.17-.249 1.804-.413 2.226-.218.56-.478.96-.898 1.38-.42.42-.82.68-1.38.898-.422.164-1.057.36-2.227.413-1.265.058-1.645.07-4.85.07-3.204 0-3.584-.012-4.849-.07-1.17-.054-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.898 3.72 3.72 0 0 1-.898-1.38c-.164-.422-.36-1.057-.413-2.227-.058-1.265-.07-1.645-.07-4.849 0-3.204.012-3.583.07-4.848.054-1.17.249-1.805.413-2.227.218-.56.478-.96.898-1.38.42-.42.82-.68 1.38-.898.422-.164 1.057-.36 2.227-.413zm5.69 1.847a5.835 5.835 0 1 0 0 11.67 5.835 5.835 0 0 0 0-11.67zm0 9.624a3.79 3.79 0 1 1 0-7.58 3.79 3.79 0 0 1 0 7.58zm6.066-9.78a1.364 1.364 0 1 0 0 2.728 1.364 1.364 0 0 0 0-2.728z" transform="translate(0 .553)"/>',
+  Facebook:'<path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/>',
+  TikTok:'<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>',
+  YouTube:'<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>',
+  LinkedIn:'<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>',
+  X:'<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>',
+  Email:'<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/>'
+};
+function pfIcon(p){const path=PF_ICONS[p];return path?`<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${path}</svg>`:"";}
+
+const PLATFORMS = [
+  {id:"Instagram",color:"#E1306C"},
+  {id:"Facebook",color:"#1877F2"},
+  {id:"TikTok",color:"#111111"},
+  {id:"YouTube",color:"#FF0000"},
+  {id:"LinkedIn",color:"#0A66C2"},
+  {id:"X",color:"#111111"},
+  {id:"Email",color:"#F59E0B"}
+];
+const TONES = ["Friendly","Professional","Formal","Serious","Playful","Bold & confident","Educational","Witty","Inspirational"];
+const GOALS = ["Generate leads","Increase bookings & sales","Build brand awareness","Grow followers","Drive website traffic","Promote offers","Establish authority & trust","Recruit staff","Boost engagement"];
+
+const SEL = {
+  platforms:new Set(["Instagram","Facebook","LinkedIn"]),
+  tone:"Friendly",
+  goals:new Set(["Generate leads","Build brand awareness"])
+};
+let REFINEMENT = "";
+
+/* ============== example briefs for chips ============== */
+const EXAMPLES = {
+  ev:"I run an EV charger installation company in Manchester called VoltFit. We install home & commercial chargers, EV-ready consumer unit upgrades and solar tie-ins. Our customers are homeowners aged 30–55 and small fleet operators. Goals: more installs via Instagram and LinkedIn. We want to post 4× a week on Instagram, twice on LinkedIn, plus a monthly email newsletter.",
+  plumber:"I run a plumbing company in Leeds called FlowFix. We do boiler installs, emergency repairs and bathroom fitting. Target customers are homeowners aged 30–55. Goals: more leads via Instagram and Facebook. We want to post 4× a week on Instagram, twice on Facebook, plus a monthly email newsletter.",
+  electrician:"I run an electrical contracting business in Bristol called BrightSpark. We do rewires, fuse board upgrades, EV charger points and smart-home installs. Customers are homeowners and small landlords. Goals: more bookings via Instagram and LinkedIn. Post 3× a week on Instagram, twice on LinkedIn.",
+  roofer:"I run a roofing company in Birmingham called PeakRoof. We do roof repairs, full re-roofs, flat roofs and guttering. Customers are homeowners 35–65 and letting agents. Goals: leads via Facebook and Instagram. Post 3× a week on Facebook, 3× on Instagram.",
+  landscaper:"I run a landscaping & garden design business in Surrey called GreenLine. We do garden makeovers, patios, fencing and planting schemes. Customers are homeowners 35–60. Goals: brand awareness and leads via Instagram. Post 4× a week on Instagram, plus a monthly email newsletter.",
+  solar:"I run a solar & battery installer in Cardiff called SunCell. We fit solar PV, battery storage and EV chargers. Customers are eco-conscious homeowners and small businesses. Goals: leads via Instagram, Facebook and LinkedIn. Post 4× a week on Instagram, twice on LinkedIn.",
+  builder:"I run a building and renovations company in Glasgow called SolidBuild. We do extensions, loft conversions, kitchens and full renovations. Customers are homeowners 35–60. Goals: leads via Instagram and Facebook. Post 3× a week on Instagram, twice on Facebook.",
+  cafe:"I run an independent café in Brighton called Bean & Bloom. We serve speciality coffee, brunch and homemade cakes, with weekend events. Customers are locals 22–45 and remote workers. Goals: footfall and bookings via Instagram and TikTok. Post 5× a week on Instagram, 3× on TikTok."
+};
+
+/* ============== UK awareness days ============== */
+function easterSunday(y){
+  const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,
+  f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,
+  i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+  month=Math.floor((h+l-7*m+114)/31),day=((h+l-7*m+114)%31)+1;
+  return new Date(y,month-1,day);
+}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function nthWeekday(y,month,weekday,n){ // month 0-based, weekday 0=Sun
+  const d=new Date(y,month,1);let count=0;
+  while(d.getMonth()===month){if(d.getDay()===weekday){count++;if(count===n)return new Date(d);}d.setDate(d.getDate()+1);}
+  return null;
+}
+function lastWeekday(y,month,weekday){
+  const d=new Date(y,month+1,0);
+  while(d.getDay()!==weekday)d.setDate(d.getDate()-1);
+  return d;
+}
+function awarenessFor(year){
+  const map={};
+  const fixed={
+    "01-01":"New Year’s Day","02-14":"Valentine’s Day","03-01":"St David’s Day",
+    "03-11":"World Plumbing Day","03-17":"St Patrick’s Day","04-22":"Earth Day",
+    "04-23":"St George’s Day","06-05":"World Environment Day","08-19":"World Photography Day",
+    "09-09":"World EV Day","10-10":"World Mental Health Day","10-31":"Halloween",
+    "11-05":"Bonfire Night","11-11":"Remembrance Day","12-25":"Christmas Day","12-26":"Boxing Day",
+    "12-31":"New Year’s Eve","01-25":"Burns Night","02-29":"Leap Day"
+  };
+  for(const k in fixed)map[year+"-"+k]=fixed[k];
+  const easter=easterSunday(year);
+  const goodFri=new Date(easter);goodFri.setDate(easter.getDate()-2);
+  const motheringSun=new Date(easter);motheringSun.setDate(easter.getDate()-21);
+  map[iso(easter)]="Easter Sunday";
+  map[iso(goodFri)]="Good Friday";
+  map[iso(motheringSun)]="Mother’s Day (UK)";
+  map[iso(nthWeekday(year,5,0,3))]="Father’s Day (UK)";       // 3rd Sun June
+  map[iso(nthWeekday(year,4,1,1))]="Early May Bank Holiday";  // 1st Mon May
+  map[iso(lastWeekday(year,4,1))]="Spring Bank Holiday";       // last Mon May
+  map[iso(lastWeekday(year,7,1))]="Summer Bank Holiday";       // last Mon Aug
+  map[iso(nthWeekday(year,11,6,1))]="Small Business Saturday"; // 1st Sat Dec
+  // Black Friday = day after 4th Thursday of Nov (US Thanksgiving) - widely marked in UK retail
+  const thanks=nthWeekday(year,10,4,4);const bf=new Date(thanks);bf.setDate(thanks.getDate()+1);
+  map[iso(bf)]="Black Friday";
+  return map;
+}
+function awarenessRange(start,end){
+  let m={};
+  for(let y=start.getFullYear();y<=end.getFullYear();y++)Object.assign(m,awarenessFor(y));
+  return m;
+}
+
+/* ============== prompts ============== */
+const SYSTEM_PROMPT = `You are an expert social media strategist and content planner. You specialise in creating actionable content calendars for UK-based service and trade businesses (including EV installers, plumbers, electricians, roofers, landscapers, builders, cafés and more). You understand seasonal UK events, public holidays, industry awareness days, and trending content formats across Instagram, Facebook, LinkedIn, TikTok, YouTube and Email.
+
+When given a business brief, you produce a detailed, structured content calendar in valid JSON format only - no prose, no markdown, just a raw JSON array. Each item in the array is a single content post or piece of content.
+
+Rules:
+- ORIGINALITY IS NON-NEGOTIABLE. Never produce generic, templated content that every business posts. Banned: empty filler like "Did you know?", "Happy Monday", "Tag a friend", vague motivational quotes, obvious clichés and lazy stock ideas. Every single post must be specific to THIS business, using the actual services, brands, locations, project details, customer types and real scenarios from the brief. Favour concrete specifics, real numbers, strong scroll-stopping hooks, myth-busting and contrarian angles, genuine behind-the-scenes detail, and current native social formats. If you reference a trend, it must be current and truly relevant to this brand. A reader should think "only this company could have posted that."
+- Only use the platforms the user has selected. Never schedule a post for a platform they did not pick.
+- Match posting days to optimal days for the platform and niche (e.g. B2B LinkedIn = Tue/Wed/Thu; Instagram for consumer services = Mon/Wed/Fri/Sat).
+- Respect any posting frequency the user states per platform.
+- Write every caption in the requested tone of voice, and orient topics toward the stated business goals.
+- Include relevant UK seasonal hooks and niche-specific awareness days where they fall in the date range.
+- Vary post types: mix Reels, Carousels, Static Images, Stories, Polls, Behind-the-Scenes, Testimonials, Educational, Offers and CTAs. Use Shorts for YouTube.
+- CROSSPOSTING: where the SAME content naturally suits other selected platforms, list them in "crosspost_to". Instagram and Facebook content can almost always be crossposted to each other. Short vertical video (Reels) usually works across Instagram, Facebook, TikTok and YouTube Shorts. BUT be careful: if a piece of content would NOT land well on one of the user's other selected platforms (e.g. a casual meme or trend on LinkedIn, or a long B2B explainer on TikTok), do NOT add that platform to crosspost_to, and instead briefly explain the mismatch in "crosspost_warning". Keep crosspost_to to genuinely suitable platforms only.
+- Provide framing advice that helps a non-expert creator know HOW to shoot or write the post.
+- Captions should sound natural, human and on-brand, not corporate or stiff.
+- Never use em dashes in any caption, topic, tip or warning. Use commas, full stops or hyphens instead.
+- Always output ONLY valid JSON, starting with [ and ending with ].`;
+
+function buildUserPrompt(brief,startISO,durationLabel,awareKeys){
+  const awareList = awareKeys.length ? awareKeys.map(k=>`${k} (${window.__aware[k]})`).join(", ") : "none in range";
+  const platforms = [...SEL.platforms];
+  const goals = [...SEL.goals];
+  return `Business brief: ${brief}
+
+Start date: ${startISO}
+Duration: ${durationLabel}
+Platforms to use (ONLY these): ${platforms.join(", ")||"Instagram"}
+Tone of voice: ${SEL.tone}
+Business goals: ${goals.length?goals.join(", "):"general growth"}
+${REFINEMENT?`\nExtra instructions from the user (apply these, they override defaults): ${REFINEMENT}\n`:""}
+Relevant UK awareness/seasonal days within this range (use as hooks where they fit the niche): ${awareList}
+
+Please generate a content calendar for this business. Return a JSON array where each object has these exact keys:
+- "date": "YYYY-MM-DD"
+- "day": "Monday" (etc.)
+- "platform": one of the selected platforms (${platforms.join(" | ")||"Instagram"})
+- "post_type": e.g. "Reel" | "Carousel" | "Static Image" | "Story" | "YouTube Short" | "Email Newsletter" | "Poll"
+- "topic": Short headline or topic (max 10 words)
+- "caption": Suggested caption (2-4 sentences, in the requested tone)
+- "hashtags": Array of 5-10 relevant hashtags (empty array for LinkedIn/Email)
+- "framing_tip": One sentence of practical advice on how to create or frame this content
+- "crosspost_to": Array of OTHER selected platforms this exact content also suits (empty array if none). Never include its own platform.
+- "crosspost_warning": Short note if this content should NOT be crossposted to a particular selected platform and why, otherwise null
+- "awareness_day": Name of relevant UK/niche awareness day if applicable, otherwise null
+- "is_awareness_day": true | false
+
+All dates must fall on or after ${startISO} and within the ${durationLabel} window. Return ONLY the JSON array. No other text.`;
+}
+
+/* ============== state ============== */
+let PLAN = [];
+let RANGE = {start:null,end:null};
+
+/* ============== helpers ============== */
+const $ = s=>document.querySelector(s);
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2200);}
+function todayISO(){return iso(new Date());}
+function getKey(){return localStorage.getItem(LS_KEY)||"";}
+function getModel(){const m=localStorage.getItem(LS_MODEL);return VALID_MODELS.includes(m)?m:DEFAULT_MODEL;}
+function genCount(){return parseInt(localStorage.getItem(LS_COUNT)||"0",10);}
+function unlocked(){return localStorage.getItem(LS_UNLOCKED)==="1";}
+function durationLabel(days){return days==="14"?"2 Weeks":days==="90"?"3 Months":"1 Month";}
+
+function showErr(msg){const e=$("#errbox");e.innerHTML=msg;e.classList.add("show");}
+function clearErr(){$("#errbox").classList.remove("show");}
+
+/* recover complete {…} objects from a (possibly truncated) array body */
+function salvageObjects(body){
+  const objs=[];let depth=0,inStr=false,esc=false,start=-1;
+  for(let i=0;i<body.length;i++){
+    const ch=body[i];
+    if(inStr){ if(esc)esc=false; else if(ch==="\\")esc=true; else if(ch==='"')inStr=false; continue; }
+    if(ch==='"'){inStr=true;continue;}
+    if(ch==="{"){ if(depth===0)start=i; depth++; }
+    else if(ch==="}"){ depth--; if(depth===0&&start!==-1){ try{objs.push(JSON.parse(body.slice(start,i+1)));}catch(e){} start=-1; } }
+  }
+  return objs;
+}
+/* extract a JSON array even if wrapped in prose/fences or cut off mid-stream */
+function extractJSON(text){
+  const tryParse=s=>{try{return JSON.parse(s);}catch(e){return undefined;}};
+  let t=text.trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"").trim();
+  let r=tryParse(t); if(Array.isArray(r))return r;
+  const s=t.indexOf("[");
+  if(s===-1)throw new Error("No JSON array was found in the response.");
+  let body=t.slice(s);
+  const e2=body.lastIndexOf("]");
+  if(e2!==-1){
+    const cand=body.slice(0,e2+1);
+    r=tryParse(cand); if(Array.isArray(r))return r;
+    r=tryParse(cand.replace(/,\s*([}\]])/g,"$1")); if(Array.isArray(r))return r; // strip trailing commas
+  }
+  // last resort: rebuild from whatever complete objects survived a truncation
+  const salvaged=salvageObjects(body);
+  if(salvaged.length)return salvaged;
+  throw new Error("Could not parse a content calendar from the AI response.");
+}
+
+/* ============== settings modal ============== */
+function openSettings(){
+  $("#apiKey").value=getKey();
+  $("#modelSel").value=getModel();
+  $("#settingsModal").classList.add("show");
+}
+function closeSettings(){$("#settingsModal").classList.remove("show");}
+$("#openSettings").onclick=openSettings;
+$("#closeSettings").onclick=closeSettings;
+$("#settingsModal").addEventListener("click",e=>{if(e.target===$("#settingsModal"))closeSettings();});
+$("#saveSettings").onclick=()=>{
+  localStorage.setItem(LS_KEY,$("#apiKey").value.trim());
+  localStorage.setItem(LS_MODEL,$("#modelSel").value);
+  closeSettings();toast("Settings saved ✓");
+};
+
+/* ============== niche chips ============== */
+document.querySelectorAll(".chip").forEach(c=>{
+  c.onclick=()=>{$("#brief").value=EXAMPLES[c.dataset.niche]||"";$("#brief").focus();};
+});
+
+/* ============== generate ============== */
+async function generate(){
+  clearErr();
+  const brief=$("#brief").value.trim();
+  if(!brief){showErr("Tell me a little about your business first - even a couple of sentences works.");return;}
+  if(SEL.platforms.size===0){showErr("Pick at least one platform to plan for.");return;}
+  if(!getKey()){showErr("Add your Anthropic API key first - click the ⚙️ settings icon at the top right.");openSettings();return;}
+
+  // freemium gate
+  if(!unlocked() && genCount()>=FREE_LIMIT){
+    $("#output").classList.add("show");
+    $("#gate").classList.add("show");
+    $("#viewWrap").style.display="none";
+    $("#output").scrollIntoView({behavior:"smooth"});
+    return;
+  }
+
+  const startISO=$("#startDate").value||todayISO();
+  const days=$("#duration").value;
+  const start=new Date(startISO+"T00:00:00");
+  const end=new Date(start);end.setDate(start.getDate()+parseInt(days,10)-1);
+  RANGE={start,end};
+
+  const aware=awarenessRange(start,end);
+  window.__aware=aware;
+  const awareKeys=Object.keys(aware).filter(k=>{const d=new Date(k+"T00:00:00");return d>=start&&d<=end;}).sort();
+
+  // UI: loading
+  $("#errbox").classList.remove("show");
+  $("#output").classList.remove("show");
+  $("#loading").classList.add("show");
+  $("#generateBtn").disabled=true;
+  $("#loading").scrollIntoView({behavior:"smooth",block:"center"});
+
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json",
+        "x-api-key":getKey(),
+        "anthropic-version":"2023-06-01",
+        "anthropic-dangerous-direct-browser-access":"true"
+      },
+      body:JSON.stringify({
+        model:getModel(),
+        max_tokens:days==="90"?32000:16000,
+        system:SYSTEM_PROMPT,
+        messages:[
+          {role:"user",content:buildUserPrompt(brief,startISO,durationLabel(days),awareKeys)},
+          {role:"assistant",content:"["}
+        ]
+      })
+    });
+
+    if(!res.ok){
+      let detail="";try{const j=await res.json();detail=j.error?.message||JSON.stringify(j);}catch(e){detail=res.statusText;}
+      if(res.status===401)throw new Error("Your API key was rejected (401). Open ⚙️ settings and check it.");
+      if(res.status===429)throw new Error("Rate limit / quota reached (429). Try again shortly or check your Anthropic billing.");
+      throw new Error("API error "+res.status+": "+detail);
+    }
+
+    const data=await res.json();
+    const raw=(data.content||[]).map(b=>b.text||"").join("");
+    if(!raw.trim())throw new Error("The AI returned an empty response. Please try again.");
+    // we prefilled the assistant turn with "[", so prepend it back to complete the array
+    const text="["+raw;
+    let plan;
+    try{ plan=extractJSON(text); }
+    catch(e){
+      console.error("PlanPulse could not parse this response:\n",text);
+      if(data.stop_reason==="max_tokens")throw new Error("The plan ran longer than the response limit and got cut off. Try a shorter duration, or ask for fewer posts in your brief.");
+      throw new Error("The AI replied in an unexpected format. Tap Generate again - it usually works on a second try. (Response started: \""+text.slice(0,90).replace(/\s+/g," ")+"…\")");
+    }
+    if(!Array.isArray(plan)||!plan.length)throw new Error("The AI returned an empty plan. Try adding more detail to your brief and regenerate.");
+    // truncated but salvaged some posts? let the user know rather than failing
+    if(data.stop_reason==="max_tokens")toast("Heads up: the plan was long, showing the "+plan.length+" posts that completed.");
+
+    // sort + tag awareness from our own map too
+    plan.sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+    plan.forEach(p=>{
+      if(!p.awareness_day && aware[p.date]){p.awareness_day=aware[p.date];p.is_awareness_day=true;}
+    });
+
+    PLAN=plan;
+    localStorage.setItem(LS_COUNT,String(genCount()+1));
+    buildPrintHeader(startISO,durationLabel(days));
+    renderAll();
+    $("#loading").classList.remove("show");
+    $("#viewWrap").style.display="";
+    $("#refine").style.display="";
+    $("#output").classList.add("show");
+    $("#output").scrollIntoView({behavior:"smooth"});
+  }catch(err){
+    $("#loading").classList.remove("show");
+    let msg=err.message||String(err);
+    if(/Failed to fetch|NetworkError/i.test(msg)){
+      msg="Couldn’t reach the Claude API. This is usually a network issue or a CORS block. Make sure you’re online and that your key is valid.";
+    }
+    showErr("⚠️ "+msg);
+    $("#input-card").scrollIntoView({behavior:"smooth"});
+  }finally{
+    $("#generateBtn").disabled=false;
+  }
+}
+$("#generateBtn").onclick=generate;
+$("#btnRegen").onclick=generate;
+
+/* ============== rendering ============== */
+function pfClass(p){return "pf-"+(p||"").replace(/[^A-Za-z]/g,"");}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function renderAll(){renderCalendar();renderList();}
+
+function renderCalendar(){
+  const wrap=$("#calendarView");wrap.innerHTML="";
+  const byDate={};PLAN.forEach(p=>{(byDate[p.date]=byDate[p.date]||[]).push(p);});
+  const aware=window.__aware||{};
+  // months spanning the range
+  const start=RANGE.start,end=RANGE.end;
+  const cur=new Date(start.getFullYear(),start.getMonth(),1);
+  const dows=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  while(cur<=end){
+    const y=cur.getFullYear(),m=cur.getMonth();
+    const monthEl=document.createElement("div");monthEl.className="cal-month";
+    monthEl.innerHTML=`<div class="cal-month__title">${cur.toLocaleString("en-GB",{month:"long",year:"numeric"})}</div>`;
+    const grid=document.createElement("div");grid.className="cal-grid";
+    dows.forEach(d=>{const h=document.createElement("div");h.className="cal-dow";h.textContent=d;grid.appendChild(h);});
+    const first=new Date(y,m,1);
+    let lead=(first.getDay()+6)%7; // Monday-first
+    for(let i=0;i<lead;i++){const c=document.createElement("div");c.className="cal-cell empty";grid.appendChild(c);}
+    const daysInMonth=new Date(y,m+1,0).getDate();
+    for(let dnum=1;dnum<=daysInMonth;dnum++){
+      const dISO=iso(new Date(y,m,dnum));
+      const cell=document.createElement("div");cell.className="cal-cell";
+      if(dISO===todayISO())cell.classList.add("today");
+      const posts=byDate[dISO]||[];
+      const awareName=aware[dISO];
+      if(awareName)cell.classList.add("has-aware");
+      let html=`<span class="cal-num">${dnum}</span>`;
+      if(awareName)html+=`<span class="cal-aware" title="${esc(awareName)}">★ ${esc(awareName)}</span>`;
+      cell.innerHTML=html;
+      posts.forEach(p=>{
+        const pill=document.createElement("div");
+        pill.className="cal-pill "+pfClass(p.platform);
+        pill.style.background=pfColor(p.platform);
+        pill.textContent=p.platform+" · "+(p.post_type||"");
+        pill.dataset.short=SHORT[p.platform]||"●";
+        pill.title=p.topic||"";
+        pill.onclick=()=>openPost(p);
+        cell.appendChild(pill);
+      });
+      grid.appendChild(cell);
+    }
+    monthEl.appendChild(grid);wrap.appendChild(monthEl);
+    cur.setMonth(cur.getMonth()+1);
+  }
+}
+
+function openPost(p){
+  // switch to list view, open & scroll to the matching card
+  showList();
+  const idx=PLAN.indexOf(p);
+  const card=document.querySelector('.pcard[data-idx="'+idx+'"]');
+  if(card){document.querySelectorAll(".pcard.open").forEach(c=>c.classList.remove("open"));card.classList.add("open");card.scrollIntoView({behavior:"smooth",block:"center"});}
+}
+
+function renderList(){
+  const wrap=$("#listView");wrap.innerHTML="";
+  const stack=document.createElement("div");stack.className="list-stack";
+  PLAN.forEach((p,idx)=>{
+    const d=new Date((p.date||todayISO())+"T00:00:00");
+    const dateStr=d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+    const card=document.createElement("div");
+    card.className="pcard"+(p.is_awareness_day?" aware":"");
+    card.dataset.idx=idx;
+    const tags=Array.isArray(p.hashtags)?p.hashtags:[];
+    const cross=Array.isArray(p.crosspost_to)?p.crosspost_to.filter(x=>x&&x!==p.platform):[];
+    const crossDots=cross.map(c=>`<span class="dotc" title="Also post to ${esc(c)}" style="background:${pfColor(c)}"></span>`).join("");
+    card.innerHTML=`
+      ${p.awareness_day?`<div class="pcard__awarebar">★ ${esc(p.awareness_day)}</div>`:""}
+      <div class="pcard__top">
+        <div class="pcard__date">${esc(dateStr)}<small>${esc(p.day||d.toLocaleDateString("en-GB",{weekday:"long"}))}</small></div>
+        <span class="pf ${pfClass(p.platform)}" style="background:${pfColor(p.platform)}">${esc(p.platform)}</span>
+        <span class="pcard__type">${esc(p.post_type||"Post")}</span>
+        <span class="pcard__topic">${esc(p.topic||"")}</span>
+        ${cross.length?`<span class="pcard__cross" title="Crosspost to ${esc(cross.join(", "))}">↗ ${crossDots}</span>`:""}
+        <span class="pcard__chev">▼</span>
+      </div>
+      <div class="pcard__body"><div class="pcard__inner">
+        <div class="cap"><span class="k">Caption</span>${esc(p.caption||"")}</div>
+        ${tags.length?`<div><span class="k">Hashtags</span><div class="hashtags">${tags.map(h=>`<span class="hashtag">${esc(h.startsWith("#")?h:"#"+h)}</span>`).join("")}</div></div>`:""}
+        ${cross.length?`<div><span class="k">Also works on (crosspost)</span><div class="cross">${cross.map(c=>`<span class="mini" style="background:${pfColor(c)}">${pfIcon(c)}${esc(c)}</span>`).join("")}</div></div>`:""}
+        ${p.crosspost_warning?`<div class="warn">⚠ ${esc(p.crosspost_warning)}</div>`:""}
+        ${p.framing_tip?`<div class="tip">🎬 ${esc(p.framing_tip)}</div>`:""}
+      </div></div>`;
+    card.querySelector(".pcard__top").onclick=()=>card.classList.toggle("open");
+    stack.appendChild(card);
+  });
+  wrap.appendChild(stack);
+}
+
+/* ============== view toggle ============== */
+function showCalendar(){$("#calendarView").style.display="";$("#listView").style.display="none";$("#tabCalendar").classList.add("is-active");$("#tabList").classList.remove("is-active");}
+function showList(){$("#calendarView").style.display="none";$("#listView").style.display="";$("#tabList").classList.add("is-active");$("#tabCalendar").classList.remove("is-active");}
+$("#tabCalendar").onclick=showCalendar;
+$("#tabList").onclick=showList;
+
+/* ============== exports (gated to unlocked or within free limit) ============== */
+function exportAllowed(){
+  if(unlocked()||genCount()<=FREE_LIMIT)return true;
+  $("#gate").classList.add("show");$("#gate").scrollIntoView({behavior:"smooth"});return false;
+}
+function planAsText(){
+  return PLAN.map(p=>{
+    const d=new Date((p.date||"")+"T00:00:00");
+    const tags=(Array.isArray(p.hashtags)?p.hashtags:[]).map(h=>h.startsWith("#")?h:"#"+h).join(" ");
+    const cross=(Array.isArray(p.crosspost_to)?p.crosspost_to:[]).filter(x=>x&&x!==p.platform);
+    return `${d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})} - ${p.platform} (${p.post_type||""})`+
+      (p.awareness_day?`\n★ ${p.awareness_day}`:"")+
+      `\nTopic: ${p.topic||""}`+
+      `\nCaption: ${p.caption||""}`+
+      (tags?`\nHashtags: ${tags}`:"")+
+      (cross.length?`\nAlso post to: ${cross.join(", ")}`:"")+
+      (p.crosspost_warning?`\nNote: ${p.crosspost_warning}`:"")+
+      (p.framing_tip?`\nTip: ${p.framing_tip}`:"");
+  }).join("\n\n- - -\n\n");
+}
+$("#btnCopy").onclick=()=>{
+  if(!exportAllowed())return;
+  navigator.clipboard.writeText(planAsText()).then(()=>toast("Copied to clipboard ✓"),()=>toast("Copy failed - select and copy manually"));
+};
+function csvCell(v){v=String(v==null?"":v).replace(/"/g,'""');return `"${v}"`;}
+$("#btnCsv").onclick=()=>{
+  if(!exportAllowed())return;
+  const head=["Date","Day","Platform","Post Type","Topic","Caption","Hashtags","Crosspost To","Crosspost Warning","Framing Tip","Awareness Day"];
+  const rows=PLAN.map(p=>[p.date,p.day,p.platform,p.post_type,p.topic,p.caption,(Array.isArray(p.hashtags)?p.hashtags.join(" "):""),(Array.isArray(p.crosspost_to)?p.crosspost_to.filter(x=>x&&x!==p.platform).join(" "):""),p.crosspost_warning||"",p.framing_tip,p.awareness_day||""].map(csvCell).join(","));
+  const csv=head.map(csvCell).join(",")+"\n"+rows.join("\n");
+  const blob=new Blob(["﻿"+csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="planpulse-content-calendar.csv";a.click();
+  URL.revokeObjectURL(a.href);toast("CSV downloaded ✓");
+};
+function buildPrintHeader(startISO,durLabel){
+  const s=new Date(startISO+"T00:00:00"), e=new Date(RANGE.end);
+  const range=`${s.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})} to ${e.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}`;
+  PLAN.__range=range; PLAN.__dur=durLabel;
+}
+
+/* ---- logos for the PDF (preloaded as data URLs) ---- */
+let LOGO_PP=null, LOGO_S4=null;
+function imgToData(src){return new Promise(res=>{const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext("2d").drawImage(img,0,0);res({data:c.toDataURL("image/png"),w:img.naturalWidth,h:img.naturalHeight});}catch(e){res(null);}};img.onerror=()=>res(null);img.src=src;});}
+imgToData("brand_logos/planpulse%20logo.png").then(d=>LOGO_PP=d);
+imgToData("assets/s4digital-logo.png").then(d=>LOGO_S4=d);
+
+const PF_HEX={Instagram:"#E1306C",Facebook:"#1877F2",LinkedIn:"#0A66C2",TikTok:"#111111",YouTube:"#FF0000",X:"#111111",Twitter:"#111111",Email:"#F59E0B"};
+function hexRGB(h){h=(h||"#0A66C2").replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+
+function generatePDF(){
+  if(!exportAllowed())return;
+  if(!(window.jspdf&&window.jspdf.jsPDF)){toast("PDF engine still loading, try again in a moment");return;}
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:"pt",format:"a4"});
+  const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=42;
+  let y=46;
+  const ensure=sp=>{ if(y+sp>H-54){ doc.addPage(); y=46; } };
+  const wrap=(text,size,style,color,x=M,gap=4)=>{
+    if(text==null||text==="")return;
+    doc.setFont("helvetica",style||"normal");doc.setFontSize(size);
+    doc.setTextColor(color?color[0]:34,color?color[1]:34,color?color[2]:40);
+    doc.splitTextToSize(String(text),W-M-x).forEach(ln=>{ ensure(size+gap); doc.text(ln,x,y); y+=size+gap; });
+  };
+
+  // ---- cover header: PP logo (left) + S4D logo (right) ----
+  if(LOGO_PP) doc.addImage(LOGO_PP.data,"PNG",M,y-6,46,46);
+  doc.setFont("helvetica","bold");doc.setFontSize(23);doc.setTextColor(13,13,15);
+  doc.text("Content Plan",M+58,y+16);
+  doc.setFont("helvetica","normal");doc.setFontSize(9.5);doc.setTextColor(120,120,128);
+  doc.text(`${PLAN.__range||""}   ·   ${PLAN.__dur||""}   ·   ${PLAN.length} posts`,M+58,y+32);
+  if(LOGO_S4){ const lw=92, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",W-M-lw,y+(40-lh)/2,lw,lh); }
+  y+=52;
+  doc.setDrawColor(13,13,15);doc.setLineWidth(1.4);doc.line(M,y,W-M,y);y+=18;
+  // summary line
+  doc.setFont("helvetica","bold");doc.setFontSize(9);doc.setTextColor(15,111,200);
+  doc.text("Platforms: ",M,y); let sx=M+doc.getTextWidth("Platforms: ");
+  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);
+  doc.text([...SEL.platforms].join(", "),sx,y); y+=15;
+  doc.setFont("helvetica","bold");doc.setTextColor(15,111,200);doc.text("Tone: ",M,y);
+  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);doc.text(SEL.tone,M+doc.getTextWidth("Tone: "),y);y+=15;
+  doc.setFont("helvetica","bold");doc.setTextColor(15,111,200);doc.text("Goals: ",M,y);
+  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);
+  doc.text([...SEL.goals].join(", ")||"general growth",M+doc.getTextWidth("Goals: "),y);y+=22;
+
+  // ---- posts ----
+  PLAN.forEach(p=>{
+    ensure(70); y+=2;
+    const d=new Date((p.date||"")+"T00:00:00");
+    const dateStr=isNaN(d)?(p.date||""):d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});
+    if(p.awareness_day) wrap("★ "+p.awareness_day,9,"bold",[169,106,0]);
+    // platform chip + date
+    const label=(p.platform||"").toUpperCase(), col=hexRGB(PF_HEX[p.platform]);
+    doc.setFont("helvetica","bold");doc.setFontSize(8.5);
+    const cw=doc.getTextWidth(label)+14;
+    ensure(20);
+    doc.setFillColor(col[0],col[1],col[2]);doc.roundedRect(M,y-9,cw,14,3,3,"F");
+    doc.setTextColor(255,255,255);doc.text(label,M+7,y+1);
+    doc.setTextColor(13,13,15);doc.setFontSize(10);
+    doc.text(`${dateStr}   ·   ${p.post_type||"Post"}`,M+cw+10,y+1); y+=18;
+    wrap(p.topic||"",12,"bold",[13,13,15]);
+    wrap(p.caption||"",10,"normal",[40,40,48]);
+    const tags=(Array.isArray(p.hashtags)?p.hashtags:[]).map(h=>h.startsWith("#")?h:"#"+h).join(" ");
+    if(tags) wrap(tags,9,"normal",[15,111,200]);
+    const cross=(Array.isArray(p.crosspost_to)?p.crosspost_to:[]).filter(x=>x&&x!==p.platform);
+    if(cross.length) wrap("Also post to: "+cross.join(", "),9,"bold",[15,111,200]);
+    if(p.crosspost_warning) wrap("Caution: "+p.crosspost_warning,9,"normal",[169,106,0]);
+    if(p.framing_tip) wrap("Tip: "+p.framing_tip,9,"italic",[90,90,100]);
+    y+=6; ensure(8); doc.setDrawColor(222,224,230);doc.setLineWidth(.6);doc.line(M,y,W-M,y); y+=10;
+  });
+
+  // ---- footer page numbers ----
+  const pages=doc.internal.getNumberOfPages();
+  for(let i=1;i<=pages;i++){ doc.setPage(i);
+    doc.setFont("helvetica","normal");doc.setFontSize(8);doc.setTextColor(150,150,158);
+    doc.text("PlanPulse by S4 Digital  ·  s4digi.com",M,H-28);
+    doc.text(`Page ${i} of ${pages}`,W-M,H-28,{align:"right"});
+  }
+  doc.save("planpulse-content-plan.pdf");
+  toast("PDF downloaded ✓");
+}
+$("#btnPdf").onclick=generatePDF;
+
+/* ============== gate unlock ============== */
+$("#gateUnlock").onclick=()=>{
+  const email=$("#gateEmail").value.trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast("Enter a valid email to unlock");return;}
+  localStorage.setItem(LS_UNLOCKED,"1");
+  localStorage.setItem("planpulse_email",email);
+  $("#gate").classList.remove("show");$("#viewWrap").style.display="";
+  toast("Unlocked - enjoy unlimited plans ✓");
+  if(!PLAN.length)generate();
+};
+
+/* ============== selectors (platforms / tone / goals) ============== */
+function renderPlatforms(){
+  const wrap=$("#platformSelect");wrap.innerHTML="";
+  PLATFORMS.forEach(pf=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="pf-opt"+(SEL.platforms.has(pf.id)?" sel":"");
+    b.style.setProperty("--brand",pf.color);
+    b.innerHTML=`${pfIcon(pf.id)}<span>${pf.id}</span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`;
+    b.onclick=()=>{ SEL.platforms.has(pf.id)?SEL.platforms.delete(pf.id):SEL.platforms.add(pf.id); b.classList.toggle("sel"); };
+    wrap.appendChild(b);
+  });
+}
+function renderTones(){
+  const wrap=$("#toneSelect");wrap.innerHTML="";
+  TONES.forEach(t=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="opt-chip"+(SEL.tone===t?" sel":"");b.textContent=t;
+    b.onclick=()=>{SEL.tone=t;wrap.querySelectorAll(".opt-chip").forEach(c=>c.classList.remove("sel"));b.classList.add("sel");};
+    wrap.appendChild(b);
+  });
+}
+function renderGoals(){
+  const wrap=$("#goalSelect");wrap.innerHTML="";
+  GOALS.forEach(g=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="opt-chip"+(SEL.goals.has(g)?" sel":"");b.textContent=g;
+    b.onclick=()=>{SEL.goals.has(g)?SEL.goals.delete(g):SEL.goals.add(g);b.classList.toggle("sel");};
+    wrap.appendChild(b);
+  });
+}
+
+/* ============== theme ============== */
+function applyTheme(t){document.documentElement.setAttribute("data-theme",t);$("#themeToggle").textContent=t==="dark"?"☀️":"🌙";}
+function getTheme(){const s=localStorage.getItem("planpulse_theme");if(s)return s;return matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}
+$("#themeToggle").onclick=()=>{const t=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";localStorage.setItem("planpulse_theme",t);applyTheme(t);};
+
+/* ============== refine ============== */
+$("#refineApply").onclick=()=>{
+  const v=$("#refineInput").value.trim();
+  if(!v){toast("Type what you'd like to change first");return;}
+  REFINEMENT=v;
+  generate();
+};
+$("#refineClear").onclick=()=>{$("#refineInput").value="";REFINEMENT="";toast("Refinement cleared");};
+
+/* ============== init ============== */
+renderPlatforms();renderTones();renderGoals();
+applyTheme(getTheme());
+$("#startDate").value=todayISO();
+$("#startDate").min=todayISO();
+</script>
+</body>
+</html>
