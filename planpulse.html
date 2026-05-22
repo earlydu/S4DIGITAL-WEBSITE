@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PlanPulse - Your content. Planned. Perfected. | s4digital</title>
 <meta name="description" content="PlanPulse by s4digital: generate a smart, UK-aware social content calendar for any trade or service business in seconds." />
-<link rel="icon" type="image/png" href="brand_logos/planpulse%20logo.png" />
-<link rel="apple-touch-icon" href="brand_logos/planpulse%20logo.png" />
+<link rel="icon" type="image/png" href="assets/planpulse-logo.png" />
+<link rel="apple-touch-icon" href="assets/planpulse-logo.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
@@ -329,7 +329,7 @@ footer a{color:var(--blue-3);font-weight:800}
 
   <div class="topnav">
     <div class="brand">
-      <div class="brand__mark"><img src="brand_logos/planpulse%20logo.png" alt="PlanPulse logo" /></div>
+      <div class="brand__mark"><img src="assets/planpulse-logo.png" alt="PlanPulse logo" /></div>
       <div>
         <div class="brand__name">PlanPulse</div>
         <div class="brand__by">Powered by S4 Digital - s4digi.com</div>
@@ -970,7 +970,7 @@ function buildPrintHeader(startISO,durLabel){
 /* ---- logos for the PDF (preloaded as data URLs) ---- */
 let LOGO_PP=null, LOGO_S4=null;
 function imgToData(src){return new Promise(res=>{const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext("2d").drawImage(img,0,0);res({data:c.toDataURL("image/png"),w:img.naturalWidth,h:img.naturalHeight});}catch(e){res(null);}};img.onerror=()=>res(null);img.src=src;});}
-imgToData("brand_logos/planpulse%20logo.png").then(d=>LOGO_PP=d);
+imgToData("assets/planpulse-logo.png").then(d=>LOGO_PP=d);
 imgToData("assets/s4digital-logo.png").then(d=>LOGO_S4=d);
 
 const PF_HEX={Instagram:"#E1306C",Facebook:"#1877F2",LinkedIn:"#0A66C2",TikTok:"#111111",YouTube:"#FF0000",X:"#111111",Twitter:"#111111",Email:"#F59E0B"};
@@ -1011,30 +1011,42 @@ function generatePDF(){
   doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);
   doc.text([...SEL.goals].join(", ")||"general growth",M+doc.getTextWidth("Goals: "),y);y+=22;
 
-  // ---- posts ----
+  // ---- bulleted line helper (hanging indent) ----
+  const bullet=(text,size,color,style)=>{
+    if(text==null||text==="")return;
+    const x=M+13;
+    doc.setFont("helvetica",style||"normal");doc.setFontSize(size);
+    const lines=doc.splitTextToSize(String(text),W-M-x);
+    lines.forEach((ln,i)=>{
+      ensure(size+3.5);
+      doc.setTextColor(color[0],color[1],color[2]);
+      if(i===0){doc.setFont("helvetica","bold");doc.text("•",M+3,y);doc.setFont("helvetica",style||"normal");}
+      doc.text(ln,x,y); y+=size+3.5;
+    });
+  };
+
+  // ---- posts (concise & bulleted) ----
   PLAN.forEach(p=>{
-    ensure(70); y+=2;
+    ensure(58); y+=5;
     const d=new Date((p.date||"")+"T00:00:00");
-    const dateStr=isNaN(d)?(p.date||""):d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});
-    if(p.awareness_day) wrap("★ "+p.awareness_day,9,"bold",[169,106,0]);
-    // platform chip + date
+    const dateStr=isNaN(d)?(p.date||""):d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+    // header: platform chip + date + type (+ awareness)
     const label=(p.platform||"").toUpperCase(), col=hexRGB(PF_HEX[p.platform]);
-    doc.setFont("helvetica","bold");doc.setFontSize(8.5);
-    const cw=doc.getTextWidth(label)+14;
-    ensure(20);
-    doc.setFillColor(col[0],col[1],col[2]);doc.roundedRect(M,y-9,cw,14,3,3,"F");
-    doc.setTextColor(255,255,255);doc.text(label,M+7,y+1);
-    doc.setTextColor(13,13,15);doc.setFontSize(10);
-    doc.text(`${dateStr}   ·   ${p.post_type||"Post"}`,M+cw+10,y+1); y+=18;
-    wrap(p.topic||"",12,"bold",[13,13,15]);
-    wrap(p.caption||"",10,"normal",[40,40,48]);
-    const tags=(Array.isArray(p.hashtags)?p.hashtags:[]).map(h=>h.startsWith("#")?h:"#"+h).join(" ");
-    if(tags) wrap(tags,9,"normal",[15,111,200]);
+    doc.setFont("helvetica","bold");doc.setFontSize(8);
+    const cw=doc.getTextWidth(label)+12; ensure(18);
+    doc.setFillColor(col[0],col[1],col[2]);doc.roundedRect(M,y-8.5,cw,13,3,3,"F");
+    doc.setTextColor(255,255,255);doc.text(label,M+6,y+1);
+    doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(120,120,128);
+    doc.text(`${dateStr}  ·  ${p.post_type||"Post"}${p.awareness_day?"  ·  ★ "+p.awareness_day:""}`,M+cw+9,y+1); y+=16;
+    // the content idea
+    wrap(p.topic||"",11.5,"bold",[13,13,15],M,3); y+=1;
+    // concise bullets: where, the caption, how to make it
     const cross=(Array.isArray(p.crosspost_to)?p.crosspost_to:[]).filter(x=>x&&x!==p.platform);
-    if(cross.length) wrap("Also post to: "+cross.join(", "),9,"bold",[15,111,200]);
-    if(p.crosspost_warning) wrap("Caution: "+p.crosspost_warning,9,"normal",[169,106,0]);
-    if(p.framing_tip) wrap("Tip: "+p.framing_tip,9,"italic",[90,90,100]);
-    y+=6; ensure(8); doc.setDrawColor(222,224,230);doc.setLineWidth(.6);doc.line(M,y,W-M,y); y+=10;
+    bullet("Post to: "+[p.platform,...cross].join(", "),9.5,[15,111,200],"bold");
+    bullet("Caption: "+(p.caption||""),9.5,[45,45,52]);
+    if(p.framing_tip) bullet("How to create: "+p.framing_tip,9.5,[90,90,100],"italic");
+    if(p.crosspost_warning) bullet("Note: "+p.crosspost_warning,9,[169,106,0]);
+    y+=7; ensure(8); doc.setDrawColor(226,228,234);doc.setLineWidth(.5);doc.line(M,y,W-M,y); y+=8;
   });
 
   // ---- footer page numbers ----
