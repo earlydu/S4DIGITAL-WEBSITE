@@ -751,10 +751,14 @@ function closeSettings(){$("#settingsModal").classList.remove("show");}
 $("#openSettings").onclick=openSettings;
 $("#closeSettings").onclick=closeSettings;
 $("#settingsModal").addEventListener("click",e=>{if(e.target===$("#settingsModal"))closeSettings();});
+function safeStore(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ toast("Your browser is blocking storage (private mode?), the key can’t be remembered."); return false; } }
+// auto-save as you type/change, so the key persists even without pressing Save
+$("#apiKey").addEventListener("input",()=>{ const v=$("#apiKey").value.trim(); if(v) safeStore(LS_KEY,v); });
+$("#modelSel").addEventListener("change",()=>safeStore(LS_MODEL,$("#modelSel").value));
 $("#saveSettings").onclick=()=>{
-  localStorage.setItem(LS_KEY,$("#apiKey").value.trim());
-  localStorage.setItem(LS_MODEL,$("#modelSel").value);
-  closeSettings();toast("Settings saved ✓");
+  const ok=safeStore(LS_KEY,$("#apiKey").value.trim());
+  safeStore(LS_MODEL,$("#modelSel").value);
+  closeSettings(); if(ok) toast("Settings saved ✓");
 };
 
 /* ============== niche chips ============== */
