@@ -262,6 +262,9 @@ footer a{color:var(--blue-3);font-weight:800}
 
 /* topnav action group */
 .topnav__actions{display:flex;align-items:center;gap:10px}
+.brand{cursor:pointer}
+.topnav__home{white-space:nowrap}
+@media (max-width:560px){.topnav__home{display:none}}
 
 /* section label inside input card */
 .sec{margin-top:20px}
@@ -334,14 +337,15 @@ footer a{color:var(--blue-3);font-weight:800}
 <div class="shell">
 
   <div class="topnav">
-    <div class="brand">
+    <a class="brand" href="/" title="Back to s4digital.com">
       <div class="brand__mark"><img src="assets/planpulse-logo.png" alt="PlanPulse logo" /></div>
       <div>
         <div class="brand__name">PlanPulse</div>
         <div class="brand__by">Powered by s4digital - s4digi.com</div>
       </div>
-    </div>
+    </a>
     <div class="topnav__actions">
+      <a class="btn btn--ghost btn--sm topnav__home" href="/">← Back to site</a>
       <button class="icon-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
       <button class="icon-btn" id="openSettings" title="API settings" aria-label="API settings">⚙️</button>
     </div>
