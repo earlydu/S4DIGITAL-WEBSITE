@@ -237,6 +237,11 @@ textarea#brief:focus{outline:0;border-color:var(--blue);background:#fff;box-shad
 .modal input:focus,.modal select:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(62,163,252,.14)}
 .modal .note{font-size:12px;color:var(--muted);font-weight:600;margin-top:8px;display:flex;gap:7px;align-items:flex-start}
 .modal .actions{display:flex;gap:10px;margin-top:22px}
+.pay-list{list-style:none;margin:4px 0 4px;padding:0}
+.pay-list li{position:relative;padding:7px 0 7px 26px;font-size:13.5px;font-weight:600;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.pay-list li:last-child{border-bottom:0}
+.pay-list li::before{content:"✓";position:absolute;left:0;top:7px;width:17px;height:17px;border-radius:50%;background:rgba(62,163,252,.16);color:var(--blue-3);font-size:11px;font-weight:900;display:grid;place-items:center}
+.dur-hint{display:block;margin-top:7px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.4}
 
 /* upgrade / email capture */
 .gate{display:none;border:1px solid rgba(255,106,44,.4);background:rgba(255,106,44,.07);border-radius:var(--radius-sm);padding:18px;margin-top:16px}
@@ -277,8 +282,9 @@ footer a{color:var(--blue-3);font-weight:800}
 .opt-chips{display:flex;flex-wrap:wrap;gap:8px}
 .opt-chip{padding:8px 14px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;font-size:12.5px;font-weight:700;color:var(--ink-2);transition:transform .15s,border-color .2s,background .2s,color .2s}
 .opt-chip:hover{transform:translateY(-1px);border-color:var(--blue)}
-.opt-chip.sel{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 10px 24px -14px var(--blue)}
-[data-theme="dark"] .opt-chip{background:var(--paper)}
+.opt-chip.sel{background:var(--blue);border-color:#1f8ce8;color:#fff;font-weight:800;box-shadow:0 0 0 3px rgba(62,163,252,.28),0 10px 24px -14px var(--blue)}
+[data-theme="dark"] .opt-chip:not(.sel){background:var(--paper);border-color:#3f4a63;color:#d6dae4}
+[data-theme="dark"] .opt-chip.sel{background:#54b3ff;border-color:#9bd0ff;color:#08121d;font-weight:800;box-shadow:0 0 0 3px rgba(124,196,255,.55)}
 
 /* crosspost + warning in list cards */
 .cross{display:flex;flex-wrap:wrap;gap:6px}
@@ -332,7 +338,7 @@ footer a{color:var(--blue-3);font-weight:800}
       <div class="brand__mark"><img src="assets/planpulse-logo.png" alt="PlanPulse logo" /></div>
       <div>
         <div class="brand__name">PlanPulse</div>
-        <div class="brand__by">Powered by S4 Digital - s4digi.com</div>
+        <div class="brand__by">Powered by s4digital - s4digi.com</div>
       </div>
     </div>
     <div class="topnav__actions">
@@ -406,6 +412,7 @@ footer a{color:var(--blue-3);font-weight:800}
           <option value="30" selected>1 Month</option>
           <option value="90">3 Months</option>
         </select>
+        <small id="durHint" class="dur-hint"></small>
       </div>
     </div>
 
@@ -435,15 +442,6 @@ footer a{color:var(--blue-3);font-weight:800}
       </div>
     </div>
 
-    <div class="gate" id="gate">
-      <h3>You’ve used your free plans 🎉</h3>
-      <p>Pop in your email to unlock <strong>unlimited generations + CSV/PDF export</strong>, free while in beta. We’ll only send the occasional growth tip from S4 Digital.</p>
-      <div class="grow">
-        <input type="email" id="gateEmail" placeholder="you@business.co.uk" />
-        <button class="btn btn--orange btn--sm" id="gateUnlock">Unlock</button>
-      </div>
-    </div>
-
     <div class="card" id="viewWrap">
       <div id="printHeader"></div>
       <div id="calendarView"></div>
@@ -461,7 +459,7 @@ footer a{color:var(--blue-3);font-weight:800}
   </section>
 
   <footer>
-    <span class="noprint">Built by S4 Digital · <a href="https://s4digi.com" target="_blank" rel="noopener">s4digi.com</a> · PlanPulse v1.0</span>
+    <span class="noprint">Built by s4digital · <a href="https://s4digi.com" target="_blank" rel="noopener">s4digi.com</a> · PlanPulse v1.0</span>
   </footer>
 </div>
 
@@ -478,11 +476,45 @@ footer a{color:var(--blue-3);font-weight:800}
       <option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6 - best value &amp; quality</option>
       <option value="claude-opus-4-7">Claude Opus 4.7 - maximum quality (pricier)</option>
     </select>
-    <div class="note">🔒 <span>Your API key is stored locally in your browser only. It never touches an S4 Digital server. Get a key at <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--blue-3);font-weight:800">console.anthropic.com</a>.</span></div>
+    <div class="note">🔒 <span>Your API key is stored locally in your browser only. It never touches an s4digital server. Get a key at <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--blue-3);font-weight:800">console.anthropic.com</a>.</span></div>
     <div class="actions">
       <button class="btn btn--ghost" id="closeSettings" style="flex:1">Cancel</button>
       <button class="btn btn--orange" id="saveSettings" style="flex:1">Save</button>
     </div>
+  </div>
+</div>
+
+<!-- LEAD CAPTURE MODAL (PDF download) -->
+<div class="modal-bg" id="leadModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Download PDF">
+    <h2>📄 Download your plan</h2>
+    <p class="sub">Pop in your details and we’ll build your content plan PDF. We may send the occasional growth tip from s4digital, no spam, unsubscribe anytime.</p>
+    <label for="leadName">Your name</label>
+    <input type="text" id="leadName" placeholder="Jane Smith" autocomplete="name" />
+    <label for="leadEmail">Email</label>
+    <input type="email" id="leadEmail" placeholder="you@business.co.uk" autocomplete="email" />
+    <div class="actions">
+      <button class="btn btn--ghost" id="leadCancel" style="flex:1">Cancel</button>
+      <button class="btn btn--orange" id="leadSubmit" style="flex:1">Get my PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAYWALL MODAL (longer plans) -->
+<div class="modal-bg" id="payModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Unlock longer plans">
+    <h2>🔓 Unlock longer plans</h2>
+    <p class="sub">The <strong>2-week plan is free</strong>. Unlock <strong>1-month and 3-month</strong> plans with a one-time payment of <strong>£9</strong>. No subscription, it’s yours for good on this device.</p>
+    <ul class="pay-list">
+      <li>1-month and 3-month content calendars</li>
+      <li>Unlimited regenerations and refinements</li>
+      <li>Branded PDF download to share with clients</li>
+    </ul>
+    <div class="actions">
+      <button class="btn btn--ghost" id="payCancel" style="flex:1">Maybe later</button>
+      <button class="btn btn--orange" id="payNow" style="flex:1">Unlock for £9</button>
+    </div>
+    <div class="note" style="justify-content:center">🔒 <span>One-time payment, secured by Stripe.</span></div>
   </div>
 </div>
 
@@ -491,12 +523,17 @@ footer a{color:var(--blue-3);font-weight:800}
 <script>
 "use strict";
 
+/* ============== CONFIG — edit these to switch payments on ============== */
+const STRIPE_LINK = "";    // <-- paste your Stripe Payment Link URL here to enable £9 unlocks
+const LEAD_ENDPOINT = "";  // optional: a Formspree/webhook URL that receives name + email leads
+const PRICE_LABEL = "£9";
+const FREE_DAYS = "14";    // 2 weeks is free; 1 & 3 month require the one-time unlock
+
 /* ============== constants ============== */
 const LS_KEY = "planpulse_api_key";
 const LS_MODEL = "planpulse_model";
-const LS_COUNT = "planpulse_gen_count";
-const LS_UNLOCKED = "planpulse_unlocked";
-const FREE_LIMIT = 2;
+const LS_PAID = "planpulse_paid";
+const LS_LEAD = "planpulse_lead";
 
 const VALID_MODELS = ["claude-haiku-4-5-20251001","claude-sonnet-4-6","claude-opus-4-7"];
 const DEFAULT_MODEL = "claude-sonnet-4-6";
@@ -660,8 +697,9 @@ function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show"
 function todayISO(){return iso(new Date());}
 function getKey(){return localStorage.getItem(LS_KEY)||"";}
 function getModel(){const m=localStorage.getItem(LS_MODEL);return VALID_MODELS.includes(m)?m:DEFAULT_MODEL;}
-function genCount(){return parseInt(localStorage.getItem(LS_COUNT)||"0",10);}
-function unlocked(){return localStorage.getItem(LS_UNLOCKED)==="1";}
+function paid(){return localStorage.getItem(LS_PAID)==="1";}
+function getLead(){try{return JSON.parse(localStorage.getItem(LS_LEAD)||"null");}catch(e){return null;}}
+function hasLead(){const l=getLead();return !!(l&&l.email);}
 function durationLabel(days){return days==="14"?"2 Weeks":days==="90"?"3 Months":"1 Month";}
 
 function showErr(msg){const e=$("#errbox");e.innerHTML=msg;e.classList.add("show");}
@@ -728,17 +766,11 @@ async function generate(){
   if(SEL.platforms.size===0){showErr("Pick at least one platform to plan for.");return;}
   if(!getKey()){showErr("Add your Anthropic API key first - click the ⚙️ settings icon at the top right.");openSettings();return;}
 
-  // freemium gate
-  if(!unlocked() && genCount()>=FREE_LIMIT){
-    $("#output").classList.add("show");
-    $("#gate").classList.add("show");
-    $("#viewWrap").style.display="none";
-    $("#output").scrollIntoView({behavior:"smooth"});
-    return;
-  }
-
   const startISO=$("#startDate").value||todayISO();
   const days=$("#duration").value;
+
+  // paywall: 2-week plans are free; 1 & 3 month need the one-time unlock
+  if(days!==FREE_DAYS && !paid()){ openPayModal(); return; }
   const start=new Date(startISO+"T00:00:00");
   const end=new Date(start);end.setDate(start.getDate()+parseInt(days,10)-1);
   RANGE={start,end};
@@ -804,7 +836,6 @@ async function generate(){
     });
 
     PLAN=plan;
-    localStorage.setItem(LS_COUNT,String(genCount()+1));
     buildPrintHeader(startISO,durationLabel(days));
     renderAll();
     $("#loading").classList.remove("show");
@@ -927,11 +958,7 @@ function showList(){$("#calendarView").style.display="none";$("#listView").style
 $("#tabCalendar").onclick=showCalendar;
 $("#tabList").onclick=showList;
 
-/* ============== exports (gated to unlocked or within free limit) ============== */
-function exportAllowed(){
-  if(unlocked()||genCount()<=FREE_LIMIT)return true;
-  $("#gate").classList.add("show");$("#gate").scrollIntoView({behavior:"smooth"});return false;
-}
+/* ============== exports ============== */
 function planAsText(){
   return PLAN.map(p=>{
     const d=new Date((p.date||"")+"T00:00:00");
@@ -948,12 +975,10 @@ function planAsText(){
   }).join("\n\n- - -\n\n");
 }
 $("#btnCopy").onclick=()=>{
-  if(!exportAllowed())return;
   navigator.clipboard.writeText(planAsText()).then(()=>toast("Copied to clipboard ✓"),()=>toast("Copy failed - select and copy manually"));
 };
 function csvCell(v){v=String(v==null?"":v).replace(/"/g,'""');return `"${v}"`;}
 $("#btnCsv").onclick=()=>{
-  if(!exportAllowed())return;
   const head=["Date","Day","Platform","Post Type","Topic","Caption","Hashtags","Crosspost To","Crosspost Warning","Framing Tip","Awareness Day"];
   const rows=PLAN.map(p=>[p.date,p.day,p.platform,p.post_type,p.topic,p.caption,(Array.isArray(p.hashtags)?p.hashtags.join(" "):""),(Array.isArray(p.crosspost_to)?p.crosspost_to.filter(x=>x&&x!==p.platform).join(" "):""),p.crosspost_warning||"",p.framing_tip,p.awareness_day||""].map(csvCell).join(","));
   const csv=head.map(csvCell).join(",")+"\n"+rows.join("\n");
@@ -973,104 +998,163 @@ function imgToData(src){return new Promise(res=>{const img=new Image();img.onloa
 imgToData("assets/planpulse-logo.png").then(d=>LOGO_PP=d);
 imgToData("assets/s4digital-logo.png").then(d=>LOGO_S4=d);
 
+/* faint s4d asterisk watermark for the PDF (recoloured to a very light tint) */
+let AST_IMG=null;
+(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#e6edf7";x.fillRect(0,0,c.width,c.height);AST_IMG={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
+
 const PF_HEX={Instagram:"#E1306C",Facebook:"#1877F2",LinkedIn:"#0A66C2",TikTok:"#111111",YouTube:"#FF0000",X:"#111111",Twitter:"#111111",Email:"#F59E0B"};
 function hexRGB(h){h=(h||"#0A66C2").replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
 
 function generatePDF(){
-  if(!exportAllowed())return;
+  if(!hasLead()){ openLeadModal(()=>generatePDF()); return; }     // name+email gate
   if(!(window.jspdf&&window.jspdf.jsPDF)){toast("PDF engine still loading, try again in a moment");return;}
   const {jsPDF}=window.jspdf;
-  const doc=new jsPDF({unit:"pt",format:"a4"});
-  const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=42;
-  let y=46;
-  const ensure=sp=>{ if(y+sp>H-54){ doc.addPage(); y=46; } };
-  const wrap=(text,size,style,color,x=M,gap=4)=>{
+  const doc=new jsPDF({orientation:"landscape",unit:"pt",format:"a4"});
+  const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=44;
+  const colGap=34, colW=(W-2*M-colGap)/2, bottomLimit=H-46;
+  let col=0, colTop=M, y=M;
+  const colX=()=>col===0?M:M+colW+colGap;
+
+  function watermark(){
+    try{ if(!AST_IMG)return; const s=470;
+      doc.saveGraphicsState(); doc.setGState(new doc.GState({opacity:0.5}));
+      doc.addImage(AST_IMG.data,"PNG",W-s+85,H-s+160,s,s);
+      doc.restoreGraphicsState();
+    }catch(e){ try{ if(AST_IMG){const s=470;doc.addImage(AST_IMG.data,"PNG",W-s+85,H-s+160,s,s);} }catch(_){} }
+  }
+  function newPage(){ doc.addPage(); watermark(); col=0; colTop=M; y=M; }
+  function ensure(sp){ if(y+sp>bottomLimit){ if(col===0){col=1;y=colTop;} else newPage(); } }
+  function wrap(text,size,style,color,gap){
     if(text==null||text==="")return;
     doc.setFont("helvetica",style||"normal");doc.setFontSize(size);
-    doc.setTextColor(color?color[0]:34,color?color[1]:34,color?color[2]:40);
-    doc.splitTextToSize(String(text),W-M-x).forEach(ln=>{ ensure(size+gap); doc.text(ln,x,y); y+=size+gap; });
-  };
+    doc.splitTextToSize(String(text),colW).forEach(ln=>{ ensure(size+(gap||4)); doc.setTextColor(color[0],color[1],color[2]); doc.text(ln,colX(),y); y+=size+(gap||4); });
+  }
+  function bullet(text,size,color,style){
+    if(text==null||text==="")return;
+    doc.setFont("helvetica",style||"normal");doc.setFontSize(size);
+    doc.splitTextToSize(String(text),colW-12).forEach((ln,i)=>{ ensure(size+3.5); const x=colX()+12; doc.setTextColor(color[0],color[1],color[2]); if(i===0)doc.text("•",colX()+2,y); doc.text(ln,x,y); y+=size+3.5; });
+  }
 
-  // ---- cover header: PP logo (left) + S4D logo (right) ----
-  if(LOGO_PP) doc.addImage(LOGO_PP.data,"PNG",M,y-6,46,46);
-  doc.setFont("helvetica","bold");doc.setFontSize(23);doc.setTextColor(13,13,15);
-  doc.text("Content Plan",M+58,y+16);
+  // ===== page 1 header (full width) =====
+  watermark();
+  let hy=46;
+  if(LOGO_PP) doc.addImage(LOGO_PP.data,"PNG",M,hy-4,44,44);
+  doc.setFont("helvetica","bold");doc.setFontSize(22);doc.setTextColor(13,13,15);
+  doc.text("Content Plan",M+56,hy+15);
   doc.setFont("helvetica","normal");doc.setFontSize(9.5);doc.setTextColor(120,120,128);
-  doc.text(`${PLAN.__range||""}   ·   ${PLAN.__dur||""}   ·   ${PLAN.length} posts`,M+58,y+32);
-  if(LOGO_S4){ const lw=92, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",W-M-lw,y+(40-lh)/2,lw,lh); }
-  y+=52;
-  doc.setDrawColor(13,13,15);doc.setLineWidth(1.4);doc.line(M,y,W-M,y);y+=18;
-  // summary line
-  doc.setFont("helvetica","bold");doc.setFontSize(9);doc.setTextColor(15,111,200);
-  doc.text("Platforms: ",M,y); let sx=M+doc.getTextWidth("Platforms: ");
-  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);
-  doc.text([...SEL.platforms].join(", "),sx,y); y+=15;
-  doc.setFont("helvetica","bold");doc.setTextColor(15,111,200);doc.text("Tone: ",M,y);
-  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);doc.text(SEL.tone,M+doc.getTextWidth("Tone: "),y);y+=15;
-  doc.setFont("helvetica","bold");doc.setTextColor(15,111,200);doc.text("Goals: ",M,y);
-  doc.setFont("helvetica","normal");doc.setTextColor(60,60,70);
-  doc.text([...SEL.goals].join(", ")||"general growth",M+doc.getTextWidth("Goals: "),y);y+=22;
+  doc.text(`${PLAN.__range||""}   ·   ${PLAN.__dur||""}   ·   ${PLAN.length} posts`,M+56,hy+31);
+  if(LOGO_S4){ const lw=98, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",W-M-lw,hy+(40-lh)/2,lw,lh); }
+  hy+=48;
+  doc.setDrawColor(13,13,15);doc.setLineWidth(1.4);doc.line(M,hy,W-M,hy);hy+=16;
+  doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(70,70,80);
+  doc.text(`Platforms: ${[...SEL.platforms].join(", ")}      Tone: ${SEL.tone}      Goals: ${[...SEL.goals].join(", ")||"general growth"}`,M,hy,{maxWidth:W-2*M}); hy+=20;
+  colTop=hy; y=hy; col=0;
 
-  // ---- bulleted line helper (hanging indent) ----
-  const bullet=(text,size,color,style)=>{
-    if(text==null||text==="")return;
-    const x=M+13;
-    doc.setFont("helvetica",style||"normal");doc.setFontSize(size);
-    const lines=doc.splitTextToSize(String(text),W-M-x);
-    lines.forEach((ln,i)=>{
-      ensure(size+3.5);
-      doc.setTextColor(color[0],color[1],color[2]);
-      if(i===0){doc.setFont("helvetica","bold");doc.text("•",M+3,y);doc.setFont("helvetica",style||"normal");}
-      doc.text(ln,x,y); y+=size+3.5;
-    });
-  };
-
-  // ---- posts (concise & bulleted) ----
+  // ===== posts across two columns =====
   PLAN.forEach(p=>{
-    ensure(58); y+=5;
+    ensure(54);
+    const dc=hexRGB(PF_HEX[p.platform]||"#0A66C2");
     const d=new Date((p.date||"")+"T00:00:00");
     const dateStr=isNaN(d)?(p.date||""):d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
-    // header: platform chip + date + type (+ awareness)
-    const label=(p.platform||"").toUpperCase(), col=hexRGB(PF_HEX[p.platform]);
-    doc.setFont("helvetica","bold");doc.setFontSize(8);
-    const cw=doc.getTextWidth(label)+12; ensure(18);
-    doc.setFillColor(col[0],col[1],col[2]);doc.roundedRect(M,y-8.5,cw,13,3,3,"F");
-    doc.setTextColor(255,255,255);doc.text(label,M+6,y+1);
-    doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(120,120,128);
-    doc.text(`${dateStr}  ·  ${p.post_type||"Post"}${p.awareness_day?"  ·  ★ "+p.awareness_day:""}`,M+cw+9,y+1); y+=16;
-    // the content idea
-    wrap(p.topic||"",11.5,"bold",[13,13,15],M,3); y+=1;
-    // concise bullets: where, the caption, how to make it
+    ensure(15);
+    doc.setFillColor(dc[0],dc[1],dc[2]); doc.circle(colX()+3,y-3,3.2,"F");
+    doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(95,95,108);
+    doc.text(`${dateStr.toUpperCase()}  ·  ${(p.post_type||"Post")}${p.awareness_day?"  ·  ★ "+p.awareness_day:""}`,colX()+12,y);
+    y+=13;
+    wrap(p.topic||"",11,"bold",[13,13,15],3); y+=1;
     const cross=(Array.isArray(p.crosspost_to)?p.crosspost_to:[]).filter(x=>x&&x!==p.platform);
-    bullet("Post to: "+[p.platform,...cross].join(", "),9.5,[15,111,200],"bold");
-    bullet("Caption: "+(p.caption||""),9.5,[45,45,52]);
-    if(p.framing_tip) bullet("How to create: "+p.framing_tip,9.5,[90,90,100],"italic");
-    if(p.crosspost_warning) bullet("Note: "+p.crosspost_warning,9,[169,106,0]);
-    y+=7; ensure(8); doc.setDrawColor(226,228,234);doc.setLineWidth(.5);doc.line(M,y,W-M,y); y+=8;
+    bullet("Post to: "+[p.platform,...cross].join(", "),9,[15,111,200]);
+    bullet("Caption: "+(p.caption||""),9,[45,45,52]);
+    if(p.framing_tip) bullet("How to: "+p.framing_tip,9,[110,110,120],"italic");
+    if(p.crosspost_warning) bullet("Note: "+p.crosspost_warning,8.5,[169,106,0]);
+    y+=6; ensure(8); doc.setDrawColor(228,230,236);doc.setLineWidth(.5); doc.line(colX(),y,colX()+colW,y); y+=9;
   });
 
-  // ---- footer page numbers ----
+  // ===== closing CTA page =====
+  doc.addPage(); watermark();
+  const cx=W/2; let cy=H/2-100;
+  if(LOGO_S4){ const lw=132, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",cx-lw/2,cy,lw,lh); cy+=lh+26; }
+  doc.setFont("helvetica","bold");doc.setFontSize(20);doc.setTextColor(13,13,15);
+  doc.text("Want us to run all of this for you?",cx,cy,{align:"center"}); cy+=24;
+  doc.setFont("helvetica","normal");doc.setFontSize(11);doc.setTextColor(70,70,80);
+  doc.splitTextToSize("s4digital builds content, ads and automated follow-up engines for trades and service businesses across the UK. Stop guessing what to post, and let us turn this plan into booked jobs.",560).forEach(ln=>{ doc.text(ln,cx,cy,{align:"center"}); cy+=16; });
+  cy+=16;
+  const bw=252,bh=46,bx=cx-bw/2;
+  doc.setFillColor(255,106,44);doc.roundedRect(bx,cy,bw,bh,23,23,"F");
+  doc.setFont("helvetica","bold");doc.setFontSize(13);doc.setTextColor(255,255,255);
+  doc.text("Book your free growth audit",cx,cy+29,{align:"center"});
+  doc.link(bx,cy,bw,bh,{url:"https://s4digi.com/#contact"});
+  cy+=bh+26;
+  doc.setFont("helvetica","bold");doc.setFontSize(11);doc.setTextColor(15,111,200);
+  doc.text("Get in touch at s4digi.com",cx,cy,{align:"center"});
+  const uw=doc.getTextWidth("Get in touch at s4digi.com"); doc.link(cx-uw/2,cy-10,uw,14,{url:"https://s4digi.com/#contact"});
+
+  // ===== footers on every page =====
   const pages=doc.internal.getNumberOfPages();
   for(let i=1;i<=pages;i++){ doc.setPage(i);
     doc.setFont("helvetica","normal");doc.setFontSize(8);doc.setTextColor(150,150,158);
-    doc.text("PlanPulse by S4 Digital  ·  s4digi.com",M,H-28);
-    doc.text(`Page ${i} of ${pages}`,W-M,H-28,{align:"right"});
+    doc.text("Made with PlanPulse by s4digital  ·  s4digi.com",M,H-24);
+    doc.text(`Page ${i} of ${pages}`,W-M,H-24,{align:"right"});
   }
   doc.save("planpulse-content-plan.pdf");
   toast("PDF downloaded ✓");
 }
 $("#btnPdf").onclick=generatePDF;
 
-/* ============== gate unlock ============== */
-$("#gateUnlock").onclick=()=>{
-  const email=$("#gateEmail").value.trim();
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast("Enter a valid email to unlock");return;}
-  localStorage.setItem(LS_UNLOCKED,"1");
-  localStorage.setItem("planpulse_email",email);
-  $("#gate").classList.remove("show");$("#viewWrap").style.display="";
-  toast("Unlocked - enjoy unlimited plans ✓");
-  if(!PLAN.length)generate();
+/* ============== lead capture + paywall modals ============== */
+let pendingPdf=null;
+function openLeadModal(after){
+  pendingPdf=after||null;
+  const l=getLead()||{};
+  $("#leadName").value=l.name||"";
+  $("#leadEmail").value=l.email||"";
+  $("#leadModal").classList.add("show");
+  setTimeout(()=>$("#leadName").focus(),50);
+}
+function closeLead(){$("#leadModal").classList.remove("show");}
+$("#leadCancel").onclick=closeLead;
+$("#leadModal").addEventListener("click",e=>{if(e.target===$("#leadModal"))closeLead();});
+$("#leadSubmit").onclick=()=>{
+  const name=$("#leadName").value.trim(), email=$("#leadEmail").value.trim();
+  if(name.length<2){toast("Enter your name");return;}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast("Enter a valid email");return;}
+  localStorage.setItem(LS_LEAD,JSON.stringify({name,email,at:Date.now()}));
+  if(LEAD_ENDPOINT){ try{ fetch(LEAD_ENDPOINT,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({name,email,source:"PlanPulse"})}); }catch(e){} }
+  closeLead();
+  toast("Thanks "+name.split(" ")[0]+"! Preparing your PDF…");
+  const fn=pendingPdf; pendingPdf=null; if(fn)setTimeout(fn,200);
 };
+
+function openPayModal(){ $("#payModal").classList.add("show"); }
+function closePay(){$("#payModal").classList.remove("show");}
+$("#payCancel").onclick=closePay;
+$("#payModal").addEventListener("click",e=>{if(e.target===$("#payModal"))closePay();});
+$("#payNow").onclick=()=>{
+  if(!STRIPE_LINK){ toast("Payments are being set up - please check back soon"); return; }
+  let url=STRIPE_LINK; const l=getLead();
+  if(l&&l.email) url+=(url.includes("?")?"&":"?")+"prefilled_email="+encodeURIComponent(l.email);
+  window.location.href=url;
+};
+
+/* unlock on return from Stripe (?paid=1) */
+function handlePaidReturn(){
+  const q=new URLSearchParams(location.search);
+  if(q.get("paid")==="1"){
+    localStorage.setItem(LS_PAID,"1");
+    history.replaceState(null,"",location.pathname);
+    refreshDurationLocks();
+    toast("Premium unlocked ✓ Pick any duration and generate");
+  }
+}
+
+/* show lock + price on the paid durations */
+function refreshDurationLocks(){
+  const sel=$("#duration"); if(!sel)return;
+  const names={"14":"2 Weeks","30":"1 Month","90":"3 Months"};
+  [...sel.options].forEach(o=>{ o.textContent=names[o.value]+(o.value!==FREE_DAYS&&!paid()?"  🔒 "+PRICE_LABEL:""); });
+  const hint=$("#durHint");
+  if(hint) hint.textContent = paid() ? "Premium unlocked, all durations available ✓" : "2-week plans are free. 1 & 3 month plans need a one-time "+PRICE_LABEL+" unlock.";
+}
 
 /* ============== selectors (platforms / tone / goals) ============== */
 function renderPlatforms(){
@@ -1121,6 +1205,8 @@ $("#refineClear").onclick=()=>{$("#refineInput").value="";REFINEMENT="";toast("R
 /* ============== init ============== */
 renderPlatforms();renderTones();renderGoals();
 applyTheme(getTheme());
+refreshDurationLocks();
+handlePaidReturn();
 $("#startDate").value=todayISO();
 $("#startDate").min=todayISO();
 </script>
