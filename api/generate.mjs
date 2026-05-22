@@ -5,11 +5,12 @@ import { buildSystemPrompt, buildUserPrompt, callAnthropic, pickMaxTokens, VALID
 export default async function handler(req, res) {
   if (req.method !== "POST") { res.status(405).json({ error: "Method not allowed" }); return; }
 
-  // Soft origin guard: only allow our own site (and local dev) to call this.
+  // Soft origin guard: only block calls that arrive with a foreign origin/referer.
   const ref = req.headers.origin || req.headers.referer || "";
-  if (ref && !/(^|\.)s4digi\.com/i.test(ref) && !/localhost|127\.0\.0\.1/i.test(ref)) {
-    res.status(403).json({ error: "Forbidden" }); return;
-  }
+  let host = "";
+  try { host = ref ? new URL(ref).hostname : ""; } catch (e) { host = ""; }
+  const allowed = !host || host === "s4digi.com" || host.endsWith(".s4digi.com") || host === "localhost" || host === "127.0.0.1";
+  if (!allowed) { res.status(403).json({ error: "Forbidden" }); return; }
 
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) { res.status(503).json({ error: "PlanPulse is not fully set up yet (missing API key). Please check back soon." }); return; }
