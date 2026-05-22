@@ -347,7 +347,6 @@ footer a{color:var(--blue-3);font-weight:800}
     <div class="topnav__actions">
       <a class="btn btn--ghost btn--sm topnav__home" href="/">← Back to site</a>
       <button class="icon-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
-      <button class="icon-btn" id="openSettings" title="API settings" aria-label="API settings">⚙️</button>
     </div>
   </div>
 
@@ -467,27 +466,6 @@ footer a{color:var(--blue-3);font-weight:800}
   </footer>
 </div>
 
-<!-- SETTINGS MODAL -->
-<div class="modal-bg" id="settingsModal">
-  <div class="modal" role="dialog" aria-modal="true" aria-label="API settings">
-    <h2>⚙️ API Settings</h2>
-    <p class="sub">PlanPulse calls the Claude API directly from your browser. Add your Anthropic API key to start generating.</p>
-    <label for="apiKey">Anthropic API key</label>
-    <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off" />
-    <label for="modelSel">Model</label>
-    <select id="modelSel">
-      <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 - fast &amp; economical</option>
-      <option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6 - best value &amp; quality</option>
-      <option value="claude-opus-4-7">Claude Opus 4.7 - maximum quality (pricier)</option>
-    </select>
-    <div class="note">🔒 <span>Your API key is stored locally in your browser only. It never touches an s4digital server. Get a key at <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--blue-3);font-weight:800">console.anthropic.com</a>.</span></div>
-    <div class="actions">
-      <button class="btn btn--ghost" id="closeSettings" style="flex:1">Cancel</button>
-      <button class="btn btn--orange" id="saveSettings" style="flex:1">Save</button>
-    </div>
-  </div>
-</div>
-
 <!-- LEAD CAPTURE MODAL (PDF download) -->
 <div class="modal-bg" id="leadModal">
   <div class="modal" role="dialog" aria-modal="true" aria-label="Download PDF">
@@ -534,13 +512,8 @@ const PRICE_LABEL = "£9";
 const FREE_DAYS = "14";    // 2 weeks is free; 1 & 3 month require the one-time unlock
 
 /* ============== constants ============== */
-const LS_KEY = "planpulse_api_key";
-const LS_MODEL = "planpulse_model";
 const LS_PAID = "planpulse_paid";
 const LS_LEAD = "planpulse_lead";
-
-const VALID_MODELS = ["claude-haiku-4-5-20251001","claude-sonnet-4-6","claude-opus-4-7"];
-const DEFAULT_MODEL = "claude-sonnet-4-6";
 
 const SHORT = {Instagram:"IG",Facebook:"FB",LinkedIn:"LI",TikTok:"TT",YouTube:"YT",Email:"✉",Twitter:"X",X:"X"};
 const PF_VAR = {Instagram:"ig",Facebook:"fb",LinkedIn:"li",TikTok:"tt",YouTube:"yt",Email:"em",Twitter:"tw",X:"tw"};
@@ -641,56 +614,6 @@ function awarenessRange(start,end){
   return m;
 }
 
-/* ============== prompts ============== */
-const SYSTEM_PROMPT = `You are an expert social media strategist and content planner. You specialise in creating actionable content calendars for UK-based service and trade businesses (including EV installers, plumbers, electricians, roofers, landscapers, builders, cafés and more). You understand seasonal UK events, public holidays, industry awareness days, and trending content formats across Instagram, Facebook, LinkedIn, TikTok, YouTube and Email.
-
-When given a business brief, you produce a detailed, structured content calendar in valid JSON format only - no prose, no markdown, just a raw JSON array. Each item in the array is a single content post or piece of content.
-
-Rules:
-- ORIGINALITY IS NON-NEGOTIABLE. Never produce generic, templated content that every business posts. Banned: empty filler like "Did you know?", "Happy Monday", "Tag a friend", vague motivational quotes, obvious clichés and lazy stock ideas. Every single post must be specific to THIS business, using the actual services, brands, locations, project details, customer types and real scenarios from the brief. Favour concrete specifics, real numbers, strong scroll-stopping hooks, myth-busting and contrarian angles, genuine behind-the-scenes detail, and current native social formats. If you reference a trend, it must be current and truly relevant to this brand. A reader should think "only this company could have posted that."
-- Only use the platforms the user has selected. Never schedule a post for a platform they did not pick.
-- Match posting days to optimal days for the platform and niche (e.g. B2B LinkedIn = Tue/Wed/Thu; Instagram for consumer services = Mon/Wed/Fri/Sat).
-- Respect any posting frequency the user states per platform.
-- Write every caption in the requested tone of voice, and orient topics toward the stated business goals.
-- Include relevant UK seasonal hooks and niche-specific awareness days where they fall in the date range.
-- Vary post types: mix Reels, Carousels, Static Images, Polls, Behind-the-Scenes, Testimonials, Educational, Offers and CTAs. Use Shorts for YouTube. Do NOT use Stories as a post type under any circumstances.
-- CROSSPOSTING: where the SAME content naturally suits other selected platforms, list them in "crosspost_to". Instagram and Facebook content can almost always be crossposted to each other. Short vertical video (Reels) usually works across Instagram, Facebook, TikTok and YouTube Shorts. BUT be careful: if a piece of content would NOT land well on one of the user's other selected platforms (e.g. a casual meme or trend on LinkedIn, or a long B2B explainer on TikTok), do NOT add that platform to crosspost_to, and instead briefly explain the mismatch in "crosspost_warning". Keep crosspost_to to genuinely suitable platforms only.
-- Provide framing advice that helps a non-expert creator know HOW to shoot or write the post.
-- Captions should sound natural, human and on-brand, not corporate or stiff.
-- Never use em dashes in any caption, topic, tip or warning. Use commas, full stops or hyphens instead.
-- Always output ONLY valid JSON, starting with [ and ending with ].`;
-
-function buildUserPrompt(brief,startISO,durationLabel,awareKeys){
-  const awareList = awareKeys.length ? awareKeys.map(k=>`${k} (${window.__aware[k]})`).join(", ") : "none in range";
-  const platforms = [...SEL.platforms];
-  const goals = [...SEL.goals];
-  return `Business brief: ${brief}
-
-Start date: ${startISO}
-Duration: ${durationLabel}
-Platforms to use (ONLY these): ${platforms.join(", ")||"Instagram"}
-Tone of voice: ${SEL.tone}
-Business goals: ${goals.length?goals.join(", "):"general growth"}
-${REFINEMENT?`\nExtra instructions from the user (apply these, they override defaults): ${REFINEMENT}\n`:""}
-Relevant UK awareness/seasonal days within this range (use as hooks where they fit the niche): ${awareList}
-
-Please generate a content calendar for this business. Return a JSON array where each object has these exact keys:
-- "date": "YYYY-MM-DD"
-- "day": "Monday" (etc.)
-- "platform": one of the selected platforms (${platforms.join(" | ")||"Instagram"})
-- "post_type": e.g. "Reel" | "Carousel" | "Static Image" | "YouTube Short" | "Email Newsletter" | "Poll" (never "Story")
-- "topic": Short headline or topic (max 10 words)
-- "caption": Suggested caption (2-4 sentences, in the requested tone)
-- "hashtags": Array of 5-10 relevant hashtags (empty array for LinkedIn/Email)
-- "framing_tip": One sentence of practical advice on how to create or frame this content
-- "crosspost_to": Array of OTHER selected platforms this exact content also suits (empty array if none). Never include its own platform.
-- "crosspost_warning": Short note if this content should NOT be crossposted to a particular selected platform and why, otherwise null
-- "awareness_day": Name of relevant UK/niche awareness day if applicable, otherwise null
-- "is_awareness_day": true | false
-
-All dates must fall on or after ${startISO} and within the ${durationLabel} window. Return ONLY the JSON array. No other text.`;
-}
-
 /* ============== state ============== */
 let PLAN = [];
 let RANGE = {start:null,end:null};
@@ -699,8 +622,6 @@ let RANGE = {start:null,end:null};
 const $ = s=>document.querySelector(s);
 function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2200);}
 function todayISO(){return iso(new Date());}
-function getKey(){return localStorage.getItem(LS_KEY)||"";}
-function getModel(){const m=localStorage.getItem(LS_MODEL);return VALID_MODELS.includes(m)?m:DEFAULT_MODEL;}
 function paid(){return localStorage.getItem(LS_PAID)==="1";}
 function getLead(){try{return JSON.parse(localStorage.getItem(LS_LEAD)||"null");}catch(e){return null;}}
 function hasLead(){const l=getLead();return !!(l&&l.email);}
@@ -741,26 +662,6 @@ function extractJSON(text){
   throw new Error("Could not parse a content calendar from the AI response.");
 }
 
-/* ============== settings modal ============== */
-function openSettings(){
-  $("#apiKey").value=getKey();
-  $("#modelSel").value=getModel();
-  $("#settingsModal").classList.add("show");
-}
-function closeSettings(){$("#settingsModal").classList.remove("show");}
-$("#openSettings").onclick=openSettings;
-$("#closeSettings").onclick=closeSettings;
-$("#settingsModal").addEventListener("click",e=>{if(e.target===$("#settingsModal"))closeSettings();});
-function safeStore(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ toast("Your browser is blocking storage (private mode?), the key can’t be remembered."); return false; } }
-// auto-save as you type/change, so the key persists even without pressing Save
-$("#apiKey").addEventListener("input",()=>{ const v=$("#apiKey").value.trim(); if(v) safeStore(LS_KEY,v); });
-$("#modelSel").addEventListener("change",()=>safeStore(LS_MODEL,$("#modelSel").value));
-$("#saveSettings").onclick=()=>{
-  const ok=safeStore(LS_KEY,$("#apiKey").value.trim());
-  safeStore(LS_MODEL,$("#modelSel").value);
-  closeSettings(); if(ok) toast("Settings saved ✓");
-};
-
 /* ============== niche chips ============== */
 document.querySelectorAll(".chip").forEach(c=>{
   c.onclick=()=>{$("#brief").value=EXAMPLES[c.dataset.niche]||"";$("#brief").focus();};
@@ -772,7 +673,6 @@ async function generate(){
   const brief=$("#brief").value.trim();
   if(!brief){showErr("Tell me a little about your business first - even a couple of sentences works.");return;}
   if(SEL.platforms.size===0){showErr("Pick at least one platform to plan for.");return;}
-  if(!getKey()){showErr("Add your Anthropic API key first - click the ⚙️ settings icon at the top right.");openSettings();return;}
 
   const startISO=$("#startDate").value||todayISO();
   const days=$("#duration").value;
@@ -795,37 +695,31 @@ async function generate(){
   $("#loading").scrollIntoView({behavior:"smooth",block:"center"});
 
   try{
-    const res=await fetch("https://api.anthropic.com/v1/messages",{
+    const res=await fetch("/api/generate",{
       method:"POST",
-      headers:{
-        "content-type":"application/json",
-        "x-api-key":getKey(),
-        "anthropic-version":"2023-06-01",
-        "anthropic-dangerous-direct-browser-access":"true"
-      },
+      headers:{"content-type":"application/json"},
       body:JSON.stringify({
-        model:getModel(),
-        max_tokens:days==="90"?32000:16000,
-        system:SYSTEM_PROMPT,
-        messages:[
-          {role:"user",content:buildUserPrompt(brief,startISO,durationLabel(days),awareKeys)},
-          {role:"assistant",content:"["}
-        ]
+        brief,
+        startISO,
+        durationLabel:durationLabel(days),
+        platforms:[...SEL.platforms],
+        tone:SEL.tone,
+        goals:[...SEL.goals],
+        refinement:REFINEMENT||"",
+        awareList: awareKeys.length ? awareKeys.map(k=>`${k} (${aware[k]})`).join(", ") : "none in range"
       })
     });
 
     if(!res.ok){
-      let detail="";try{const j=await res.json();detail=j.error?.message||JSON.stringify(j);}catch(e){detail=res.statusText;}
-      if(res.status===401)throw new Error("Your API key was rejected (401). Open ⚙️ settings and check it.");
-      if(res.status===429)throw new Error("Rate limit / quota reached (429). Try again shortly or check your Anthropic billing.");
-      throw new Error("API error "+res.status+": "+detail);
+      let detail="";try{const j=await res.json();detail=j.error||"";}catch(e){detail=res.statusText;}
+      if(res.status===429)throw new Error("We’re a bit busy right now. Please wait a moment and tap Generate again.");
+      if(res.status===503)throw new Error(detail||"PlanPulse is not fully set up yet. Please check back soon.");
+      throw new Error(detail||("Request failed ("+res.status+"). Please try again."));
     }
 
     const data=await res.json();
-    const raw=(data.content||[]).map(b=>b.text||"").join("");
-    if(!raw.trim())throw new Error("The AI returned an empty response. Please try again.");
-    // we prefilled the assistant turn with "[", so prepend it back to complete the array
-    const text="["+raw;
+    const text=data.text||"";
+    if(!text.trim())throw new Error("The AI returned an empty response. Please try again.");
     let plan;
     try{ plan=extractJSON(text); }
     catch(e){
@@ -855,7 +749,7 @@ async function generate(){
     $("#loading").classList.remove("show");
     let msg=err.message||String(err);
     if(/Failed to fetch|NetworkError/i.test(msg)){
-      msg="Couldn’t reach the Claude API. This is usually a network issue or a CORS block. Make sure you’re online and that your key is valid.";
+      msg="Couldn’t reach PlanPulse. Check your internet connection and try again.";
     }
     showErr("⚠️ "+msg);
     $("#input-card").scrollIntoView({behavior:"smooth"});

@@ -22,6 +22,25 @@ const TYPES = {
 const server = createServer(async (req, res) => {
   try {
     let urlPath = decodeURIComponent(new URL(req.url, `http://${req.headers.host}`).pathname);
+
+    // Local parity with the Vercel function: POST /api/generate
+    if (req.method === 'POST' && urlPath === '/api/generate') {
+      let body = '';
+      req.on('data', c => body += c);
+      req.on('end', async () => {
+        try {
+          const lib = await import(new URL('./lib/planpulse.mjs', import.meta.url));
+          const key = process.env.ANTHROPIC_API_KEY;
+          if (!key) { res.writeHead(503, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Set ANTHROPIC_API_KEY in your shell to test generation locally.' })); return; }
+          const b = JSON.parse(body || '{}');
+          const model = lib.VALID_MODELS.includes(process.env.ANTHROPIC_MODEL) ? process.env.ANTHROPIC_MODEL : lib.DEFAULT_MODEL;
+          const out = await lib.callAnthropic({ apiKey: key, model, system: lib.buildSystemPrompt(), user: lib.buildUserPrompt(b), maxTokens: lib.pickMaxTokens(b.durationLabel) });
+          res.writeHead(200, { 'content-type': 'application/json' }); res.end(JSON.stringify(out));
+        } catch (e) { res.writeHead(e.status || 500, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: e.message || 'failed' })); }
+      });
+      return;
+    }
+
     if (urlPath === '/') urlPath = '/index.html';
 
     const safePath = normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
