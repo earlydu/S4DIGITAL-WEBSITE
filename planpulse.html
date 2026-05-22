@@ -612,7 +612,7 @@ Rules:
 - Respect any posting frequency the user states per platform.
 - Write every caption in the requested tone of voice, and orient topics toward the stated business goals.
 - Include relevant UK seasonal hooks and niche-specific awareness days where they fall in the date range.
-- Vary post types: mix Reels, Carousels, Static Images, Stories, Polls, Behind-the-Scenes, Testimonials, Educational, Offers and CTAs. Use Shorts for YouTube.
+- Vary post types: mix Reels, Carousels, Static Images, Polls, Behind-the-Scenes, Testimonials, Educational, Offers and CTAs. Use Shorts for YouTube. Do NOT use Stories as a post type under any circumstances.
 - CROSSPOSTING: where the SAME content naturally suits other selected platforms, list them in "crosspost_to". Instagram and Facebook content can almost always be crossposted to each other. Short vertical video (Reels) usually works across Instagram, Facebook, TikTok and YouTube Shorts. BUT be careful: if a piece of content would NOT land well on one of the user's other selected platforms (e.g. a casual meme or trend on LinkedIn, or a long B2B explainer on TikTok), do NOT add that platform to crosspost_to, and instead briefly explain the mismatch in "crosspost_warning". Keep crosspost_to to genuinely suitable platforms only.
 - Provide framing advice that helps a non-expert creator know HOW to shoot or write the post.
 - Captions should sound natural, human and on-brand, not corporate or stiff.
@@ -637,7 +637,7 @@ Please generate a content calendar for this business. Return a JSON array where 
 - "date": "YYYY-MM-DD"
 - "day": "Monday" (etc.)
 - "platform": one of the selected platforms (${platforms.join(" | ")||"Instagram"})
-- "post_type": e.g. "Reel" | "Carousel" | "Static Image" | "Story" | "YouTube Short" | "Email Newsletter" | "Poll"
+- "post_type": e.g. "Reel" | "Carousel" | "Static Image" | "YouTube Short" | "Email Newsletter" | "Poll" (never "Story")
 - "topic": Short headline or topic (max 10 words)
 - "caption": Suggested caption (2-4 sentences, in the requested tone)
 - "hashtags": Array of 5-10 relevant hashtags (empty array for LinkedIn/Email)
