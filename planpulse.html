@@ -904,9 +904,9 @@ imgToData("assets/s4digital-logo.png").then(d=>LOGO_S4=d);
 let AST_IMG=null;
 (function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#e6edf7";x.fillRect(0,0,c.width,c.height);AST_IMG={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
 
-/* bold brand-orange asterisk graphic for the PDF cover page */
+/* bold brand-blue asterisk graphic for the PDF cover page */
 let COVER_AST=null;
-(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#FF6A2C";x.fillRect(0,0,c.width,c.height);COVER_AST={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
+(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#3EA3FC";x.fillRect(0,0,c.width,c.height);COVER_AST={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
 
 const PF_HEX={Instagram:"#E1306C",Facebook:"#1877F2",LinkedIn:"#0A66C2",TikTok:"#111111",YouTube:"#FF0000",X:"#111111",Twitter:"#111111",Email:"#F59E0B"};
 function hexRGB(h){h=(h||"#0A66C2").replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
@@ -932,37 +932,44 @@ function generatePDF(){
 
   // ===== bold cover page =====
   function coverPage(){
-    // full-bleed dark background
-    doc.setFillColor(13,13,15); doc.rect(0,0,W,H,"F");
-    // big decorative brand-orange asterisk, bottom-right, ghosted
+    // clean white background
+    doc.setFillColor(255,255,255); doc.rect(0,0,W,H,"F");
+    // big decorative brand-blue asterisk, bottom-right, ghosted
     if(COVER_AST){ const s=560;
-      doc.saveGraphicsState(); doc.setGState(new doc.GState({opacity:0.14}));
+      doc.saveGraphicsState(); doc.setGState(new doc.GState({opacity:0.16}));
       doc.addImage(COVER_AST.data,"PNG",W-s+150,H-s+150,s,s);
       doc.restoreGraphicsState();
     }
     // bold accent bars top-left
-    doc.setFillColor(255,106,44); doc.rect(M,118,58,7,"F");
-    doc.setFillColor(62,163,252);  doc.rect(M+66,118,26,7,"F");
+    doc.setFillColor(62,163,252); doc.rect(M,118,58,7,"F");
+    doc.setFillColor(13,13,15);   doc.rect(M+66,118,26,7,"F");
     // PlanPulse logo + wordmark, top-left
     if(LOGO_PP) doc.addImage(LOGO_PP.data,"PNG",M,52,46,46);
-    doc.setFont("helvetica","bold");doc.setFontSize(15);doc.setTextColor(255,255,255);
+    doc.setFont("helvetica","bold");doc.setFontSize(15);doc.setTextColor(13,13,15);
     doc.text("PlanPulse",M+58,82);
     // eyebrow
     doc.setFont("helvetica","bold");doc.setFontSize(12);doc.setTextColor(62,163,252);
     doc.text("SOCIAL CONTENT PLAN",M+1,H/2-58,{charSpace:1.5});
     // big bold title
-    doc.setFont("helvetica","bold");doc.setFontSize(64);doc.setTextColor(255,255,255);
+    doc.setFont("helvetica","bold");doc.setFontSize(64);doc.setTextColor(13,13,15);
     doc.text("Content Plan",M-2,H/2+12);
     // prominent date range
-    doc.setFont("helvetica","bold");doc.setFontSize(17);doc.setTextColor(255,106,44);
+    doc.setFont("helvetica","bold");doc.setFontSize(17);doc.setTextColor(13,13,15);
     doc.text(PLAN.__range||"",M+1,H/2+52);
     // meta line
-    doc.setFont("helvetica","normal");doc.setFontSize(11.5);doc.setTextColor(176,180,192);
+    doc.setFont("helvetica","normal");doc.setFontSize(11.5);doc.setTextColor(106,106,114);
     doc.text(`${PLAN.__dur||""}   ·   ${PLAN.length} posts   ·   ${[...SEL.platforms].join(", ")}`,M+1,H/2+76);
-    // footer brand on cover
-    if(LOGO_S4){ const lw=104, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",M,H-44-lh,lw,lh); }
-    doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(140,140,150);
-    doc.text("Made with PlanPulse by s4digital  ·  s4digi.com",W-M,H-34,{align:"right"});
+    // small CTA hook linking to services (bottom-left)
+    const ctaY=H-54;
+    doc.setFont("helvetica","bold");doc.setFontSize(11);doc.setTextColor(13,13,15);
+    doc.text("Don't want to post it all yourself?",M+1,ctaY);
+    doc.setFont("helvetica","bold");doc.setFontSize(11);doc.setTextColor(62,163,252);
+    const ctaLink="Let s4digital run it for you  »  s4digi.com/#services";
+    doc.text(ctaLink,M+1,ctaY+18);
+    const clw=doc.getTextWidth(ctaLink);
+    doc.link(M+1,ctaY+8,clw,16,{url:"https://s4digi.com/#services"});
+    // s4digital brand logo (bottom-right)
+    if(LOGO_S4){ const lw=104, lh=lw*LOGO_S4.h/LOGO_S4.w; doc.addImage(LOGO_S4.data,"PNG",W-M-lw,H-38-lh,lw,lh); }
   }
   coverPage();
   doc.addPage();
