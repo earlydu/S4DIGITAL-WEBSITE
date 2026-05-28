@@ -394,7 +394,7 @@ footer a{color:var(--blue-3);font-weight:800}
     </div>
 
     <div class="sec">
-      <p class="sec__title">Tone of voice <small>how should you come across?</small></p>
+      <p class="sec__title">Tone of voice <small>pick one or more</small></p>
       <div class="opt-chips" id="toneSelect"></div>
     </div>
 
@@ -545,7 +545,7 @@ const GOALS = ["Generate leads","Increase bookings & sales","Build brand awarene
 
 const SEL = {
   platforms:new Set(["Instagram","Facebook","LinkedIn"]),
-  tone:"Friendly",
+  tone:new Set(["Friendly"]),
   goals:new Set(["Generate leads","Build brand awareness"])
 };
 let REFINEMENT = "";
@@ -703,7 +703,7 @@ async function generate(){
         startISO,
         durationLabel:durationLabel(days),
         platforms:[...SEL.platforms],
-        tone:SEL.tone,
+        tone:[...SEL.tone],
         goals:[...SEL.goals],
         refinement:REFINEMENT||"",
         awareList: awareKeys.length ? awareKeys.map(k=>`${k} (${aware[k]})`).join(", ") : "none in range"
@@ -997,7 +997,7 @@ function generatePDF(){
   hy+=48;
   doc.setDrawColor(13,13,15);doc.setLineWidth(1.4);doc.line(M,hy,W-M,hy);hy+=16;
   doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(70,70,80);
-  doc.text(`Platforms: ${[...SEL.platforms].join(", ")}      Tone: ${SEL.tone}      Goals: ${[...SEL.goals].join(", ")||"general growth"}`,M,hy,{maxWidth:W-2*M}); hy+=20;
+  doc.text(`Platforms: ${[...SEL.platforms].join(", ")}      Tone: ${[...SEL.tone].join(", ")||"Friendly"}      Goals: ${[...SEL.goals].join(", ")||"general growth"}`,M,hy,{maxWidth:W-2*M}); hy+=20;
   colTop=hy; y=hy; col=0;
 
   // ===== posts across two columns =====
@@ -1123,8 +1123,8 @@ function renderTones(){
   const wrap=$("#toneSelect");wrap.innerHTML="";
   TONES.forEach(t=>{
     const b=document.createElement("button");
-    b.type="button";b.className="opt-chip"+(SEL.tone===t?" sel":"");b.textContent=t;
-    b.onclick=()=>{SEL.tone=t;wrap.querySelectorAll(".opt-chip").forEach(c=>c.classList.remove("sel"));b.classList.add("sel");};
+    b.type="button";b.className="opt-chip"+(SEL.tone.has(t)?" sel":"");b.textContent=t;
+    b.onclick=()=>{SEL.tone.has(t)?SEL.tone.delete(t):SEL.tone.add(t);b.classList.toggle("sel");};
     wrap.appendChild(b);
   });
 }
