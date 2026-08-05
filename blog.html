@@ -1,286 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>s4digital | growth notes for EV installers and energy brands</title>
-<meta name="description" content="Notes, frameworks and case studies from the s4digital growth studio. Marketing for EV installers, energy brands and tech businesses." />
-<link rel="icon" type="image/png" href="assets/32wh.png" />
-<link rel="apple-touch-icon" href="assets/32wh.png" />
-
+<title>Notes | s4digital</title>
+<meta name="description" content="Notes on content, photography and video from s4digital." />
+<link rel="icon" type="image/png" href="/assets/32wh.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
-
+<link rel="stylesheet" href="/assets/site.css" />
 <style>
-:root{
-  --blue:#3EA3FC;
-  --blue-2:#1f8ce8;
-  --blue-3:#0f6fc8;
-  --orange:#FF6A2C;
-  --orange-2:#e2541a;
-  --ink:#0d0d0f;
-  --ink-2:#1a1a1d;
-  --muted:#6a6a72;
-  --paper:#ffffff;
-  --paper-2:#f5f6f8;
-  --paper-3:#eef0f4;
-  --line:#e6e7ec;
-  --line-2:#d6d8df;
-  --max:1320px;
-  --gutter:clamp(20px,3.2vw,44px);
-  --radius:22px;
-  --radius-lg:28px;
-  --sans:'Satoshi',-apple-system,BlinkMacSystemFont,Segoe UI,system-ui,sans-serif;
-  --ast-src:url('assets/32wh.png');
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{color:var(--ink);font-family:var(--sans);font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{
-  overflow-x:hidden;
-  background:linear-gradient(180deg,#d8ecff 0%,#e6f1fb 22%,#f1f6fb 48%,#fbfcfd 75%,#ffffff 100%) no-repeat,#ffffff;
-  background-size:100% 1100px,100% 100%;
-}
-a{color:inherit;text-decoration:none}
-img,svg{display:block;max-width:100%}
-button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
-::selection{background:var(--blue);color:#fff}
-
-.ast{display:inline-block;background-color:currentColor;-webkit-mask:var(--ast-src) center/contain no-repeat;mask:var(--ast-src) center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
-.shell{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);position:relative}
-.eyebrow{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(62,163,252,.18)}
-.kw{color:var(--blue);font-weight:900}
-
-.btn{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.02em;transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease}
-.btn:hover{transform:translateY(-1px)}
-.btn .arrow{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:12px;font-weight:900;transition:transform .25s ease}
-.btn:hover .arrow{transform:rotate(-45deg)}
-.btn--orange{background:var(--orange);color:#fff;box-shadow:0 14px 36px -16px rgba(255,106,44,.55);animation:ctaWobble 5s ease-in-out infinite}
-.btn--orange .arrow{background:#fff;color:var(--orange)}
-.btn--orange:hover{background:var(--orange-2);animation:none;transform:translateY(-1px)}
-@keyframes ctaWobble{0%,82%,100%{transform:rotate(0)}86%{transform:rotate(-1deg) scale(1.015)}90%{transform:rotate(1deg) scale(1.015)}94%{transform:rotate(-.5deg)}98%{transform:rotate(0)}}
-@media (prefers-reduced-motion:reduce){.btn--orange{animation:none}}
-
-/* nav */
-.nav{position:sticky;top:0;z-index:55;background:rgba(255,255,255,.86);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--line);padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:18px}
-.nav__logo img{height:26px;width:auto}
-.nav__links{display:flex;gap:6px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:6px}
-.nav__links a{padding:8px 18px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink-2);transition:background .25s ease, color .25s ease}
-.nav__links a:hover{background:#fff}
-.nav__links a.is-active{background:var(--ink);color:#fff}
-.nav__cta{display:flex;align-items:center;gap:14px}
-.theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease}
-.theme-toggle:hover{transform:rotate(20deg)}
-.theme-toggle svg{width:16px;height:16px}
-.theme-toggle .icon-moon{display:none}
-[data-theme="dark"] .theme-toggle .icon-sun{display:none}
-[data-theme="dark"] .theme-toggle .icon-moon{display:block}
-@media (max-width:980px){.nav__links{display:none}.nav__cta .btn--orange{display:none}}
-
-.nav__burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;flex-shrink:0;align-items:center;justify-content:center;transition:background .25s ease, border-color .25s ease, color .25s ease}
-.nav__burger:hover{background:var(--paper-2)}
-.nav__burger svg{width:20px;height:20px}
-@media (max-width:980px){.nav__burger{display:inline-flex}}
-[data-theme="dark"] .nav__burger{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
-
-.mnav{position:fixed;inset:0;z-index:80;background:var(--paper);display:flex;flex-direction:column;padding:88px var(--gutter) 32px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s linear .35s}
-.mnav.is-open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s}
-.mnav__close{position:absolute;right:var(--gutter);top:14px;width:40px;height:40px;border-radius:50%;background:var(--paper-2);color:var(--ink);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;font-size:20px;font-weight:900;line-height:1;transition:background .25s ease, transform .25s ease, color .25s ease}
-.mnav__close:hover{background:var(--ink);color:#fff;transform:rotate(90deg)}
-[data-theme="dark"] .mnav__close{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#fff}
-.mnav__brand{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:16px}
-.mnav__links{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mnav__links li{border-bottom:1px solid var(--line);overflow:hidden}
-.mnav__links a{display:flex;align-items:center;justify-content:space-between;padding:18px 0;font-weight:900;font-size:clamp(24px,5.4vw,32px);letter-spacing:-.025em;color:var(--ink);transition:color .25s ease}
-.mnav__links a::after{content:"\2192";opacity:.4;font-size:.6em;font-weight:700;transition:opacity .25s ease, transform .35s cubic-bezier(.2,.8,.2,1)}
-.mnav__links a:hover{color:var(--blue)}
-.mnav__links a:hover::after{opacity:1;transform:translateX(6px)}
-.mnav__cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.mnav__cta .btn{justify-content:center;padding:16px 22px;font-size:14px}
-.mnav__foot{margin-top:18px;display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
-.mnav__foot a{color:var(--ink-2);font-weight:700}
-.mnav__foot .sep{opacity:.4}
-
-/* blog hero */
-.bhero{padding:84px 0 48px;text-align:center;position:relative;isolation:isolate;overflow:hidden}
-.bhero .ast-bg{--ast-w:min(40vw,380px);position:absolute;top:calc(50% - var(--ast-w) / 2);right:-10%;width:var(--ast-w);aspect-ratio:1;color:rgba(13,13,15,.05);animation:spin 80s linear infinite;z-index:-1;pointer-events:none}
-@keyframes spin{to{transform:rotate(360deg)}}
-.bhero__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;position:relative;z-index:1}
-.bhero h1{font-weight:900;font-size:clamp(48px,7vw,104px);line-height:.98;letter-spacing:-.04em}
-.bhero h1 .kw{color:var(--blue)}
-.bhero p{font-size:clamp(15px,1.4vw,18px);line-height:1.55;color:var(--ink-2);max-width:60ch}
-
-/* category chips */
-.bcats{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:22px 0 14px;padding-inline:var(--gutter)}
-.bcats button{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink-2);font-size:12.5px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background .25s ease, color .25s ease, border-color .25s ease}
-.bcats button:hover{background:var(--paper-2)}
-.bcats button.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
-
-/* featured post */
-.bfeat{padding:32px 0 16px}
-.bfeat__card{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius-lg);padding:18px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease}
-.bfeat__card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -32px rgba(13,13,15,.18)}
-.bfeat__media{aspect-ratio:5/4;border-radius:var(--radius);overflow:hidden;position:relative;background:linear-gradient(160deg,#1f8ce8 0%,#0a4d8a 100%);display:grid;place-items:center}
-.bfeat__media .badge{position:absolute;left:16px;top:16px;background:#fff;color:#0d0d0f;padding:7px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;z-index:3}
-.bfeat__media .ast{position:absolute;right:-40px;bottom:-40px;width:230px;aspect-ratio:1;color:rgba(255,255,255,.12);animation:spin 60s linear infinite}
-.bfeat__media .thumb{position:relative;z-index:2;width:60%;max-width:340px;height:auto}
-.bfeat__copy{padding:14px 22px 18px}
-.bfeat__copy .meta{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em;margin-bottom:18px}
-.bfeat__copy .meta strong{color:var(--blue);text-transform:uppercase;letter-spacing:.18em}
-.bfeat__copy h2{font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
-.bfeat__copy p{font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:54ch;margin-bottom:22px}
-.bfeat__copy .read{display:inline-flex;align-items:center;gap:10px;font-weight:800;border-bottom:1.5px solid var(--ink);padding:4px 0;font-size:14px;transition:color .25s ease, border-color .25s ease}
-.bfeat__copy .read:hover{color:var(--blue);border-color:var(--blue)}
-@media (max-width:880px){.bfeat__card{grid-template-columns:1fr;gap:18px}}
-
-/* post grid */
-.bgrid{padding:48px 0 80px}
-.bgrid__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.bpost{display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.bpost:hover{transform:translateY(-4px)}
-.bpost__media{aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;position:relative;background:#0d0d0f;display:grid;place-items:center;transition:transform .35s ease}
-.bpost:hover .bpost__media{transform:scale(1.01)}
-.bpost__media .ast{position:absolute;right:-30px;bottom:-30px;width:160px;aspect-ratio:1;color:rgba(255,255,255,.14);animation:spin 70s linear infinite;z-index:1}
-.bpost__media .badge{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.92);color:#0d0d0f;padding:6px 10px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;z-index:3}
-.bpost__media .thumb{position:relative;z-index:2;width:54%;max-width:240px;height:auto}
-.bpost--a .bpost__media{background:radial-gradient(500px 380px at 30% 30%,rgba(255,255,255,.18),transparent 60%),linear-gradient(160deg,#3EA3FC 0%,#0f6fc8 100%)}
-.bpost--b .bpost__media{background:linear-gradient(160deg,#0d0d0f 0%,#1d2029 100%)}
-.bpost--c .bpost__media{background:linear-gradient(160deg,#1f2126 0%,#3a3c40 100%)}
-.bpost--d .bpost__media{background:radial-gradient(500px 380px at 30% 30%,rgba(62,163,252,.5),transparent 60%),linear-gradient(160deg,#101317 0%,#1d2029 100%)}
-.bpost--e .bpost__media{background:linear-gradient(160deg,#1f8ce8 0%,#0f6fc8 70%,#0a4d8a 100%)}
-.bpost--f .bpost__media{background:radial-gradient(500px 380px at 30% 30%,rgba(62,163,252,.35),transparent 60%),linear-gradient(160deg,#101317 0%,#1d2029 100%)}
-.bpost__meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.04em}
-.bpost__meta .cat{color:var(--blue);text-transform:uppercase;letter-spacing:.18em}
-.bpost__meta .dot{width:3px;height:3px;border-radius:50%;background:currentColor}
-.bpost h3{font-weight:800;font-size:20px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);transition:color .25s ease}
-.bpost:hover h3{color:var(--blue)}
-.bpost p{font-size:14px;line-height:1.55;color:var(--ink-2);max-width:42ch}
-@media (max-width:880px){.bgrid__inner{grid-template-columns:1fr 1fr}}
-@media (max-width:540px){.bgrid__inner{grid-template-columns:1fr}}
-
-/* newsletter */
-.bnews{padding:80px 0 80px}
-.bnews__card{position:relative;background:linear-gradient(160deg,#0d0d0f 0%,#15171c 60%,#1d2029 100%);color:#fff;border-radius:var(--radius-lg);padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;overflow:hidden}
-.bnews__card::before{content:"";position:absolute;right:-10%;top:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(62,163,252,.35),transparent 60%);pointer-events:none}
-.bnews__copy{position:relative;z-index:1}
-.bnews__copy .eyebrow{color:#fff}
-.bnews__copy h3{font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 12px;max-width:18ch}
-.bnews__copy h3 .kw{color:var(--blue)}
-.bnews__copy p{font-size:15px;line-height:1.6;color:#cfd0d6;max-width:46ch}
-.bnews__form{position:relative;z-index:1;display:flex;gap:10px;flex-direction:column}
-.bnews__form input{padding:16px 18px;border-radius:14px;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:600;font-size:14.5px;transition:border-color .2s ease, background .2s ease}
-.bnews__form input::placeholder{color:rgba(255,255,255,.7)}
-.bnews__form input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.14)}
-.bnews__form button{padding:16px 22px;border-radius:14px;background:var(--orange);color:#fff;font-weight:800;font-size:14px;cursor:pointer;transition:background .2s ease}
-.bnews__form button:hover{background:var(--orange-2)}
-@media (max-width:880px){.bnews__card{grid-template-columns:1fr;gap:28px;padding:32px}}
-
-/* footer */
-.footer{background:var(--ink);color:#cfd0d6;padding:64px var(--gutter) 28px}
-.footer__inner{max-width:var(--max);margin-inline:auto}
-.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer__brand img{height:24px;margin-bottom:18px;filter:brightness(0) invert(1)}
-.footer__brand p{font-size:14px;line-height:1.6;max-width:34ch;color:#a5a6ae}
-.footer__brand .socials{display:flex;gap:8px;margin-top:22px}
-.footer__brand .socials a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:var(--blue);transition:background .25s ease, color .25s ease, border-color .25s ease}
-.footer__brand .socials a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
-.footer__brand .socials svg{width:14px;height:14px}
-.footer__col h4{font-size:13px;letter-spacing:.04em;font-weight:800;margin-bottom:18px;color:#fff}
-.footer__col ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px}
-.footer__col a:hover{color:#fff}
-.footer__col address{font-style:normal;font-size:14px;line-height:1.65;color:#a5a6ae}
-.footer__col address a{color:#a5a6ae}
-.footer__col address a:hover{color:#fff}
-.footer__bottom{display:flex;justify-content:space-between;gap:18px;padding-top:24px;font-size:12px;color:#83848c;flex-wrap:wrap}
-.footer__bottom a:hover{color:#fff}
-@media (max-width:880px){.footer__top{grid-template-columns:1fr 1fr;gap:32px}}
-@media (max-width:540px){.footer__top{grid-template-columns:1fr}}
-body.is-no-scroll{overflow:hidden}
-
-/* Smooth theme transition during the swap */
-.is-themeing,
-.is-themeing *{
-  transition-property:background-color,color,border-color,fill,stroke,box-shadow,filter,opacity !important;
-  transition-duration:.55s !important;
-  transition-timing-function:cubic-bezier(.4,0,.2,1) !important;
-}
-
-/* DARK MODE */
-[data-theme="dark"]{
-  --paper:#0d0d0f;--paper-2:#15171c;--paper-3:#1d2029;
-  --line:#262830;--line-2:#3a3c44;
-  --ink:#f3f4f7;--ink-2:#cfd1d8;--muted:#8b8d96;
-}
-[data-theme="dark"] body{background:linear-gradient(180deg,#0a1828 0%,#0d1422 22%,#0d1019 48%,#0c0d11 75%,#0d0d0f 100%) no-repeat,#0d0d0f;background-size:100% 1100px,100% 100%}
-[data-theme="dark"] .nav{background:rgba(13,13,15,.78);border-bottom-color:rgba(255,255,255,.06)}
-[data-theme="dark"] .nav__links{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
-[data-theme="dark"] .nav__links a{color:#cfd1d8}
-[data-theme="dark"] .nav__links a:hover{background:rgba(255,255,255,.06);color:#fff}
-[data-theme="dark"] .nav__links a.is-active{background:#fff;color:#0d0d0f}
-[data-theme="dark"] .nav__logo img{filter:brightness(0) invert(1)}
-[data-theme="dark"] .btn{background:#fff;color:#0d0d0f}
-[data-theme="dark"] .btn .arrow{background:#0d0d0f;color:#fff}
-[data-theme="dark"] .btn--orange{background:var(--orange);color:#fff}
-[data-theme="dark"] .btn--orange .arrow{background:#fff;color:var(--orange)}
-[data-theme="dark"] .btn--orange:hover{background:var(--orange-2)}
-[data-theme="dark"] .theme-toggle{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
-[data-theme="dark"] .bcats button{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#cfd1d8}
-[data-theme="dark"] .bcats button:hover{background:rgba(255,255,255,.08)}
-[data-theme="dark"] .bcats button.is-active{background:#fff;color:#0d0d0f;border-color:#fff}
-[data-theme="dark"] .bfeat__card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08)}
-[data-theme="dark"] .bnews__card{background:linear-gradient(160deg,#15171c 0%,#1d2029 60%,#26282f 100%)}
-[data-theme="dark"] .footer{background:#000}
-
-/* Back to top */
-.to-top{position:fixed;right:24px;bottom:24px;z-index:115;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;border:1px solid rgba(255,255,255,.08);box-shadow:0 14px 30px -14px rgba(13,13,15,.5);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s linear .35s, background .25s ease}
-.to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s, background .25s ease}
-.to-top:hover{background:var(--orange);transform:translateY(-2px)}
-.to-top svg{width:18px;height:18px}
-[data-theme="dark"] .to-top{background:#fff;color:#0d0d0f;border-color:rgba(0,0,0,.08)}
-[data-theme="dark"] .to-top:hover{background:var(--orange);color:#fff}
-@media (max-width:540px){.to-top{right:16px;bottom:16px;width:42px;height:42px}}
-
-/* Dynamic SVG animations */
-@keyframes svgGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,106,44,0))}50%{filter:drop-shadow(0 0 8px rgba(255,106,44,.85))}}
-@keyframes svgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@keyframes svgDrip{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(6px);opacity:.35}}
-@keyframes svgShimmer{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{opacity:.5;filter:drop-shadow(0 0 4px rgba(255,255,255,.5))}}
-svg .anim-glow{animation:svgGlow 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-svg .anim-float{animation:svgFloat 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-svg .anim-drip{animation:svgDrip 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-svg .anim-shimmer{animation:svgShimmer 2.2s ease-in-out infinite}
-@media (prefers-reduced-motion:reduce){svg .anim-glow,svg .anim-float,svg .anim-drip,svg .anim-shimmer{animation:none}}
+  .article{max-width:760px;margin-inline:auto}
+  .article__body{font-size:17px;line-height:1.75;color:var(--ink-2)}
+  .article__body h2{font-size:clamp(24px,3vw,34px);font-weight:900;letter-spacing:-.025em;color:var(--ink);margin:38px 0 12px}
+  .article__body h3{font-size:20px;font-weight:900;letter-spacing:-.02em;color:var(--ink);margin:30px 0 10px}
+  .article__body p{margin:0 0 18px}
+  .article__body ul,.article__body ol{margin:0 0 18px 22px}
+  .article__body li{margin-bottom:8px}
+  .article__body blockquote{border-left:3px solid var(--blue);padding-left:20px;margin:26px 0;font-weight:700;color:var(--ink)}
+  .article__body img,.article__body video,.article__body iframe{width:100%;border-radius:16px;margin:24px 0}
+  .article__body iframe{aspect-ratio:16/9;border:0}
+  .article__body a{color:var(--blue);font-weight:700;text-decoration:underline}
+  .article__meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:12.5px;color:var(--muted);font-weight:700}
+  .article__cover{border-radius:var(--radius-lg);overflow:hidden;margin:36px 0 42px}
 </style>
 </head>
 <body>
 
-<!-- Icons (subset) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="ig" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r=".9" fill="currentColor"/></symbol>
   <symbol id="li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43A2.06 2.06 0 113.28 5.37 2.06 2.06 0 015.34 7.43zM7.12 20.45H3.55V9h3.57v11.45z"/></symbol>
 </svg>
 
-<!-- NAV -->
 <header class="nav">
-  <a class="nav__logo" href="/" aria-label="s4digital home">
-    <img src="assets/s4digital-logo.png" alt="s4digital" />
-  </a>
+  <a class="nav__logo" href="/" aria-label="s4digital home"><img src="/assets/s4digital-logo.png" alt="s4digital" /></a>
   <nav class="nav__links" aria-label="primary">
     <a href="/">Home</a>
-    <a href="/calculator">Leak Finder</a>
     <a href="/services">Services</a>
+    <a href="/personal-brand-shoot">Personal Brand Shoot</a>
+    <a href="/work">Our Work</a>
     <a href="/about">About</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/blog" class="is-active">Blog</a>
-    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
   </nav>
   <div class="nav__cta">
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <a class="btn btn--orange" href="/contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
+    <a class="btn btn--orange" data-book href="/contact"><span>Book a Discovery Call</span><span class="arrow">&rarr;</span></a>
     <button class="nav__burger" id="navBurger" type="button" aria-label="Open menu" aria-controls="mnav" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="13" x2="21" y2="13"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
     </button>
@@ -292,283 +59,51 @@ svg .anim-shimmer{animation:svgShimmer 2.2s ease-in-out infinite}
   <span class="mnav__brand">Menu</span>
   <ul class="mnav__links">
     <li><a href="/" data-mnav-link>Home</a></li>
-    <li><a href="/calculator" data-mnav-link>Leak Finder</a></li>
     <li><a href="/services" data-mnav-link>Services</a></li>
+    <li><a href="/personal-brand-shoot" data-mnav-link>Personal Brand Shoot</a></li>
+    <li><a href="/work" data-mnav-link>Our Work</a></li>
     <li><a href="/about" data-mnav-link>About</a></li>
-    <li><a href="/pricing" data-mnav-link>Pricing</a></li>
-    <li><a href="/blog" data-mnav-link>Blog</a></li>
-    <li><a href="/faq" data-mnav-link>FAQ</a></li>
+    <li><a href="/contact" data-mnav-link>Contact</a></li>
   </ul>
-  <div class="mnav__cta">
-    <a class="btn btn--orange" data-mnav-link href="/contact"><span>Start a project</span><span class="arrow">&rarr;</span></a>
-  </div>
-  <div class="mnav__foot">
-    <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
-    <span class="sep">&middot;</span>
-    <a href="https://www.instagram.com/earlduncan" target="_blank" rel="noopener">Instagram</a>
-    <span class="sep">&middot;</span>
-    <a href="https://www.linkedin.com/in/earlcan/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
+  <div class="mnav__cta"><a class="btn btn--orange" data-book data-mnav-link href="/contact"><span>Book a Discovery Call</span><span class="arrow">&rarr;</span></a></div>
 </aside>
 
-<!-- HERO -->
-<section class="bhero">
-  <span class="ast ast-bg"></span>
-  <div class="shell bhero__inner">
-    <span class="eyebrow"><span class="dot"></span>The s4 journal</span>
-    <h1>Notes on growing <span class="kw">EV and energy</span> brands online</h1>
-    <p>Frameworks, case studies and uncomfortable truths from the agency side of the energy transition. Written by Earl and the team. Short reads only.</p>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<div class="bcats" role="tablist">
-  <button class="is-active" data-cat="all">All</button>
-  <button data-cat="strategy">Strategy</button>
-  <button data-cat="content">Content</button>
-  <button data-cat="ads">Paid Ads</button>
-  <button data-cat="case">Case studies</button>
-  <button data-cat="ai">AI &amp; Automation</button>
-</div>
-
-<!-- FEATURED -->
-<section class="bfeat">
+<section class="phero">
+  <span class="ast phero__bg" aria-hidden="true"></span>
   <div class="shell">
-    <a class="bfeat__card" href="/blog/90-day-playbook-ev-scale">
-      <div class="bfeat__media">
-        <span class="badge">Featured</span>
-        <span class="ast"></span>
-        <svg class="thumb" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="98" x2="186" y2="98" stroke="rgba(255,255,255,.25)" stroke-width="1"/><path d="M20 90 L60 90 L60 70 L100 70 L100 46 L140 46 L140 22 L180 22" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><line x1="60" y1="90" x2="60" y2="76" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle cx="60" cy="90" r="5.5" fill="rgba(255,255,255,.9)"/><text x="60" y="93" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f">1</text><text x="60" y="112" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="7" fill="rgba(255,255,255,.7)">DAY 30</text><line x1="100" y1="70" x2="100" y2="56" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle cx="100" cy="70" r="5.5" fill="rgba(255,255,255,.9)"/><text x="100" y="73" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f">2</text><text x="100" y="112" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="7" fill="rgba(255,255,255,.7)">DAY 60</text><line x1="140" y1="46" x2="140" y2="32" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="2 2"/><circle class="anim-glow" cx="140" cy="46" r="6.5" fill="#FF6A2C"/><text x="140" y="49" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="#fff">3</text><text x="140" y="112" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#FF6A2C">DAY 90</text><polygon points="180,22 174,18 174,26" fill="#FF6A2C"/><rect class="anim-glow" x="146" y="4" width="44" height="14" rx="7" fill="#FF6A2C" style="animation-delay:.5s"/><text x="168" y="14" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="8" fill="#fff" letter-spacing="1.5">SCALE</text></svg>
-      </div>
-      <div class="bfeat__copy">
-        <div class="meta"><strong>Strategy</strong><span>13 min read</span><span>Latest</span></div>
-        <h2>The 90-day playbook for scaling an EV installation business</h2>
-        <p>From referrals to a real system. The exact 90-day plan we use with installers ready to move from "busy" to "predictably growing", broken down by month with budget, hires and metrics.</p>
-        <span class="read">Read the playbook &rarr;</span>
-      </div>
-    </a>
+<h1>Writing about <span class="kw">content</span>.</h1>
+    <p class="phero__sub">Occasional notes on photography, video and getting a business seen properly.</p>
   </div>
 </section>
 
-<!-- POST GRID -->
-<section class="bgrid">
+<section class="sec" style="padding-top:24px">
   <div class="shell">
-    <div class="bgrid__inner" id="postsGrid">
-      <a class="bpost bpost--a" data-cat="strategy" href="/blog/consistent-enquiries-every-month">
-        <div class="bpost__media"><span class="badge">Strategy</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="80" x2="186" y2="80" stroke="rgba(255,255,255,.25)" stroke-width="1"/><rect x="20" y="62" width="22" height="18" rx="3" fill="rgba(255,255,255,.4)"/><rect x="48" y="54" width="22" height="26" rx="3" fill="rgba(255,255,255,.55)"/><rect x="76" y="44" width="22" height="36" rx="3" fill="rgba(255,255,255,.7)"/><rect x="104" y="34" width="22" height="46" rx="3" fill="rgba(255,255,255,.85)"/><rect x="132" y="24" width="22" height="56" rx="3" fill="#fff"/><rect class="anim-glow" x="160" y="14" width="22" height="66" rx="3" fill="#FF6A2C"/><rect x="14" y="4" width="80" height="18" rx="9" fill="#fff"/><text x="54" y="17" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#0d0d0f">+47/MO ↑</text><text x="100" y="94" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="rgba(255,255,255,.7)" letter-spacing="2">EVERY MONTH, ON AUTOPILOT</text></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">Strategy</span><span class="dot"></span><span>10 min read</span></div>
-        <h3>How EV installers generate consistent enquiries every month</h3>
-        <p>Without referrals, without cold ad spend that never compounds. The three-part system every working installer marketing engine uses, and how to build yours in 30 days.</p>
-      </a>
-
-      <a class="bpost bpost--b" data-cat="case" href="/blog/ev-installer-website-conversion">
-        <div class="bpost__media"><span class="badge">Conversion</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 14 L180 14 L120 56 L120 86 L80 86 L80 56 Z" fill="rgba(255,255,255,.08)" stroke="#fff" stroke-width="1.5"/><g fill="#fff"><circle cx="36" cy="22" r="2"/><circle cx="56" cy="22" r="2"/><circle cx="76" cy="22" r="2"/><circle cx="96" cy="22" r="2"/><circle cx="116" cy="22" r="2"/><circle cx="136" cy="22" r="2"/><circle cx="156" cy="22" r="2"/></g><text x="100" y="50" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="22" fill="#FF6A2C">60%</text><text x="100" y="60" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="5.5" fill="#fff" letter-spacing="2">LEADS LOST</text><circle cx="100" cy="78" r="3" fill="#fff"/><ellipse class="anim-drip" cx="46" cy="44" rx="2.4" ry="3.6" fill="#FF6A2C"/><ellipse class="anim-drip" cx="38" cy="58" rx="2.4" ry="3.6" fill="#FF6A2C" opacity=".75" style="animation-delay:.3s"/><ellipse class="anim-drip" cx="160" cy="44" rx="2.4" ry="3.6" fill="#FF6A2C" style="animation-delay:.6s"/><ellipse class="anim-drip" cx="168" cy="58" rx="2.4" ry="3.6" fill="#FF6A2C" opacity=".75" style="animation-delay:.9s"/><ellipse class="anim-drip" cx="42" cy="72" rx="2.2" ry="3.2" fill="#FF6A2C" opacity=".55" style="animation-delay:1.2s"/><ellipse class="anim-drip" cx="164" cy="72" rx="2.2" ry="3.2" fill="#FF6A2C" opacity=".55" style="animation-delay:1.5s"/></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">Conversion</span><span class="dot"></span><span>11 min read</span></div>
-        <h3>Why your EV installation website loses 60% of its leads</h3>
-        <p>The seven leaks costing installers most of their inbound, ranked by impact. A 7-day fix plan you can actually ship, with no designer required.</p>
-      </a>
-
-      <a class="bpost bpost--c" data-cat="ads" href="/blog/paid-ads-ev-installers">
-        <div class="bpost__media"><span class="badge">Paid Ads</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="14" y1="82" x2="186" y2="82" stroke="rgba(255,255,255,.3)" stroke-width="1"/><ellipse cx="50" cy="80" rx="22" ry="3" fill="rgba(0,0,0,.25)"/><rect x="30" y="68" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="58" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="48" width="40" height="12" rx="3" fill="rgba(255,255,255,.85)"/><rect x="30" y="38" width="40" height="12" rx="3" fill="rgba(255,255,255,.9)"/><rect x="30" y="28" width="40" height="12" rx="3" fill="rgba(255,255,255,.95)"/><rect x="30" y="18" width="40" height="12" rx="3" fill="#fff"/><text x="50" y="13" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">£420</text><line x1="80" y1="50" x2="116" y2="50" stroke="#fff" stroke-width="2" stroke-linecap="round"/><polygon points="116,44 124,50 116,56" fill="#fff"/><rect class="anim-glow" x="76" y="35" width="48" height="14" rx="7" fill="#FF6A2C"/><text x="100" y="45" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">−67%</text><ellipse cx="150" cy="80" rx="22" ry="3" fill="rgba(0,0,0,.25)"/><rect class="anim-glow" x="130" y="68" width="40" height="12" rx="3" fill="#FF6A2C" style="animation-delay:.5s"/><rect class="anim-glow" x="130" y="58" width="40" height="12" rx="3" fill="#FF6A2C" style="animation-delay:.8s"/><text x="150" y="52" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">£140</text></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">Paid Ads</span><span class="dot"></span><span>11 min read</span></div>
-        <h3>How to lower cost per install on Meta and Google ads</h3>
-        <p>The four account-structure mistakes we see in nearly every audit, and the targeted fixes that bring cost-per-install back into a sensible range within 30 days.</p>
-      </a>
-
-      <a class="bpost bpost--d" data-cat="strategy" href="/blog/local-seo-for-ev-installers">
-        <div class="bpost__media"><span class="badge">SEO</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="12" y="10" width="176" height="80" rx="8" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="1.2"/><g stroke="#fff" stroke-width=".5" opacity=".18"><line x1="12" y1="30" x2="188" y2="30"/><line x1="12" y1="50" x2="188" y2="50"/><line x1="12" y1="70" x2="188" y2="70"/><line x1="48" y1="10" x2="48" y2="90"/><line x1="100" y1="10" x2="100" y2="90"/><line x1="152" y1="10" x2="152" y2="90"/></g><path d="M12 60 Q 60 52 100 56 T 188 50" fill="none" stroke="#fff" stroke-width="1.5" opacity=".3"/><path d="M68 10 Q 78 36 92 54 T 116 90" fill="none" stroke="#fff" stroke-width="1.5" opacity=".3"/><g opacity=".55"><path d="M34 70 c0 -4 3 -7 7 -7 s7 3 7 7 c0 5 -7 12 -7 12 s-7 -7 -7 -12z" fill="#fff"/></g><g opacity=".55"><path d="M154 24 c0 -4 3 -7 7 -7 s7 3 7 7 c0 5 -7 12 -7 12 s-7 -7 -7 -12z" fill="#fff"/></g><g class="anim-float"><path d="M84 22 c0 -8 7 -14 16 -14 s16 6 16 14 c0 12 -16 28 -16 28 s-16 -16 -16 -28z" fill="#FF6A2C"/><circle cx="100" cy="22" r="7" fill="#fff"/><text x="100" y="25.5" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="10" fill="#FF6A2C">1</text></g><rect x="32" y="68" width="136" height="14" rx="7" fill="#fff"/><circle cx="42" cy="75" r="3" fill="none" stroke="#0d0d0f" stroke-width="1.4"/><line x1="44.2" y1="77.2" x2="47" y2="80" stroke="#0d0d0f" stroke-width="1.4" stroke-linecap="round"/><text x="105" y="78" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="7" fill="#0d0d0f" letter-spacing="1.5">EV INSTALLER NEAR ME</text></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">SEO</span><span class="dot"></span><span>12 min read</span></div>
-        <h3>Local SEO for EV installers: rank in your area without ads</h3>
-        <p>How to own the map pack, rank for "EV installer near me", and stop paying for clicks you should be getting free. A 30-day local SEO sprint.</p>
-      </a>
-
-      <a class="bpost bpost--e" data-cat="ai" href="/blog/ev-lead-follow-up-system">
-        <div class="bpost__media"><span class="badge">Follow-up</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="74" cy="52" r="36" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="2"/><path d="M44 76 A36 36 0 1 1 104 76" fill="none" stroke="#fff" stroke-width="2" opacity=".22"/><path class="anim-glow" d="M44 76 A36 36 0 0 1 56 32" fill="none" stroke="#FF6A2C" stroke-width="3.5" stroke-linecap="round"/><line x1="74" y1="52" x2="54" y2="34" stroke="#FF6A2C" stroke-width="3" stroke-linecap="round"/><circle cx="74" cy="52" r="4" fill="#fff"/><text x="74" y="76" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#fff">&lt; 5 MIN</text><text x="74" y="22" text-anchor="middle" font-family="Satoshi" font-weight="800" font-size="6" fill="rgba(255,255,255,.65)" letter-spacing="1.5">REPLY TIME</text><rect class="anim-glow" x="124" y="32" width="62" height="42" rx="9" fill="#FF6A2C" style="animation-delay:.5s"/><text x="155" y="55" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="20" fill="#fff">21×</text><text x="155" y="67" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="6" fill="#fff" letter-spacing="1.5">CLOSE RATE</text></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">Follow-up</span><span class="dot"></span><span>10 min read</span></div>
-        <h3>The follow-up system that turns slow EV enquiries into installs</h3>
-        <p>The exact stack, templates and 14-day nurture sequence that doubles close rate without any new traffic. Setup in one Saturday.</p>
-      </a>
-
-      <a class="bpost bpost--f" data-cat="content" href="/blog/content-plan-ev-installers">
-        <div class="bpost__media"><span class="badge">Content</span><span class="ast"></span>
-          <svg class="thumb" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="20" y="10" width="22" height="9" rx="2" fill="#3EA3FC"/><rect class="anim-shimmer" x="46" y="10" width="22" height="9" rx="2" fill="#FF6A2C"/><rect x="72" y="10" width="22" height="9" rx="2" fill="rgba(255,255,255,.85)"/><rect x="98" y="10" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect x="124" y="10" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".7"/><rect x="150" y="10" width="22" height="9" rx="2" fill="#FFC23C"/><rect class="anim-shimmer" x="20" y="23" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".75" style="animation-delay:.3s"/><rect x="46" y="23" width="22" height="9" rx="2" fill="#3EA3FC"/><rect x="72" y="23" width="22" height="9" rx="2" fill="rgba(255,255,255,.55)"/><rect x="98" y="23" width="22" height="9" rx="2" fill="#FFC23C" opacity=".8"/><rect class="anim-shimmer" x="124" y="23" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:.6s"/><rect x="150" y="23" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect x="20" y="36" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".7"/><rect class="anim-shimmer" x="46" y="36" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".8" style="animation-delay:.9s"/><rect x="72" y="36" width="22" height="9" rx="2" fill="#FFC23C"/><rect x="98" y="36" width="22" height="9" rx="2" fill="rgba(255,255,255,.85)"/><rect x="124" y="36" width="22" height="9" rx="2" fill="#3EA3FC"/><rect class="anim-shimmer" x="150" y="36" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".7" style="animation-delay:1.2s"/><rect x="20" y="49" width="22" height="9" rx="2" fill="rgba(255,255,255,.7)"/><rect x="46" y="49" width="22" height="9" rx="2" fill="#FFC23C" opacity=".8"/><rect class="anim-shimmer" x="72" y="49" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:1.5s"/><rect x="98" y="49" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".75"/><rect x="124" y="49" width="22" height="9" rx="2" fill="rgba(255,255,255,.55)"/><rect class="anim-shimmer" x="150" y="49" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".85" style="animation-delay:1.8s"/><rect class="anim-shimmer" x="20" y="62" width="22" height="9" rx="2" fill="#FF6A2C" style="animation-delay:.5s"/><rect x="46" y="62" width="22" height="9" rx="2" fill="rgba(255,255,255,.6)"/><rect x="72" y="62" width="22" height="9" rx="2" fill="#3EA3FC"/><rect x="98" y="62" width="22" height="9" rx="2" fill="#FFC23C"/><rect class="anim-shimmer" x="124" y="62" width="22" height="9" rx="2" fill="#FF6A2C" opacity=".75" style="animation-delay:.8s"/><rect x="150" y="62" width="22" height="9" rx="2" fill="#3EA3FC" opacity=".55"/></g><rect x="20" y="76" width="160" height="20" rx="10" fill="#fff"/><text x="100" y="89" text-anchor="middle" font-family="Satoshi" font-weight="900" font-size="9" fill="#0d0d0f" letter-spacing="1.5">30 DAYS · 10 MIN/DAY</text></svg>
-        </div>
-        <div class="bpost__meta"><span class="cat">Content</span><span class="dot"></span><span>9 min read</span></div>
-        <h3>A 30-day content plan for EV installers with no time</h3>
-        <p>If you have ten minutes a day and a smartphone, you have everything you need. Five content types, two platforms, and a system that runs without you.</p>
-      </a>
-    </div>
+    <div class="wgrid" id="postList"></div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="bnews">
-  <div class="shell">
-    <div class="bnews__card">
-      <div class="bnews__copy">
-        <span class="eyebrow"><span class="dot" style="background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2)"></span>Subscribe</span>
-        <h3>One <span class="kw">growth note</span> a week, no fluff</h3>
-        <p>A short Friday email with one thing we tried, one thing that worked, and one number you should be tracking. Unsubscribe any time.</p>
-      </div>
-      <form class="bnews__form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
-        <input type="email" name="email" placeholder="Your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer__inner">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/s4digital-logo.png" alt="s4digital" />
-        <p>We help future-focused businesses grow online with content, strategy, and smart digital marketing.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/earlduncan" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ig"/></svg></a>
-          <a href="https://www.linkedin.com/in/earlcan/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#li"/></svg></a>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/services">Paid Advertising</a></li>
-          <li><a href="/services">Photography</a></li>
-          <li><a href="/services">Social Media</a></li>
-          <li><a href="/services">Consulting</a></li>
-          <li><a href="/services">Email Marketing</a></li>
-          <li><a href="/services">Video Marketing</a></li>
-          <li><a href="/services">AI Automation</a></li>
-          <li><a href="/services">Web Design and Development</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/calculator">Leak Finder</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/testimonials">Testimonials</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Get In Touch</h4>
-        <address>
-          124 City Road<br>
-          London<br>
-          EC1V 2NX<br><br>
-          Email: <a href="mailto:earl@s4digi.com">earl@s4digi.com</a>
-        </address>
-      </div>
-    </div>
-    <div class="footer__bottom">
+    <div class="footer__bottom" style="border-top:0;padding-top:0">
       <span>&copy; <span id="year">2026</span> s4digital. All rights reserved.</span>
-      <span><a>Privacy</a> &middot; <a>Cookies</a> &middot; <a>Terms</a></span>
+      <span><a href="/work">Our Work</a> &middot; <a href="/services">Services</a> &middot; <a href="/contact">Contact</a></span>
     </div>
   </div>
 </footer>
 
+<div class="book" id="bookModal" data-cal-url="https://cal.eu/s4digital/30min" role="dialog" aria-modal="true" aria-label="Book a call" aria-hidden="true">
+  <div class="book__panel">
+    <button class="book__close" id="bookClose" type="button" aria-label="Close booking">&times;</button>
+    <iframe class="book__iframe" id="bookIframe" title="Book a 30 minute call with s4digital" loading="lazy" allow="fullscreen *; clipboard-write" src="about:blank"></iframe>
+  </div>
+</div>
+
+<div class="cursor-ast" id="cursorAst" aria-hidden="true"></div>
 <button class="to-top" id="toTop" type="button" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 14 12 8 18 14"/></svg>
 </button>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  (function(){
-    const btn = document.getElementById('toTop');
-    if(!btn) return;
-    const onScroll = () => { btn.classList.toggle('is-visible', window.scrollY > 400); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    onScroll();
-  })();
-
-  // Mobile menu drawer
-  (function(){
-    const burger = document.getElementById('navBurger');
-    const menu = document.getElementById('mnav');
-    const closeBtn = document.getElementById('mnavClose');
-    if (!burger || !menu || !closeBtn) return;
-    const open = () => { menu.classList.add('is-open'); menu.setAttribute('aria-hidden','false'); burger.setAttribute('aria-expanded','true'); document.body.classList.add('is-no-scroll'); };
-    const close = () => { menu.classList.remove('is-open'); menu.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.classList.remove('is-no-scroll'); };
-    burger.addEventListener('click', open);
-    closeBtn.addEventListener('click', close);
-    menu.querySelectorAll('[data-mnav-link]').forEach(a => a.addEventListener('click', close));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('is-open')) close(); });
-  })();
-
-  // Theme: auto by default, fades between modes based on local time of day.
-  // Manual click locks the chosen theme.
-  (function(){
-    const root = document.documentElement;
-    const btn = document.getElementById('themeToggle');
-
-    const legacy = localStorage.getItem('s4-theme');
-    if (legacy && !localStorage.getItem('s4-theme-mode')) {
-      localStorage.setItem('s4-theme-mode', legacy);
-      localStorage.removeItem('s4-theme');
-    }
-    const getMode = () => localStorage.getItem('s4-theme-mode') || 'auto';
-    const setMode = (m) => localStorage.setItem('s4-theme-mode', m);
-
-    const SUN = [
-      [8.0,16.25],[7.5,17.0],[6.5,18.0],[6.25,19.83],
-      [5.5,20.5],[4.75,21.25],[5.0,21.25],[5.75,20.5],
-      [6.5,19.5],[7.25,18.5],[7.5,16.5],[8.0,16.0]
-    ];
-    const isDarkHours = (d = new Date()) => {
-      const [rise, set] = SUN[d.getMonth()];
-      const hour = d.getHours() + d.getMinutes()/60;
-      return hour < rise || hour >= set;
-    };
-    const fadeTo = (theme) => {
-      if (root.getAttribute('data-theme') === theme) return;
-      root.classList.add('is-themeing');
-      root.setAttribute('data-theme', theme);
-      window.setTimeout(() => root.classList.remove('is-themeing'), 700);
-    };
-
-    const mode = getMode();
-    if (mode === 'auto') root.setAttribute('data-theme', isDarkHours() ? 'dark' : 'light');
-    else root.setAttribute('data-theme', mode);
-
-    window.setInterval(() => { if (getMode() === 'auto') fadeTo(isDarkHours() ? 'dark' : 'light'); }, 5*60*1000);
-
-    document.querySelectorAll('.theme-toggle').forEach(b => b.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      fadeTo(next);
-      setMode(next);
-    }));
-  })();
-
-  // Category filter
-  (function(){
-    const cats = document.querySelectorAll('.bcats button');
-    const posts = document.querySelectorAll('.bpost');
-    cats.forEach(c => c.addEventListener('click', () => {
-      cats.forEach(x => x.classList.remove('is-active'));
-      c.classList.add('is-active');
-      const cat = c.dataset.cat;
-      posts.forEach(p => {
-        p.style.display = (cat === 'all' || p.dataset.cat === cat) ? '' : 'none';
-      });
-    }));
-  })();
-</script>
+<script src="/assets/site.js"></script>
+<script src="/assets/post.js"></script>
 </body>
 </html>

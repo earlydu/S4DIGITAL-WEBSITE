@@ -19,8 +19,6 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 
 .ast{display:inline-block;background-color:currentColor;-webkit-mask:var(--ast-src) center/contain no-repeat;mask:var(--ast-src) center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
 .shell{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);position:relative}
-.eyebrow{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(62,163,252,.18)}
 .kw{color:var(--blue);font-weight:900}
 
 .btn{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.02em;transition:transform .25s ease, background .25s ease}

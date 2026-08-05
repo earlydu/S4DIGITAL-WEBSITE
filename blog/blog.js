@@ -53,8 +53,7 @@ const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent =
     <button class="lmodal__close" id="blogLeakClose" type="button" aria-label="Close">&times;</button>
     <div class="lmodal__grid">
       <div class="lmodal__inputs">
-        <span class="eyebrow"><span class="dot"></span>Leak Finder &middot; free tool</span>
-        <h3 style="margin-top:10px">Find out what your funnel is <span class="kw">costing you</span></h3>
+        <h3>Find out what your funnel is <span class="kw">costing you</span></h3>
         <p class="lmodal__sub">Plug in five numbers. We will show you the leak in real time and email a personalised PDF if you want it.</p>
         <div class="lmodal__field"><label for="lf_visitors">Monthly website visitors</label><input id="lf_visitors" type="number" min="0" step="100" value="5000" /></div>
         <div class="lmodal__field"><label for="lf_conv">Conversion rate (%)</label><input id="lf_conv" type="number" min="0" max="100" step="0.1" value="1.5" /></div>
@@ -85,8 +84,7 @@ const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent =
   <div class="lmodal__panel lcap__panel">
     <button class="lmodal__close" id="blogLeadClose" type="button" aria-label="Close">&times;</button>
     <div class="lmodal__inputs">
-      <span class="eyebrow"><span class="dot"></span>Personalised report</span>
-      <h3 style="margin-top:10px">Get your <span class="kw">leak breakdown</span></h3>
+      <h3>Get your <span class="kw">leak breakdown</span></h3>
       <p class="lmodal__sub">We will email you the report using the numbers you entered. No spam.</p>
       <form id="lf_form" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
         <input type="hidden" name="_subject" value="New Lead Leak (blog)" />

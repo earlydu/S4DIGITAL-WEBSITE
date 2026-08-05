@@ -1,0 +1,110 @@
+{
+  "categories": [
+    "Content",
+    "Strategy",
+    "Photography",
+    "Video",
+    "Social",
+    "Notes"
+  ],
+  "items": [
+    {
+      "slug": "90-day-playbook-ev-scale",
+      "title": "The 90-day playbook for scaling past referrals",
+      "category": "Strategy",
+      "excerpt": "A practical 90-day plan for EV installers and energy brands ready to move from referrals to a system. Strategy, hires, channels and metrics by month. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-05-14",
+      "readingTime": 13,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/90-day-playbook-ev-scale"
+    },
+    {
+      "slug": "content-plan-ev-installers",
+      "title": "A 30-day content plan for installers with no time",
+      "category": "Content",
+      "excerpt": "A practical, no-fluff 30-day content plan for EV installers and energy brands who don’t have time to create content. Plug-and-play templates, posting cadence and what actually works. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-05-07",
+      "readingTime": 9,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/content-plan-ev-installers"
+    },
+    {
+      "slug": "ev-lead-follow-up-system",
+      "title": "The follow-up system that stops leads going cold",
+      "category": "Systems",
+      "excerpt": "The exact follow-up system EV installers and energy brands can use to turn slow, lukewarm enquiries into closed installs, with templates and automation steps. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-04-30",
+      "readingTime": 10,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/ev-lead-follow-up-system"
+    },
+    {
+      "slug": "local-seo-for-ev-installers",
+      "title": "Local SEO for EV installers and energy brands",
+      "category": "SEO",
+      "excerpt": "A practical local SEO playbook for EV charger installers and energy brands who want to rank in their service area on Google without paying for ads. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-04-23",
+      "readingTime": 12,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/local-seo-for-ev-installers"
+    },
+    {
+      "slug": "paid-ads-ev-installers",
+      "title": "How to lower cost per install on Meta and Google ads",
+      "category": "Paid Ads",
+      "excerpt": "A practical guide to running profitable Meta and Google ads for EV installers and energy brands. Account structure, creative tests, and the metrics that actually matter. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-04-16",
+      "readingTime": 11,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/paid-ads-ev-installers"
+    },
+    {
+      "slug": "ev-installer-website-conversion",
+      "title": "Why your EV installation website loses 60% of its leads",
+      "category": "Conversion",
+      "excerpt": "A practical look at the seven things quietly costing EV installers more than half their inbound leads, and how to fix each one this week. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-04-09",
+      "readingTime": 11,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/ev-installer-website-conversion"
+    },
+    {
+      "slug": "consistent-enquiries-every-month",
+      "title": "How EV installers generate consistent enquiries every month",
+      "category": "Strategy",
+      "excerpt": "A practical playbook for EV installers and energy brands who want a steady flow of qualified enquiries every month without relying on referrals. From s4digital.",
+      "cover": "",
+      "coverAlt": "",
+      "body": "",
+      "status": "published",
+      "date": "2026-04-02",
+      "readingTime": 10,
+      "author": "Earl Duncan",
+      "legacyUrl": "/blog/consistent-enquiries-every-month"
+    }
+  ]
+}

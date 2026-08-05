@@ -1,18 +1,83 @@
 [
   {
+    "slug": "musk-city",
+    "title": "Easee",
+    "client": "Musk City campaign",
+    "src": "/video_content/gallery/musk-city.mp4",
+    "poster": "/video_content/gallery/musk-city.jpg",
+    "aspect": "16x9",
+    "alt": "Scenes from the Musk City campaign in Stavanger"
+  },
+  {
     "slug": "chargy-bcorp",
     "title": "char.gy",
-    "client": "B-Corp brand film",
-    "src": "video_content/gallery/chargy-bcorp.mp4",
-    "poster": "video_content/gallery/chargy-bcorp.jpg",
-    "aspect": "16x9"
+    "client": "B Corp brand video",
+    "src": "/video_content/gallery/chargy-bcorp.mp4",
+    "poster": "/video_content/gallery/chargy-bcorp.jpg",
+    "aspect": "16x9",
+    "alt": "A char.gy team member being interviewed in a bright office"
+  },
+  {
+    "slug": "smart-home-charge",
+    "title": "Smart Home Charge",
+    "client": "Presenter led case study",
+    "src": "/video_content/gallery/smart-home-charge.mp4",
+    "poster": "/video_content/gallery/smart-home-charge.jpg",
+    "aspect": "16x9",
+    "alt": "An automotive presenter being interviewed at home"
+  },
+  {
+    "slug": "eden-motor-group",
+    "title": "Plug In Stations",
+    "client": "Eden Motor Group case study",
+    "src": "/video_content/gallery/eden-motor-group.mp4",
+    "poster": "/video_content/gallery/eden-motor-group.jpg",
+    "aspect": "16x9",
+    "alt": "An installer fitting a home charger for a dealership customer"
+  },
+  {
+    "slug": "fusion-nexblue",
+    "title": "Fusion x NexBlue",
+    "client": "Partnership video",
+    "src": "/video_content/gallery/fusion-nexblue.mp4",
+    "poster": "/video_content/gallery/fusion-nexblue.jpg",
+    "aspect": "16x9",
+    "alt": "A Fusion engineer working outside the office"
   },
   {
     "slug": "easee-wycombe",
     "title": "Easee",
-    "client": "Wycombe Square install",
-    "src": "video_content/gallery/easee-wycombe.mp4",
-    "poster": "video_content/gallery/easee-wycombe.jpg",
-    "aspect": "16x9"
+    "client": "Kensington MDU project",
+    "src": "/video_content/gallery/easee-wycombe.mp4",
+    "poster": "/video_content/gallery/easee-wycombe.jpg",
+    "aspect": "16x9",
+    "alt": "A white electric car parked outside a London mansion block"
+  },
+  {
+    "slug": "easee-rcd-install",
+    "title": "Easee",
+    "client": "Commercial install with RCD test",
+    "src": "/video_content/gallery/easee-rcd-install.mp4",
+    "poster": "/video_content/gallery/easee-rcd-install.jpg",
+    "aspect": "16x9",
+    "alt": "An installer at a commercial charging site"
+  },
+  {
+    "slug": "mayflower-lodge",
+    "title": "Mayflower Lodge",
+    "client": "Project overview",
+    "src": "/video_content/gallery/mayflower-lodge.mp4",
+    "poster": "/video_content/gallery/mayflower-lodge.jpg",
+    "aspect": "16x9",
+    "alt": "A residential street with charging bays marked out"
+  },
+  {
+    "slug": "fully-charged-23",
+    "title": "Fully Charged",
+    "client": "Exhibition highlights",
+    "src": "/video_content/gallery/fully-charged-23.mp4",
+    "poster": "/video_content/gallery/fully-charged-23.jpg",
+    "aspect": "16x9",
+    "alt": "A busy exhibition hall during a Fully Charged event"
   }
 ]

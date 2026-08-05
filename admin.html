@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin | s4digital</title>
+<link rel="icon" type="image/png" href="/assets/32wh.png" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+<link rel="stylesheet" href="/assets/admin.css" />
+</head>
+<body>
+
+<!-- SIGN IN -->
+<div class="gate" id="gate">
+  <form class="gate__card" id="loginForm">
+    <img src="/assets/s4digital-logo.png" alt="s4digital" class="gate__logo" />
+    <h1>Site admin</h1>
+    <p>Sign in to edit posts, case studies and media.</p>
+    <input type="text" name="username" value="s4digital" autocomplete="username" hidden readonly />
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" required />
+    <button type="submit">Sign in</button>
+    <p class="gate__err" id="gateErr" role="alert"></p>
+  </form>
+</div>
+
+<!-- APP -->
+<div class="app" id="app" hidden>
+  <header class="bar">
+    <a href="/" class="bar__brand"><img src="/assets/s4digital-logo.png" alt="s4digital" /><span>Admin</span></a>
+    <nav class="bar__tabs">
+      <button data-tab="posts" class="is-active">Posts</button>
+      <button data-tab="work">Case studies</button>
+      <button data-tab="media">Media</button>
+    </nav>
+    <div class="bar__right">
+      <span class="pill" id="driverPill">local</span>
+      <a class="ghost" href="/" target="_blank" rel="noopener">View site</a>
+      <button class="ghost" id="logout">Sign out</button>
+    </div>
+  </header>
+
+  <p class="notice" id="notice" hidden></p>
+
+  <!-- POSTS -->
+  <section class="tab" data-panel="posts">
+    <div class="tab__head">
+      <div>
+        <h2>Posts</h2>
+        <p>Write, publish and unpublish. Drafts are never visible on the site.</p>
+      </div>
+      <button class="primary" id="newPost">New post</button>
+    </div>
+    <div class="rows" id="postRows"></div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="tab" data-panel="work" hidden>
+    <div class="tab__head">
+      <div>
+        <h2>Case studies</h2>
+        <p>These power the home page, the work index and every /work page.</p>
+      </div>
+      <button class="primary" id="newWork">New case study</button>
+    </div>
+    <div class="rows" id="workRows"></div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="tab" data-panel="media" hidden>
+    <div class="tab__head">
+      <div>
+        <h2>Media</h2>
+        <p>Photos and video you can drop into any post or case study.</p>
+      </div>
+      <label class="primary" for="mediaUpload">Upload files<input id="mediaUpload" type="file" accept="image/*,video/*" multiple hidden /></label>
+    </div>
+    <div class="mgrid" id="mediaGrid"></div>
+  </section>
+</div>
+
+<!-- POST EDITOR -->
+<div class="sheet" id="postSheet" hidden>
+  <div class="sheet__panel">
+    <header class="sheet__head">
+      <h2 id="postSheetTitle">Edit post</h2>
+      <div class="sheet__actions">
+        <button class="ghost" data-close>Cancel</button>
+        <button class="ghost" id="savePostDraft">Save as draft</button>
+        <button class="primary" id="savePostPublish">Publish</button>
+      </div>
+    </header>
+
+    <div class="sheet__body">
+      <div class="field"><label for="pTitle">Title</label><input id="pTitle" type="text" placeholder="What is this post about?" /></div>
+      <div class="field2">
+        <div class="field"><label for="pSlug">URL slug</label><input id="pSlug" type="text" placeholder="auto-generated-from-title" /></div>
+        <div class="field"><label for="pDate">Date</label><input id="pDate" type="date" /></div>
+      </div>
+      <div class="field2">
+        <div class="field"><label for="pCategory">Category</label><input id="pCategory" type="text" list="catList" placeholder="Content" /><datalist id="catList"></datalist></div>
+        <div class="field"><label for="pAuthor">Author</label><input id="pAuthor" type="text" placeholder="Earl Duncan" /></div>
+      </div>
+      <div class="field"><label for="pExcerpt">Summary <span>Shown on the blog index and in search results</span></label><textarea id="pExcerpt" rows="2" placeholder="One or two sentences."></textarea></div>
+
+      <div class="field">
+        <label>Cover image</label>
+        <div class="cover" id="pCoverBox"><span>No cover chosen</span></div>
+        <div class="row">
+          <button class="ghost" type="button" data-pick="cover">Choose from media</button>
+          <button class="ghost" type="button" id="pCoverClear">Remove</button>
+        </div>
+        <input id="pCover" type="hidden" />
+        <input id="pCoverAlt" type="text" placeholder="Describe the image for screen readers and search" />
+      </div>
+
+      <div class="field">
+        <label>Body</label>
+        <div class="toolbar" id="toolbar">
+          <button type="button" data-cmd="bold" title="Bold"><b>B</b></button>
+          <button type="button" data-cmd="italic" title="Italic"><i>I</i></button>
+          <button type="button" data-block="h2" title="Heading">H2</button>
+          <button type="button" data-block="h3" title="Sub heading">H3</button>
+          <button type="button" data-block="p" title="Paragraph">P</button>
+          <button type="button" data-cmd="insertUnorderedList" title="Bullet list">&bull; List</button>
+          <button type="button" data-cmd="insertOrderedList" title="Numbered list">1. List</button>
+          <button type="button" data-block="blockquote" title="Quote">&ldquo; &rdquo;</button>
+          <button type="button" data-link title="Link">Link</button>
+          <button type="button" data-pick="image" title="Insert image">Image</button>
+          <button type="button" data-pick="video" title="Insert video">Video</button>
+          <button type="button" data-embed title="Embed YouTube or Vimeo">Embed</button>
+          <button type="button" data-cmd="removeFormat" title="Clear formatting">Clear</button>
+        </div>
+        <div class="editor" id="pBody" contenteditable="true" role="textbox" aria-multiline="true"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY EDITOR -->
+<div class="sheet" id="workSheet" hidden>
+  <div class="sheet__panel">
+    <header class="sheet__head">
+      <h2 id="workSheetTitle">Edit case study</h2>
+      <div class="sheet__actions">
+        <button class="ghost" data-close>Cancel</button>
+        <button class="primary" id="saveWork">Save</button>
+      </div>
+    </header>
+
+    <div class="sheet__body">
+      <div class="field2">
+        <div class="field"><label for="wClient">Client</label><input id="wClient" type="text" /></div>
+        <div class="field"><label for="wSlug">URL slug</label><input id="wSlug" type="text" /></div>
+      </div>
+      <div class="field"><label for="wTitle">Headline</label><input id="wTitle" type="text" /></div>
+      <div class="field2">
+        <div class="field"><label for="wIndustry">Industry</label><input id="wIndustry" type="text" /></div>
+        <div class="field"><label for="wSector">Label above the title</label><input id="wSector" type="text" /></div>
+      </div>
+      <div class="field"><label>Categories <span>Used by the filters on /work</span></label><div class="chips" id="wCats"></div></div>
+      <div class="field"><label for="wSummary">Summary</label><textarea id="wSummary" rows="2"></textarea></div>
+      <div class="field"><label for="wOverview">Client overview</label><textarea id="wOverview" rows="3"></textarea></div>
+      <div class="field"><label for="wChallenge">The challenge</label><textarea id="wChallenge" rows="3"></textarea></div>
+      <div class="field"><label for="wDelivered">What we delivered <span>One per line</span></label><textarea id="wDelivered" rows="5"></textarea></div>
+      <div class="field"><label for="wOutputs">Key outputs <span>One per line, as "343 | Edited photographs published"</span></label><textarea id="wOutputs" rows="3"></textarea></div>
+      <div class="field"><label for="wResults">Results <span>One per line. Only facts you can evidence</span></label><textarea id="wResults" rows="2"></textarea></div>
+
+      <div class="field">
+        <label>Cover image</label>
+        <div class="cover" id="wCoverBox"><span>No cover chosen</span></div>
+        <div class="row"><button class="ghost" type="button" data-pick="wcover">Choose from media</button></div>
+        <input id="wCover" type="hidden" />
+        <input id="wCoverAlt" type="text" placeholder="Describe the image" />
+      </div>
+
+      <div class="field">
+        <label>Gallery</label>
+        <div class="gal" id="wGallery"></div>
+        <div class="row"><button class="ghost" type="button" data-pick="wgallery">Add photographs</button></div>
+        <input id="wGalleryNote" type="text" placeholder="Optional note under the gallery heading" />
+      </div>
+
+      <div class="field2">
+        <div class="field"><label for="wCtaLabel">Button label</label><input id="wCtaLabel" type="text" /></div>
+        <div class="field"><label for="wCtaHref">Button link</label><input id="wCtaHref" type="text" /></div>
+      </div>
+      <label class="check"><input id="wFeatured" type="checkbox" /> Show on the home page</label>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIA PICKER -->
+<div class="sheet sheet--narrow" id="pickSheet" hidden>
+  <div class="sheet__panel">
+    <header class="sheet__head">
+      <h2>Choose media</h2>
+      <div class="sheet__actions">
+        <label class="ghost" for="pickUpload">Upload<input id="pickUpload" type="file" accept="image/*,video/*" multiple hidden /></label>
+        <button class="ghost" data-close>Close</button>
+      </div>
+    </header>
+    <div class="sheet__body"><div class="mgrid" id="pickGrid"></div></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="/assets/admin.js"></script>
+</body>
+</html>

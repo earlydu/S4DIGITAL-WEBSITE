@@ -19,9 +19,41 @@ const TYPES = {
   '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime',
 };
 
+const readBody = req => new Promise(resolve => {
+  let raw = '';
+  req.on('data', c => { raw += c; });
+  req.on('end', () => resolve(raw));
+});
+
 const server = createServer(async (req, res) => {
   try {
-    let urlPath = decodeURIComponent(new URL(req.url, `http://${req.headers.host}`).pathname);
+    const parsed = new URL(req.url, `http://${req.headers.host}`);
+    let urlPath = decodeURIComponent(parsed.pathname);
+
+    // Local parity with the Vercel functions: /api/content and /api/admin
+    if (urlPath === '/api/content' && req.method === 'GET') {
+      const { handleContent } = await import(new URL('./lib/api.mjs', import.meta.url));
+      const out = await handleContent(parsed.searchParams.get('file'));
+      res.writeHead(out.status, { 'content-type': 'application/json', 'cache-control': 'no-store' });
+      res.end(JSON.stringify(out.body));
+      return;
+    }
+
+    if (urlPath === '/api/admin' && req.method === 'POST') {
+      const { handleAdmin } = await import(new URL('./lib/api.mjs', import.meta.url));
+      const raw = await readBody(req);
+      let body = {};
+      try { body = JSON.parse(raw || '{}'); } catch { body = {}; }
+      const out = await handleAdmin({
+        action: parsed.searchParams.get('action') || '',
+        req,
+        body,
+        secure: false,             // localhost is http, so no Secure flag
+      });
+      res.writeHead(out.status, { 'content-type': 'application/json', 'cache-control': 'no-store', ...(out.headers || {}) });
+      res.end(JSON.stringify(out.body));
+      return;
+    }
 
     // Local parity with the Vercel function: POST /api/generate
     if (req.method === 'POST' && urlPath === '/api/generate') {
@@ -41,7 +73,32 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    if (urlPath === '/') urlPath = '/index.html';
+    // Local parity with vercel.json redirects
+    const REDIRECTS = {
+      '/pricing': '/services',
+      '/faq': '/services#faq',
+      '/calculator': '/services',
+      '/testimonials': '/work',
+      '/projects': '/work',
+    };
+    const bare = urlPath.replace(/\/$/, '') || '/';
+    if (REDIRECTS[bare]) {
+      res.writeHead(301, { Location: REDIRECTS[bare] });
+      res.end();
+      return;
+    }
+
+    // Local parity with vercel.json rewrites
+    if (bare === '/') urlPath = '/index.html';
+    else if (bare === '/contact') urlPath = '/index.html';
+    else if (bare === '/admin' || bare.startsWith('/admin/')) urlPath = '/admin.html';
+    // Slug routes only. A path with a file extension (/blog/blog.js) is a real asset.
+    else if (/^\/work\/[^/.]+$/.test(bare)) urlPath = '/case-study.html';
+    else if (/^\/blog\/[^/.]+$/.test(bare)) {
+      // A legacy post has its own file. Anything else is rendered from the content store.
+      try { await stat(join(ROOT, bare + '.html')); urlPath = bare + '.html'; }
+      catch { urlPath = '/post.html'; }
+    }
 
     const safePath = normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
     let filePath = join(ROOT, safePath);

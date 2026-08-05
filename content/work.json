@@ -1,0 +1,2087 @@
+{
+  "categories": [
+    "Personal Brands",
+    "Commercial Content",
+    "Trades and Construction",
+    "Automotive",
+    "Fitness and Combat Sports",
+    "Professional Services",
+    "Documentary",
+    "Photography",
+    "Video Production",
+    "Websites",
+    "Event Content"
+  ],
+  "items": [
+    {
+      "slug": "char-gy-b-corp-video",
+      "galleryNote": "Frames from the delivered video.",
+      "title": "A B Corp film that became the most watched thing on their channel",
+      "client": "char.gy",
+      "industry": "EV charging",
+      "sector": "Commercial content",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Professional Services",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "video_content/gallery/chargy-bcorp.jpg",
+        "alt": "A char.gy team member being interviewed in a bright office overlooking the city",
+        "loop": "assets/work/gifs/chargy.mp4"
+      },
+      "summary": "An interview-led film explaining char.gy’s B Corp certification in plain language, cut eleven ways and delivered with an audio described version. It is now the most viewed video on their YouTube channel.",
+      "overview": "char.gy operates on-street charge points for people without a driveway, and had just been certified as a B Corp. Certification is a genuinely hard thing to earn and a genuinely boring thing to explain. Filmed at their office at Monument, the brief was to let the people who did the work explain why it mattered, rather than putting a score on screen and hoping.",
+      "challenge": "Two problems. The first is that nobody outside the business knows what B Corp certification involves, so the film had to teach without lecturing. The second is that char.gy exists to serve drivers who are usually left out, which makes an inaccessible film about inclusion a bad look. The work had to be usable by people who cannot see it.",
+      "delivered": [
+        "Interviews across the team, from the people who ran the certification to the engineers on the street",
+        "A long form film, a sixty second cut and a thirty second cut",
+        "Every cut delivered in 16:9, 9:16 and 1:1 so it works wherever they post",
+        "An audio described version of both the long form and the sixty second cut",
+        "Photography from the same day, used across their site",
+        "Eleven finished exports in total from a single shoot"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/chargy-team.jpg",
+          "alt": "A char.gy team member speaking to camera in an office with a city skyline behind her"
+        },
+        {
+          "src": "assets/work/chargy-street.jpg",
+          "alt": "Two colleagues talking in a meeting room during filming"
+        },
+        {
+          "src": "assets/work/chargy-office.jpg",
+          "alt": "An engineer in high visibility clothing working at a street charging point"
+        }
+      ],
+      "video": {
+        "src": "video_content/gallery/chargy-bcorp.mp4",
+        "poster": "video_content/gallery/chargy-bcorp.jpg"
+      },
+      "outputs": [
+        {
+          "value": "Most viewed",
+          "label": "Video on the char.gy YouTube channel"
+        },
+        {
+          "value": "11",
+          "label": "Finished exports from one shoot day"
+        },
+        {
+          "value": "2",
+          "label": "Pages of their site it leads"
+        },
+        {
+          "value": "Described",
+          "label": "An audio described cut for visually impaired viewers"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "website": {
+        "heading": "Where it ended up",
+        "note": "The film runs as the principal video on their About and Local Government pages, with a toggle between the standard and audio described versions.",
+        "versions": [
+          {
+            "label": "About us",
+            "src": "assets/web/chargy-about.jpg",
+            "alt": "The char.gy About us page, with the B Corp film as its principal video"
+          },
+          {
+            "label": "Local Government",
+            "src": "assets/web/chargy-local-gov.jpg",
+            "alt": "The char.gy Local Government page, running the same film"
+          }
+        ]
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/chargy-bcorp.mp4",
+          "poster": "assets/work/chargy-bcorp.jpg",
+          "title": "The B Corp film"
+        },
+        {
+          "src": "assets/work/chargy-bcorp-ad.mp4",
+          "poster": "assets/work/chargy-bcorp-ad.jpg",
+          "title": "The same film, audio described"
+        }
+      ]
+    },
+    {
+      "slug": "easee-wycombe-square",
+      "galleryNote": "Frames from the delivered video.",
+      "title": "A residential charging project, filmed end to end",
+      "client": "Easee Kensington MDU",
+      "industry": "Charging hardware",
+      "sector": "Commercial content",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "video_content/gallery/easee-wycombe.jpg",
+        "alt": "A white electric car parked outside a London mansion block",
+        "loop": "assets/work/gifs/easee-wycombe.mp4"
+      },
+      "summary": "A project video shot on location at a London residential development, built around residents and the managing agent rather than the product.",
+      "overview": "Easee needed a case study video that showed one of its chargers doing a real job in a real building, told by the people who use it.",
+      "challenge": "Residential buildings are difficult to video in. Access is limited, residents are busy and the story has to be captured in a single visit without disrupting anyone.",
+      "delivered": [
+        "One filming day on location at the development",
+        "Interviews with the managing agent and residents",
+        "Exterior, interior and installation coverage",
+        "A finished video delivered in square and 16:9 versions"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/easee-wycombe-charger.jpg",
+          "alt": "A white electric car parked on a residential street outside the development"
+        },
+        {
+          "src": "assets/work/easee-wycombe-street.jpg",
+          "alt": "A resident being interviewed outside the mansion block"
+        },
+        {
+          "src": "assets/work/easee-wycombe-resident.jpg",
+          "alt": "A second resident speaking to camera on a tree lined street"
+        }
+      ],
+      "video": {
+        "src": "video_content/gallery/easee-wycombe.mp4",
+        "poster": "video_content/gallery/easee-wycombe.jpg"
+      },
+      "outputs": [
+        {
+          "value": "1 day",
+          "label": "On location filming"
+        },
+        {
+          "value": "2",
+          "label": "Aspect ratios delivered"
+        },
+        {
+          "value": "3+",
+          "label": "Contributors interviewed"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      }
+    },
+    {
+      "slug": "combat-sports-event-photography",
+      "title": "Two competition days, 343 edited photographs and a video for each",
+      "client": "All Stars BJJ and Mat Masters",
+      "industry": "Combat sports events",
+      "sector": "Event photography and video",
+      "featured": true,
+      "categories": [
+        "Fitness and Combat Sports",
+        "Photography",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/bjj-cover.jpg",
+        "alt": "The competition mats at a Mat Masters grappling event"
+      },
+      "summary": "Full day coverage of two London grappling competitions, delivered as published athlete galleries, an overview video for the organisers and a set of vertical reels the competitors share themselves.",
+      "overview": "All Stars BJJ ran a full day at Crystal Palace National Sports Centre on Sunday 19 July 2026, with several mats going at once: kids divisions, adult gi and no-gi, women’s divisions, through to finals and podiums. A week later, Mat Masters 5 ran at Bromley High School. Both needed stills and video, and both had two audiences at the same time. The organiser needs content that makes the event look worth entering next year. The competitor wants a photograph and a clip of themselves that they are proud enough to repost.",
+      "challenge": "Mat sports are unforgiving to shoot. The light is poor, several mats run at once, the action never pauses and every competitor expects to find themselves in the gallery. The two events also needed genuinely different edits. All Stars needed the story of a whole day. Mat Masters needed short, high-impact vertical clips built around individual fights, fast enough to still feel current when the competitor sees them.",
+      "delivered": [
+        "Full day photography and video at both events, shot across every mat",
+        "Editing, culling and colour work on the full set, published as two athlete galleries competitors can browse and download from",
+        "All Stars: a 60 to 90 second overview video built as the story of the day, cold open through arrivals, kids divisions, adult matches, the corner and the podium, delivered in 16:9 and 9:16",
+        "All Stars: four vertical shorts, one single submission from grip to tap with no music at all, a warm cut from the youth divisions, a three-panel wide, mid and tight split screen, and a photographer’s point of view piece cutting from the viewfinder to the finished photograph",
+        "Mat Masters: short, high-impact 9:16 reels built per fight and per fighter, hooked in the first three seconds and finished on the hero moment",
+        "Photographs supplied to the organisers for their own channels"
+      ],
+      "galleryNote": "Selected frames from the two competition days. The full sets are published as athlete galleries.",
+      "gallery": [
+        {
+          "src": "assets/work/bjj-venue-wide.jpg",
+          "alt": "A wide view of the competition hall before the mats fill up"
+        },
+        {
+          "src": "assets/work/bjj-young-competitor.jpg",
+          "alt": "A young competitor concentrating between matches"
+        },
+        {
+          "src": "assets/work/bjj-tight-grapple.jpg",
+          "alt": "Two competitors locked together on the mat, shot close"
+        },
+        {
+          "src": "assets/work/bjj-the-corner.jpg",
+          "alt": "Coaches calling instructions from the side of the mat"
+        },
+        {
+          "src": "assets/work/bjj-girl-portrait.jpg",
+          "alt": "A young competitor in her gi watching the mat"
+        },
+        {
+          "src": "assets/work/bjj-team-backs.jpg",
+          "alt": "Three teammates with arms round each other, team patches across their backs"
+        },
+        {
+          "src": "assets/work/bjj-coach-tension.jpg",
+          "alt": "A coach with his hand over his face during a close match"
+        },
+        {
+          "src": "assets/work/bjj-young-grappler.jpg",
+          "alt": "A young grappler working for position during a match"
+        },
+        {
+          "src": "assets/work/bjj-winner.jpg",
+          "alt": "A competitor having their hand raised after the win"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "343",
+          "label": "Edited photographs published"
+        },
+        {
+          "value": "2",
+          "label": "Competition days covered"
+        },
+        {
+          "value": "5",
+          "label": "Edits from All Stars: one overview video and four shorts"
+        },
+        {
+          "value": "2",
+          "label": "Athlete galleries built and published"
+        }
+      ],
+      "results": [
+        "Both galleries are live and free for competitors to browse, download and share.",
+        "The overview video was delivered in 16:9 and 9:16 so the organiser can use it on the website and on social from the same edit."
+      ],
+      "cta": {
+        "label": "Talk to us about event coverage",
+        "href": "/contact"
+      }
+    },
+    {
+      "slug": "fusion-nexblue-partnership",
+      "title": "A partnership explained by both sides of it",
+      "client": "Fusion x NexBlue",
+      "industry": "Energy and installation",
+      "sector": "Commercial content",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Professional Services",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/fusion-wall.jpg",
+        "alt": "A director being interviewed in the Fusion office",
+        "loop": "assets/work/gifs/fusion.mp4"
+      },
+      "summary": "A partnership video made with two businesses at once, filmed in London and cut so both sides could use it on their own channels.",
+      "overview": "Fusion and NexBlue had built a working partnership and needed something that explained it to their shared customers. A press release doesn’t carry conviction. Two directors saying it plainly does.",
+      "challenge": "Two brands, two sets of approvals and one video. It had to be even handed enough that both businesses were happy to publish it, and clear enough that a customer understood the offer inside a minute.",
+      "delivered": [
+        "Filming across the office, the yard and the customer facing side of the business",
+        "Interviews with people from both companies",
+        "Supporting coverage of the work itself",
+        "A finished 16:9 video with captions, cut so both partners can publish it"
+      ],
+      "video": {
+        "src": "video_content/gallery/fusion-nexblue.mp4",
+        "poster": "video_content/gallery/fusion-nexblue.jpg"
+      },
+      "outputs": [
+        {
+          "value": "2",
+          "label": "Brands served by one video"
+        },
+        {
+          "value": "1",
+          "label": "16:9 video delivered with captions"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/vertical/fusion-jan.mp4",
+          "poster": "assets/work/vertical/fusion-jan.jpg",
+          "title": "Jan Selcuk, Company Director",
+          "vertical": true
+        },
+        {
+          "src": "assets/work/vertical/fusion-kaan.mp4",
+          "poster": "assets/work/vertical/fusion-kaan.jpg",
+          "title": "Kaan Selcuk, Managing Director",
+          "vertical": true
+        },
+        {
+          "src": "assets/work/vertical/fusion-kris.mp4",
+          "poster": "assets/work/vertical/fusion-kris.jpg",
+          "title": "Kris Carter, Lead Engineer",
+          "vertical": true
+        },
+        {
+          "src": "assets/work/vertical/fusion-peter.mp4",
+          "poster": "assets/work/vertical/fusion-peter.jpg",
+          "title": "Peter Dutton, Operations Director",
+          "vertical": true
+        }
+      ]
+    },
+    {
+      "slug": "smart-home-charge-presenter",
+      "galleryNote": "Frames from the delivered video.",
+      "title": "A presenter led case study for an automotive audience",
+      "client": "Smart Home Charge",
+      "industry": "Home charging",
+      "sector": "Personal brand and commercial",
+      "featured": false,
+      "categories": [
+        "Personal Brands",
+        "Automotive",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/shc-drive.jpg",
+        "alt": "An electric car driving a country road, from the Smart Home Charge customer story",
+        "loop": "assets/work/gifs/smart-home-charge.mp4"
+      },
+      "summary": "A customer story filmed with an automotive presenter and journalist, cut for a car buying audience rather than an installer one.",
+      "overview": "Smart Home Charge wanted a case study that would land with people researching their first electric car, told by someone that audience already trusts.",
+      "challenge": "Presenter led content only works if it feels like the presenter, not the brand. The video had to carry a clear product story without sounding scripted.",
+      "delivered": [
+        "Filming at the customer home and on the road",
+        "Interview direction with the presenter",
+        "Driving and installation coverage",
+        "A 16:9 case study video for web, social and YouTube"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/corporate-interview-presenter.jpg",
+          "alt": "The presenter speaking to camera during the interview"
+        },
+        {
+          "src": "assets/work/smart-home-charge-drive.jpg",
+          "alt": "A driving shot filmed from the rear seat of the car"
+        },
+        {
+          "src": "assets/work/corporate-doorstep.jpg",
+          "alt": "The presenter greeting the installer at the front door"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "1",
+          "label": "Case study video delivered"
+        },
+        {
+          "value": "16:9",
+          "label": "Cut for web and YouTube"
+        }
+      ],
+      "cta": {
+        "label": "Build your personal brand",
+        "href": "/personal-brand-shoot"
+      },
+      "video": {
+        "src": "video_content/gallery/smart-home-charge.mp4",
+        "poster": "video_content/gallery/smart-home-charge.jpg"
+      }
+    },
+    {
+      "slug": "plug-in-stations-content",
+      "title": "A content partnership that keeps a YouTube channel fed",
+      "client": "Plug In Stations",
+      "industry": "Installation and construction",
+      "sector": "Ongoing content partnership",
+      "featured": true,
+      "categories": [
+        "Trades and Construction",
+        "Commercial Content",
+        "Automotive",
+        "Video Production",
+        "Photography"
+      ],
+      "cover": {
+        "src": "assets/work/event-summer-party.jpg",
+        "alt": "Guests talking under gazebos at a company summer event",
+        "loop": "assets/work/gifs/pis.mp4"
+      },
+      "summary": "A monthly partnership covering installation days, product videos, honest car reviews and company events, plus the content calendar that hangs off them.",
+      "overview": "Plug In Stations installs charging infrastructure for homes and commercial sites. The business needed a steady flow of content rather than one video a year, and a YouTube channel that gives buyers something to watch while they are still making up their minds.",
+      "challenge": "Installation work is unpredictable and rarely waits for a camera, and a channel with three videos on it does more harm than good. The bigger problem is timing. Almost nobody searches for a charger installer until the car is already on the drive, so content that only talks about chargers arrives too late. The channel had to reach people while they were still deciding which electric car to buy.",
+      "delivered": [
+        "Scheduled content days built around live installation work",
+        "Photography and video captured on the same visits",
+        "A run of YouTube videos: product reviews, app tutorials and comparison pieces",
+        "Honest electric car reviews, presented by the team rather than a hired face, to reach people researching an EV long before they need a charger",
+        "A dealership case study filmed with Eden Motor Group, covering the customer journey from the forecourt through to the charger being fitted at home",
+        "Destruction and stress test videos made to earn the click rather than explain a spec sheet",
+        "Company event coverage",
+        "Short form edits and social ready assets cut from the same shoots",
+        "A rolling content calendar and blog support"
+      ],
+      "outputs": [
+        {
+          "value": "11+",
+          "label": "Videos produced across the partnership"
+        },
+        {
+          "value": "Monthly",
+          "label": "Scheduled content days"
+        },
+        {
+          "value": "Photo + video",
+          "label": "Captured on the same visit"
+        },
+        {
+          "value": "Ongoing",
+          "label": "Social and blog content produced"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "videos": [
+        {
+          "youtube": "RbM57J6y448",
+          "poster": "assets/work/pis/RbM57J6y448.jpg",
+          "title": "We Dropped, Crushed and Shot an EV Charger. Here is What Happened"
+        },
+        {
+          "youtube": "cRpxA8uiaQw",
+          "poster": "assets/work/pis/cRpxA8uiaQw.jpg",
+          "title": "The Official EV Charger Tier List (2025 Update)"
+        },
+        {
+          "youtube": "7C21LpRveag",
+          "poster": "assets/work/pis/7C21LpRveag.jpg",
+          "title": "Complete Ohme App Tutorial: Save Money and Control Your EV Charging"
+        },
+        {
+          "youtube": "1ZAIRj0ff9k",
+          "poster": "assets/work/pis/1ZAIRj0ff9k.jpg",
+          "title": "Ohme ePod vs Home Pro: Which EV Charger is Best for Your Home?"
+        },
+        {
+          "youtube": "G9KdNYckXko",
+          "poster": "assets/work/pis/G9KdNYckXko.jpg",
+          "title": "Ohme Home Pro Charger Review with Andy"
+        },
+        {
+          "youtube": "F8wbt9P7Zqk",
+          "poster": "assets/work/pis/F8wbt9P7Zqk.jpg",
+          "title": "Is This the Smartest Commercial EV Charger? Easee Charge Review"
+        },
+        {
+          "youtube": "305otceAnKw",
+          "poster": "assets/work/pis/305otceAnKw.jpg",
+          "title": "MG MG4 Honest EV Review with Natalya"
+        },
+        {
+          "youtube": "u4Omt_10zoQ",
+          "poster": "assets/work/pis/u4Omt_10zoQ.jpg",
+          "title": "New Kia Niro EV HONEST review"
+        },
+        {
+          "youtube": "n-LndMkTC0w",
+          "poster": "assets/work/pis/n-LndMkTC0w.jpg",
+          "title": "Optimising your Housing Estate with EV Chargers is Easee"
+        },
+        {
+          "youtube": "Bhmhdq8BzGo",
+          "poster": "assets/work/pis/Bhmhdq8BzGo.jpg",
+          "title": "Plug x AE Summer Party Highlight"
+        }
+      ],
+      "videoNote": "A run of videos produced for the Plug In Stations YouTube channel. Product reviews and tutorials for people already shopping for a charger, and honest car reviews presented by the team for people who are still choosing the car.",
+      "videoCta": {
+        "label": "See more on the Plug In Stations channel",
+        "href": "https://www.youtube.com/@PlugInStationsUK"
+      },
+      "videosHeld": [
+        {
+          "src": "video_content/gallery/eden-motor-group.mp4",
+          "poster": "video_content/gallery/eden-motor-group.jpg",
+          "title": "Eden Motor Group dealership case study"
+        }
+      ]
+    },
+    {
+      "slug": "mayflower-lodge-project",
+      "galleryNote": "Frames from the delivered video.",
+      "title": "A property project explained for residents and freeholders",
+      "client": "Property management project",
+      "industry": "Property management",
+      "sector": "Professional services",
+      "featured": false,
+      "categories": [
+        "Professional Services",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/property-block.jpg",
+        "alt": "A residential street with charging bays marked out on the driveway",
+        "loop": "assets/work/gifs/mayflower.mp4"
+      },
+      "summary": "A project overview video made to explain a communal charging installation to residents, freeholders and managing agents.",
+      "overview": "Communal charging projects need buy in from people who didn’t commission them. The video had to answer the questions residents ask before the works start.",
+      "challenge": "The audience wasn’t the buyer. The video needed to be clear enough for residents, credible enough for the freeholder and useful enough for the contractor to send ahead of a meeting.",
+      "delivered": [
+        "Filming on site across the development",
+        "Interviews with the project team and the managing agent",
+        "Plans and technical detail worked into the edit",
+        "A project overview video with captions"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/property-engineer.jpg",
+          "alt": "The project director speaking to camera outside the development"
+        },
+        {
+          "src": "assets/work/property-charger.jpg",
+          "alt": "A charge point installed at the residential block"
+        },
+        {
+          "src": "assets/work/property-block.jpg",
+          "alt": "The residential development the charging bays were installed at"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "1",
+          "label": "Project overview video"
+        },
+        {
+          "value": "Captioned",
+          "label": "Built for silent viewing"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about your project",
+        "href": "/contact"
+      },
+      "video": {
+        "src": "video_content/gallery/mayflower-lodge.mp4",
+        "poster": "video_content/gallery/mayflower-lodge.jpg"
+      }
+    },
+    {
+      "slug": "fully-charged-live-event",
+      "galleryNote": "From the show floor across both events.",
+      "title": "Two shows, one filmed to sell the other",
+      "client": "Fully Charged",
+      "industry": "Events and exhibitions",
+      "sector": "Event content",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Video Production",
+        "Photography"
+      ],
+      "cover": {
+        "src": "assets/work/gifs/fully-charged.jpg",
+        "loop": "assets/work/gifs/fully-charged.mp4",
+        "alt": "Highlights from the Fully Charged show floor"
+      },
+      "summary": "Coverage across the Fully Charged South and North shows, with the content from the first used to sell tickets to the second.",
+      "overview": "Fully Charged run consumer EV shows across the country. Two of them, South and North, were covered in the same year. The useful move was not treating them as two separate jobs: the South show produced the material that promoted the North one.",
+      "challenge": "A show floor is thousands of people, dozens of stands and no control over anything. You cannot light it, you cannot move it, and the good moments happen once. On top of that, the content had a deadline that was not the end of the edit, it was the start of ticket sales for the next show.",
+      "delivered": [
+        "Photography and video across both the South and North shows",
+        "Stand coverage, product launches and the theatre sessions",
+        "Visitor moments captured across the floor, not just the exhibitors",
+        "A highlight film from the first show used to promote the second",
+        "Assets turned around fast enough to sell tickets while they mattered"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/fully-charged/fc-1.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-2.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-3.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-4.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-5.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-6.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-7.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        },
+        {
+          "src": "assets/work/fully-charged/fc-8.jpg",
+          "alt": "A moment from the Fully Charged show floor"
+        }
+      ],
+      "video": {
+        "src": "video_content/gallery/fully-charged-23.mp4",
+        "poster": "video_content/gallery/fully-charged-23.jpg"
+      },
+      "outputs": [
+        {
+          "value": "2",
+          "label": "Shows covered, South and North"
+        },
+        {
+          "value": "South to North",
+          "label": "The first show sold tickets to the second"
+        },
+        {
+          "value": "Show floor",
+          "label": "Stands, theatre sessions and visitors"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about event coverage",
+        "href": "/contact"
+      }
+    },
+    {
+      "slug": "manxinha-documentary",
+      "title": "Manxinha, a documentary in production",
+      "client": "Manxinha",
+      "industry": "Documentary",
+      "sector": "Documentary",
+      "featured": false,
+      "categories": [
+        "Documentary",
+        "Fitness and Combat Sports"
+      ],
+      "cover": {
+        "src": "assets/work/documentary-manxinha.jpg",
+        "alt": "Title card reading Manxinha, a documentary by Earl Duncan",
+        "loop": "assets/work/gifs/manxinha.mp4"
+      },
+      "summary": "A long form documentary made with London Fight Factory, currently in production and releasing in 2026.",
+      "overview": "Documentary work is where the longer relationships start. Manxinha is being made with London Fight Factory and follows a story that doesn’t fit inside a two minute video.",
+      "challenge": "Documentary needs access and patience, filmed over months rather than a single shoot day, and cut without a brief telling it what to say.",
+      "delivered": [
+        "Ongoing filming with London Fight Factory",
+        "Interview and observational coverage",
+        "Long form edit in progress"
+      ],
+      "outputs": [
+        {
+          "value": "In production",
+          "label": "Releasing 2026"
+        },
+        {
+          "value": "Long form",
+          "label": "Documentary format"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about documentary work",
+        "href": "/contact"
+      },
+      "comingSoon": true
+    },
+    {
+      "slug": "musk-city-campaign",
+      "galleryNote": "Production stills and frames from the campaign.",
+      "title": "A campaign built to be shared, not to be seen",
+      "client": "Musk City",
+      "industry": "Charging hardware",
+      "sector": "Easee global campaign",
+      "featured": true,
+      "categories": [
+        "Commercial Content",
+        "Video Production",
+        "Photography",
+        "Documentary"
+      ],
+      "cover": {
+        "src": "assets/work/gifs/musk-city.jpg",
+        "loop": "assets/work/gifs/musk-city.mp4",
+        "alt": "Scenes from the Musk City campaign"
+      },
+      "summary": "A high-budget global campaign inviting Elon Musk for a coffee while he was in Stavanger, built in a fictional town and made to be shared rather than watched.",
+      "overview": "Elon Musk was coming to Stavanger to deliver a keynote. Easee decided to invite him for a coffee, and to do it in public. The campaign is set in the fictional town of Musk City, where the residents look up to him for what he has done for electric vehicles.",
+      "challenge": "The brief wasn’t reach, it was shareability. One retweet from the right account could have more than tripled the return on the campaign, so everything was built and bought with that single outcome in mind. That’s a hard thing to design for and an easy thing to get wrong.",
+      "delivered": [
+        "A full production shoot across sets and locations in Stavanger",
+        "Directed scenes with cast, lighting and art direction",
+        "Photography captured alongside the video",
+        "A campaign video and cutdowns built for social",
+        "Stills used across the campaign rollout"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/musk-city-16.jpg",
+          "alt": "A lit set built for the campaign, shot in the evening"
+        },
+        {
+          "src": "assets/work/musk-city-22.jpg",
+          "alt": "The crew filming a scene behind a camera and monitor"
+        },
+        {
+          "src": "assets/work/musk-city-6.jpg",
+          "alt": "A cast member filmed at home during the campaign"
+        },
+        {
+          "src": "assets/work/musk-city-19.jpg",
+          "alt": "A boom operator and crew lighting a kitchen set"
+        },
+        {
+          "src": "assets/work/documentary-field.jpg",
+          "alt": "Two of the cast at a table in a field at sunset"
+        },
+        {
+          "src": "assets/work/documentary-fire.jpg",
+          "alt": "A night scene lit by fire during the campaign shoot"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "Global",
+          "label": "Campaign, shot in Stavanger"
+        },
+        {
+          "value": "Video + stills",
+          "label": "Captured on the same production"
+        },
+        {
+          "value": "Built to share",
+          "label": "Bought and cut for reach through reshares"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about a campaign",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "video_content/gallery/musk-city.mp4",
+          "poster": "video_content/gallery/musk-city.jpg",
+          "title": "Musk City campaign video"
+        }
+      ]
+    },
+    {
+      "slug": "bbc-coffee-commercial",
+      "title": "The whole installation process, explained once and properly",
+      "client": "BBC Coffee",
+      "industry": "Hospitality and commercial property",
+      "sector": "Commercial case study",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Professional Services",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/gifs/bbc-coffee.jpg",
+        "loop": "assets/work/gifs/bbc-coffee.mp4",
+        "alt": "Scenes from the BBC Coffee commercial case study"
+      },
+      "summary": "A commercial case study covering an entire charge point installation, from the first survey to the end user plugging in.",
+      "overview": "Commercial buyers don’t want a product video, they want to know what actually happens on their site. This case study walks through the whole installation process for a working business in Southampton, and ties the features and benefits back to what the end user needs.",
+      "challenge": "The full process is long, technical and easy to make boring. It had to stay accurate enough for a facilities manager and watchable enough for someone who has never specified a charge point before.",
+      "delivered": [
+        "Filming across the site through the installation",
+        "Interviews with the business and the installation team",
+        "Coverage of the process end to end, survey through to handover",
+        "A commercial case study video"
+      ],
+      "outputs": [
+        {
+          "value": "End to end",
+          "label": "The full installation process covered"
+        },
+        {
+          "value": "1",
+          "label": "Commercial case study video"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      }
+    },
+    {
+      "slug": "easee-commercial-install",
+      "galleryNote": "Photography from the showroom shoot in Poole.",
+      "title": "A car showroom install, and the live test that proves it’s safe",
+      "client": "Easee Showroom Install",
+      "industry": "Automotive retail and charging",
+      "sector": "Automotive and commercial",
+      "featured": false,
+      "categories": [
+        "Automotive",
+        "Commercial Content",
+        "Trades and Construction",
+        "Photography",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/gifs/easee-rcd.jpg",
+        "alt": "The installer running a live RCD test at a car showroom",
+        "loop": "assets/work/gifs/easee-rcd.mp4"
+      },
+      "summary": "An installation case study filmed at a car showroom in Poole, built around the installer explaining why he works with Easee and then proving one of the safety features on camera.",
+      "overview": "This one was filmed at a car showroom in Poole. The installer explains why he chooses to work with Easee, and then runs a live RCD test on the unit to demonstrate one of its safety features rather than just claiming it.",
+      "challenge": "Specifiers and installers don’t take a product claim on trust. The safety feature had to be demonstrated on camera, on a real site, in a way an electrician would accept, while still being watchable for the showroom owner paying for it.",
+      "delivered": [
+        "Photography and video on location at the showroom",
+        "Interview with the installer on why he specifies Easee",
+        "A live RCD test filmed as proof rather than as a claim",
+        "Close coverage of the unit, the fit and the forecourt",
+        "A finished video plus square cutdowns for social"
+      ],
+      "gallery": [
+        {
+          "src": "assets/work/rcd-1.jpg",
+          "alt": "The installer on site in high visibility clothing"
+        },
+        {
+          "src": "assets/work/rcd-2.jpg",
+          "alt": "The showroom forecourt with rows of cars behind the charging point"
+        },
+        {
+          "src": "assets/work/rcd-3.jpg",
+          "alt": "The installer fitting the charge point cover"
+        },
+        {
+          "src": "assets/work/rcd-4.jpg",
+          "alt": "A close view of the RCD test meter being operated"
+        },
+        {
+          "src": "assets/work/rcd-5.jpg",
+          "alt": "The installer running the live RCD test at the unit"
+        },
+        {
+          "src": "assets/work/rcd-6.jpg",
+          "alt": "The installer van parked on the showroom forecourt"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "Live test",
+          "label": "The safety feature proved on camera"
+        },
+        {
+          "value": "1",
+          "label": "Installation case study video"
+        },
+        {
+          "value": "14",
+          "label": "Photographs delivered from the shoot"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "videosHeld": [
+        {
+          "src": "video_content/gallery/easee-rcd-install.mp4",
+          "poster": "video_content/gallery/easee-rcd-install.jpg",
+          "title": "Easee commercial install with RCD test"
+        }
+      ]
+    },
+    {
+      "slug": "russell-hewes-website",
+      "title": "A ten year old site rebuilt around the work they actually win",
+      "client": "RH Ltd",
+      "industry": "Electrical and building contractor",
+      "sector": "Website",
+      "featured": false,
+      "categories": [
+        "Websites",
+        "Trades and Construction",
+        "Professional Services"
+      ],
+      "cover": {
+        "src": "assets/web/rh-cover.jpg",
+        "alt": "The rebuilt RH Ltd website"
+      },
+      "summary": "A London electrical and building contractor with three distinct arms and a website that only really spoke about one of them.",
+      "overview": "RH Ltd covers electrical work, developments and facilities maintenance for domestic and commercial clients across London, all NICEIC approved. The old site was a dark, single-column page built around a phone number and a contact form. It worked, but it didn’t carry ten years of completed projects, and it gave a facilities manager no reason to believe the firm handled anything beyond call-outs.",
+      "challenge": "Three service lines, three different buyers, and one homepage. A homeowner wanting a rewire and a developer wanting a project managed need to see different things within about five seconds of landing.",
+      "delivered": [
+        "A rebuilt site split clearly across Electricians, Developments and Facilities",
+        "A rotating hero showing finished work rather than stock interiors",
+        "Track record brought to the top: years trading, projects completed, services offered",
+        "Service cards that route each of the three audiences to the right page",
+        "Accreditation logos gathered in one place, NICEIC, TrustMark, Checkatrade, Nest Pro and the rest",
+        "Customer reviews pulled onto the homepage",
+        "A single clear call to action running through the page"
+      ],
+      "outputs": [
+        {
+          "value": "3",
+          "label": "Service lines given their own route through the site"
+        },
+        {
+          "value": "1",
+          "label": "Website designed and built"
+        },
+        {
+          "value": "Before / after",
+          "label": "Rebuilt from a single dark page"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about a website",
+        "href": "/contact"
+      },
+      "website": {
+        "heading": "The site, and our design",
+        "note": "Use the buttons to move between versions.",
+        "versions": [
+          {
+            "label": "Before",
+            "src": "assets/web/rh-v1.jpg",
+            "alt": "The RH Ltd website before the rebuild"
+          },
+          {
+            "label": "Our design",
+            "src": "assets/web/rh-v2.jpg",
+            "alt": "The RH Ltd website after the rebuild"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "tuk-website",
+      "title": "A WordPress catalogue under attack, rebuilt as a custom site",
+      "client": "TUK Ltd",
+      "industry": "Voice and data cabling manufacturer",
+      "sector": "Website",
+      "featured": false,
+      "categories": [
+        "Websites",
+        "Professional Services"
+      ],
+      "cover": {
+        "src": "assets/web/tuk-cover.jpg",
+        "alt": "The TUK Ltd product catalogue, showing cabling categories and new arrivals"
+      },
+      "summary": "A cabling manufacturer trading since 1984, running their trade catalogue on WordPress and being attacked through it. Rebuilt as a custom site of 371 pages, then moved onto infrastructure they own.",
+      "overview": "TUK Ltd designs and manufactures voice and data copper cabling, selling to manufacturers, wholesalers and distributors rather than the public. The site is a working trade catalogue, so it carries the full product range, the specifications buyers check before ordering and the routes distributors use to get in touch. It has to be available, and it has to be quick to find things in.",
+      "challenge": "The old site was built in WordPress and kept getting attacked. Every incident meant downtime on a catalogue that buyers and distributors depend on, and each fix was another patch on a platform with a very large surface to defend. It also sat on a previous supplier’s hosting, database, image storage and email, with their team holding administrator access, so nothing could be changed or moved without going through them.",
+      "delivered": [
+        "A custom build replacing WordPress, leaving no third party plugin surface to attack",
+        "371 pages live, including 360 individual product pages generated from a single catalogue",
+        "Category browsing, featured products and new arrivals, each with its own route",
+        "Product search rewritten to match on every term rather than the whole query as one literal phrase, and no longer capped at ten results",
+        "Trade account registration with email verification, so pricing only appears once a buyer is signed in",
+        "A wishlist, so buyers can gather a parts list before they enquire",
+        "Separate request a quote and distributor enquiry routes, each reaching the right inbox",
+        "A distributor network page so buyers can find their nearest supplier",
+        "An admin area where the team publish their own content, with linking and video embedding built in",
+        "Migration onto the client’s own hosting, database, image storage and email, with no downtime",
+        "Repository made private, every legacy administrator and collaborator account removed, and every write route put behind a signed-in session",
+        "Pagination moved into the page address, so the browser back button returns buyers to where they were"
+      ],
+      "outputs": [
+        {
+          "value": "371",
+          "label": "Pages live, 360 of them product pages"
+        },
+        {
+          "value": "Custom",
+          "label": "Rebuilt off WordPress, no plugin surface to attack"
+        },
+        {
+          "value": "5,153",
+          "label": "Rows of live data migrated with no downtime"
+        },
+        {
+          "value": "0 → 18",
+          "label": "Results for a search that used to return nothing"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about a website",
+        "href": "/contact"
+      },
+      "website": {
+        "heading": "The site, then and now",
+        "note": "Two rebuilds. Use the buttons to move between versions.",
+        "versions": [
+          {
+            "label": "Before",
+            "src": "assets/web/tuk-v1.jpg",
+            "alt": "The TUK Ltd website before the rebuild"
+          },
+          {
+            "label": "First rebuild",
+            "src": "assets/web/tuk-v2.jpg",
+            "alt": "The first rebuild of the TUK Ltd website"
+          },
+          {
+            "label": "Live now",
+            "src": "assets/web/tuk-v3.jpg",
+            "alt": "The TUK Ltd website as it stands today"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "trade-electrical-distributors-website",
+      "title": "Two brands for one wholesaler, TED EV and TED BMS",
+      "client": "Trade Electrical Distributors",
+      "industry": "Electrical wholesale",
+      "sector": "Website and social",
+      "featured": false,
+      "categories": [
+        "Websites",
+        "Trades and Construction",
+        "Commercial Content"
+      ],
+      "cover": {
+        "src": "assets/web/ted-cover.jpg",
+        "alt": "The TED EV website"
+      },
+      "summary": "A family-run electrical wholesaler in North London with over fifty years in the trade. TED EV is an ecommerce site selling to registered installers, and TED BMS is a separate brand built to reach commercial building automation projects.",
+      "overview": "TED supplies electricians, contractors and businesses across London and beyond. TED EV is the wholesale side, an ecommerce site with a strong EV charging range where installers order online and see trade pricing once they are registered. TED BMS is a separate brand for a different buyer entirely: the contractors, systems integrators, consultants and panel builders who specify and supply commercial building management systems.",
+      "challenge": "The two audiences want opposite things. A TED EV buyer wants to know you stock the brand, see the trade price and get it in a basket today. A TED BMS buyer is working to a programme, needs supply that matches a specification, and is trying to stop chasing four different suppliers. Putting both on one site would have weakened each of them, so TED BMS was built as its own brand with its own goals.",
+      "delivered": [
+        "A brand-led TED EV homepage putting the full manufacturer list above the fold",
+        "Click and collect, service and expertise stated as three plain promises",
+        "Trade registration as the primary call to action, with trade pricing shown once signed in",
+        "Full ecommerce on TED EV: product pages, basket and checkout, with new arrivals and featured ranges",
+        "Blog content written for installers, from toolkits to charger installation guidance",
+        "TED BMS built as a separate brand for commercial building automation work",
+        "Three clear ways in on TED BMS: trade account supply, commercial project support and technical product support",
+        "The four things that cost BMS projects time and margin named on the page, each answered directly",
+        "Product range laid out by category, from BMS and control cables through to control panel components",
+        "Audience routes for contractors, systems integrators, consultants, panel builders and facilities management",
+        "Credibility brought forward: over fifty years in electrical and trade supply, trade only, UK wide, specification aligned",
+        "Photography and video from our own shoots used throughout both sites",
+        "Social content produced alongside",
+        "An introduction film covering who they are, what they stock and where they are, for the site and their sales material"
+      ],
+      "outputs": [
+        {
+          "value": "2",
+          "label": "Sites, each built for a different buyer"
+        },
+        {
+          "value": "3",
+          "label": "Ways in on TED BMS, by what the buyer needs"
+        },
+        {
+          "value": "50+",
+          "label": "Years in the trade, brought to the front of both"
+        },
+        {
+          "value": "Ecommerce",
+          "label": "TED EV sells online, with trade pricing behind registration"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about a website",
+        "href": "/contact"
+      },
+      "website": {
+        "heading": "Both sites",
+        "note": "Two brands, two buyers. Use the buttons to move between them.",
+        "versions": [
+          {
+            "label": "TED EV",
+            "src": "assets/web/ted-v2.jpg",
+            "alt": "The TED EV wholesale homepage"
+          },
+          {
+            "label": "TED BMS",
+            "src": "assets/web/ted-bms.jpg",
+            "alt": "The TED BMS homepage, built for commercial building automation projects"
+          }
+        ]
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/ted-intro.mp4",
+          "poster": "assets/work/ted-intro.jpg",
+          "title": "Who TED are, in ninety seconds"
+        }
+      ]
+    },
+    {
+      "slug": "road-installer-show",
+      "title": "A stand at the NEC, turned into a year of content",
+      "client": "Road",
+      "industry": "EV charging",
+      "sector": "Event content",
+      "featured": false,
+      "categories": [
+        "Event Content",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/road/stand-wide.jpg",
+        "loop": "assets/work/gifs/road-stand.mp4",
+        "alt": "The Road stand at the Installer Show, NEC"
+      },
+      "summary": "Three days on a stand at the Installer Show. Interviews with the brands Road works alongside, plus the b-roll they needed to keep posting long after everyone went home.",
+      "overview": "Road took a stand at the Installer Show at the NEC. A trade show is a rare thing for a brand: everyone you want to talk to is in one building, in a good mood, for three days. The problem is that it is over almost immediately, and most of what happens there is never captured.",
+      "challenge": "Exhibiting is expensive and the value drains away the moment the doors close. Road needed the stand to keep working for months afterwards, which meant capturing far more than a highlights reel. It also meant getting people who had come to sell, not to be filmed, comfortable enough to say something worth using.",
+      "delivered": [
+        "Three filmed interviews with brands on the stand, NexBlue, Zaptec and myenergi",
+        "Interviews shot fast and loose so exhibitors could step in and out between conversations",
+        "A bank of b-roll covering the stand, the products and the floor",
+        "Stills of the stand, the team and the conversations happening on it",
+        "Footage cut so it can carry Road’s own marketing long after the show",
+        "Everything captured across the run of the event, not a single visit"
+      ],
+      "videos": [
+        {
+          "vimeo": "973104130",
+          "poster": "assets/work/road/nexblue.jpg",
+          "title": "Road interviews NexBlue"
+        },
+        {
+          "vimeo": "973110289",
+          "poster": "assets/work/road/zaptec.jpg",
+          "title": "Road interviews Zaptec"
+        },
+        {
+          "vimeo": "973109452",
+          "poster": "assets/work/road/myenergi.jpg",
+          "title": "Road interviews myenergi"
+        }
+      ],
+      "videoNote": "Interviews recorded on the stand between meetings.",
+      "outputs": [
+        {
+          "value": "21",
+          "label": "Photographs delivered from the show"
+        },
+        {
+          "value": "3",
+          "label": "Brand interviews filmed on the stand"
+        },
+        {
+          "value": "NEC",
+          "label": "Installer Show, across the full run"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about event content",
+        "href": "/contact"
+      },
+      "galleryNote": "Three days on the stand, shot around the meetings rather than through them.",
+      "gallery": [
+        {
+          "src": "assets/work/road/stand-wide.jpg",
+          "alt": "The Road stand at the Installer Show"
+        },
+        {
+          "src": "assets/work/road/team.jpg",
+          "alt": "The Road team in front of the platform uptime figure"
+        },
+        {
+          "src": "assets/work/road/candid-laugh.jpg",
+          "alt": "Two of the Road team laughing on the stand"
+        },
+        {
+          "src": "assets/work/road/conversation.jpg",
+          "alt": "A conversation with visitors on the stand"
+        },
+        {
+          "src": "assets/work/road/brand-wall.jpg",
+          "alt": "The Road brand message on the stand wall"
+        },
+        {
+          "src": "assets/work/road/stand-floor.jpg",
+          "alt": "Visitors at the stand during the show"
+        },
+        {
+          "src": "assets/work/road/stand-angle.jpg",
+          "alt": "The stand seen from the show floor"
+        },
+        {
+          "src": "assets/work/road/candid-two.jpg",
+          "alt": "Two visitors talking to the Road team"
+        },
+        {
+          "src": "assets/work/road/charge-point.jpg",
+          "alt": "A visitor looking at a charge point on the stand"
+        }
+      ]
+    },
+    {
+      "slug": "lovato-maia-seminar",
+      "title": "Two world champions on the mat, filmed in one afternoon",
+      "client": "London Fight Factory",
+      "industry": "Brazilian jiu jitsu",
+      "sector": "Event photography and video",
+      "featured": false,
+      "categories": [
+        "Fitness and Combat Sports",
+        "Event Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/lovato-seminar.jpg",
+        "loop": "assets/work/gifs/lovato-seminar.mp4",
+        "alt": "A packed mat during the Lovato and Maia seminar at London Fight Factory"
+      },
+      "summary": "A seminar with Rafael Lovato Jr and Demian Maia at London Fight Factory, cut into a highlight film for the gym.",
+      "overview": "London Fight Factory brought two of the most decorated grapplers in the sport onto their mats for a single afternoon. A packed room, a wall of flags, and a lot of people who had travelled a long way to be there.",
+      "challenge": "A seminar is a hard thing to film. The room is full, the light is whatever the gym has, and the moments that matter are small: a grip, a correction, a face when something finally clicks. Stopping the session for the camera was never an option.",
+      "delivered": [
+        "Full coverage of the seminar, shot around the session rather than through it",
+        "Close work on the technique itself, not just wide room shots",
+        "The reactions in the room, which is what makes a seminar film worth watching",
+        "A highlight edit the gym can use to sell the next one"
+      ],
+      "outputs": [
+        {
+          "value": "2",
+          "label": "World champions on the mat"
+        },
+        {
+          "value": "1 afternoon",
+          "label": "Single session, no reshoots"
+        },
+        {
+          "value": "Highlight film",
+          "label": "Cut to sell the next seminar"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about event coverage",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/lovato-seminar.mp4",
+          "poster": "assets/work/lovato-seminar.jpg",
+          "title": "Seminar highlights"
+        }
+      ]
+    },
+    {
+      "slug": "ohme-christmas-raffle",
+      "title": "A Christmas raffle that brought in a thousand entries",
+      "client": "PIS x Ohme Christmas raffle",
+      "industry": "EV charging",
+      "sector": "Campaign content",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/ohme-raffle.jpg",
+        "loop": "assets/work/gifs/ohme-raffle.mp4",
+        "alt": "The Christmas raffle film for Plug In Stations and Ohme"
+      },
+      "summary": "A campaign film for a Christmas giveaway run with Ohme. Two winners took a free charger and installation, and the campaign brought in a thousand entries and two paid installs.",
+      "overview": "Plug In Stations partnered with Ohme on a Christmas giveaway. Two winners would get an Ohme ePod with free standard home installation. The film was the centre of a paid campaign that ran on Facebook.",
+      "challenge": "Giveaways are easy to run and easy to waste. Plenty of brands hand something away, collect a pile of entries and get nothing back, because the people entering only ever wanted the free thing. The campaign had to attract entrants who genuinely needed a charger, and it had to give them a reason to hand over their details rather than just tap a like.",
+      "delivered": [
+        "A campaign film shot for the giveaway, cut for paid social",
+        "A golden ticket download used as the incentive to complete the form",
+        "Content built to run as a Facebook ad rather than an organic post",
+        "Follow-up films covering the two winners and their installs"
+      ],
+      "outputs": [
+        {
+          "value": "1,000",
+          "label": "Entries to the raffle"
+        },
+        {
+          "value": "2",
+          "label": "Winners, each given a charger and installation"
+        },
+        {
+          "value": "2",
+          "label": "Paid installs won off the back of the campaign"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about campaign content",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/ohme-raffle.mp4",
+          "poster": "assets/work/ohme-raffle.jpg",
+          "title": "The campaign film"
+        },
+        {
+          "src": "assets/work/vertical/raffle-2.mp4",
+          "poster": "assets/work/vertical/raffle-2.jpg",
+          "title": "A thousand entries, two winners",
+          "vertical": true
+        },
+        {
+          "src": "assets/work/vertical/raffle-1.mp4",
+          "poster": "assets/work/vertical/raffle-1.jpg",
+          "title": "A winner on living with a home charger",
+          "vertical": true
+        },
+        {
+          "src": "assets/work/vertical/raffle-3.mp4",
+          "poster": "assets/work/vertical/raffle-3.jpg",
+          "title": "The second winner’s install",
+          "vertical": true
+        }
+      ]
+    },
+    {
+      "slug": "nimrod-road-renovation",
+      "title": "A renovation explained by the person who lived through it",
+      "client": "Nimrod Road Renovation",
+      "industry": "Electrical and building contractor",
+      "sector": "Case study film",
+      "featured": false,
+      "categories": [
+        "Trades and Construction",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/nimrod/door.jpg",
+        "loop": "assets/work/gifs/nimrod.mp4",
+        "alt": "Sliding the doors open onto the garden at the Nimrod Road renovation"
+      },
+      "summary": "A full house renovation told from the client’s side rather than the contractor’s, filmed once the work was finished and the family had moved back in.",
+      "overview": "RH Ltd took on a full renovation at Nimrod Road. Rather than a walkthrough narrated by the builder, the film is the homeowner giving their own account of the job: what they wanted, what it was like to live through, and what they ended up with.",
+      "challenge": "Every contractor says the same things about themselves. Quality, on time, on budget. None of it means anything coming from the person being paid. The only version a prospective client believes is the one from someone who has already handed over the money, which meant handing the film to the homeowner and letting them say whatever they were going to say.",
+      "delivered": [
+        "A case study film led by the homeowner, in their own words",
+        "Before and after floorplans cut in so the scale of the work reads on screen",
+        "Photography and video of the finished rooms once the family had moved back in",
+        "Coverage of the whole property, from the bathroom through to the kitchen extension and garden",
+        "An edit RH can send to a prospective client who is deciding whether to trust them with a house"
+      ],
+      "galleryNote": "The finished property.",
+      "gallery": [
+        {
+          "src": "assets/work/nimrod/f176.jpg",
+          "alt": "The kitchen and dining space opening onto the garden"
+        },
+        {
+          "src": "assets/work/nimrod/f132.jpg",
+          "alt": "The finished kitchen"
+        },
+        {
+          "src": "assets/work/nimrod/f110.jpg",
+          "alt": "The hallway with exposed brickwork"
+        },
+        {
+          "src": "assets/work/nimrod/f66.jpg",
+          "alt": "The finished bathroom"
+        },
+        {
+          "src": "assets/work/nimrod/f198.jpg",
+          "alt": "Detail of the fitted units"
+        },
+        {
+          "src": "assets/work/nimrod/skylight.jpg",
+          "alt": "A skylight over the retained brickwork in the extension"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "Client led",
+          "label": "Told by the homeowner, not the contractor"
+        },
+        {
+          "value": "Whole house",
+          "label": "Bathroom through to the kitchen extension"
+        },
+        {
+          "value": "Before / after",
+          "label": "Floorplans cut in to show the scale of the work"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about case study films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/nimrod-renovation.mp4",
+          "poster": "assets/work/nimrod/door.jpg",
+          "title": "The renovation, told by the client"
+        }
+      ]
+    },
+    {
+      "slug": "corporate-headshots",
+      "title": "Headshots that look like the same company, not the same person",
+      "client": "Corporate Headshots",
+      "industry": "Multiple clients",
+      "sector": "Photography",
+      "featured": false,
+      "categories": [
+        "Photography",
+        "Professional Services",
+        "Commercial Content"
+      ],
+      "cover": {
+        "src": "assets/work/headshots/wevo-2.jpg",
+        "alt": "A corporate headshot from a team session"
+      },
+      "summary": "Team headshot sessions run on location for several companies, shot so every person looks like themselves while the set still reads as one company.",
+      "overview": "A team page only works if it hangs together. The usual problem is that headshots get taken whenever somebody joins, by whoever is around, so a team page ends up a patchwork of phone photos, old crops and one very good picture from a wedding. These sessions were run on site, in one go, with the same setup for everyone.",
+      "challenge": "Two things pull against each other. The set has to be consistent enough to sit in a grid without looking like a ransom note, and each person still has to look like themselves rather than processed. Most people also dislike being photographed, and you have a couple of minutes each before the next one is waiting.",
+      "delivered": [
+        "On-site sessions, so nobody loses half a day travelling to a studio",
+        "The same lighting and backdrop for every person, so the set sits together in a grid",
+        "A few minutes each, run to a schedule the office can work around",
+        "Retouched files cut out and ready to drop straight onto a website or LinkedIn",
+        "Casual and behind the scenes frames from the same visit where the brief called for them"
+      ],
+      "galleryNote": "Sessions for Wevo, Trade Electrical Distributors and others.",
+      "gallery": [
+        {
+          "src": "assets/work/headshots/wevo-1.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/wevo-2.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/wevo-3.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/wevo-4.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/wevo-5.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/ted-1.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/ted-2.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/ted-3.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/ted-4.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-1.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-2.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-3.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-4.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-5.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-6.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        },
+        {
+          "src": "assets/work/headshots/se-7.jpg",
+          "alt": "A corporate headshot shot against a clean backdrop"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "16",
+          "label": "People photographed across these sessions"
+        },
+        {
+          "value": "On site",
+          "label": "Shot at the office, not in a studio"
+        },
+        {
+          "value": "Cut out",
+          "label": "Delivered ready for a website or LinkedIn"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about team headshots",
+        "href": "/contact"
+      },
+      "galleryGrid": true
+    },
+    {
+      "slug": "easee-alpha-manufacturing",
+      "title": "A manufacturer that fitted the chargers it helps build",
+      "client": "Alpha Manufacturing",
+      "industry": "Sheet metal manufacturing",
+      "sector": "Commercial case study",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/alpha-manufacturing.jpg",
+        "loop": "assets/work/gifs/alpha-manufacturing.mp4",
+        "alt": "The Easee installation filmed at Alpha Manufacturing"
+      },
+      "summary": "A case study filmed on a working shop floor, with the people who make the parts talking about running the product themselves.",
+      "overview": "Alpha Manufacturing work in sheet metal, and they had Easee chargers installed at their own site. That is a rare and useful position for a case study: a manufacturer talking about a manufactured product, from the point of view of somebody who understands how things are actually made.",
+      "challenge": "A factory is a difficult place to film. It is loud, it is lit for work rather than for cameras, and production does not stop because a crew has turned up. The interviews had to be captured around live work, and the charger had to be shown in a way that made sense next to press brakes and welding bays.",
+      "delivered": [
+        "Interviews recorded on the shop floor, around live production",
+        "Coverage of the manufacturing process itself, not just the charger on the wall",
+        "The installation filmed in the context of the site it serves",
+        "A case study edit built for Easee to use with commercial buyers"
+      ],
+      "outputs": [
+        {
+          "value": "On site",
+          "label": "Filmed around live production"
+        },
+        {
+          "value": "Commercial",
+          "label": "Built for Easee to use with business buyers"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about case study films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/alpha-manufacturing.mp4",
+          "poster": "assets/work/alpha-manufacturing.jpg",
+          "title": "The Alpha Manufacturing case study"
+        }
+      ]
+    },
+    {
+      "slug": "fifth-gear-easee",
+      "title": "A motoring show format, borrowed for a charger brand",
+      "client": "Fifth Gear x Easee",
+      "industry": "Automotive media",
+      "sector": "Branded content",
+      "featured": false,
+      "categories": [
+        "Automotive",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/fifth-gear.jpg",
+        "loop": "assets/work/gifs/fifth-gear.mp4",
+        "alt": "The Quick Fire interview filmed for Fifth Gear and Easee"
+      },
+      "summary": "A quick fire interview piece made with Fifth Gear, putting Easee in front of a motoring audience in a format that audience already watches.",
+      "overview": "Easee wanted to reach people who care about cars rather than people who care about electrical infrastructure. Working with Fifth Gear meant borrowing a format that a motoring audience already trusts, and putting the product inside it rather than beside it.",
+      "challenge": "Branded content fails when it looks like an advert wearing a programme costume. The piece had to hold up as something worth watching on its own, quick enough to keep a motoring audience with it, and honest enough that the presenters were not visibly reading a script.",
+      "delivered": [
+        "A quick fire interview format filmed with the Fifth Gear presenters",
+        "Set and lighting built to match the look of the show rather than a corporate video",
+        "An edit paced for a motoring audience, not an industry one",
+        "Cutdowns for social from the same session"
+      ],
+      "outputs": [
+        {
+          "value": "Fifth Gear",
+          "label": "Filmed with an established motoring show"
+        },
+        {
+          "value": "Quick fire",
+          "label": "A format built to hold a motoring audience"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about branded content",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/fifth-gear.mp4",
+          "poster": "assets/work/fifth-gear.jpg",
+          "title": "Quick Fire with Fifth Gear"
+        }
+      ]
+    },
+    {
+      "slug": "virtus-energy-nexblue",
+      "title": "A partnership film shot between jobs, up and down the country",
+      "client": "Virtus Energy x NexBlue",
+      "industry": "EV charging installation",
+      "sector": "Partnership film",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/virtus-energy.jpg",
+        "loop": "assets/work/gifs/virtus-energy.mp4",
+        "alt": "The Virtus Energy and NexBlue partnership film"
+      },
+      "summary": "A partner film built around an installer who thinks nothing of driving Liverpool to Norfolk for a job, explaining what the NexBlue partnership actually changes.",
+      "overview": "Virtus Energy install charge points across the country, and partnered with NexBlue to do it. The film explains that partnership from the installer’s side rather than the supplier’s, which is the only side a prospective partner is really listening to.",
+      "challenge": "Partnership announcements are usually two logos and a paragraph. To be worth watching, this one had to show the work behind it, and be filmed around a team whose diary is jobs rather than shoots.",
+      "delivered": [
+        "Interviews with the installers doing the work",
+        "Installation footage captured on live jobs",
+        "A partnership film that leads with the installer, not the supplier",
+        "Photography from the same visits"
+      ],
+      "outputs": [
+        {
+          "value": "Installer led",
+          "label": "Told from the side that has to do the work"
+        },
+        {
+          "value": "On the job",
+          "label": "Filmed around live installations"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about partnership films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/virtus-energy.mp4",
+          "poster": "assets/work/virtus-energy.jpg",
+          "title": "The Virtus Energy and NexBlue partnership"
+        }
+      ]
+    },
+    {
+      "slug": "easee-equalizer",
+      "title": "Launching a load balancer into the UK market",
+      "client": "Equalizer Load Balancer UK launch",
+      "industry": "EV charging",
+      "sector": "Product launch",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/easee-equalizer.jpg",
+        "loop": "assets/work/gifs/easee-equalizer.mp4",
+        "alt": "The Easee Equalizer announcement film"
+      },
+      "summary": "The UK launch film for the Easee Equalizer, a load balancer whose entire value is invisible.",
+      "overview": "The Equalizer is a load balancer. It watches what a home is drawing and shares the available supply between the charger, the heating and everything else, so the car charges as fast as the house can safely allow. This was the film announcing it to the UK market.",
+      "challenge": "You cannot film electricity being balanced. The benefit happens inside a consumer unit, in a house, silently, and the customer only notices it when nothing goes wrong. A UK launch also meant explaining it to two audiences at once: installers who want to know what it does to a load calculation, and homeowners who just want to know why they need it.",
+      "delivered": [
+        "A UK launch film built around motion graphics rather than product beauty shots",
+        "The whole home energy picture visualised, from solar through to the car on the drive",
+        "An explanation that works for installers and homeowners without patronising either",
+        "A short edit cut for launch across social and trade channels"
+      ],
+      "outputs": [
+        {
+          "value": "UK launch",
+          "label": "The film announcing the Equalizer to the UK market"
+        },
+        {
+          "value": "Load balancing",
+          "label": "An invisible benefit made visible"
+        },
+        {
+          "value": "Two audiences",
+          "label": "Written for installers and homeowners at once"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about product films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/easee-equalizer.mp4",
+          "poster": "assets/work/easee-equalizer.jpg",
+          "title": "The Equalizer announcement"
+        }
+      ]
+    },
+    {
+      "slug": "easee-500000th-install",
+      "title": "The five hundred thousandth charger, filmed on the day",
+      "client": "500,000th Easee install",
+      "industry": "EV charging",
+      "sector": "Milestone film",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/easee-500k.jpg",
+        "loop": "assets/work/gifs/easee-500k.mp4",
+        "alt": "Filming the 500,000th Easee installation"
+      },
+      "summary": "A short film marking Easee’s 500,000th installation, shot on the day at the house where it happened.",
+      "overview": "Easee reached half a million chargers installed. The number is the story, but a number on a graphic is not a film, so it was captured where it actually happened: a real installation, a real installer, a real driveway.",
+      "challenge": "Milestones like this usually get a press release and a stock photo. To be worth anything it had to be filmed on the day, which meant one chance, one location, and no option to come back if the light was wrong.",
+      "delivered": [
+        "Filmed on the day of the installation itself",
+        "The installer and the customer, rather than a graphic with a number on it",
+        "A short edit cut for social and press use"
+      ],
+      "outputs": [
+        {
+          "value": "500,000",
+          "label": "Installations reached"
+        },
+        {
+          "value": "One day",
+          "label": "Captured as it happened, no second attempt"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about brand films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/easee-500k.mp4",
+          "poster": "assets/work/easee-500k.jpg",
+          "title": "The 500,000th installation"
+        }
+      ]
+    },
+    {
+      "slug": "southwick-d-day",
+      "title": "The eightieth anniversary of D-Day, where it was planned",
+      "client": "Southwick D-Day 80",
+      "industry": "Heritage and commemoration",
+      "sector": "Event content",
+      "featured": false,
+      "categories": [
+        "Event Content",
+        "Documentary",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/southwick-opening.jpg",
+        "loop": "assets/work/gifs/southwick-opening.mp4",
+        "alt": "The D-Day 80th anniversary commemoration at Southwick"
+      },
+      "summary": "Coverage of the eightieth anniversary commemorations in the village of Southwick, where the D-Day landings were planned, including the arrivals, the ceremony and the full talk in the map room.",
+      "overview": "Southwick House is where the D-Day landings were planned, and the original map room is still there. For the eightieth anniversary the village held a commemoration: period vehicles, veterans, a service, and a panel talk given in front of the map itself.",
+      "challenge": "A commemoration is a single-take event with no rehearsal, real crowds, and people for whom the day matters enormously. Nothing can be asked for twice, and a camera has to stay out of the way of the thing it is there to record.",
+      "delivered": [
+        "Coverage of the arrivals, including the period vehicles",
+        "The village procession and the opening ceremony",
+        "The full panel talk recorded in the Southwick House map room",
+        "Photography across the day",
+        "Edits the organisers can use to record the anniversary and promote the next one"
+      ],
+      "galleryNote": "Arrivals at Southwick House, the map room, and the village ceremony.",
+      "gallery": [
+        {
+          "src": "assets/work/southwick-a60.jpg",
+          "alt": "A period vehicle arriving at Southwick House"
+        },
+        {
+          "src": "assets/work/southwick-o40.jpg",
+          "alt": "The procession through the village of Southwick"
+        },
+        {
+          "src": "assets/work/southwick-a140.jpg",
+          "alt": "The panel talk in front of the original D-Day map"
+        },
+        {
+          "src": "assets/work/southwick-a430.jpg",
+          "alt": "A speaker in the map room, flanked by the Union Jack and the Stars and Stripes"
+        },
+        {
+          "src": "assets/work/southwick-o120.jpg",
+          "alt": "Dignitaries and veterans at the commemoration"
+        },
+        {
+          "src": "assets/work/southwick-a240.jpg",
+          "alt": "The panel taking questions in the map room"
+        },
+        {
+          "src": "assets/work/southwick-o300.jpg",
+          "alt": "Addressing the crowd at the village ceremony"
+        },
+        {
+          "src": "assets/work/southwick-a330.jpg",
+          "alt": "A full room for the map room talk"
+        }
+      ],
+      "outputs": [
+        {
+          "value": "80",
+          "label": "Years since the landings were planned here"
+        },
+        {
+          "value": "3",
+          "label": "Films: arrivals, opening and the full map room talk"
+        },
+        {
+          "value": "One take",
+          "label": "A live commemoration, nothing repeatable"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about event coverage",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/southwick-opening.mp4",
+          "poster": "assets/work/southwick-opening.jpg",
+          "title": "The opening and the village procession"
+        }
+      ]
+    },
+    {
+      "slug": "isaac-chamberlain-boxraw",
+      "title": "A professional boxer training, shot for a boxing brand",
+      "client": "Isaac Chamberlain for Boxraw",
+      "industry": "Boxing apparel",
+      "sector": "Brand content",
+      "featured": false,
+      "categories": [
+        "Fitness and Combat Sports",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/boxraw-1.jpg",
+        "loop": "assets/work/gifs/boxraw-1.mp4",
+        "alt": "Isaac Chamberlain training, filmed for Boxraw"
+      },
+      "summary": "Training session content with professional boxer Isaac Chamberlain, filmed for Boxraw.",
+      "overview": "Boxraw make kit for people who actually box. Isaac Chamberlain is a professional cruiserweight. The content had to look like training rather than a photoshoot pretending to be training, which means filming the work as it happens rather than asking for it again.",
+      "challenge": "A boxer mid-session is not a model. You get the round you get, in the light the gym has, and if you interrupt to reset a shot you have broken the thing you came to film.",
+      "delivered": [
+        "Training session coverage shot around the work, not staged",
+        "Bag work, pads and detail shots of the kit in use",
+        "Cuts built for the brand’s social channels"
+      ],
+      "outputs": [
+        {
+          "value": "Pro",
+          "label": "Filmed with a professional cruiserweight"
+        },
+        {
+          "value": "Unstaged",
+          "label": "Real sessions, shot as they happened"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about sports content",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/boxraw-1.mp4",
+          "poster": "assets/work/boxraw-1.jpg",
+          "title": "Training session"
+        },
+        {
+          "src": "assets/work/boxraw-2.mp4",
+          "poster": "assets/work/boxraw-2.jpg",
+          "title": "Pads and bag work"
+        }
+      ]
+    },
+    {
+      "slug": "signwriting-jack",
+      "title": "A trade that is nearly all hand and eye",
+      "client": "Signwriting Jack",
+      "industry": "Traditional signwriting",
+      "sector": "Craft film",
+      "featured": false,
+      "categories": [
+        "Personal Brands",
+        "Trades and Construction",
+        "Documentary"
+      ],
+      "cover": {
+        "src": "assets/work/signwriting-jack.jpg",
+        "loop": "assets/work/gifs/signwriting-jack.mp4",
+        "alt": "Hand painted signwriting, filmed in the workshop and on the street"
+      },
+      "summary": "A film about traditional hand painted signwriting, shot in the workshop and out on the shopfronts.",
+      "overview": "Signwriting by hand has largely been replaced by vinyl, which makes the people still doing it worth filming. The work is slow, precise and almost entirely in the wrist, and it happens in workshops and up ladders rather than on a set.",
+      "challenge": "Craft films fail when they only show the finished object. The value is in the hand, the brush loading, the single unbroken line that either works or does not. That needs close, patient coverage and a willingness to wait rather than direct.",
+      "delivered": [
+        "Close coverage of the hand work itself, at the speed it actually happens",
+        "The workshop, the paints and the tools of the trade",
+        "Signs filmed in place on the street once finished",
+        "A film built around the craft rather than a sales message"
+      ],
+      "outputs": [
+        {
+          "value": "By hand",
+          "label": "A trade filmed at the speed it is done"
+        },
+        {
+          "value": "Workshop to street",
+          "label": "From the brush through to the finished shopfront"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about personal brand films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/signwriting-jack.mp4",
+          "poster": "assets/work/signwriting-jack.jpg",
+          "title": "The signwriting film"
+        }
+      ]
+    },
+    {
+      "slug": "aliyah-art",
+      "title": "An exhibition film for a portrait artist",
+      "client": "Aliyah Art",
+      "industry": "Fine art",
+      "sector": "Personal brand film",
+      "featured": false,
+      "categories": [
+        "Personal Brands",
+        "Documentary",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/aliyah-art.jpg",
+        "loop": "assets/work/gifs/aliyah-art.mp4",
+        "alt": "The exhibition film shot in the gallery"
+      },
+      "summary": "A film made in the gallery, built around the artist and the portraits she paints.",
+      "overview": "A body of portrait work, hung and shown. The film is about the artist and the people in the paintings, shot in the space where the work was exhibited.",
+      "challenge": "Filming art is harder than it looks. Galleries are lit for paintings rather than for faces, reflections are everywhere, and a film that only pans across canvases tells you nothing about who made them or why.",
+      "delivered": [
+        "Coverage of the exhibition and the work on the walls",
+        "The artist in the space, talking about the portraits",
+        "Lighting handled so the work reads on camera without flare",
+        "An edit usable for the artist’s own promotion"
+      ],
+      "outputs": [
+        {
+          "value": "In gallery",
+          "label": "Filmed where the work was exhibited"
+        },
+        {
+          "value": "Artist led",
+          "label": "Built around the person who made it"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about personal brand films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/aliyah-art.mp4",
+          "poster": "assets/work/aliyah-art.jpg",
+          "title": "The exhibition film"
+        }
+      ]
+    },
+    {
+      "slug": "easee-brand-films",
+      "title": "Three films for three moments people actually get a charger",
+      "client": "Easee brand films",
+      "industry": "EV charging",
+      "sector": "Brand films",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Automotive",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/easee-couple.jpg",
+        "loop": "assets/work/gifs/easee-couple.mp4",
+        "alt": "A couple moving into a new home, from the Easee brand films"
+      },
+      "summary": "A set of brand films built around the moments that actually trigger a charger purchase: moving house, passing your test, and being a landlord with a grant to claim.",
+      "overview": "Nobody wakes up wanting a charge point. They want one because something else happened. Easee needed films that met people at those moments rather than films about the product, so each one starts with the life event and lets the charger follow.",
+      "challenge": "Three very different audiences, three very different tones, and one brand that has to sound like itself in all of them. The landlord film in particular had to explain a government grant scheme clearly enough to act on, without becoming a lecture.",
+      "delivered": [
+        "A film for people moving into a new home",
+        "A film for new drivers who have just passed their test",
+        "A subtitled explainer covering the chargepoint grants available to landlords",
+        "Each cut for the channel and audience it was made for"
+      ],
+      "outputs": [
+        {
+          "value": "3",
+          "label": "Films, one per buying moment"
+        },
+        {
+          "value": "Life first",
+          "label": "Each film starts with the person, not the product"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about brand films",
+        "href": "/contact"
+      },
+      "videosHeld": [
+        {
+          "src": "assets/work/easee-couple.mp4",
+          "poster": "assets/work/easee-couple.jpg",
+          "title": "Moving house"
+        },
+        {
+          "src": "assets/work/easee-learner.mp4",
+          "poster": "assets/work/easee-learner.jpg",
+          "title": "Passing your test"
+        },
+        {
+          "src": "assets/work/easee-landlords.mp4",
+          "poster": "assets/work/easee-landlords.jpg",
+          "title": "Chargepoint grants for landlords"
+        }
+      ]
+    }
+  ]
+}

@@ -29,3 +29,17 @@ token.json
 *.log
 .env
 .env.local
+
+# Locally uploaded media (the live site stores this in Supabase)
+assets/uploads/
+
+# Pre-repositioning snapshot, kept locally only
+_backup/
+
+
+# Case study films, held out of git on purpose.
+# 231MB of video would sit in history permanently. These live on a video host
+# instead; content/work.json keeps them under "videosHeld" ready to restore.
+assets/work/*.mp4
+assets/work/vertical/*.mp4
+!assets/work/gifs/*.mp4

@@ -2,13 +2,27 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/services", "destination": "/" },
-    { "source": "/pricing", "destination": "/" },
-    { "source": "/about", "destination": "/" },
-    { "source": "/faq", "destination": "/" },
-    { "source": "/calculator", "destination": "/" },
     { "source": "/contact", "destination": "/" },
-    { "source": "/work", "destination": "/" },
-    { "source": "/testimonials", "destination": "/" }
+    { "source": "/work/:slug", "destination": "/case-study" },
+    { "source": "/blog/:slug", "destination": "/post" },
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin/:path*", "destination": "/admin.html" }
+  ],
+  "redirects": [
+    { "source": "/pricing", "destination": "/services", "permanent": true },
+    { "source": "/faq", "destination": "/services#faq", "permanent": true },
+    { "source": "/calculator", "destination": "/services", "permanent": true },
+    { "source": "/testimonials", "destination": "/work", "permanent": true },
+    { "source": "/projects", "destination": "/work", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+    },
+    {
+      "source": "/content/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+    }
   ]
 }

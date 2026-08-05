@@ -411,9 +411,8 @@ footer a{color:var(--blue-3);font-weight:800}
       <div>
         <label class="field-label" for="duration">Duration</label>
         <select id="duration">
-          <option value="14">2 Weeks</option>
-          <option value="30" selected>1 Month</option>
-          <option value="90">3 Months</option>
+          <option value="1" selected>1 Day &middot; free</option>
+          <option value="30">1 Month</option>
         </select>
         <small id="durHint" class="dur-hint"></small>
       </div>
@@ -486,7 +485,7 @@ footer a{color:var(--blue-3);font-weight:800}
 <div class="modal-bg" id="payModal">
   <div class="modal" role="dialog" aria-modal="true" aria-label="Unlock longer plans">
     <h2>🔓 Unlock longer plans</h2>
-    <p class="sub">The <strong>2-week plan is free</strong>. Unlock <strong>1-month and 3-month</strong> plans with a one-time payment of <strong>£9</strong>. No subscription, it’s yours for good on this device.</p>
+    <p class="sub">You get <strong>one day free</strong> to see the quality. <strong>£29</strong> unlocks the full month, for good on this device. One payment, no subscription, and we take the £29 off your first shoot.</p>
     <ul class="pay-list">
       <li>1-month and 3-month content calendars</li>
       <li>Unlimited regenerations and refinements</li>
@@ -494,7 +493,7 @@ footer a{color:var(--blue-3);font-weight:800}
     </ul>
     <div class="actions">
       <button class="btn btn--ghost" id="payCancel" style="flex:1">Maybe later</button>
-      <button class="btn btn--orange" id="payNow" style="flex:1">Unlock for £9</button>
+      <button class="btn btn--orange" id="payNow" style="flex:1">Unlock for £29</button>
     </div>
     <div class="note" style="justify-content:center">🔒 <span>One-time payment, secured by Stripe.</span></div>
   </div>
@@ -506,10 +505,10 @@ footer a{color:var(--blue-3);font-weight:800}
 "use strict";
 
 /* ============== CONFIG — edit these to switch payments on ============== */
-const STRIPE_LINK = "";    // <-- paste your Stripe Payment Link URL here to enable £9 unlocks
+const STRIPE_LINK = "";    // <-- paste your Stripe Payment Link URL here to enable £29 unlocks
 const LEAD_ENDPOINT = "";  // optional: a Formspree/webhook URL that receives name + email leads
-const PRICE_LABEL = "£9";
-const FREE_DAYS = "14";    // 2 weeks is free; 1 & 3 month require the one-time unlock
+const PRICE_LABEL = "£29";
+const FREE_DAYS = "1";     // one day is the taster; every real plan needs the one-time unlock
 
 /* ============== constants ============== */
 const LS_PAID = "planpulse_paid";
@@ -625,7 +624,7 @@ function todayISO(){return iso(new Date());}
 function paid(){return localStorage.getItem(LS_PAID)==="1";}
 function getLead(){try{return JSON.parse(localStorage.getItem(LS_LEAD)||"null");}catch(e){return null;}}
 function hasLead(){const l=getLead();return !!(l&&l.email);}
-function durationLabel(days){return days==="14"?"2 Weeks":days==="90"?"3 Months":"1 Month";}
+function durationLabel(days){return days==="1"?"1 Day":"1 Month";}
 
 function showErr(msg){const e=$("#errbox");e.innerHTML=msg;e.classList.add("show");}
 function clearErr(){$("#errbox").classList.remove("show");}
@@ -677,7 +676,7 @@ async function generate(){
   const startISO=$("#startDate").value||todayISO();
   const days=$("#duration").value;
 
-  // paywall: 2-week plans are free; 1 & 3 month need the one-time unlock
+  // paywall: the one day taster is free, everything longer needs the one-time unlock
   if(days!==FREE_DAYS && !paid()){ openPayModal(); return; }
   const start=new Date(startISO+"T00:00:00");
   const end=new Date(start);end.setDate(start.getDate()+parseInt(days,10)-1);
@@ -713,7 +712,7 @@ async function generate(){
     if(!res.ok){
       let detail="";try{const j=await res.json();detail=j.error||"";}catch(e){detail=res.statusText;}
       if(res.status===429)throw new Error("We’re a bit busy right now. Please wait a moment and tap Generate again.");
-      if(res.status===503)throw new Error(detail||"PlanPulse is not fully set up yet. Please check back soon.");
+      if(res.status===503)throw new Error(detail||"PlanPulse isn’t fully set up yet. Please check back soon.");
       throw new Error(detail||("Request failed ("+res.status+"). Please try again."));
     }
 
@@ -1027,7 +1026,7 @@ function generatePDF(){
   doc.setFont("helvetica","bold");doc.setFontSize(20);doc.setTextColor(13,13,15);
   doc.text("Want us to run all of this for you?",cx,cy,{align:"center"}); cy+=24;
   doc.setFont("helvetica","normal");doc.setFontSize(11);doc.setTextColor(70,70,80);
-  doc.splitTextToSize("s4digital builds content, ads and automated follow-up engines for trades and service businesses across the UK. Stop guessing what to post, and let us turn this plan into booked jobs.",560).forEach(ln=>{ doc.text(ln,cx,cy,{align:"center"}); cy+=16; });
+  doc.splitTextToSize("s4digital builds content, ads and automated follow-up engines for trades and service businesses across the UK. Stop guessing what to post, and let’s turn this plan into booked jobs.",560).forEach(ln=>{ doc.text(ln,cx,cy,{align:"center"}); cy+=16; });
   cy+=16;
   const bw=252,bh=46,bx=cx-bw/2;
   doc.setFillColor(255,106,44);doc.roundedRect(bx,cy,bw,bh,23,23,"F");
@@ -1100,10 +1099,10 @@ function handlePaidReturn(){
 /* show lock + price on the paid durations */
 function refreshDurationLocks(){
   const sel=$("#duration"); if(!sel)return;
-  const names={"14":"2 Weeks","30":"1 Month","90":"3 Months"};
+  const names={"1":"1 Day","30":"1 Month"};
   [...sel.options].forEach(o=>{ o.textContent=names[o.value]+(o.value!==FREE_DAYS&&!paid()?"  🔒 "+PRICE_LABEL:""); });
   const hint=$("#durHint");
-  if(hint) hint.textContent = paid() ? "Premium unlocked, all durations available ✓" : "2-week plans are free. 1 & 3 month plans need a one-time "+PRICE_LABEL+" unlock.";
+  if(hint) hint.textContent = paid() ? "Premium unlocked, all durations available ✓" : "One day is free. The full month is a one-time "+PRICE_LABEL+" unlock, and it comes off your first shoot.";
 }
 
 /* ============== selectors (platforms / tone / goals) ============== */
