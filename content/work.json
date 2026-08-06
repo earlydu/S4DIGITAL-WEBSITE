@@ -15,7 +15,6 @@
   "items": [
     {
       "slug": "char-gy-b-corp-video",
-      "galleryNote": "Frames from the delivered video.",
       "title": "A B Corp film that became the most watched thing on their channel",
       "client": "char.gy",
       "industry": "EV charging",
@@ -41,20 +40,6 @@
         "An audio described version of both the long form and the sixty second cut",
         "Photography from the same day, used across their site",
         "Eleven finished exports in total from a single shoot"
-      ],
-      "gallery": [
-        {
-          "src": "assets/work/chargy-team.jpg",
-          "alt": "A char.gy team member speaking to camera in an office with a city skyline behind her"
-        },
-        {
-          "src": "assets/work/chargy-street.jpg",
-          "alt": "Two colleagues talking in a meeting room during filming"
-        },
-        {
-          "src": "assets/work/chargy-office.jpg",
-          "alt": "An engineer in high visibility clothing working at a street charging point"
-        }
       ],
       "video": {
         "src": "video_content/gallery/chargy-bcorp.mp4",
@@ -113,7 +98,6 @@
     },
     {
       "slug": "easee-wycombe-square",
-      "galleryNote": "Frames from the delivered video.",
       "title": "A residential charging project, filmed end to end",
       "client": "Easee Kensington MDU",
       "industry": "Charging hardware",
@@ -138,20 +122,6 @@
         "Exterior, interior and installation coverage",
         "A finished video delivered in square and 16:9 versions"
       ],
-      "gallery": [
-        {
-          "src": "assets/work/easee-wycombe-charger.jpg",
-          "alt": "A white electric car parked on a residential street outside the development"
-        },
-        {
-          "src": "assets/work/easee-wycombe-street.jpg",
-          "alt": "A resident being interviewed outside the mansion block"
-        },
-        {
-          "src": "assets/work/easee-wycombe-resident.jpg",
-          "alt": "A second resident speaking to camera on a tree lined street"
-        }
-      ],
       "video": {
         "src": "video_content/gallery/easee-wycombe.mp4",
         "poster": "video_content/gallery/easee-wycombe.jpg"
@@ -173,7 +143,34 @@
       "cta": {
         "label": "Discuss a content partnership",
         "href": "/services#content-partnership"
-      }
+      },
+      "galleryNote": "The residents’ car park, before and during the install.",
+      "gallery": [
+        {
+          "src": "assets/work/wycombe/headlights.jpg",
+          "alt": "A car pulling up to a charging point in the residents car park"
+        },
+        {
+          "src": "assets/work/wycombe/tesla.jpg",
+          "alt": "An electric car parked in the underground car park"
+        },
+        {
+          "src": "assets/work/wycombe/plugging-in.jpg",
+          "alt": "An engineer fitting a charging point to the car park wall"
+        },
+        {
+          "src": "assets/work/wycombe/charger.jpg",
+          "alt": "A charging point mounted on a pillar in the car park"
+        },
+        {
+          "src": "assets/work/wycombe/resident.jpg",
+          "alt": "A resident at their car beside the new charging point"
+        },
+        {
+          "src": "assets/work/wycombe/carpark.jpg",
+          "alt": "The residents car park at the development"
+        }
+      ]
     },
     {
       "slug": "combat-sports-event-photography",
@@ -341,7 +338,6 @@
     },
     {
       "slug": "smart-home-charge-presenter",
-      "galleryNote": "Frames from the delivered video.",
       "title": "A presenter led case study for an automotive audience",
       "client": "Smart Home Charge",
       "industry": "Home charging",
@@ -365,20 +361,6 @@
         "Interview direction with the presenter",
         "Driving and installation coverage",
         "A 16:9 case study video for web, social and YouTube"
-      ],
-      "gallery": [
-        {
-          "src": "assets/work/corporate-interview-presenter.jpg",
-          "alt": "The presenter speaking to camera during the interview"
-        },
-        {
-          "src": "assets/work/smart-home-charge-drive.jpg",
-          "alt": "A driving shot filmed from the rear seat of the car"
-        },
-        {
-          "src": "assets/work/corporate-doorstep.jpg",
-          "alt": "The presenter greeting the installer at the front door"
-        }
       ],
       "outputs": [
         {
@@ -521,7 +503,6 @@
     },
     {
       "slug": "mayflower-lodge-project",
-      "galleryNote": "Frames from the delivered video.",
       "title": "A property project explained for residents and freeholders",
       "client": "Property management project",
       "industry": "Property management",
@@ -545,20 +526,6 @@
         "Interviews with the project team and the managing agent",
         "Plans and technical detail worked into the edit",
         "A project overview video with captions"
-      ],
-      "gallery": [
-        {
-          "src": "assets/work/property-engineer.jpg",
-          "alt": "The project director speaking to camera outside the development"
-        },
-        {
-          "src": "assets/work/property-charger.jpg",
-          "alt": "A charge point installed at the residential block"
-        },
-        {
-          "src": "assets/work/property-block.jpg",
-          "alt": "The residential development the charging bays were installed at"
-        }
       ],
       "outputs": [
         {
@@ -777,13 +744,14 @@
         "label": "Talk to us about a campaign",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "video_content/gallery/musk-city.mp4",
-          "poster": "video_content/gallery/musk-city.jpg",
-          "title": "Musk City campaign video"
+          "youtube": "nqqjFQTQRDQ",
+          "poster": "assets/work/musk-city-16.jpg",
+          "title": "Musk City"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "bbc-coffee-commercial",
@@ -900,13 +868,14 @@
         "label": "Discuss a content partnership",
         "href": "/services#content-partnership"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "video_content/gallery/easee-rcd-install.mp4",
-          "poster": "video_content/gallery/easee-rcd-install.jpg",
-          "title": "Easee commercial install with RCD test"
+          "youtube": "-oUsUbJ3Uhs",
+          "poster": "assets/work/easee-rcd-1.jpg",
+          "title": "The installation, with the RCD test"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "russell-hewes-website",
@@ -1276,13 +1245,14 @@
         "label": "Talk to us about event coverage",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/lovato-seminar.mp4",
+          "youtube": "1ZkF3jS62BU",
           "poster": "assets/work/lovato-seminar.jpg",
           "title": "Seminar highlights"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "ohme-christmas-raffle",
@@ -1328,31 +1298,14 @@
         "label": "Talk to us about campaign content",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/ohme-raffle.mp4",
+          "youtube": "wKMhvUaWGOs",
           "poster": "assets/work/ohme-raffle.jpg",
           "title": "The campaign film"
-        },
-        {
-          "src": "assets/work/vertical/raffle-2.mp4",
-          "poster": "assets/work/vertical/raffle-2.jpg",
-          "title": "A thousand entries, two winners",
-          "vertical": true
-        },
-        {
-          "src": "assets/work/vertical/raffle-1.mp4",
-          "poster": "assets/work/vertical/raffle-1.jpg",
-          "title": "A winner on living with a home charger",
-          "vertical": true
-        },
-        {
-          "src": "assets/work/vertical/raffle-3.mp4",
-          "poster": "assets/work/vertical/raffle-3.jpg",
-          "title": "The second winner’s install",
-          "vertical": true
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "nimrod-road-renovation",
@@ -1426,13 +1379,14 @@
         "label": "Talk to us about case study films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/nimrod-renovation.mp4",
+          "youtube": "1snYkU72u4w",
           "poster": "assets/work/nimrod/door.jpg",
           "title": "The renovation, told by the client"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "corporate-headshots",
@@ -1587,20 +1541,21 @@
         "label": "Talk to us about case study films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/alpha-manufacturing.mp4",
+          "youtube": "kVic0fId1vU",
           "poster": "assets/work/alpha-manufacturing.jpg",
-          "title": "The Alpha Manufacturing case study"
+          "title": "Easee at Alpha Manufacturing"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "fifth-gear-easee",
-      "title": "A motoring show format, borrowed for a charger brand",
-      "client": "Fifth Gear x Easee",
-      "industry": "Automotive media",
-      "sector": "Branded content",
+      "title": "A broadcast sponsorship, and the content that ran alongside it",
+      "client": "Fifth Gear Recharged",
+      "industry": "EV charging",
+      "sector": "Campaign",
       "featured": false,
       "categories": [
         "Automotive",
@@ -1612,36 +1567,29 @@
         "loop": "assets/work/gifs/fifth-gear.mp4",
         "alt": "The Quick Fire interview filmed for Fifth Gear and Easee"
       },
-      "summary": "A quick fire interview piece made with Fifth Gear, putting Easee in front of a motoring audience in a format that audience already watches.",
-      "overview": "Easee wanted to reach people who care about cars rather than people who care about electrical infrastructure. Working with Fifth Gear meant borrowing a format that a motoring audience already trusts, and putting the product inside it rather than beside it.",
-      "challenge": "Branded content fails when it looks like an advert wearing a programme costume. The piece had to hold up as something worth watching on its own, quick enough to keep a motoring audience with it, and honest enough that the presenters were not visibly reading a script.",
+      "summary": "Easee sponsored series two of Fifth Gear Recharged. Idents around every ad break, advertising across Sky, Discovery+ and Quest, and presenter-led content made to carry the campaign online.",
+      "overview": "Fifth Gear Recharged is where people who are curious about electric cars actually are. Easee sponsored the second series, which meant appearing either side of every ad break for the run of the season, then advertising across Sky, Discovery+ and Quest on top of it.",
+      "challenge": "Sponsorship buys you attention for five seconds at a time, in a slot nobody chose to watch. An ident has to land the brand before a viewer has decided whether to look up, and it has to survive being seen dozens of times without becoming irritating. The bigger risk is that a broadcast campaign stops the moment the series does, so it needed content that kept working afterwards.",
       "delivered": [
-        "A quick fire interview format filmed with the Fifth Gear presenters",
-        "Set and lighting built to match the look of the show rather than a corporate video",
-        "An edit paced for a motoring audience, not an industry one",
-        "Cutdowns for social from the same session"
-      ],
-      "outputs": [
-        {
-          "value": "Fifth Gear",
-          "label": "Filmed with an established motoring show"
-        },
-        {
-          "value": "Quick fire",
-          "label": "A format built to hold a motoring audience"
-        }
+        "Idents cut at five, ten and fifteen seconds for the series two sponsorship",
+        "Placement at the beginning, at the end, and either side of every ad break",
+        "A television advert cut for Sky, Discovery+ and Quest",
+        "Content made with one of the programme presenters",
+        "Further content with influencers from the EV and environmental space",
+        "A campaign built in three phases so the reach kept working after the series ended"
       ],
       "cta": {
         "label": "Talk to us about branded content",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/fifth-gear.mp4",
+          "youtube": "haDGeQzfQKI",
           "poster": "assets/work/fifth-gear.jpg",
-          "title": "Quick Fire with Fifth Gear"
+          "title": "Quick fire, with Fifth Gear"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "virtus-energy-nexblue",
@@ -1683,13 +1631,14 @@
         "label": "Talk to us about partnership films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/virtus-energy.mp4",
+          "youtube": "9-k2HXAKWiY",
           "poster": "assets/work/virtus-energy.jpg",
-          "title": "The Virtus Energy and NexBlue partnership"
+          "title": "Virtus Energy and NexBlue"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "easee-equalizer",
@@ -1734,18 +1683,19 @@
         "label": "Talk to us about product films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/easee-equalizer.mp4",
+          "youtube": "ijdkPp_2VE0",
           "poster": "assets/work/easee-equalizer.jpg",
           "title": "The Equalizer announcement"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "easee-500000th-install",
       "title": "The five hundred thousandth charger, filmed on the day",
-      "client": "500,000th Easee install",
+      "client": "500k",
       "industry": "EV charging",
       "sector": "Milestone film",
       "featured": false,
@@ -1759,13 +1709,14 @@
         "loop": "assets/work/gifs/easee-500k.mp4",
         "alt": "Filming the 500,000th Easee installation"
       },
-      "summary": "A short film marking Easee’s 500,000th installation, shot on the day at the house where it happened.",
-      "overview": "Easee reached half a million chargers installed. The number is the story, but a number on a graphic is not a film, so it was captured where it actually happened: a real installation, a real installer, a real driveway.",
-      "challenge": "Milestones like this usually get a press release and a stock photo. To be worth anything it had to be filmed on the day, which meant one chance, one location, and no option to come back if the light was wrong.",
+      "summary": "A short film and photography marking Easee’s 500,000th installation, shot on the day in Cornwall at the holiday let where it happened.",
+      "overview": "Easee reached half a million installations, and the 500,000th went in at a holiday let in Cornwall. A number that size is easy to put on a slide and hard to make anyone feel, so the film went to the property, met the installer who fitted it, and let the milestone be a real job on a real wall.",
+      "challenge": "Milestone content usually celebrates the brand and forgets everyone who got it there. The other problem is that a number like 500,000 is abstract. It had to land as one installer, one property and one charger, while also opening up the holiday let market, which is a different buyer to a homeowner.",
       "delivered": [
-        "Filmed on the day of the installation itself",
-        "The installer and the customer, rather than a graphic with a number on it",
-        "A short edit cut for social and press use"
+        "A short film shot on location in Cornwall on the day",
+        "The installer who fitted the 500,000th unit, on camera",
+        "Photography of the property, the van and the finished installation",
+        "Content that introduces the holiday let market alongside the milestone"
       ],
       "outputs": [
         {
@@ -1781,11 +1732,31 @@
         "label": "Talk to us about brand films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/easee-500k.mp4",
+          "youtube": "wtI_QMPPcrg",
           "poster": "assets/work/easee-500k.jpg",
-          "title": "The 500,000th installation"
+          "title": "The 500,000th install"
+        }
+      ],
+      "videoNote": "The film.",
+      "galleryNote": "The installation, the installer and the property in Cornwall.",
+      "gallery": [
+        {
+          "src": "assets/work/500k/1.jpg",
+          "alt": "The installer outside the holiday let with the van"
+        },
+        {
+          "src": "assets/work/500k/13.jpg",
+          "alt": "The 500,000th Easee charging unit on the wall"
+        },
+        {
+          "src": "assets/work/500k/5.jpg",
+          "alt": "Portrait of the installer who fitted the 500,000th unit"
+        },
+        {
+          "src": "assets/work/500k/21.jpg",
+          "alt": "The property in Cornwall where the milestone install took place"
         }
       ]
     },
@@ -1869,13 +1840,19 @@
         "label": "Talk to us about event coverage",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/southwick-opening.mp4",
+          "youtube": "gY-vQZQ8qGo",
           "poster": "assets/work/southwick-opening.jpg",
-          "title": "The opening and the village procession"
+          "title": "The opening ceremony"
+        },
+        {
+          "youtube": "QKOVKMhJ4AM",
+          "poster": "assets/work/southwick-a240.jpg",
+          "title": "The D-Day talk, in full"
         }
-      ]
+      ],
+      "videoNote": "The films from this project."
     },
     {
       "slug": "isaac-chamberlain-boxraw",
@@ -1916,18 +1893,19 @@
         "label": "Talk to us about sports content",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/boxraw-1.mp4",
-          "poster": "assets/work/boxraw-1.jpg",
-          "title": "Training session"
+          "youtube": "gjiGWO4vmjE",
+          "poster": "assets/work/boxraw-2.jpg",
+          "title": "Boxing training, one"
         },
         {
-          "src": "assets/work/boxraw-2.mp4",
-          "poster": "assets/work/boxraw-2.jpg",
-          "title": "Pads and bag work"
+          "youtube": "aQjySMKR4T0",
+          "poster": "assets/work/boxraw-1.jpg",
+          "title": "Boxing training, two"
         }
-      ]
+      ],
+      "videoNote": "The films from this project."
     },
     {
       "slug": "signwriting-jack",
@@ -1969,13 +1947,14 @@
         "label": "Talk to us about personal brand films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/signwriting-jack.mp4",
+          "youtube": "lmCg27D7xkA",
           "poster": "assets/work/signwriting-jack.jpg",
-          "title": "The signwriting film"
+          "title": "Signwriting Jack"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "aliyah-art",
@@ -2017,13 +1996,14 @@
         "label": "Talk to us about personal brand films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/aliyah-art.mp4",
+          "youtube": "hquSZFhe7t4",
           "poster": "assets/work/aliyah-art.jpg",
-          "title": "The exhibition film"
+          "title": "Aliyah Art"
         }
-      ]
+      ],
+      "videoNote": "The film."
     },
     {
       "slug": "easee-brand-films",
@@ -2065,23 +2045,24 @@
         "label": "Talk to us about brand films",
         "href": "/contact"
       },
-      "videosHeld": [
+      "videos": [
         {
-          "src": "assets/work/easee-couple.mp4",
-          "poster": "assets/work/easee-couple.jpg",
-          "title": "Moving house"
-        },
-        {
-          "src": "assets/work/easee-learner.mp4",
-          "poster": "assets/work/easee-learner.jpg",
-          "title": "Passing your test"
-        },
-        {
-          "src": "assets/work/easee-landlords.mp4",
+          "youtube": "iXIqa3V53yY",
           "poster": "assets/work/easee-landlords.jpg",
           "title": "Chargepoint grants for landlords"
+        },
+        {
+          "youtube": "YJ5lYnnRhLc",
+          "poster": "assets/work/easee-couple.jpg",
+          "title": "A couple moving house"
+        },
+        {
+          "youtube": "-_cQhvmg4Rk",
+          "poster": "assets/work/easee-learner.jpg",
+          "title": "A learner driver"
         }
-      ]
+      ],
+      "videoNote": "The films from this project."
     }
   ]
 }
