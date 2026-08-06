@@ -488,7 +488,6 @@
           "title": "Plug x AE Summer Party Highlight"
         }
       ],
-      "videoNote": "A run of videos produced for the Plug In Stations YouTube channel. Product reviews and tutorials for people already shopping for a charger, and honest car reviews presented by the team for people who are still choosing the car.",
       "videoCta": {
         "label": "See more on the Plug In Stations channel",
         "href": "https://www.youtube.com/@PlugInStationsUK"
@@ -750,8 +749,7 @@
           "poster": "assets/work/musk-city-16.jpg",
           "title": "Musk City"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "bbc-coffee-commercial",
@@ -874,8 +872,7 @@
           "poster": "assets/work/easee-rcd-1.jpg",
           "title": "The installation, with the RCD test"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "russell-hewes-website",
@@ -1142,7 +1139,6 @@
           "title": "Road interviews myenergi"
         }
       ],
-      "videoNote": "Interviews recorded on the stand between meetings.",
       "outputs": [
         {
           "value": "21",
@@ -1251,8 +1247,7 @@
           "poster": "assets/work/lovato-seminar.jpg",
           "title": "Seminar highlights"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "ohme-christmas-raffle",
@@ -1304,8 +1299,7 @@
           "poster": "assets/work/ohme-raffle.jpg",
           "title": "The campaign film"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "nimrod-road-renovation",
@@ -1385,8 +1379,7 @@
           "poster": "assets/work/nimrod/door.jpg",
           "title": "The renovation, told by the client"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "corporate-headshots",
@@ -1547,8 +1540,7 @@
           "poster": "assets/work/alpha-manufacturing.jpg",
           "title": "Easee at Alpha Manufacturing"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "fifth-gear-easee",
@@ -1588,8 +1580,7 @@
           "poster": "assets/work/fifth-gear.jpg",
           "title": "Quick fire, with Fifth Gear"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "virtus-energy-nexblue",
@@ -1637,8 +1628,7 @@
           "poster": "assets/work/virtus-energy.jpg",
           "title": "Virtus Energy and NexBlue"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "easee-equalizer",
@@ -1689,8 +1679,7 @@
           "poster": "assets/work/easee-equalizer.jpg",
           "title": "The Equalizer announcement"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "easee-500000th-install",
@@ -1739,7 +1728,6 @@
           "title": "The 500,000th install"
         }
       ],
-      "videoNote": "The film.",
       "galleryNote": "The installation, the installer and the property in Cornwall.",
       "gallery": [
         {
@@ -1851,8 +1839,7 @@
           "poster": "assets/work/southwick-a240.jpg",
           "title": "The D-Day talk, in full"
         }
-      ],
-      "videoNote": "The films from this project."
+      ]
     },
     {
       "slug": "isaac-chamberlain-boxraw",
@@ -1904,8 +1891,7 @@
           "poster": "assets/work/boxraw-1.jpg",
           "title": "Boxing training, two"
         }
-      ],
-      "videoNote": "The films from this project."
+      ]
     },
     {
       "slug": "signwriting-jack",
@@ -1953,8 +1939,7 @@
           "poster": "assets/work/signwriting-jack.jpg",
           "title": "Signwriting Jack"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "aliyah-art",
@@ -2002,8 +1987,7 @@
           "poster": "assets/work/aliyah-art.jpg",
           "title": "Aliyah Art"
         }
-      ],
-      "videoNote": "The film."
+      ]
     },
     {
       "slug": "easee-brand-films",
@@ -2061,8 +2045,7 @@
           "poster": "assets/work/easee-learner.jpg",
           "title": "A learner driver"
         }
-      ],
-      "videoNote": "The films from this project."
+      ]
     }
   ]
 }

@@ -143,7 +143,6 @@ function render(DATA, CATEGORIES) {
             '<span class="cs__play-btn" aria-hidden="true"></span>' +
           '</button>'
         : '<video controls playsinline preload="metadata" poster="' + esc(url(v.poster)) + '" src="' + esc(url(v.src)) + '"></video>') +
-      (v.title ? '<figcaption>' + esc(v.title) + '</figcaption>' : '') +
     '</figure>';
 
   const videoSection = videos.length
