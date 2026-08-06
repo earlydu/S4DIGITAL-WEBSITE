@@ -19,7 +19,8 @@ video_content/SnapInsta.*
 video_content/Videos from notion/
 
 # Encoding helpers (kept local)
-.tools/
+.tools/*
+!.tools/bump-assets.mjs
 
 # Secrets and OS junk
 .env
