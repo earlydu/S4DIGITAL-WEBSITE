@@ -554,30 +554,85 @@
   });
 
   /* ---------------------------------------------------------- minesweeper
-     Nine by nine, ten mines. The first click is always safe: mines are laid
-     after it, avoiding that cell and its neighbours. */
-  const W = 9, H = 9, MINES = 10;
+     Two boards, easy and hard. The first click is always safe: mines are laid
+     after it, avoiding that cell and its neighbours. Winning times are kept in
+     the browser, five per board, filed under three initials. */
+  const MS_LEVELS = [
+    { key: 'easy', label: 'Easy', note: '9 by 9, 10 mines',   w: 9,  h: 9,  mines: 10 },
+    { key: 'hard', label: 'Hard', note: '16 by 16, 40 mines', w: 16, h: 16, mines: 40 }
+  ];
+  const MS_KEY = 's4-minesweeper-scores';
+  const MS_NAME_KEY = 's4-minesweeper-initials';
+  const MS_TOP = 5;
+
+  const msClock = s => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  const msInitials = v => String(v || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 3);
+
+  /* Read is defensive on purpose: it is user editable storage, so anything odd
+     in there is dropped rather than trusted. Initials are stripped to letters
+     and digits, which is also what makes them safe to write as markup. */
+  const msScores = () => {
+    let raw = {};
+    try { raw = JSON.parse(localStorage.getItem(MS_KEY)) || {}; } catch (err) { raw = {}; }
+    const out = {};
+    MS_LEVELS.forEach(l => {
+      out[l.key] = (Array.isArray(raw[l.key]) ? raw[l.key] : [])
+        .filter(r => r && typeof r.secs === 'number' && isFinite(r.secs) && r.secs >= 0)
+        .map(r => ({ name: msInitials(r.name) || 'YOU', secs: Math.round(r.secs), at: String(r.at || '').slice(0, 10) }))
+        .sort((a, b) => a.secs - b.secs)
+        .slice(0, MS_TOP);
+    });
+    return out;
+  };
+
+  const msStore = all => {
+    try { localStorage.setItem(MS_KEY, JSON.stringify(all)); return true; } catch (err) { return false; }
+  };
 
   const minesweeper = () => {
     open(
       '<h2>Minesweeper</h2>' +
-      '<p>Ten mines. Left click to clear, right click to flag.</p>' +
-      '<div class="ms">' +
+      '<p>Clear every square that is not a mine. Left click to clear, right click to flag.</p>' +
+      '<div class="ms" id="msRoot">' +
+        '<div class="ms__levels" role="group" aria-label="Difficulty">' +
+          MS_LEVELS.map((l, i) =>
+            '<button class="ms__lvl' + (i ? '' : ' is-on') + '" type="button" data-lvl="' + l.key + '"' +
+              ' aria-pressed="' + (i ? 'false' : 'true') + '">' +
+              '<strong>' + l.label + '</strong><span>' + l.note + '</span>' +
+            '</button>').join('') +
+        '</div>' +
         '<div class="ms__bar">' +
           '<span class="ms__count" id="msLeft"><span class="ast"></span>10</span>' +
           '<button class="ms__reset" id="msReset" type="button" aria-label="New game">&#8635;</button>' +
           '<span class="ms__count" id="msTime">0:00</span>' +
         '</div>' +
-        '<div class="ms__grid" id="msGrid"></div>' +
+        '<div class="ms__board"><div class="ms__grid" id="msGrid"></div></div>' +
         '<p class="ms__msg" id="msMsg"></p>' +
+        '<form class="ms__save" id="msSave" hidden>' +
+          '<label for="msName">That is a top five time. Put your initials to it.</label>' +
+          '<div class="ms__saverow">' +
+            '<input id="msName" type="text" maxlength="3" inputmode="latin" autocomplete="off" ' +
+              'spellcheck="false" placeholder="ABC" aria-label="Your initials" />' +
+            '<button type="submit">Save</button>' +
+          '</div>' +
+        '</form>' +
         '<p class="ms__hint">On a phone, press and hold to flag.</p>' +
-      '</div>', 'Minesweeper');
+        '<button class="ms__link" id="msShow" type="button">Best times</button>' +
+      '</div>' +
+      '<div class="ms__scores" id="msScores" hidden></div>', 'Minesweeper');
 
-    const grid = panel.querySelector('#msGrid');
-    const left = panel.querySelector('#msLeft');
-    const time = panel.querySelector('#msTime');
-    const msg  = panel.querySelector('#msMsg');
-    let cells, mines, started, over, flags, timer, secs;
+    const root   = panel.querySelector('#msRoot');
+    const grid   = panel.querySelector('#msGrid');
+    const left   = panel.querySelector('#msLeft');
+    const time   = panel.querySelector('#msTime');
+    const msg    = panel.querySelector('#msMsg');
+    const saveEl = panel.querySelector('#msSave');
+    const nameEl = panel.querySelector('#msName');
+    const scores = panel.querySelector('#msScores');
+
+    let level = MS_LEVELS[0];
+    let W = level.w, H = level.h, MINES = level.mines;
+    let cells, started, over, flags, timer, secs;
 
     const idx = (x, y) => y * W + x;
     const near = (x, y) => {
@@ -596,7 +651,9 @@
       clearInterval(timer);
       time.textContent = '0:00';
       msg.textContent = ''; msg.className = 'ms__msg';
+      saveEl.hidden = true;
       left.innerHTML = '<span class="ast"></span>' + MINES;
+      grid.style.setProperty('--ms-cols', W);
       grid.innerHTML = cells.map((_, i) =>
         '<button class="ms__c" type="button" data-i="' + i + '" aria-label="Cell"></button>').join('');
     };
@@ -616,8 +673,9 @@
 
     const tick = () => {
       timer = setInterval(() => {
+        if (!grid.isConnected) return clearInterval(timer);   // overlay closed under us
         secs++;
-        time.textContent = Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+        time.textContent = msClock(secs);
       }, 1000);
     };
 
@@ -640,11 +698,85 @@
       }
     };
 
+    /* ------------------------------------------------------------- scores */
+
+    const qualifies = t => {
+      const rows = msScores()[level.key];
+      return rows.length < MS_TOP || t < rows[rows.length - 1].secs;
+    };
+
+    const showScores = mark => {
+      const all = msScores();
+      scores.innerHTML =
+        '<h3 class="ms__scoresh">Best times</h3>' +
+        MS_LEVELS.map(l => {
+          const rows = all[l.key];
+          return '<div class="ms__table">' +
+            '<h4>' + l.label + '<span>' + l.note + '</span></h4>' +
+            (rows.length
+              ? '<ol>' + rows.map((r, i) => {
+                  const isNew = mark && mark.key === l.key && mark.name === r.name && mark.secs === r.secs;
+                  return '<li' + (isNew ? ' class="is-new"' : '') + '>' +
+                    '<span class="ms__pos">' + (i + 1) + '</span>' +
+                    '<span class="ms__who">' + r.name + '</span>' +
+                    '<span class="ms__secs">' + msClock(r.secs) + '</span>' +
+                  '</li>';
+                }).join('') + '</ol>'
+              : '<p class="ms__empty">Nothing here yet. Go and win one.</p>') +
+          '</div>';
+        }).join('') +
+        '<div class="ms__scoresfoot">' +
+          '<button class="ms__back" id="msBack" type="button">Back to the game</button>' +
+          '<button class="ms__link" id="msClear" type="button">Clear the board</button>' +
+        '</div>';
+
+      scores.querySelector('#msBack').addEventListener('click', () => view('game'));
+
+      // Two taps to wipe, because one tap on a leaderboard is a bad afternoon.
+      const clear = scores.querySelector('#msClear');
+      let armed = false;
+      clear.addEventListener('click', () => {
+        if (!armed) { armed = true; clear.textContent = 'Tap again to wipe them'; clear.classList.add('is-armed'); return; }
+        msStore({});
+        showScores();
+      });
+    };
+
+    const view = (which, mark) => {
+      const onScores = which === 'scores';
+      if (onScores) showScores(mark);
+      root.hidden = onScores;
+      scores.hidden = !onScores;
+    };
+
+    const record = t => {
+      const name = msInitials(nameEl.value) || 'YOU';
+      const all = msScores();
+      const row = { name: name, secs: t, at: new Date().toISOString().slice(0, 10) };
+      all[level.key] = all[level.key].concat([row]).sort((a, b) => a.secs - b.secs).slice(0, MS_TOP);
+      if (!msStore(all)) {
+        msg.textContent = 'Your browser will not let us save that time';
+        msg.className = 'ms__msg lose';
+        saveEl.hidden = true;
+        return;
+      }
+      try { localStorage.setItem(MS_NAME_KEY, name); } catch (err) { /* private mode, no matter */ }
+      saveEl.hidden = true;
+      view('scores', { key: level.key, name: name, secs: t });
+    };
+
     const finish = won => {
       over = true; clearInterval(timer);
       if (!won) cells.forEach((c, i) => { if (c.mine) { c.open = true; paint(i); } });
-      msg.textContent = won ? 'Cleared it, ' + time.textContent : 'That was a mine';
+      msg.textContent = won ? 'Cleared it in ' + msClock(secs) : 'That was a mine';
       msg.className = 'ms__msg ' + (won ? 'win' : 'lose');
+      if (!won || !qualifies(secs)) return;
+
+      const t = secs;                                   // the time this form is for
+      saveEl.hidden = false;
+      saveEl.onsubmit = e => { e.preventDefault(); record(t); };
+      try { nameEl.value = localStorage.getItem(MS_NAME_KEY) || ''; } catch (err) { nameEl.value = ''; }
+      setTimeout(() => { nameEl.focus(); nameEl.select(); }, 40);
     };
 
     const check = () => {
@@ -684,6 +816,24 @@
     grid.addEventListener('touchmove', () => { if (held) { clearTimeout(held); held = null; } });
 
     panel.querySelector('#msReset').addEventListener('click', reset);
+    panel.querySelector('#msShow').addEventListener('click', () => view('scores'));
+
+    nameEl.addEventListener('input', () => { nameEl.value = msInitials(nameEl.value); });
+
+    panel.querySelector('.ms__levels').addEventListener('click', e => {
+      const b = e.target.closest('.ms__lvl'); if (!b) return;
+      const next = MS_LEVELS.filter(l => l.key === b.dataset.lvl)[0];
+      if (!next || next.key === level.key) return;
+      level = next; W = level.w; H = level.h; MINES = level.mines;
+      panel.querySelectorAll('.ms__lvl').forEach(x => {
+        const on = x === b;
+        x.classList.toggle('is-on', on);
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      root.classList.toggle('is-dense', W > 12);
+      reset();
+    });
+
     reset();
   };
 

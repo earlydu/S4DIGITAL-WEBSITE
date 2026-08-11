@@ -1334,7 +1334,8 @@ body.is-no-scroll{overflow:hidden}
   background:var(--paper-2);font-size:20px;line-height:1;cursor:pointer
 }
 .ms__reset:hover{border-color:var(--ink)}
-.ms__grid{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;touch-action:manipulation}
+.ms__board{overflow-x:auto;overscroll-behavior-x:contain}
+.ms__grid{display:grid;grid-template-columns:repeat(var(--ms-cols,9),minmax(0,1fr));gap:3px;touch-action:manipulation}
 .ms__c{
   aspect-ratio:1;border-radius:6px;border:0;cursor:pointer;padding:0;
   background:var(--paper-3);font:inherit;font-weight:900;font-size:15px;
@@ -1367,6 +1368,76 @@ body.is-no-scroll{overflow:hidden}
   -webkit-mask-mode:alpha;mask-mode:alpha;
 }
 .ms__count .ast{width:12px;height:12px;margin-right:5px;vertical-align:-1px;color:var(--orange)}
+
+/* the hard board is sixteen wide, so it tightens up, takes a wider panel where
+   there is room, and scrolls sideways on a phone where there is not */
+.ovl__panel:has(.ms.is-dense){max-width:520px}
+.ms.is-dense .ms__grid{gap:2px;min-width:352px}
+.ms.is-dense .ms__c{border-radius:4px;font-size:12.5px}
+
+/* difficulty picker */
+.ms__levels{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.ms__lvl{
+  padding:9px 10px;border-radius:12px;border:1px solid var(--line-2);background:var(--paper-2);
+  font:inherit;line-height:1.25;text-align:center;cursor:pointer
+}
+[data-theme="dark"] .ms__lvl{background:#1b1e25;border-color:#2b3039}
+.ms__lvl strong{display:block;font-weight:900;font-size:14px;color:var(--ink)}
+.ms__lvl span{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.ms__lvl:hover{border-color:var(--ink)}
+.ms__lvl.is-on{border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}
+.ms__lvl.is-on strong{color:var(--orange)}
+
+/* the initials prompt after a top five run */
+.ms__save{margin-top:12px;padding:14px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line)}
+[data-theme="dark"] .ms__save{background:#1b1e25;border-color:#2b3039}
+.ms__save label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:8px;text-align:center}
+.ms__saverow{display:flex;gap:8px;justify-content:center}
+.ms__saverow input{
+  width:104px;padding:10px 12px;border-radius:10px;border:1px solid var(--line-2);
+  background:var(--paper);color:var(--ink);font:inherit;font-weight:900;font-size:17px;
+  letter-spacing:.22em;text-align:center;text-transform:uppercase
+}
+[data-theme="dark"] .ms__saverow input{background:#14161b;border-color:#2b3039}
+.ms__saverow input:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:transparent}
+.ms__saverow button{
+  padding:10px 20px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--orange);color:#fff;font:inherit;font-weight:800;font-size:14px
+}
+.ms__saverow button:hover{background:var(--ink)}
+
+/* the board itself */
+.ms__link{
+  display:block;margin:14px auto 0;padding:0;border:0;background:none;cursor:pointer;
+  font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:underline;
+  text-underline-offset:3px
+}
+.ms__link:hover{color:var(--ink)}
+.ms__link.is-armed{color:#e5484d}
+.ms__scoresh{font-weight:900;font-size:18px;letter-spacing:-.02em;margin-bottom:14px;text-align:center}
+.ms__table{margin-bottom:18px}
+.ms__table h4{
+  font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px
+}
+.ms__table h4 span{text-transform:none;letter-spacing:0;font-weight:600;margin-left:8px}
+.ms__table ol{list-style:none;margin:0;padding:0}
+.ms__table li{
+  display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:10px;
+  background:var(--paper-2);border:1px solid var(--line);margin-bottom:5px
+}
+[data-theme="dark"] .ms__table li{background:#1b1e25;border-color:#2b3039}
+.ms__table li.is-new{border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}
+.ms__pos{width:18px;font-weight:900;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ms__who{flex:1;font-weight:900;font-size:15px;letter-spacing:.14em}
+.ms__secs{font-weight:900;font-size:15px;font-variant-numeric:tabular-nums}
+.ms__empty{font-size:13px;color:var(--muted);padding:4px 2px}
+.ms__scoresfoot{margin-top:20px}
+.ms__back{
+  width:100%;padding:13px 18px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;font-size:14.5px
+}
+.ms__back:hover{background:var(--orange);color:#fff}
 
 /* the case study aside is a single call to action, so it has to look deliberate */
 .cscta{
