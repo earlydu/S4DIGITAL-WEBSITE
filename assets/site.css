@@ -1391,3 +1391,12 @@ body.is-no-scroll{overflow:hidden}
 .phero--solo .phero__sub{margin-inline:auto}
 .phero--solo .phero__ctas{justify-content:center}
 @media (max-width:640px){.phero--solo .phero__grid{text-align:left}.phero--solo .phero__ctas{justify-content:flex-start}}
+
+/* A heading inside the feature list. Same micro-label treatment the rest of
+   the site uses, with the tick suppressed so it reads as a group, not an item. */
+.pcard li.pcard__group{
+  display:block;font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-top:8px
+}
+.pcard li.pcard__group:first-child{margin-top:0}
+.pcard li.pcard__group::before{content:none}
