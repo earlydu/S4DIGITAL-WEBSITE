@@ -24,7 +24,7 @@ ADMIN_PASSWORD=something node serve.mjs   # http://localhost:4000
 | --- | --- | --- |
 | `/` | `index.html` | Home |
 | `/services` | `services.html` | Three service levels, disciplines, add-ons, terms, FAQ |
-| `/personal-brand-shoot` | `personal-brand-shoot.html` | The £500 + VAT one-off shoot |
+| `/personal-brand-shoot` | `personal-brand-shoot.html` | The £795 + VAT one-off shoot |
 | `/work` | `work.html` | Filterable case study index |
 | `/work/<slug>` | `case-study.html` | One case study, rendered from `content/work.json` |
 | `/about` | `about.html` | Studio story and how the team is set up |
