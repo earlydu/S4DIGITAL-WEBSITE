@@ -180,7 +180,13 @@ function render(DATA, CATEGORIES) {
             w.shorts.items.map(v =>
               '<figure class="cs__video cs__video--tall">' +
                 '<video controls playsinline preload="metadata" poster="' + esc(url(v.poster)) + '" src="' + esc(url(v.src)) + '"></video>' +
-                (v.title ? '<figcaption>' + esc(v.title) + '</figcaption>' : '') +
+                // href points at where the cut actually ran, so the caption can carry
+                // the link out to the live post instead of it going unmentioned.
+                (v.title
+                  ? '<figcaption>' + (v.href
+                      ? '<a href="' + esc(v.href) + '" target="_blank" rel="noopener">' + esc(v.title) + '</a>'
+                      : esc(v.title)) + '</figcaption>'
+                  : '') +
               '</figure>').join('') +
           '</div>' +
         '</div>' +

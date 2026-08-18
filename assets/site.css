@@ -1030,6 +1030,10 @@ body.is-no-scroll{overflow:hidden}
 .cs__films{display:grid;grid-template-columns:1fr;gap:22px}
 .cs__films--multi{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px 20px}
 .cs__films figcaption{margin-top:11px;font-size:14px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
+/* Anchors are unstyled site-wide, so a caption that links out to the live post
+   has to say so itself. */
+.cs__films figcaption a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.cs__films figcaption a:hover{color:var(--ink)}
 .cs__play{display:block;width:100%;padding:0;border:0;background:#000;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:16/9}
 .cs__play img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .3s ease}
 .cs__play:hover img{transform:scale(1.03);opacity:.85}

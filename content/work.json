@@ -703,6 +703,114 @@
       ]
     },
     {
+      "slug": "car-planet-ev-install-film",
+      "title": "A customer story filmed on a live site we could barely show",
+      "client": "Car Planet x Plug In Stations",
+      "industry": "Automotive retail and EV charging",
+      "sector": "Customer story film",
+      "featured": false,
+      "categories": [
+        "Automotive",
+        "Commercial Content",
+        "Video Production",
+        "Trades and Construction"
+      ],
+      "cover": {
+        "src": "assets/work/carplanet/cover.jpg",
+        "alt": "A myenergi zappi charger fixed to the wall of a car supermarket",
+        "loop": "assets/work/gifs/carplanet.mp4"
+      },
+      "summary": "A customer story for Plug In Stations, filmed during a live installation at a 2,500 car supermarket, cut into a YouTube film and a vertical social edit with the site itself kept almost entirely out of frame.",
+      "overview": "Car Planet went from thirty cars to around two and a half thousand in four years, and is now preparing to buy, prepare and sell electric vehicles. Plug In Stations installed the charging infrastructure, and wanted the story told by the customer rather than told about them. So the film was made on the day of the install, with the Car Planet team and the engineers on site, and built for the buyer who is weighing up the same decision on their own premises.",
+      "challenge": "Two constraints pulled against each other. The install had to be filmed as it happened on a working business, with cars moving and staff on the floor all day, and nothing was going to stop for a camera. At the same time the client did not want the site itself put on display, so most of what was in front of us could not go in the film. That leaves a customer story shot almost entirely in close up, and an edit that has to be filled out from elsewhere: b-roll from previous installs and Car Planet's own image bank, cut so the joins do not show and it still reads as one day in one place.",
+      "delivered": [
+        "A filming day on a live installation, working around moving vehicles and a trading business, with no shutdown and no staged setups",
+        "Interviews with the Car Planet team, recorded on site between jobs rather than in a booked slot",
+        "Coverage of the engineers working, framed tight so the premises stay out of the picture",
+        "An edit built from three sources: the day itself, b-roll from previous Plug In Stations installs and the client's existing image bank",
+        "A YouTube film written as a customer story rather than a product pitch, aimed at commercial buyers rather than homeowners",
+        "Two vertical social cuts from the same footage, one following the install and one built around the hardware alone",
+        "Everything captured in a single visit, so the cost of the film sat on one day rather than three"
+      ],
+      "outputs": [
+        {
+          "value": "1 day",
+          "label": "On a live site, no shutdown, no reshoots"
+        },
+        {
+          "value": "2,500",
+          "label": "Cars on site while we were filming"
+        },
+        {
+          "value": "3 sources",
+          "label": "New footage, previous b-roll and the client image bank"
+        },
+        {
+          "value": "3 edits",
+          "label": "A YouTube film and two vertical cuts from one day"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "videos": [
+        {
+          "youtube": "T4OsZZe0elQ",
+          "poster": "assets/work/carplanet/T4OsZZe0elQ.jpg",
+          "title": "2,500 Cars, Zero Disruption: EV Charger Install at Car Planet"
+        }
+      ],
+      "videoNote": "The whole film is the customer talking. The installer never makes the claim about themselves, which is what makes it usable in a sales conversation.",
+      "videoCta": {
+        "label": "See more on the Plug In Stations channel",
+        "href": "https://www.youtube.com/@PlugInStationsUK"
+      },
+      "shorts": {
+        "heading": "The social cuts",
+        "note": "Same day, cut vertical for Instagram and Shorts. The long one carries the work rather than the interview, because a feed rewards watching something get done more than watching someone explain it. The short one does the opposite job: no people, no site, just the hardware on the wall, which is the cut that can run anywhere.",
+        "items": [
+          {
+            "src": "assets/work/carplanet/social-cut.mp4",
+            "poster": "assets/work/carplanet/social-cut.jpg",
+            "title": "The install, start to finish"
+          },
+          {
+            "src": "assets/work/carplanet/social-cut-charger.mp4",
+            "poster": "assets/work/carplanet/social-cut-charger.jpg",
+            "title": "The charger alone, ten seconds. See it on Instagram",
+            "href": "https://www.instagram.com/p/Db8Og1zjJxr/"
+          }
+        ]
+      },
+      "photos": {
+        "heading": "Framed tight, on purpose",
+        "note": "Frames from the film. Nearly every setup sits close to the work, because what was behind it was off limits. Shot that way, an isolator or a run of conduit could have come from any install, and that is exactly what let older b-roll sit next to the new material without a seam showing.",
+        "items": [
+          {
+            "src": "assets/work/carplanet/still-02.jpg",
+            "alt": "An engineer holding open an outdoor enclosure fixed to the cladding"
+          },
+          {
+            "src": "assets/work/carplanet/still-03.jpg",
+            "alt": "An engineer running cable below existing switchgear inside the building"
+          },
+          {
+            "src": "assets/work/carplanet/still-04.jpg",
+            "alt": "An engineer working at the charger once it is on the wall"
+          },
+          {
+            "src": "assets/work/carplanet/still-05.jpg",
+            "alt": "An engineer testing at the distribution board"
+          },
+          {
+            "src": "assets/work/carplanet/still-06.jpg",
+            "alt": "An engineer working at height to run containment through the roof structure"
+          }
+        ]
+      }
+    },
+    {
       "slug": "mayflower-lodge-project",
       "title": "A property project explained for residents and freeholders",
       "client": "Property management project",
