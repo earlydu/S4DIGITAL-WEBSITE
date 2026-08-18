@@ -14,6 +14,208 @@
   ],
   "items": [
     {
+      "slug": "super-efficient-drainage",
+      "title": "One day on a drainage job, and everything that came out of it",
+      "client": "Super Efficient",
+      "industry": "Plumbing, heating and drainage",
+      "sector": "Ongoing content partnership",
+      "featured": false,
+      "categories": [
+        "Trades and Construction",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/super-efficient-drainage.jpg",
+        "alt": "A Super Efficient engineer lifting a manhole cover in a London back yard",
+        "loop": "assets/work/gifs/super-efficient.mp4"
+      },
+      "summary": "A single day filming one job in Enfield, cut into a longform YouTube film, a run of vertical shorts and two carousels, with the channel set up so the work actually gets found.",
+      "overview": "Super Efficient are London plumbers, gas engineers and drainage specialists, and almost all of their work comes from recommendation. That is a good problem to have and a fragile one to rely on. The brief was to turn the work they already do every day into something a stranger can watch, judge them on, and call them about, without adding a single day to their diary.",
+      "challenge": "One shoot has to feed two completely different buyers. Homeowners and landlords want the satisfying clear and the honest explanation. Facilities managers and managing agents want the cost of not having a maintenance schedule. Those are different edits and different captions from the same footage, and getting that wrong wastes the whole day. On top of that, drainage is filmed badly nearly everywhere: a phone on a bucket, no explanation, and a title nobody is searching for.",
+      "delivered": [
+        "A content day on a live job in Enfield, filmed start to finish with no reshoots and no waiting for the camera",
+        "An eight minute longform film, cut first, because every short cut-down comes out of it",
+        "Vertical shorts for Instagram, TikTok and YouTube Shorts, each with a different job: the satisfying clear, the reveal, natural sound with no music, the education piece and the commercial one",
+        "Carousels for Instagram and LinkedIn, one saveable and one built as the commercial pitch",
+        "Separate captions for the homeowner audience and the commercial audience, because they are not the same buyer",
+        "The YouTube channel set up properly: upload defaults, a description template and a core tag set, so every future upload starts from the right place",
+        "Title, description, chapters and tags written around what people actually search for, with the borough in every time",
+        "Three thumbnails built as an A/B test rather than one guess"
+      ],
+      "outputs": [
+        {
+          "value": "One day",
+          "label": "On site, one job, filmed in a single visit"
+        },
+        {
+          "value": "Long and short",
+          "label": "A full film plus vertical cut-downs from the same footage"
+        },
+        {
+          "value": "2 audiences",
+          "label": "Homeowners and commercial property, edited separately"
+        },
+        {
+          "value": "3",
+          "label": "Thumbnails tested against each other, not guessed at"
+        }
+      ],
+      "cta": {
+        "label": "Discuss a content partnership",
+        "href": "/services#content-partnership"
+      },
+      "videos": [
+        {
+          "youtube": "-Hi0IKAhAZ4",
+          "poster": "assets/work/se/thumb-didnt-expect.jpg",
+          "title": "Blocked and Cracked Drain - The Full Job, Start to Finish, No Digging"
+        }
+      ],
+      "videoCta": {
+        "label": "See more on the Super Efficient channel",
+        "href": "https://www.youtube.com/@SuperEfficientOfficial"
+      },
+      "videoNote": "The longform film is the anchor. Everything else on this job is cut from the same day on site.",
+      "galleryHeading": "The saveable carousel",
+      "galleryNote": "Instagram first, sized 4:5, written to be saved rather than scrolled past. It carries the same information as the shorts, so the two formats reinforce each other instead of competing for the same thirty seconds.",
+      "gallery": [
+        {
+          "src": "assets/work/se/carousel-1-01.jpg",
+          "alt": "Carousel cover: 5 things that block drains"
+        },
+        {
+          "src": "assets/work/se/carousel-1-02.jpg",
+          "alt": "One, fat, oil and grease. It sets hard inside the pipe and restricts flow"
+        },
+        {
+          "src": "assets/work/se/carousel-1-03.jpg",
+          "alt": "Two, wipes. They do not break down and quickly cause blockages"
+        },
+        {
+          "src": "assets/work/se/carousel-1-04.jpg",
+          "alt": "Three, tree roots. They grow into small cracks and block the pipe"
+        },
+        {
+          "src": "assets/work/se/carousel-1-05.jpg",
+          "alt": "Four, silt and debris. It builds up over time and reduces flow"
+        },
+        {
+          "src": "assets/work/se/carousel-1-06.jpg",
+          "alt": "Five, hair and soap scum. It clings to pipe walls and creates stubborn clogs"
+        },
+        {
+          "src": "assets/work/se/carousel-1-07.jpg",
+          "alt": "End card with the Super Efficient logo and the 24/7 emergency number"
+        }
+      ],
+      "galleryRow": true,
+      "carousels": [
+        {
+          "heading": "The commercial carousel",
+          "note": "LinkedIn first, aimed at facilities managers, managing agents and anyone running a commercial kitchen. Same job, same footage, completely different argument: planned maintenance only looks expensive until you price the emergency.",
+          "slides": [
+            {
+              "src": "assets/work/se/carousel-2-01.jpg",
+              "alt": "Cover: planned maintenance versus emergency call-out, swipe to see the difference"
+            },
+            {
+              "src": "assets/work/se/carousel-2-02.jpg",
+              "alt": "The planned version: booked in, normal hours, known cost, no disruption"
+            },
+            {
+              "src": "assets/work/se/carousel-2-03.jpg",
+              "alt": "The emergency version: out of hours, urgent rate, plus the damage"
+            },
+            {
+              "src": "assets/work/se/carousel-2-04.jpg",
+              "alt": "Other costs: downtime, tenant complaints, damaged flooring, a closed kitchen"
+            },
+            {
+              "src": "assets/work/se/carousel-2-05.jpg",
+              "alt": "What a planned schedule covers"
+            },
+            {
+              "src": "assets/work/se/carousel-2-06.jpg",
+              "alt": "Why it matters for compliance and for your maintenance budget, with emergency call-out costs set against planned maintenance line by line"
+            },
+            {
+              "src": "assets/work/se/carousel-2-07.jpg",
+              "alt": "One contractor for drainage, plumbing, heating and gas certificates, shown on the Super Efficient van with its accreditations"
+            },
+            {
+              "src": "assets/work/se/carousel-2-08.jpg",
+              "alt": "End card with the Super Efficient logo and the 24/7 emergency number"
+            }
+          ]
+        }
+      ],
+      "thumbs": {
+        "heading": "Three thumbnails, one video",
+        "note": "The thumbnail and the title do different jobs. The title carries the search term, so the thumbnail is free to carry the curiosity, and repeating one in the other wastes the only space either of them has. Every frame here is pulled from the day itself rather than staged afterwards, the text is short enough to read at the size a phone actually shows it, and each one opens a different loop: the whole job, the thing nobody expected, and the thing we pulled out. Rather than pick a favourite and hope, all three go live as a test and the numbers settle it.",
+        "items": [
+          {
+            "src": "assets/work/se/thumb-full-job.jpg",
+            "alt": "FULL JOB thumbnail over the fat filled chamber being rodded",
+            "label": "The full job. Promises the whole thing, start to finish."
+          },
+          {
+            "src": "assets/work/se/thumb-didnt-expect.jpg",
+            "alt": "THEY DIDNT EXPECT THIS thumbnail over the jetting work",
+            "label": "The surprise. The blockage was not the real problem."
+          },
+          {
+            "src": "assets/work/se/thumb-what-did-we-find.jpg",
+            "alt": "WHAT DID WE FIND thumbnail with a blurred object pulled from the drain",
+            "label": "The reveal. Blurred on purpose, and the title pays it off."
+          }
+        ]
+      },
+      "shorts": {
+        "heading": "The vertical cuts",
+        "note": "Same day on site, cut for Instagram, TikTok and Shorts. Each one has a different job to do: the satisfying clear that travels, the reveal that explains why you survey before you quote, and the two engineers talking straight to camera about the trade itself. Sound matters on these, so the jetter and the water are left alone rather than buried under music.",
+        "items": [
+          {
+            "src": "video_content/gallery/se-moment-it-clears.mp4",
+            "poster": "video_content/gallery/se-moment-it-clears.jpg",
+            "title": "The moment it clears"
+          },
+          {
+            "src": "video_content/gallery/se-what-was-down-there.mp4",
+            "poster": "video_content/gallery/se-what-was-down-there.jpg",
+            "title": "What was actually down there"
+          },
+          {
+            "src": "video_content/gallery/se-the-industry.mp4",
+            "poster": "video_content/gallery/se-the-industry.jpg",
+            "title": "The industry, from the two doing the job"
+          }
+        ]
+      },
+      "photos": {
+        "heading": "Stills from the same visit",
+        "note": "Shot alongside the video rather than on a separate day, which is the whole point of a content day. The van is the thing most of their customers see first, so it is worth having proper photographs of it rather than a phone snap in a car park.",
+        "items": [
+          {
+            "src": "assets/work/se/photo-01.jpg",
+            "alt": "Close up of the Super Efficient superhero logo on the side of the van"
+          },
+          {
+            "src": "assets/work/se/photo-02.jpg",
+            "alt": "The Super Efficient van in profile on a tree lined residential street"
+          },
+          {
+            "src": "assets/work/se/photo-03.jpg",
+            "alt": "The van from the front three quarter, with the now hiring panel and accreditations visible"
+          },
+          {
+            "src": "assets/work/se/photo-04.jpg",
+            "alt": "The van from the rear three quarter in dappled sunlight"
+          }
+        ]
+      }
+    },
+    {
       "slug": "char-gy-b-corp-video",
       "title": "A B Corp film that became the most watched thing on their channel",
       "client": "char.gy",

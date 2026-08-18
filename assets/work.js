@@ -123,12 +123,99 @@ function render(DATA, CATEGORIES) {
   const videos = w.videos || (w.video ? [w.video] : []);
   const gallery = w.gallery || [];
 
+  // A carousel is read one slide after another, so it stays on a single line and
+  // scrolls sideways. The arrows only appear when there is more than fits.
+  const railBtn = (dir) =>
+    '<button type="button" class="rail__btn rail__btn--' + dir + '" data-rail="' + dir + '" aria-label="' +
+      (dir === 'prev' ? 'Previous slides' : 'Next slides') + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">' +
+        (dir === 'prev' ? '<polyline points="15 18 9 12 15 6"/>' : '<polyline points="9 18 15 12 9 6"/>') +
+      '</svg>' +
+    '</button>';
+
+  const figures = gallery.map(g =>
+    '<figure><img src="' + esc(url(g.src)) + '" alt="' + esc(g.alt) + '" loading="lazy" /></figure>').join('');
+
+  const galleryBody = w.galleryRow
+    ? '<div class="rail">' + railBtn('prev') +
+        '<div class="cs__gallery cs__gallery--row" tabindex="0">' + figures + '</div>' +
+        railBtn('next') +
+      '</div>'
+    : '<div class="cs__gallery' + (w.galleryGrid ? ' cs__gallery--grid' : '') + '">' + figures + '</div>';
+
   const gallerySection = gallery.length
     ? '<section class="sec sec--paper">' +
         '<div class="shell">' +
-          '<div class="sec__head"><h2>Photography</h2>' + (w.galleryNote ? '<p>' + esc(w.galleryNote) + '</p>' : '') + '</div>' +
-          '<div class="cs__gallery' + (w.galleryGrid ? ' cs__gallery--grid' : '') + '">' +
-            gallery.map(g => '<figure><img src="' + esc(url(g.src)) + '" alt="' + esc(g.alt) + '" loading="lazy" /></figure>').join('') +
+          '<div class="sec__head"><h2>' + esc(w.galleryHeading || 'Photography') + '</h2>' + (w.galleryNote ? '<p>' + esc(w.galleryNote) + '</p>' : '') + '</div>' +
+          galleryBody +
+        '</div>' +
+      '</section>'
+    : '';
+
+  // Extra carousels beyond the first, each one its own rail with its own heading.
+  const extraCarousels = (w.carousels || []).map(c =>
+    '<section class="sec sec--paper">' +
+      '<div class="shell">' +
+        '<div class="sec__head"><h2>' + esc(c.heading) + '</h2>' + (c.note ? '<p>' + esc(c.note) + '</p>' : '') + '</div>' +
+        '<div class="rail">' + railBtn('prev') +
+          '<div class="cs__gallery cs__gallery--row" tabindex="0">' +
+            c.slides.map(s => '<figure><img src="' + esc(url(s.src)) + '" alt="' + esc(s.alt) + '" loading="lazy" /></figure>').join('') +
+          '</div>' +
+          railBtn('next') +
+        '</div>' +
+      '</div>' +
+    '</section>').join('');
+
+  // Vertical cut-downs get their own section. Mixing 9:16 into the same grid as a
+  // 16:9 film gives you one tall column and one short one, which reads as a mistake.
+  const shortsSection = (w.shorts && w.shorts.items && w.shorts.items.length)
+    ? '<section class="sec sec--tight">' +
+        '<div class="shell">' +
+          '<div class="sec__head"><h2>' + esc(w.shorts.heading || 'The vertical cuts') + '</h2>' +
+            (w.shorts.note ? '<p>' + esc(w.shorts.note) + '</p>' : '') + '</div>' +
+          // Phone-shaped video does not need half the page. Fixed narrow columns, left
+          // aligned, so the row simply ends where it ends.
+          '<div class="cs__films cs__films--tall cs__films--mini" style="grid-template-columns:repeat(' +
+            Math.min(w.shorts.items.length, 5) + ',minmax(0,248px))">' +
+            w.shorts.items.map(v =>
+              '<figure class="cs__video cs__video--tall">' +
+                '<video controls playsinline preload="metadata" poster="' + esc(url(v.poster)) + '" src="' + esc(url(v.src)) + '"></video>' +
+                (v.title ? '<figcaption>' + esc(v.title) + '</figcaption>' : '') +
+              '</figure>').join('') +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    : '';
+
+  // Stills run along one line like the carousels do, on a wider frame because they
+  // are landscape. Arrows appear only once there are more than fit.
+  const photosSection = (w.photos && w.photos.items && w.photos.items.length)
+    ? '<section class="sec sec--paper">' +
+        '<div class="shell">' +
+          '<div class="sec__head"><h2>' + esc(w.photos.heading || 'Photography') + '</h2>' +
+            (w.photos.note ? '<p>' + esc(w.photos.note) + '</p>' : '') + '</div>' +
+          '<div class="rail">' + railBtn('prev') +
+            '<div class="cs__gallery cs__gallery--row cs__gallery--wide" tabindex="0">' +
+              w.photos.items.map(p =>
+                '<figure><img src="' + esc(url(p.src)) + '" alt="' + esc(p.alt) + '" loading="lazy" /></figure>').join('') +
+            '</div>' +
+            railBtn('next') +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    : '';
+
+  // Thumbnails sit in their own row because they are judged side by side.
+  const thumbsSection = (w.thumbs && w.thumbs.items && w.thumbs.items.length)
+    ? '<section class="sec sec--tight">' +
+        '<div class="shell">' +
+          '<div class="sec__head"><h2>' + esc(w.thumbs.heading || 'The thumbnails') + '</h2>' +
+            (w.thumbs.note ? '<p>' + esc(w.thumbs.note) + '</p>' : '') + '</div>' +
+          '<div class="cs__thumbs">' +
+            w.thumbs.items.map(t =>
+              '<figure><img src="' + esc(url(t.src)) + '" alt="' + esc(t.alt) + '" loading="lazy" />' +
+                (t.label ? '<figcaption>' + esc(t.label) + '</figcaption>' : '') +
+              '</figure>').join('') +
           '</div>' +
         '</div>' +
       '</section>'
@@ -242,9 +329,15 @@ function render(DATA, CATEGORIES) {
       '</div>' +
     '</section>' +
 
+    // The film first, then how it earns the click, then everything cut from it,
+    // then the static formats, then the photography.
     siteSection +
-    gallerySection +
     videoSection +
+    thumbsSection +
+    shortsSection +
+    gallerySection +
+    extraCarousels +
+    photosSection +
     quoteSection +
 
     '<section class="sec sec--tight" style="padding-top:0">' +
@@ -253,6 +346,32 @@ function render(DATA, CATEGORIES) {
         '<div class="wgrid">' + DATA.filter(x => x.slug !== w.slug).slice(0, 3).map(card).join('') + '</div>' +
       '</div>' +
     '</section>';
+
+  // Sideways rails: the arrows page across roughly one screen at a time, and hide
+  // themselves at each end so they never sit there doing nothing.
+  page.querySelectorAll('.rail').forEach(rail => {
+    const track = rail.querySelector('.cs__gallery--row');
+    if (!track) return;
+
+    const sync = () => {
+      const far = track.scrollWidth - track.clientWidth;
+      rail.classList.toggle('rail--off', far <= 1);
+      rail.classList.toggle('at-start', track.scrollLeft <= 1);
+      rail.classList.toggle('at-end', track.scrollLeft >= far - 1);
+    };
+
+    rail.querySelectorAll('[data-rail]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const step = Math.max(240, Math.round(track.clientWidth * 0.85));
+        track.scrollBy({ left: btn.dataset.rail === 'prev' ? -step : step, behavior: 'smooth' });
+      });
+    });
+
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(track);
+    sync();
+  });
 
   // The browser frame drifts down the page on its own, but the moment anyone
   // scrolls, drags or tabs into it they take over and it stops fighting them.
