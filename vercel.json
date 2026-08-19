@@ -23,47 +23,11 @@
     },
     {
       "source": "/admin/:path*",
-      "destination": "/admin.html"
-    },
-    {
-      "source": "/sales",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/dashboard",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/today",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/pipeline",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/prospects",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/followups",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/import",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/settings",
-      "destination": "/sales.html"
-    },
-    {
-      "source": "/sales/reset",
-      "destination": "/sales.html"
+      "destination": "/admin"
     },
     {
       "source": "/sales/:path*",
-      "destination": "/sales.html"
+      "destination": "/sales"
     }
   ],
   "redirects": [
@@ -95,46 +59,6 @@
     {
       "source": "/crm",
       "destination": "/sales",
-      "permanent": true
-    },
-    {
-      "source": "/crm/dashboard",
-      "destination": "/sales/dashboard",
-      "permanent": true
-    },
-    {
-      "source": "/crm/today",
-      "destination": "/sales/today",
-      "permanent": true
-    },
-    {
-      "source": "/crm/pipeline",
-      "destination": "/sales/pipeline",
-      "permanent": true
-    },
-    {
-      "source": "/crm/prospects",
-      "destination": "/sales/prospects",
-      "permanent": true
-    },
-    {
-      "source": "/crm/followups",
-      "destination": "/sales/followups",
-      "permanent": true
-    },
-    {
-      "source": "/crm/import",
-      "destination": "/sales/import",
-      "permanent": true
-    },
-    {
-      "source": "/crm/settings",
-      "destination": "/sales/settings",
-      "permanent": true
-    },
-    {
-      "source": "/crm/reset",
-      "destination": "/sales/reset",
       "permanent": true
     },
     {
