@@ -582,7 +582,6 @@ h2.sec:first-child{margin-top:0}
 [data-theme="dark"] .toast,
 [data-theme="dark"] .toast--bad,
 [data-theme="dark"] .toast--good,
-[data-theme="dark"] .ob--win,
 [data-theme="dark"] .quickdates button:hover,
 [data-theme="dark"] .quickdates button.is-on,
 [data-theme="dark"] .drawer__x:hover { color:#0f1015 }
@@ -664,3 +663,15 @@ a.chan:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)
    sticky action bar, and clear of the header. */
 .toasts{bottom:auto;top:calc(var(--bar) + 14px)}
 @media(max-width:900px){ .toasts{top:calc(var(--bar) + 52px)} }
+
+/* Meeting Booked is the one button that carries its own colour. The blanket
+   dark-mode background rule above flattened it to near-black on near-black,
+   which measured at 1.04 contrast: invisible. A deeper green keeps it obviously
+   different from the others and leaves white text readable on top. */
+[data-theme="dark"] .ob--win{
+  background:#118052;
+  border-color:#1cb27a;
+  color:#ffffff;
+}
+[data-theme="dark"] .ob--win kbd{color:rgba(255,255,255,.65)}
+[data-theme="dark"] .ob--win:hover{background:#169a68;border-color:#22c184}

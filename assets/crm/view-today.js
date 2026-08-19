@@ -31,11 +31,13 @@ const BUTTONS = [
   { key: 'meeting_booked', label: 'Meeting Booked', kbd: '5', cls: 'ob--win' },
 ];
 
+// Labels match the pipeline stages these outcomes move a prospect into, so the
+// button and the column it lands in say the same thing.
 const MORE = [
   { key: 'qualified', label: 'Qualified' },
-  { key: 'proposal', label: 'Proposal' },
-  { key: 'won', label: 'Won' },
-  { key: 'lost', label: 'Lost' },
+  { key: 'proposal', label: 'Offer Made' },
+  { key: 'won', label: 'Client Won' },
+  { key: 'lost', label: 'Not Now' },
   { key: 'not_interested', label: 'Not Interested' },
   { key: 'wrong_number', label: 'Wrong Number' },
 ];
@@ -97,7 +99,9 @@ function scoreStrip({ compact = false } = {}) {
         <div class="score__meta">
           ${paceText ? `<span class="${ahead ? 'is-ahead' : 'is-behind'}">${esc(paceText)}</span>` : ''}
           ${score.streak ? `<span title="Consecutive days hitting target">🔥 ${score.streak} day streak</span>` : ''}
-          ${score.nextMilestone ? `<span>${score.toNextMilestone} to ${score.nextMilestone}</span>` : '<span>Target hit</span>'}
+          ${score.nextMilestone
+            ? `<span>${score.toNextMilestone} more to reach ${score.nextMilestone}</span>`
+            : '<span>Target hit</span>'}
         </div>
         <div class="score__dots">
           ${score.milestones.map(m => `<i class="${m.hit ? 'is-hit' : ''}" title="${m.at} calls"></i>`).join('')}
@@ -501,7 +505,7 @@ async function submit(outcome) {
     if (!meeting) meeting = null;                // skipping the detail is fine
   }
   if (outcome === 'not_interested' || outcome === 'lost' || outcome === 'won') {
-    const labels = { not_interested: 'Not interested', lost: 'Lost', won: 'Won' };
+    const labels = { not_interested: 'Not interested', lost: 'Not now', won: 'Client Won' };
     const yes = await confirmBox({
       title: `Mark ${c.name} as ${labels[outcome]}?`,
       body: outcome === 'won'
