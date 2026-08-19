@@ -12,8 +12,35 @@ export async function render(host) {
   const d = await api('dashboard');
   host.innerHTML = view(d);
   $$('[data-goto]', host).forEach(b => {
-    b.onclick = async () => { (await import('./app.js')).go(b.dataset.goto); };
+    b.onclick = async () => { (await import('./nav.js')).go(b.dataset.goto); };
   });
+}
+
+/** The gamified strip: points, rank, streak and personal best. */
+function scoreCard(sc) {
+  const pctDone = Math.min(100, (sc.calls / sc.target) * 100);
+  const toNextRank = sc.nextRank ? sc.nextRank.at - sc.points : 0;
+  return `
+    <div class="score">
+      <div class="score__ring" style="--pct:${pctDone}">
+        <b class="num">${sc.calls}</b><span>/ ${sc.target}</span>
+      </div>
+      <div class="score__bits">
+        <div class="score__pts">
+          <b class="num">${sc.points}</b> pts today
+          <span class="badge badge--purple">${esc(sc.rank)}</span>
+          ${sc.nextRank ? `<span style="font-size:12px;color:var(--muted)">${toNextRank} to ${esc(sc.nextRank.name)}</span>` : ''}
+        </div>
+        <div class="score__meta">
+          ${sc.streak ? `<span>🔥 <b>${sc.streak}</b> day streak</span>` : "<span>No streak yet, hit today's target to start one</span>"}
+          ${sc.best && sc.best.calls ? `<span>Best day: <b>${sc.best.calls}</b> calls</span>` : ''}
+          <span><b>${sc.weekPoints}</b> pts this week</span>
+        </div>
+        <div class="score__dots">
+          ${sc.milestones.map(m => `<i class="${m.hit ? 'is-hit' : ''}" title="${m.at} calls"></i>`).join('')}
+        </div>
+      </div>
+    </div>`;
 }
 
 const stat = (k, v, sub, extra = '') =>
@@ -39,6 +66,8 @@ function view(d) {
         <button class="btn btn--orange" data-goto="today">Go to today's calls</button>
       </div>
     </div>
+
+    ${d.scoreboard ? scoreCard(d.scoreboard) : ''}
 
     <h2 class="sec">Today</h2>
     <div class="stats">

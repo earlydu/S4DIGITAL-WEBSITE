@@ -75,6 +75,16 @@ function paint() {
           <input id="pName" value="${esc(s.profile.callerName)}" /></div>
         <div class="field"><label for="pCompany">Company</label>
           <input id="pCompany" value="${esc(s.profile.company)}" /></div>
+        <div class="field">
+          <label for="pMail">Send email from</label>
+          <select id="pMail">
+            <option value="outlook"${s.profile.mailClient === 'outlook' ? ' selected' : ''}>Outlook (work / Microsoft 365)</option>
+            <option value="outlook-personal"${s.profile.mailClient === 'outlook-personal' ? ' selected' : ''}>Outlook.com (personal)</option>
+            <option value="gmail"${s.profile.mailClient === 'gmail' ? ' selected' : ''}>Gmail</option>
+            <option value="default"${s.profile.mailClient === 'default' ? ' selected' : ''}>Whatever my computer opens</option>
+          </select>
+          <small>The big button in the email window opens this one. The others stay available next to it.</small>
+        </div>
         <div class="field"><label for="pSig">Email signature</label>
           <textarea id="pSig">${esc(s.profile.signature)}</textarea></div>
         <button class="btn btn--sm" data-save-profile>Save</button>
@@ -222,7 +232,10 @@ function wire() {
   }, 'Script saved'));
 
   on('[data-save-profile]', () => save({
-    profile: { callerName: v('pName'), company: v('pCompany'), signature: v('pSig') },
+    profile: {
+      callerName: v('pName'), company: v('pCompany'),
+      signature: v('pSig'), mailClient: v('pMail'),
+    },
   }));
 
   on('[data-save-ai]', async () => {

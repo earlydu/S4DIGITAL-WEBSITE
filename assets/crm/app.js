@@ -1,47 +1,12 @@
-// The shell: sign in, lock, routing, global search, keyboard shortcuts.
-// Views are loaded on demand so the first paint after sign-in is immediate.
+// The shell: sign in, theme, lock, global search and keyboard shortcuts.
+// Routing lives in nav.js so the views can reach it without loading a second
+// copy of this module. See the note at the top of that file.
 
 import { api, state, onSignedOut, loadSettings } from './api.js';
 import { $, $$, esc, toast, closeModal, closeDrawer, drawerOpen } from './ui.js';
+import { go, routeFromUrl, refreshFollowUpDot } from './nav.js';
 
-const VIEWS = {
-  dashboard: () => import('./view-dashboard.js'),
-  today: () => import('./view-today.js'),
-  pipeline: () => import('./view-pipeline.js'),
-  prospects: () => import('./view-prospects.js'),
-  followups: () => import('./view-followups.js'),
-  import: () => import('./view-import.js'),
-  settings: () => import('./view-settings.js'),
-};
-
-const view = $('#view');
-let current = null;
 let idleTimer = null;
-
-/* ---------------------------------------------------------------- routing */
-
-const routeFromUrl = () => {
-  const path = location.pathname.replace(/^\/crm\/?/, '').split('/')[0];
-  return VIEWS[path] ? path : 'today';
-};
-
-export async function go(name, { push = true, params } = {}) {
-  if (!VIEWS[name]) name = 'today';
-  if (push) history.pushState({ view: name }, '', `/crm/${name === 'today' ? '' : name}`);
-  $$('#tabs button').forEach(b => b.classList.toggle('is-active', b.dataset.view === name));
-  $('#tabs').classList.remove('is-open');
-
-  if (current && current.leave) { try { current.leave(); } catch { /* view already gone */ } }
-  view.innerHTML = '<div class="loading"><span class="spin spin--dark"></span></div>';
-
-  try {
-    const mod = await VIEWS[name]();
-    current = mod;
-    await mod.render(view, params || {});
-  } catch (err) {
-    view.innerHTML = `<div class="empty"><h3>That screen would not load</h3><p>${esc(err.message)}</p></div>`;
-  }
-}
 
 window.addEventListener('popstate', () => go(routeFromUrl(), { push: false }));
 
@@ -85,16 +50,6 @@ async function startApp() {
   armIdleLock();
 }
 
-/** A dot on the Follow Ups tab when something is due. Checked on load and hourly. */
-export async function refreshFollowUpDot() {
-  try {
-    const { items } = await api('followups');
-    const due = items.filter(f => f.due_date <= state.today).length;
-    const dot = $('#fuDot');
-    dot.hidden = due === 0;
-    dot.title = `${due} due`;
-  } catch { /* not important enough to shout about */ }
-}
 setInterval(refreshFollowUpDot, 60 * 60 * 1000);
 
 /* ------------------------------------------------------------------ forms */
@@ -138,6 +93,44 @@ $('#setupForm').addEventListener('submit', async e => {
     err.textContent = ex.message;
   }
 });
+
+/* ------------------------------------------------------------------ theme */
+
+/**
+ * Three states, deliberately: an explicit choice wins, and with no choice the
+ * system preference decides and keeps deciding. Cycling goes
+ * system -> light -> dark -> system so you can get back to following the OS.
+ */
+const THEME_KEY = 's4crm-theme';
+
+function currentTheme() {
+  return document.documentElement.getAttribute('data-theme') || 'system';
+}
+
+function applyTheme(theme) {
+  if (theme === 'system') {
+    document.documentElement.removeAttribute('data-theme');
+    try { localStorage.removeItem(THEME_KEY); } catch { /* private mode */ }
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch { /* private mode */ }
+  }
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const showing = theme === 'system' ? (systemDark ? 'dark' : 'light') : theme;
+  $('#themeToggle').title = theme === 'system'
+    ? `Following your system (${showing}). Click for light.`
+    : `${showing[0].toUpperCase()}${showing.slice(1)} mode. Click for ${theme === 'light' ? 'dark' : 'system'}.`;
+}
+
+export function cycleTheme() {
+  const order = ['system', 'light', 'dark'];
+  const next = order[(order.indexOf(currentTheme() === 'system' ? 'system' : currentTheme()) + 1) % order.length];
+  applyTheme(next);
+  toast(next === 'system' ? 'Following your system theme' : `${next[0].toUpperCase()}${next.slice(1)} mode`);
+}
+
+$('#themeToggle').addEventListener('click', cycleTheme);
+applyTheme(currentTheme());
 
 /* ------------------------------------------------------------------- lock */
 
@@ -269,6 +262,7 @@ document.addEventListener('keydown', e => {
 
   if (e.key === '/' && !typing) { e.preventDefault(); searchBox.focus(); return; }
   if (e.key.toLowerCase() === 'l' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); lockScreen(); return; }
+  if (e.key.toLowerCase() === 'j' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); cycleTheme(); return; }
   if (e.key === 'Escape' && !typing && drawerOpen()) { closeDrawer(); return; }
 
   // g then a letter jumps between screens, the way most tools do it.

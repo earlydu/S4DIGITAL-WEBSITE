@@ -2,10 +2,10 @@
 
 import { api, state } from './api.js';
 import {
-  $, $$, esc, toast, telHref, humanDate, dayISO, addDays, loading, empty, qualityBadge,
+  $, $$, esc, toast, telHref, humanDate, dayISO, addDays, loading, empty, qualityBadge, channelIcons,
 } from './ui.js';
 import { followUpModal, emailModal } from './dialogs.js';
-import { refreshFollowUpDot } from './app.js';
+import { refreshFollowUpDot } from './nav.js';
 
 let root = null;
 let items = [];
@@ -80,6 +80,7 @@ function card(f, bucket) {
         </div>
       </div>
       <div class="fu__acts">
+        ${channelIcons(c, { showMissing: false })}
         ${qualityBadge(c.lead_quality)}
         ${c.main_phone && (f.kind || 'call') === 'call'
           ? `<a class="btn btn--sm" href="${telHref(c.main_phone)}" data-callone>${esc(c.main_phone)}</a>` : ''}
@@ -97,7 +98,7 @@ function wire() {
     call.onclick = async () => {
       // Everything due is already at the top of today's generated queue, so
       // going to Today is the honest route rather than a second parallel list.
-      (await import('./app.js')).go('today');
+      (await import('./nav.js')).go('today');
     };
   }
 

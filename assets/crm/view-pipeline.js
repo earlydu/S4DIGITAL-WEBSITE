@@ -5,7 +5,7 @@
 
 import { api, loadSettings } from './api.js';
 import {
-  $, $$, esc, toast, money, humanDate, ago, qualityBadge, loading, modal,
+  $, $$, esc, toast, money, humanDate, ago, qualityBadge, loading, modal, channelIcons,
 } from './ui.js';
 
 let board = null;
@@ -36,9 +36,11 @@ function paint() {
 
 function column(stage) {
   const col = board.columns[stage] || { items: [], total: 0 };
+  const g = (board.guide || {})[stage] || {};
   return `
     <section class="kcol" data-stage="${esc(stage)}">
       <header class="kcol__h"><span>${esc(stage)}</span><b class="num">${col.total}</b></header>
+      ${g.means ? `<div class="kcol__guide"><b>${esc(g.means)}</b><span>${esc(g.next)}</span></div>` : ''}
       <div class="kcol__list" data-list="${esc(stage)}">
         ${col.items.map(card).join('') || '<p style="font-size:12.5px;color:var(--muted);padding:8px">Empty</p>'}
         ${col.total > col.items.length
@@ -60,7 +62,8 @@ function card(c) {
         ${c.sector ? `<span>${esc(c.sector)}</span>` : ''}
         ${c.location ? `<span>&middot; ${esc(c.location)}</span>` : ''}
       </div>
-      <div class="kc__m">
+      <div class="kc__m kc__m--chans">
+        ${channelIcons(c, { showMissing: false, links: false })}
         <span>Last: ${esc(c.last_contacted_at ? ago(c.last_contacted_at) : 'never')}</span>
       </div>
       ${c.next_follow_up_at ? `<div class="kc__f">Follow up ${esc(humanDate(c.next_follow_up_at))}</div>` : ''}

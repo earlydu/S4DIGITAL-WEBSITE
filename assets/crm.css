@@ -441,7 +441,7 @@ h2.sec:first-child{margin-top:0}
   font-weight:700;box-shadow:var(--shadow);animation:rise .22s ease}
 .toast--bad{background:var(--red)}
 .toast--good{background:var(--green)}
-@keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+@keyframes rise{from{transform:translateY(-10px);opacity:0}to{transform:none;opacity:1}}
 
 .spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.3);
   border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
@@ -479,3 +479,188 @@ h2.sec:first-child{margin-top:0}
 }
 
 @media print{.bar,.out,.rail,.toasts{display:none}}
+
+/* ------------------------------------------------------------ dark mode
+   Every colour above is a token, so the dark theme is a swap rather than a
+   second stylesheet. Three states: an explicit choice sets data-theme on
+   <html>, and with no choice the system preference decides. */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --blue:#4aa9ff; --blue-2:#6fbcff; --blue-soft:#12243a;
+    --orange:#ff7a42; --orange-2:#ff9160;
+    --ink:#f2f3f7; --ink-2:#c7c9d4; --muted:#8e90a0; --muted-2:#6c6e7d;
+    --paper:#14151b; --paper-2:#0f1015; --paper-3:#1c1e26;
+    --line:#262832; --line-2:#343745;
+    --green:#3ecf8e; --green-soft:#10281f;
+    --red:#ff6b5c; --red-soft:#2a1512;
+    --amber:#e0a145; --amber-soft:#2a1f10;
+    --purple:#9b8cff; --purple-soft:#1d1935;
+    --shadow:0 24px 60px -40px rgba(0,0,0,.9);
+  }
+}
+
+:root[data-theme="dark"] {
+  --blue:#4aa9ff; --blue-2:#6fbcff; --blue-soft:#12243a;
+  --orange:#ff7a42; --orange-2:#ff9160;
+  --ink:#f2f3f7; --ink-2:#c7c9d4; --muted:#8e90a0; --muted-2:#6c6e7d;
+  --paper:#14151b; --paper-2:#0f1015; --paper-3:#1c1e26;
+  --line:#262832; --line-2:#343745;
+  --green:#3ecf8e; --green-soft:#10281f;
+  --red:#ff6b5c; --red-soft:#2a1512;
+  --amber:#e0a145; --amber-soft:#2a1f10;
+  --purple:#9b8cff; --purple-soft:#1d1935;
+  --shadow:0 24px 60px -40px rgba(0,0,0,.9);
+}
+
+/* A handful of places hardcode white or near-black because they are meant to
+   stay that way in light mode. In dark mode they follow the tokens instead. */
+[data-theme="dark"] .card,
+[data-theme="dark"] .stat,
+[data-theme="dark"] .row,
+[data-theme="dark"] .panel,
+[data-theme="dark"] .pc,
+[data-theme="dark"] .kc,
+[data-theme="dark"] .fu,
+[data-theme="dark"] .modal__c,
+[data-theme="dark"] .drop,
+[data-theme="dark"] .facts div,
+[data-theme="dark"] .gate__card,
+[data-theme="dark"] .icon,
+[data-theme="dark"] .chip,
+[data-theme="dark"] .ob,
+[data-theme="dark"] .btn--ghost,
+[data-theme="dark"] .find__out { background:var(--paper); }
+
+[data-theme="dark"] .bar { background:rgba(20,21,27,.92) }
+[data-theme="dark"] .out { background:rgba(20,21,27,.96) }
+[data-theme="dark"] .drawer__h { background:rgba(20,21,27,.95) }
+[data-theme="dark"] .drawer__tabs { background:var(--paper) }
+[data-theme="dark"] .gate { background:linear-gradient(180deg,#101827,#0f1015) }
+[data-theme="dark"] .kcol__h b { background:var(--paper) }
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field select,
+[data-theme="dark"] .field textarea,
+[data-theme="dark"] .gate input,
+[data-theme="dark"] .filters select,
+[data-theme="dark"] .filters input,
+[data-theme="dark"] .find input,
+[data-theme="dark"] .out__note input,
+[data-theme="dark"] .map select { background:var(--paper-3); color:var(--ink) }
+[data-theme="dark"] .map__h { background:var(--paper-3) }
+[data-theme="dark"] .why { background:linear-gradient(180deg,#2a1a12,#1d1512); border-color:#4a2c1c }
+[data-theme="dark"] .who { background:var(--paper-3) }
+[data-theme="dark"] .panel__b .said { background:var(--paper-3) }
+[data-theme="dark"] .stat--hero { background:#1f2130; border-color:#2c2f42 }
+[data-theme="dark"] .start { background:#1f2130 }
+[data-theme="dark"] .ob--good { background:#12241c }
+[data-theme="dark"] .ob--hot { background:#2a1d14 }
+[data-theme="dark"] .bars i { background:var(--blue-soft); border-color:#26405e }
+[data-theme="dark"] .drawer__x { background:var(--paper-3) }
+
+
+/* the toggle itself */
+.theme{position:relative;width:36px;height:36px}
+.theme svg{width:17px;height:17px}
+.theme .sun{display:none}
+[data-theme="dark"] .theme .sun{display:block}
+[data-theme="dark"] .theme .moon{display:none}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme .sun{display:block}
+  :root:not([data-theme="light"]) .theme .moon{display:none}
+}
+
+/* Anything that paints --ink as a background with white text on top has to
+   flip its text colour in dark mode, because --ink is now nearly white. */
+[data-theme="dark"] .btn,
+[data-theme="dark"] .btn--orange,
+[data-theme="dark"] .btn--blue,
+[data-theme="dark"] .gate__go,
+[data-theme="dark"] .bar__tabs button.is-active,
+[data-theme="dark"] .who__av,
+[data-theme="dark"] .tel,
+[data-theme="dark"] .toast,
+[data-theme="dark"] .toast--bad,
+[data-theme="dark"] .toast--good,
+[data-theme="dark"] .ob--win,
+[data-theme="dark"] .quickdates button:hover,
+[data-theme="dark"] .quickdates button.is-on,
+[data-theme="dark"] .drawer__x:hover { color:#0f1015 }
+
+[data-theme="dark"] .btn--ghost { color:var(--ink) }
+[data-theme="dark"] .btn--danger { color:var(--red); border-color:#5c2a24; background:var(--paper) }
+[data-theme="dark"] .btn--danger:hover { background:var(--red-soft) }
+[data-theme="dark"] .notice { border-color:#4a3517 }
+[data-theme="dark"] .why { color:var(--ink) }
+[data-theme="dark"] ::selection { background:var(--blue); color:#0f1015 }
+
+/* The lock screen is dark in both themes, so it needs no overrides beyond this. */
+[data-theme="dark"] .gate--lock { background:linear-gradient(180deg,#0c0d12,#08090c) }
+
+/* ------------------------------------------------------- channel icons */
+.chans{display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap}
+.chan{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+  color:var(--ink-2);background:var(--paper-3);transition:background .15s,color .15s,transform .15s}
+.chan svg{width:13px;height:13px}
+a.chan:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+.chan.is-off{opacity:.28;background:transparent;box-shadow:inset 0 0 0 1px var(--line-2)}
+.chans--lg .chan{width:30px;height:30px;border-radius:8px}
+.chans--lg .chan svg{width:16px;height:16px}
+[data-theme="dark"] a.chan:hover{background:var(--ink);color:#0f1015}
+
+/* pipeline column guide: what the stage means, and what to do next */
+.kcol__guide{padding:0 6px 10px;font-size:11.5px;line-height:1.4}
+.kcol__guide b{display:block;font-weight:800;color:var(--ink-2)}
+.kcol__guide span{display:block;color:var(--muted);margin-top:2px}
+.kc__m--chans{align-items:center;gap:8px}
+
+/* ---------------------------------------------------------- scoreboard */
+.score{display:flex;align-items:center;gap:20px;background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin-bottom:14px}
+.score--compact{padding:10px 14px;margin-bottom:10px}
+
+.score__ring{--pct:0;position:relative;width:72px;height:72px;flex-shrink:0;display:grid;
+  place-items:center;border-radius:50%;
+  background:conic-gradient(var(--blue) calc(var(--pct) * 1%), var(--paper-3) 0)}
+.score__ring::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--paper)}
+.score__ring b,.score__ring span{position:relative;z-index:1;line-height:1}
+.score__ring b{font-size:22px;font-weight:900;letter-spacing:-.03em}
+.score__ring span{font-size:10.5px;color:var(--muted);font-weight:700}
+.score--compact .score__ring{width:54px;height:54px}
+.score--compact .score__ring::after{inset:5px}
+.score--compact .score__ring b{font-size:17px}
+.score--compact .score__ring span{font-size:9px}
+
+.score__bits{flex:1;min-width:0}
+.score__pts{font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.score__pts b{font-size:22px;font-weight:900;letter-spacing:-.03em}
+.score__meta{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:5px}
+.score__meta .is-ahead{color:var(--green);font-weight:700}
+.score__meta .is-behind{color:var(--amber);font-weight:700}
+.score__dots{display:flex;gap:5px;margin-top:9px}
+.score__dots i{width:26px;height:5px;border-radius:99px;background:var(--paper-3)}
+.score__dots i.is-hit{background:var(--green)}
+
+@media(max-width:640px){
+  .score{gap:14px;padding:12px 14px}
+  .score__ring{width:58px;height:58px}
+  .score__ring b{font-size:18px}
+}
+.mailpick{padding:9px 12px;border:1px solid var(--line-2);border-radius:999px;
+  background:var(--paper);font-size:12.5px;font-weight:700;max-width:170px}
+
+/* ------------------------------------------------------- logo per theme */
+.logo-dark{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .logo-light{display:none}
+  :root:not([data-theme="light"]) .logo-dark{display:block}
+}
+[data-theme="dark"] .logo-light{display:none}
+[data-theme="dark"] .logo-dark{display:block}
+[data-theme="light"] .logo-light{display:block}
+[data-theme="light"] .logo-dark{display:none}
+
+/* Toasts sat on top of the outcome buttons during a call. Moved clear of the
+   sticky action bar, and clear of the header. */
+.toasts{bottom:auto;top:calc(var(--bar) + 14px)}
+@media(max-width:900px){ .toasts{top:calc(var(--bar) + 52px)} }

@@ -7,10 +7,10 @@
 import { api, state, loadSettings } from './api.js';
 import {
   $, $$, esc, safeUrl, telHref, toast, initials, humanDate, humanStamp, ago,
-  qualityBadge, stageBadge, fill, loading, empty, confirmBox,
+  qualityBadge, stageBadge, fill, loading, empty, confirmBox, channelIcons,
 } from './ui.js';
 import { followUpModal, meetingModal, emailModal } from './dialogs.js';
-import { refreshFollowUpDot } from './app.js';
+import { refreshFollowUpDot } from './nav.js';
 
 let queue = null;
 let at = 0;              // index into queue.items
@@ -19,6 +19,7 @@ let settings = null;
 let root = null;
 let recorder = null;
 let lastTranscript = '';
+let score = null;
 
 /* ------------------------------------------------------------- outcome set */
 
@@ -45,7 +46,9 @@ export async function render(host) {
   root = host;
   settings = await loadSettings();
   host.innerHTML = loading('Building your call list');
-  queue = await api('queue');
+  const res = await api('queue');
+  queue = res;
+  score = res.scoreboard || null;
   calling = false;
   at = firstPending();
   paint();
@@ -63,6 +66,61 @@ const firstPending = () => {
 };
 
 const pendingCount = () => queue.items.filter(x => x.status === 'pending').length;
+
+/* ------------------------------------------------------------- scoreboard */
+
+/**
+ * Cold calling gives almost no feedback of its own, so this puts the things you
+ * control on screen: dials, points, pace against the clock, and the streak.
+ * It is read-only, so it can never flatter the numbers it is reporting.
+ */
+function scoreStrip({ compact = false } = {}) {
+  if (!score) return '';
+  const pct = Math.min(100, (score.calls / score.target) * 100);
+  const ahead = score.pace >= 0;
+  const paceText = score.day !== (state.today || score.day)
+    ? ''
+    : ahead
+      ? `${score.pace} ahead of the clock`
+      : `${Math.abs(score.pace)} behind the clock`;
+
+  return `
+    <div class="score${compact ? ' score--compact' : ''}">
+      <div class="score__ring" style="--pct:${pct}">
+        <b class="num">${score.calls}</b><span>/ ${score.target}</span>
+      </div>
+      <div class="score__bits">
+        <div class="score__pts">
+          <b class="num">${score.points}</b> pts
+          <span class="badge badge--purple">${esc(score.rank)}</span>
+        </div>
+        <div class="score__meta">
+          ${paceText ? `<span class="${ahead ? 'is-ahead' : 'is-behind'}">${esc(paceText)}</span>` : ''}
+          ${score.streak ? `<span title="Consecutive days hitting target">🔥 ${score.streak} day streak</span>` : ''}
+          ${score.nextMilestone ? `<span>${score.toNextMilestone} to ${score.nextMilestone}</span>` : '<span>Target hit</span>'}
+        </div>
+        <div class="score__dots">
+          ${score.milestones.map(m => `<i class="${m.hit ? 'is-hit' : ''}" title="${m.at} calls"></i>`).join('')}
+        </div>
+      </div>
+    </div>`;
+}
+
+/** Fires when a milestone is crossed. Deliberately a toast, never a blocking modal. */
+function celebrate(before, after) {
+  if (!before || !after) return;
+  const crossed = after.milestones.find((m, i) => m.hit && !before.milestones[i].hit);
+  if (crossed) {
+    const isTarget = crossed.at >= after.target;
+    toast(isTarget
+      ? `${crossed.at} calls. Target hit.`
+      : `${crossed.at} calls down`, 'good');
+  }
+  if (after.rank !== before.rank) toast(`${after.rank}`, 'good');
+  if (after.streak && before.streak !== undefined && after.streak > before.streak) {
+    toast(`${after.streak} day streak`, 'good');
+  }
+}
 
 /* ------------------------------------------------------------------ paint */
 
@@ -99,6 +157,8 @@ function startScreen() {
         <button class="btn btn--ghost btn--sm" data-rebuild>Rebuild list</button>
       </div>
     </div>
+
+    ${scoreStrip()}
 
     <div class="start">
       <div>
@@ -177,6 +237,8 @@ function callScreen() {
   const aiOn = state.meta && state.meta.ai && state.meta.ai.transcribe && state.meta.ai.transcribe.enabled;
 
   return `
+    ${scoreStrip({ compact: true })}
+
     <div class="callbar">
       <span class="callbar__pos num">${item.position} <small>of ${total}</small></span>
       <div class="meter"><i class="${done >= total ? 'is-full' : ''}" style="width:${(done / total) * 100}%"></i></div>
@@ -205,11 +267,8 @@ function callScreen() {
                   ${c.excluded ? '<span class="badge badge--red">Excluded</span>' : ''}
                 </div>
               </div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap">
-                ${link(c.website, 'Website')}
-                ${link(c.linkedin_company, 'LinkedIn')}
-                ${link(c.instagram, 'Instagram')}
-                ${link(c.facebook, 'Facebook')}
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                ${channelIcons(c, { showMissing: true })}
                 <button class="btn btn--ghost btn--sm" data-open>Full record</button>
               </div>
             </div>
@@ -342,7 +401,7 @@ function wireStart() {
   }
 
   $$('[data-goto]', root).forEach(b => {
-    b.onclick = async () => { (await import('./app.js')).go(b.dataset.goto); };
+    b.onclick = async () => { (await import('./nav.js')).go(b.dataset.goto); };
   });
 
   $$('[data-jump]', root).forEach(r => {
@@ -483,6 +542,7 @@ async function submit(outcome) {
     toast(`${c.name}: ${outcome.replace(/_/g, ' ')}`, 'good');
     refreshFollowUpDot();
     advance();
+    bumpScore();
   } catch (err) {
     toast(err.message, 'bad');
     buttons.forEach(b => { b.disabled = false; });
@@ -512,8 +572,22 @@ function advance() {
 }
 
 async function refresh() {
-  queue = await api('queue');
+  const res = await api('queue');
+  queue = res;
+  score = res.scoreboard || score;
   paint();
+}
+
+/** Re-reads the scoreboard after a call and celebrates anything crossed. */
+async function bumpScore() {
+  const before = score;
+  try {
+    const next = await api('scoreboard', { deep: false });
+    score = { ...next, streak: before && before.streak };
+    celebrate(before, score);
+    const strip = $('.score', root);
+    if (strip) strip.outerHTML = scoreStrip({ compact: calling });
+  } catch { /* the count is not worth interrupting a call run for */ }
 }
 
 /* -------------------------------------------------------------- shortcuts */

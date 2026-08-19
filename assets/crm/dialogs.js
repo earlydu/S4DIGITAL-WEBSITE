@@ -163,12 +163,40 @@ export async function opportunityModal({ company, opportunity }) {
 
 /* ------------------------------------------------------------------- email */
 
-const gmailUrl = (to, subject, body) =>
-  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to || '')}` +
-  `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+/**
+ * Where a drafted email opens. Outlook is the default because that is what Earl
+ * sends from; the rest are here so the choice in Settings actually means something.
+ *
+ * "default" hands off to mailto:, which opens whatever the operating system has
+ * registered - the Outlook desktop app, if that is the default mail client.
+ */
+const MAIL_CLIENTS = {
+  outlook: {
+    label: 'Outlook',
+    url: (to, subject, body) =>
+      `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(to || '')}` +
+      `&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+  },
+  'outlook-personal': {
+    label: 'Outlook.com',
+    url: (to, subject, body) =>
+      `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(to || '')}` +
+      `&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+  },
+  gmail: {
+    label: 'Gmail',
+    url: (to, subject, body) =>
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to || '')}` +
+      `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+  },
+  default: {
+    label: 'Desktop mail app',
+    url: (to, subject, body) =>
+      `mailto:${encodeURIComponent(to || '')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+  },
+};
 
-const mailtoUrl = (to, subject, body) =>
-  `mailto:${encodeURIComponent(to || '')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+export const MAIL_CLIENT_LIST = Object.entries(MAIL_CLIENTS).map(([k, v]) => [k, v.label]);
 
 /**
  * Pick a template, see it merged with this prospect's details, then open it in
@@ -183,6 +211,10 @@ export async function emailModal({ company, contact, transcript }) {
 
   const to = (contact && contact.direct_email) || company.general_email || '';
   const ctx = { company, contact, profile: settings.profile };
+
+  const preferredKey = (settings.profile && settings.profile.mailClient) || 'outlook';
+  const preferred = MAIL_CLIENTS[preferredKey] || MAIL_CLIENTS.outlook;
+  const others = Object.entries(MAIL_CLIENTS).filter(([k]) => k !== preferredKey);
 
   const render = t => ({
     subject: fill(t ? t.subject : '', ctx),
@@ -214,8 +246,11 @@ export async function emailModal({ company, contact, transcript }) {
       <div class="modal__f">
         ${aiOn ? '<button class="btn btn--ghost" data-ai>Write it for me</button>' : ''}
         <button class="btn btn--ghost" data-copy>Copy</button>
-        <button class="btn btn--ghost" data-mailto>Default mail app</button>
-        <button class="btn btn--blue" data-gmail>Open in Gmail</button>
+        <select class="mailpick" id="eWhere" title="Open in">
+          ${others.map(([k, v]) => `<option value="${esc(k)}">${esc(v.label)}</option>`).join('')}
+        </select>
+        <button class="btn btn--ghost" data-other>Open in that</button>
+        <button class="btn btn--blue" data-send>Open in ${esc(preferred.label)}</button>
         <button class="btn btn--ghost" data-close>Close</button>
       </div>`,
     onMount(root, close) {
@@ -230,14 +265,18 @@ export async function emailModal({ company, contact, transcript }) {
       };
 
       $('[data-copy]', root).onclick = () => copy(`${sub.value}\n\n${bod.value}`);
-      $('[data-gmail]', root).onclick = () => {
-        window.open(gmailUrl(to, sub.value, bod.value), '_blank', 'noopener');
+      const open = (client, andClose) => {
+        const url = client.url(to, sub.value, bod.value);
+        if (url.startsWith('mailto:')) location.href = url;
+        else window.open(url, '_blank', 'noopener');
         logEmail(company.id, contact && contact.id, sub.value);
-        close(true);
+        if (andClose) close(true);
       };
-      $('[data-mailto]', root).onclick = () => {
-        location.href = mailtoUrl(to, sub.value, bod.value);
-        logEmail(company.id, contact && contact.id, sub.value);
+
+      $('[data-send]', root).onclick = () => open(preferred, true);
+      $('[data-other]', root).onclick = () => {
+        const key = $('#eWhere', root).value;
+        open(MAIL_CLIENTS[key] || MAIL_CLIENTS.default, false);
       };
 
       const aiBtn = $('[data-ai]', root);

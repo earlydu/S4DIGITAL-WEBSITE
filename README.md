@@ -290,7 +290,8 @@ added later without touching it.
 ```
 crm.html                     the shell: sign in, lock, app
 assets/crm.css               the design system for the tool
-assets/crm/app.js            routing, sign in, lock, search, shortcuts
+assets/crm/app.js            sign in, theme, lock, search, shortcuts
+assets/crm/nav.js            routing, kept apart from app.js on purpose
 assets/crm/view-*.js         one file per screen
 assets/crm/record.js         the prospect drawer
 assets/crm/dialogs.js        follow-up, meeting, opportunity and email modals
@@ -303,6 +304,7 @@ lib/crm/metrics.mjs          the dashboard numbers
 lib/crm/importer.mjs         normalising, matching, importing
 lib/crm/settings.mjs         defaults and the settings document
 lib/crm/ai.mjs               transcription and email drafting, both optional
+lib/crm/scoreboard.mjs       points, pace, streaks and milestones
 lib/crm/seed.mjs             the fictional sample data
 lib/crm/api.mjs              the API, shared by the function and serve.mjs
 api/crm.mjs                  POST /api/crm?action=...
@@ -318,6 +320,33 @@ over bounded row sets rather than in SQL**, because 500 calls a week is a couple
 of thousand rows, and it means SQLite and Postgres cannot disagree about what a
 conversion rate is.
 
+## The scoreboard
+
+Cold calling gives almost no feedback of its own: most calls end in nothing and
+the wins are weeks apart. So Today and the Dashboard carry a scoreboard that
+counts the things you actually control.
+
+- **Points** per outcome, weighted towards what moves a deal: a dial is 1, a
+  gatekeeper 2, a real conversation 5, a follow-up 8, qualified 15, a meeting
+  25, an offer 30, a win 100.
+- **Pace** against the clock, 9am to 5pm, so "37 calls" reads as ahead or behind
+  rather than just a number.
+- **Streak** of consecutive working days that hit target. Today only counts once
+  it is actually hit, so it never flatters you mid-morning, and it does not break
+  until tomorrow.
+- **Milestones** at 10, 25, 50, 75 and 100 percent of target, which fire a toast
+  as you cross them. Never a modal, because nothing should interrupt a call run.
+- **Ranks**: Warming up, Dialled in, On a roll, Closer, Machine.
+
+It is read-only over the activities that already exist, so it cannot distort the
+numbers it is reporting.
+
+## Light and dark
+
+A toggle in the header, and `Ctrl+J`. Three states: an explicit choice wins, and
+with no choice it follows your system and keeps following it. The choice is
+applied before first paint, so there is no flash of the wrong theme on load.
+
 ## Keyboard
 
 | Key | Does |
@@ -329,3 +358,4 @@ conversion rate is.
 | `/` | Global search |
 | `g` then `d t p r f i s` | Jump to Dashboard, Today, Pipeline, pRospects, Follow ups, Import, Settings |
 | `Ctrl+L` | Lock |
+| `Ctrl+J` | Light, dark, or follow the system |

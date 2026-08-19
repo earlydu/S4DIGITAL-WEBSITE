@@ -4,7 +4,7 @@
 import { api, loadSettings } from './api.js';
 import {
   $, $$, esc, toast, ago, humanDate, qualityBadge, stageBadge, loading, empty,
-  download, dayISO, telHref,
+  download, dayISO, telHref, channelIcons,
 } from './ui.js';
 import { toCSV, toXLSX } from './sheet.js';
 
@@ -138,7 +138,7 @@ async function load() {
         : 'Import a researched list to get started.',
       Object.keys(filters).length ? '' : '<button class="btn" data-goto="import">Import prospects</button>');
     const g = $('[data-goto]', list);
-    if (g) g.onclick = async () => { (await import('./app.js')).go('import'); };
+    if (g) g.onclick = async () => { (await import('./nav.js')).go('import'); };
     $('#pager', root).innerHTML = '';
     return;
   }
@@ -178,6 +178,7 @@ function row(c) {
         </div>
       </div>
       <div class="row__r">
+        ${channelIcons(c, { showMissing: false })}
         ${c.main_phone ? `<a class="row__tel num" href="${telHref(c.main_phone)}">${esc(c.main_phone)}</a>` : ''}
         ${qualityBadge(c.lead_quality)}
         ${stageBadge(c.stage)}

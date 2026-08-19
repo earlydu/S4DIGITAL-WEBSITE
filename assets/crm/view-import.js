@@ -178,7 +178,7 @@ function wire() {
   }
 
   const goto = $('[data-goto]', root);
-  if (goto) goto.onclick = async () => { (await import('./app.js')).go(goto.dataset.goto); };
+  if (goto) goto.onclick = async () => { (await import('./nav.js')).go(goto.dataset.goto); };
 
   if (step === 'drop') {
     const drop = $('#drop', root);

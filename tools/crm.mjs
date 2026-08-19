@@ -20,9 +20,10 @@ import { basename } from 'node:path';
 import { createInterface } from 'node:readline';
 import { stdin, stdout, argv, exit, env } from 'node:process';
 
-import { init, driver, select, count, first } from '../lib/crm/db.mjs';
+import { init, driver, select, count, first, updateWhere } from '../lib/crm/db.mjs';
 import * as auth from '../lib/crm/auth.mjs';
 import { postgresDDL } from '../lib/crm/schema.mjs';
+import { LEGACY_STAGES } from '../lib/crm/settings.mjs';
 import { seed, clearSeed } from '../lib/crm/seed.mjs';
 import { runImport, FIELDS } from '../lib/crm/importer.mjs';
 
@@ -119,6 +120,7 @@ async function main() {
     node tools/crm.mjs set-pin <email>
     node tools/crm.mjs seed | clear-seed      fictional sample data
     node tools/crm.mjs import <file.csv> [--update]
+    node tools/crm.mjs migrate-stages          rename old pipeline stages to the current ones
     node tools/crm.mjs stats
 `);
     return;
@@ -228,6 +230,22 @@ async function main() {
         rows: objects, mode, filename: basename(file), userId: owner && owner.id,
       });
       say(`\n  ${out.rows} rows: ${out.added} added, ${out.updated} updated, ${out.skipped} skipped, ${out.errors.length} errors.\n`);
+      return;
+    }
+
+    case 'migrate-stages': {
+      // Stage names are stored as text, so a rename needs the old rows moving.
+      let moved = 0;
+      for (const [from, to] of Object.entries(LEGACY_STAGES)) {
+        if (from === to) continue;
+        for (const table of ['companies', 'opportunities']) {
+          const n = await updateWhere(table, [{ col: 'stage', op: 'eq', val: from }], { stage: to });
+          if (n) { say(`  ${table}: ${n} moved from "${from}" to "${to}"`); moved += n; }
+        }
+      }
+      say(moved ? `
+  ${moved} rows updated.
+` : '  Nothing to migrate, every stage is already current.');
       return;
     }
 
