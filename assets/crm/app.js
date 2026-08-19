@@ -162,36 +162,26 @@ $('#resetForm').addEventListener('submit', async e => {
 /* ------------------------------------------------------------------ theme */
 
 /**
- * Three states, deliberately: an explicit choice wins, and with no choice the
- * system preference decides and keeps deciding. Cycling goes
- * system -> light -> dark -> system so you can get back to following the OS.
+ * Light or dark, and nothing else. Your system preference picks the very first
+ * visit and then your own choice sticks, so the button always does the one
+ * obvious thing rather than cycling through a third state nobody wanted.
  */
 const THEME_KEY = 's4crm-theme';
 
-function currentTheme() {
-  return document.documentElement.getAttribute('data-theme') || 'system';
-}
+const currentTheme = () =>
+  (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
 function applyTheme(theme) {
-  if (theme === 'system') {
-    document.documentElement.removeAttribute('data-theme');
-    try { localStorage.removeItem(THEME_KEY); } catch { /* private mode */ }
-  } else {
-    document.documentElement.setAttribute('data-theme', theme);
-    try { localStorage.setItem(THEME_KEY, theme); } catch { /* private mode */ }
-  }
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const showing = theme === 'system' ? (systemDark ? 'dark' : 'light') : theme;
-  $('#themeToggle').title = theme === 'system'
-    ? `Following your system (${showing}). Click for light.`
-    : `${showing[0].toUpperCase()}${showing.slice(1)} mode. Click for ${theme === 'light' ? 'dark' : 'system'}.`;
+  const t = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  try { localStorage.setItem(THEME_KEY, t); } catch { /* private mode */ }
+  $('#themeToggle').title = t === 'dark' ? 'Dark mode. Click for light.' : 'Light mode. Click for dark.';
 }
 
 export function cycleTheme() {
-  const order = ['system', 'light', 'dark'];
-  const next = order[(order.indexOf(currentTheme() === 'system' ? 'system' : currentTheme()) + 1) % order.length];
+  const next = currentTheme() === 'dark' ? 'light' : 'dark';
   applyTheme(next);
-  toast(next === 'system' ? 'Following your system theme' : `${next[0].toUpperCase()}${next.slice(1)} mode`);
+  toast(next === 'dark' ? 'Dark mode' : 'Light mode');
 }
 
 $('#themeToggle').addEventListener('click', cycleTheme);

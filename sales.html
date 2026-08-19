@@ -9,13 +9,20 @@
 <link rel="icon" type="image/png" href="/assets/32wh.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
-<link rel="stylesheet" href="/assets/crm.css?v=3" />
+<link rel="stylesheet" href="/assets/crm.css?v=4" />
 <script>
-  // Applied before first paint so the page never flashes light then dark.
+  // Applied before first paint so the page never flashes the wrong theme.
+  // Two states only. Your system preference decides the very first visit, then
+  // your own choice sticks.
   try {
     var t = localStorage.getItem('s4crm-theme');
-    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-  } catch (e) {}
+    if (t !== 'dark' && t !== 'light') {
+      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
 </script>
 </head>
 <body>
@@ -157,7 +164,7 @@
 <aside class="drawer" id="drawer" hidden></aside>
 <div class="scrim" id="scrim" hidden></div>
 
-<script type="module" src="/assets/crm/app.js?v=4"></script>
+<script type="module" src="/assets/crm/app.js?v=5"></script>
 <noscript><p style="padding:40px;font-family:system-ui">The sales area needs JavaScript.</p></noscript>
 </body>
 </html>
