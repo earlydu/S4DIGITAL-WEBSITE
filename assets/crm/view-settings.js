@@ -11,7 +11,14 @@ let s = null;
 export async function render(host) {
   root = host;
   host.innerHTML = loading();
-  await loadSettings(true);
+  try {
+    await loadSettings(true);
+  } catch (err) {
+    // Handlers below re-render after saving, and one of those can land just as
+    // a session ends. Report it rather than throwing into nothing.
+    host.innerHTML = `<div class="empty"><h3>Could not load settings</h3><p>${esc(err.message)}</p></div>`;
+    return;
+  }
   meta = state.meta;
   s = state.settings;
   paint();

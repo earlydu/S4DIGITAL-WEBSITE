@@ -52,3 +52,7 @@ assets/work/vertical/*.mp4
 # CRM: the local SQLite database. Prospect data never belongs in git.
 .data/
 .vercel
+
+# Generated prospect lists. Business contact data, and regenerable from the
+# source projects, so it has no business in the repo.
+prospects-from-directories*.csv
