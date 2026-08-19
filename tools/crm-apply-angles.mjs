@@ -7,6 +7,9 @@
 //   angle      the line that shows on the call card
 //   evidence   what makes them look established, if found
 //   segment    commercial | residential | both, if it became clear
+//   quality    A | B | C, when reading the site changes the picture. A sole
+//              trader with 144 reviews still grades A on review volume alone,
+//              and is not who Earl sells to.
 //
 // Matching is on the normalised company name, the same way the importer
 // de-duplicates, so "E&S" finds "E&S" and not "E&S Mechanical Ltd" by accident.
@@ -42,13 +45,16 @@ for (const [name, data] of Object.entries(angles)) {
   };
   if (data.evidence) patch.established_evidence = data.evidence;
   if (data.segment) patch.segment = data.segment;
+  if (data.quality) patch.lead_quality = data.quality;
 
   // Keep search working against the new wording.
   patch.search_blob = searchBlob({ ...hit, ...patch }, null);
 
   await update('companies', hit.id, patch);
   updated += 1;
-  console.log(`  ${hit.name}`);
+  const moved = data.quality && data.quality !== hit.lead_quality
+    ? `   ${hit.lead_quality} -> ${data.quality}` : '';
+  console.log(`  ${hit.name}${moved}`);
 }
 
 console.log(`\n  ${updated} prospects given a researched angle`);
