@@ -32,6 +32,7 @@ ADMIN_PASSWORD=something node serve.mjs   # http://localhost:4000
 | `/blog` | `blog.html` | Index, rendered from `content/posts.json` |
 | `/blog/<slug>` | existing file, else `post.html` | The seven original posts still have their own files |
 | `/admin` | `admin.html` | Password protected editor |
+| `/sales` | `crm.html` | The private sales CRM (`/crm` redirects here) |
 | `/planpulse` | `planpulse.html` | Unchanged |
 
 Old URLs are kept: `/pricing`, `/faq`, `/calculator`, `/testimonials` and `/projects` all 301 to their new homes.
@@ -92,7 +93,7 @@ Push to GitHub, Vercel deploys from it. Never push without being asked.
 
 # The sales CRM
 
-A private prospecting tool at **`/crm`**, built for one job: 100 outbound calls a
+A private prospecting tool at **`/sales`**, built for one job: 100 outbound calls a
 day, 500 a week, without losing track of anyone. It is part of this site, not a
 separate app: same Vercel project, same serverless pattern, same typeface and
 colours. Nothing about the public site changed.
@@ -178,6 +179,15 @@ the SQLite tables, so the two databases cannot drift apart.
 
 ### 3. Your admin account
 
+Forgot it later? With `RESEND_API_KEY` and `CRM_FROM_EMAIL` set, the sign-in
+screen can email a reset link that lasts 30 minutes and works once. Without
+them it says so, and the way back in is:
+
+```bash
+node --env-file=.env.production.local tools/crm.mjs set-password you@example.com
+```
+
+
 ```bash
 CRM_SESSION_SECRET=... node tools/crm.mjs create-user
 ```
@@ -185,7 +195,7 @@ CRM_SESSION_SECRET=... node tools/crm.mjs create-user
 It asks for email, name, password (10 characters minimum, hidden while typing)
 and an optional unlock PIN. The first account created is the owner.
 
-Or, if you would rather do it in the browser: set `CRM_SETUP_KEY`, open `/crm`,
+Or, if you would rather do it in the browser: set `CRM_SETUP_KEY`, open `/sales`,
 and fill in the setup screen. That screen closes permanently the moment one
 account exists, key or no key.
 
@@ -194,7 +204,7 @@ They get their own call list, their own follow-ups and their own numbers.
 
 ### 4. Your first real list
 
-1. `/crm`, then **Import**
+1. `/sales`, then **Import**
 2. Drop the CSV or XLSX. Column headings are matched automatically against a
    long alias list, so "Phone", "Tel", "Company Phone" and "Main Number" all
    find Main Phone. Anything it cannot place is set to *(ignore)* and you fix it
@@ -253,7 +263,7 @@ than pretending to save.
 - `/api/crm` is POST only, same-origin only, and every action except `status`,
   `login` and `bootstrap` fails closed without a session.
 - `noindex` on the page, `X-Robots-Tag` on the route and the API,
-  `Referrer-Policy: no-referrer`, and `robots.txt` disallows `/crm`.
+  `Referrer-Policy: no-referrer`, and `robots.txt` disallows `/sales`.
 - Prospect data never touches git. `.data/` is ignored.
 - Archiving is the default. Permanent delete only works on something already
   archived, and says exactly what it will destroy.

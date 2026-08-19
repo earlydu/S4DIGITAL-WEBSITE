@@ -1,6 +1,8 @@
 # s4digi.com
 
 User-agent: *
+Disallow: /sales
+Disallow: /sales/
 Disallow: /crm
 Disallow: /crm/
 Disallow: /admin

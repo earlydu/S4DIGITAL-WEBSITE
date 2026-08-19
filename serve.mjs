@@ -102,8 +102,14 @@ const server = createServer(async (req, res) => {
       '/calculator': '/services',
       '/testimonials': '/work',
       '/projects': '/work',
+      '/crm': '/sales',
     };
     const bare = urlPath.replace(/\/$/, '') || '/';
+    if (bare.startsWith('/crm/')) {
+      res.writeHead(308, { Location: bare.replace(/^\/crm/, '/sales') });
+      res.end();
+      return;
+    }
     if (REDIRECTS[bare]) {
       res.writeHead(301, { Location: REDIRECTS[bare] });
       res.end();
@@ -114,7 +120,7 @@ const server = createServer(async (req, res) => {
     if (bare === '/') urlPath = '/index.html';
     else if (bare === '/contact') urlPath = '/index.html';
     else if (bare === '/admin' || bare.startsWith('/admin/')) urlPath = '/admin.html';
-    else if (bare === '/crm' || bare.startsWith('/crm/')) urlPath = '/crm.html';
+    else if (bare === '/sales' || bare.startsWith('/sales/')) urlPath = '/crm.html';
     // Slug routes only. A path with a file extension (/blog/blog.js) is a real asset.
     else if (/^\/work\/[^/.]+$/.test(bare)) urlPath = '/case-study.html';
     else if (/^\/blog\/[^/.]+$/.test(bare)) {

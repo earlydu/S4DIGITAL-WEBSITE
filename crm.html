@@ -32,7 +32,39 @@
     <label for="password">Password</label>
     <input id="password" name="password" type="password" autocomplete="current-password" required />
     <button type="submit" class="gate__go">Sign in</button>
+    <button type="button" class="gate__alt" id="forgotLink">Forgotten your password?</button>
     <p class="gate__err" id="gateErr" role="alert"></p>
+  </form>
+</div>
+
+<!-- ================================================== FORGOTTEN PASSWORD -->
+<div class="gate" id="forgot" hidden>
+  <form class="gate__card" id="forgotForm">
+    <img src="/assets/s4digital-logo.png" alt="s4digital" class="gate__logo logo-light" />
+    <img src="/assets/s4digital-logo-white.png" alt="" aria-hidden="true" class="gate__logo logo-dark" />
+    <h1>Reset your password</h1>
+    <p class="gate__sub">Tell us the address on your account and we will send a link.</p>
+    <label for="fEmail">Email</label>
+    <input id="fEmail" type="email" autocomplete="username" required />
+    <button type="submit" class="gate__go">Send the link</button>
+    <button type="button" class="gate__alt" id="forgotBack">Back to sign in</button>
+    <p class="gate__err" id="forgotMsg" role="alert"></p>
+  </form>
+</div>
+
+<!-- ========================================================= SET NEW PASSWORD -->
+<div class="gate" id="reset" hidden>
+  <form class="gate__card" id="resetForm">
+    <img src="/assets/s4digital-logo.png" alt="s4digital" class="gate__logo logo-light" />
+    <img src="/assets/s4digital-logo-white.png" alt="" aria-hidden="true" class="gate__logo logo-dark" />
+    <h1>Set a new password</h1>
+    <p class="gate__sub" id="resetWho"></p>
+    <label for="rPass">New password (10+ characters)</label>
+    <input id="rPass" type="password" autocomplete="new-password" minlength="10" required />
+    <label for="rPass2">Confirm it</label>
+    <input id="rPass2" type="password" autocomplete="new-password" minlength="10" required />
+    <button type="submit" class="gate__go">Save and sign in</button>
+    <p class="gate__err" id="resetErr" role="alert"></p>
   </form>
 </div>
 
@@ -125,7 +157,7 @@
 <aside class="drawer" id="drawer" hidden></aside>
 <div class="scrim" id="scrim" hidden></div>
 
-<script type="module" src="/assets/crm/app.js?v=3"></script>
+<script type="module" src="/assets/crm/app.js?v=4"></script>
 <noscript><p style="padding:40px;font-family:system-ui">The sales area needs JavaScript.</p></noscript>
 </body>
 </html>

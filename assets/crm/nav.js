@@ -25,13 +25,13 @@ export const viewNames = Object.keys(VIEWS);
 let current = null;
 
 export const routeFromUrl = () => {
-  const path = location.pathname.replace(/^\/crm\/?/, '').split('/')[0];
+  const path = location.pathname.replace(/^\/(sales|crm)\/?/, '').split('/')[0];
   return VIEWS[path] ? path : 'today';
 };
 
 export async function go(name, { push = true, params } = {}) {
   if (!VIEWS[name]) name = 'today';
-  if (push) history.pushState({ view: name }, '', `/crm/${name === 'today' ? '' : name}`);
+  if (push) history.pushState({ view: name }, '', `/sales/${name === 'today' ? '' : name}`);
   $$('#tabs button').forEach(b => b.classList.toggle('is-active', b.dataset.view === name));
   $('#tabs').classList.remove('is-open');
 

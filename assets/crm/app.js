@@ -12,8 +12,9 @@ window.addEventListener('popstate', () => go(routeFromUrl(), { push: false }));
 
 /* -------------------------------------------------------------- gate flow */
 
+const SCREENS = ['gate', 'setup', 'lock', 'app', 'forgot', 'reset'];
 const show = which => {
-  for (const id of ['gate', 'setup', 'lock', 'app']) $(`#${id}`).hidden = id !== which;
+  for (const id of SCREENS) $(`#${id}`).hidden = id !== which;
 };
 
 async function boot() {
@@ -29,6 +30,20 @@ async function boot() {
   state.driver = status.driver;
   state.durable = status.durable;
   state.today = status.today;
+
+  // A reset link lands on /sales/reset?token=… and has to be handled before
+  // anything else, because the whole point is that you cannot sign in.
+  const token = new URLSearchParams(location.search).get('token');
+  if (token && location.pathname.replace(/\/$/, '').endsWith('/reset')) {
+    const { valid, email } = await api('reset-check', { token }).catch(() => ({ valid: false }));
+    if (valid) {
+      resetToken = token;
+      $('#resetWho').textContent = `For ${email}. The link stops working once you use it.`;
+      show('reset');
+      return;
+    }
+    $('#gateErr').textContent = 'That reset link has expired or has already been used. Ask for a new one.';
+  }
 
   if (!status.hasUsers) { show('setup'); return; }
   if (!status.signedIn) { show('gate'); return; }
@@ -89,6 +104,56 @@ $('#setupForm').addEventListener('submit', async e => {
     state.user = out.user;
     await startApp();
     toast('Account created. You are signed in.', 'good');
+  } catch (ex) {
+    err.textContent = ex.message;
+  }
+});
+
+/* -------------------------------------------------------- password reset */
+
+let resetToken = '';
+
+$('#forgotLink').addEventListener('click', () => {
+  $('#fEmail').value = $('#email').value;
+  $('#forgotMsg').textContent = '';
+  show('forgot');
+  setTimeout(() => $('#fEmail').focus(), 40);
+});
+
+$('#forgotBack').addEventListener('click', () => show('gate'));
+
+$('#forgotForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = $('#forgotForm .gate__go');
+  const msg = $('#forgotMsg');
+  msg.style.color = '';
+  msg.textContent = '';
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>';
+  try {
+    const out = await api('forgot', { email: $('#fEmail').value });
+    msg.style.color = 'var(--green)';
+    msg.textContent = out.message;
+  } catch (ex) {
+    msg.textContent = ex.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send the link';
+  }
+});
+
+$('#resetForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const err = $('#resetErr');
+  err.textContent = '';
+  const pass = $('#rPass').value;
+  if (pass !== $('#rPass2').value) { err.textContent = 'Those two do not match.'; return; }
+  try {
+    const out = await api('reset', { token: resetToken, password: pass });
+    state.user = out.user;
+    history.replaceState({}, '', '/sales');
+    await startApp();
+    toast('Password changed. You are signed in.', 'good');
   } catch (ex) {
     err.textContent = ex.message;
   }
@@ -181,7 +246,7 @@ export async function signOut() {
   try { await api('logout'); } catch { /* going anyway */ }
   state.user = null;
   state.settings = null;
-  location.href = '/crm';
+  location.href = '/sales';
 }
 $('#signOut').addEventListener('click', signOut);
 
