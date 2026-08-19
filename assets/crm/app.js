@@ -179,9 +179,8 @@ function applyTheme(theme) {
 }
 
 export function cycleTheme() {
-  const next = currentTheme() === 'dark' ? 'light' : 'dark';
-  applyTheme(next);
-  toast(next === 'dark' ? 'Dark mode' : 'Light mode');
+  // No toast: the icon and the whole page changing is the feedback.
+  applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 }
 
 $('#themeToggle').addEventListener('click', cycleTheme);
