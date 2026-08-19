@@ -1,28 +1,131 @@
 {
+  "regions": [
+    "lhr1"
+  ],
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/contact", "destination": "/" },
-    { "source": "/work/:slug", "destination": "/case-study" },
-    { "source": "/blog/:slug", "destination": "/post" },
-    { "source": "/admin", "destination": "/admin.html" },
-    { "source": "/admin/:path*", "destination": "/admin.html" }
+    {
+      "source": "/contact",
+      "destination": "/"
+    },
+    {
+      "source": "/work/:slug",
+      "destination": "/case-study"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/post"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/crm",
+      "destination": "/crm.html"
+    },
+    {
+      "source": "/crm/:path*",
+      "destination": "/crm.html"
+    }
   ],
   "redirects": [
-    { "source": "/pricing", "destination": "/services", "permanent": true },
-    { "source": "/faq", "destination": "/services#faq", "permanent": true },
-    { "source": "/calculator", "destination": "/services", "permanent": true },
-    { "source": "/testimonials", "destination": "/work", "permanent": true },
-    { "source": "/projects", "destination": "/work", "permanent": true }
+    {
+      "source": "/pricing",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/services#faq",
+      "permanent": true
+    },
+    {
+      "source": "/calculator",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/work",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
     },
     {
       "source": "/content/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/crm",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    },
+    {
+      "source": "/crm/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    },
+    {
+      "source": "/api/crm",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ]
 }

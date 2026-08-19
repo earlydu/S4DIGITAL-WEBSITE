@@ -25,6 +25,10 @@ video_content/Videos from notion/
 # Secrets and OS junk
 .env
 .env.*
+# ...but the template carries no secrets and is the only documentation of
+# which variables exist, so it should reach the repo.
+!.env.example
+!.env.production.example
 credentials.json
 token.json
 *.log
@@ -44,3 +48,7 @@ _backup/
 assets/work/*.mp4
 assets/work/vertical/*.mp4
 !assets/work/gifs/*.mp4
+
+# CRM: the local SQLite database. Prospect data never belongs in git.
+.data/
+.vercel

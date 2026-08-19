@@ -55,6 +55,28 @@ const server = createServer(async (req, res) => {
       return;
     }
 
+    // Local parity with the Vercel function: /api/crm
+    if (urlPath === '/api/crm' && req.method === 'POST') {
+      const { handleCrm } = await import(new URL('./lib/crm/api.mjs', import.meta.url));
+      const raw = await readBody(req);
+      let body = {};
+      try { body = JSON.parse(raw || '{}'); } catch { body = {}; }
+      const out = await handleCrm({
+        action: parsed.searchParams.get('action') || '',
+        req,
+        body,
+        secure: false,             // localhost is http, so no Secure flag
+      });
+      res.writeHead(out.status, {
+        'content-type': 'application/json',
+        'cache-control': 'no-store',
+        'x-robots-tag': 'noindex, nofollow',
+        ...(out.headers || {}),
+      });
+      res.end(JSON.stringify(out.body));
+      return;
+    }
+
     // Local parity with the Vercel function: POST /api/generate
     if (req.method === 'POST' && urlPath === '/api/generate') {
       let body = '';
@@ -92,6 +114,7 @@ const server = createServer(async (req, res) => {
     if (bare === '/') urlPath = '/index.html';
     else if (bare === '/contact') urlPath = '/index.html';
     else if (bare === '/admin' || bare.startsWith('/admin/')) urlPath = '/admin.html';
+    else if (bare === '/crm' || bare.startsWith('/crm/')) urlPath = '/crm.html';
     // Slug routes only. A path with a file extension (/blog/blog.js) is a real asset.
     else if (/^\/work\/[^/.]+$/.test(bare)) urlPath = '/case-study.html';
     else if (/^\/blog\/[^/.]+$/.test(bare)) {

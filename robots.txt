@@ -1,0 +1,11 @@
+# s4digi.com
+
+User-agent: *
+Disallow: /crm
+Disallow: /crm/
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Allow: /
+
+Sitemap: https://s4digi.com/sitemap.xml
