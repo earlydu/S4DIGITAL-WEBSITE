@@ -27,11 +27,11 @@
     },
     {
       "source": "/sales",
-      "destination": "/crm.html"
+      "destination": "/sales.html"
     },
     {
       "source": "/sales/:path*",
-      "destination": "/crm.html"
+      "destination": "/sales.html"
     }
   ],
   "redirects": [

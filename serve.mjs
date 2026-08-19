@@ -120,7 +120,7 @@ const server = createServer(async (req, res) => {
     if (bare === '/') urlPath = '/index.html';
     else if (bare === '/contact') urlPath = '/index.html';
     else if (bare === '/admin' || bare.startsWith('/admin/')) urlPath = '/admin.html';
-    else if (bare === '/sales' || bare.startsWith('/sales/')) urlPath = '/crm.html';
+    else if (bare === '/sales' || bare.startsWith('/sales/')) urlPath = '/sales.html';
     // Slug routes only. A path with a file extension (/blog/blog.js) is a real asset.
     else if (/^\/work\/[^/.]+$/.test(bare)) urlPath = '/case-study.html';
     else if (/^\/blog\/[^/.]+$/.test(bare)) {

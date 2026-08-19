@@ -32,7 +32,7 @@ ADMIN_PASSWORD=something node serve.mjs   # http://localhost:4000
 | `/blog` | `blog.html` | Index, rendered from `content/posts.json` |
 | `/blog/<slug>` | existing file, else `post.html` | The seven original posts still have their own files |
 | `/admin` | `admin.html` | Password protected editor |
-| `/sales` | `crm.html` | The private sales CRM (`/crm` redirects here) |
+| `/sales` | `sales.html` | The private sales CRM (`/crm` redirects here) |
 | `/planpulse` | `planpulse.html` | Unchanged |
 
 Old URLs are kept: `/pricing`, `/faq`, `/calculator`, `/testimonials` and `/projects` all 301 to their new homes.
@@ -298,7 +298,7 @@ added later without touching it.
 ## Layout
 
 ```
-crm.html                     the shell: sign in, lock, app
+sales.html                   the shell: sign in, lock, app
 assets/crm.css               the design system for the tool
 assets/crm/app.js            sign in, theme, lock, search, shortcuts
 assets/crm/nav.js            routing, kept apart from app.js on purpose
