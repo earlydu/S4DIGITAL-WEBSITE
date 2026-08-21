@@ -1612,9 +1612,9 @@
       ]
     },
     {
-      "slug": "nimrod-road-renovation",
+      "slug": "barry-road-renovation",
       "title": "A renovation explained by the person who lived through it",
-      "client": "Nimrod Road Renovation",
+      "client": "Barry Road Renovation",
       "industry": "Electrical and building contractor",
       "sector": "Case study film",
       "featured": false,
@@ -1624,12 +1624,12 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/nimrod/door.jpg",
-        "loop": "assets/work/gifs/nimrod.mp4",
-        "alt": "Sliding the doors open onto the garden at the Nimrod Road renovation"
+        "src": "assets/work/barry-road/door.jpg",
+        "loop": "assets/work/gifs/barry-road.mp4",
+        "alt": "Sliding the doors open onto the garden at the Barry Road renovation"
       },
       "summary": "A full house renovation told from the client’s side rather than the contractor’s, filmed once the work was finished and the family had moved back in.",
-      "overview": "RH Ltd took on a full renovation at Nimrod Road. Rather than a walkthrough narrated by the builder, the film is the homeowner giving their own account of the job: what they wanted, what it was like to live through, and what they ended up with.",
+      "overview": "RH Ltd took on a full renovation on Barry Road in East Dulwich. Rather than a walkthrough narrated by the builder, the film is the homeowner giving their own account of the job: what they wanted, what it was like to live through, and what they ended up with.",
       "challenge": "Every contractor says the same things about themselves. Quality, on time, on budget. None of it means anything coming from the person being paid. The only version a prospective client believes is the one from someone who has already handed over the money, which meant handing the film to the homeowner and letting them say whatever they were going to say.",
       "delivered": [
         "A case study film led by the homeowner, in their own words",
@@ -1641,27 +1641,27 @@
       "galleryNote": "The finished property.",
       "gallery": [
         {
-          "src": "assets/work/nimrod/f176.jpg",
+          "src": "assets/work/barry-road/f176.jpg",
           "alt": "The kitchen and dining space opening onto the garden"
         },
         {
-          "src": "assets/work/nimrod/f132.jpg",
+          "src": "assets/work/barry-road/f132.jpg",
           "alt": "The finished kitchen"
         },
         {
-          "src": "assets/work/nimrod/f110.jpg",
+          "src": "assets/work/barry-road/f110.jpg",
           "alt": "The hallway with exposed brickwork"
         },
         {
-          "src": "assets/work/nimrod/f66.jpg",
+          "src": "assets/work/barry-road/f66.jpg",
           "alt": "The finished bathroom"
         },
         {
-          "src": "assets/work/nimrod/f198.jpg",
+          "src": "assets/work/barry-road/f198.jpg",
           "alt": "Detail of the fitted units"
         },
         {
-          "src": "assets/work/nimrod/skylight.jpg",
+          "src": "assets/work/barry-road/skylight.jpg",
           "alt": "A skylight over the retained brickwork in the extension"
         }
       ],
@@ -1686,7 +1686,7 @@
       "videos": [
         {
           "youtube": "1snYkU72u4w",
-          "poster": "assets/work/nimrod/door.jpg",
+          "poster": "assets/work/barry-road/door.jpg",
           "title": "The renovation, told by the client"
         }
       ]
