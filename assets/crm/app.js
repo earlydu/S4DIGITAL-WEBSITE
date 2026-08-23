@@ -2,9 +2,9 @@
 // Routing lives in nav.js so the views can reach it without loading a second
 // copy of this module. See the note at the top of that file.
 
-import { api, state, onSignedOut, loadSettings } from './api.js';
-import { $, $$, esc, toast, closeModal, closeDrawer, drawerOpen } from './ui.js';
-import { go, routeFromUrl, refreshFollowUpDot } from './nav.js';
+import { api, state, onSignedOut, loadSettings } from './api.js?v=9';
+import { $, $$, esc, toast, closeModal, closeDrawer, drawerOpen } from './ui.js?v=9';
+import { go, routeFromUrl, refreshFollowUpDot } from './nav.js?v=9';
 
 let idleTimer = null;
 
@@ -300,7 +300,7 @@ searchOut.addEventListener('click', async e => {
   if (!b) return;
   searchOut.hidden = true;
   searchBox.value = '';
-  const { openProspect } = await import('./record.js');
+  const { openProspect } = await import('./record.js?v=9');
   openProspect(b.dataset.id);
 });
 

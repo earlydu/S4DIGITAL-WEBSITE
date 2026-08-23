@@ -1,8 +1,8 @@
 // Settings. Targets, retry rules, the call script, email templates, the
 // exclusion list, accounts, and the two paid features that stay off by default.
 
-import { api, state, loadSettings } from './api.js';
-import { $, $$, esc, toast, confirmBox, modal, loading } from './ui.js';
+import { api, state, loadSettings } from './api.js?v=9';
+import { $, $$, esc, toast, confirmBox, modal, loading } from './ui.js?v=9';
 
 let root = null;
 let meta = null;

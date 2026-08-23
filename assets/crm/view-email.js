@@ -7,9 +7,9 @@
 // One loop: see who is due, hit Draft, Outlook opens filled in, the note and the
 // next follow-up are written automatically.
 
-import { api, state, loadSettings } from './api.js';
-import { $, $$, esc, safeUrl, toast, humanDate, qualityBadge, loading, empty } from './ui.js';
-import { refreshFollowUpDot } from './nav.js';
+import { api, state, loadSettings } from './api.js?v=9';
+import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=9';
+import { refreshFollowUpDot } from './nav.js?v=9';
 
 let root = null;
 let rows = [];
@@ -296,7 +296,7 @@ async function load() {
 
 export async function render(host) {
   root = host;
-  loading(root);
+  root.innerHTML = loading('Loading prospects');
   settings = await loadSettings();
   await load();
 

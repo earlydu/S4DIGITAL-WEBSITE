@@ -21,6 +21,7 @@ video_content/Videos from notion/
 # Encoding helpers (kept local)
 .tools/*
 !.tools/bump-assets.mjs
+!.tools/bump-crm.mjs
 
 # Secrets and OS junk
 .env

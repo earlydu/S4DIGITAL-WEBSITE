@@ -1,9 +1,9 @@
 // The modals shared by calling mode, the prospect drawer and the follow-ups page.
 
-import { api, state, loadSettings } from './api.js';
+import { api, state, loadSettings } from './api.js?v=9';
 import {
   $, $$, esc, modal, toast, dayISO, addDays, addWorkingDays, humanDate, fill, copy, money,
-} from './ui.js';
+} from './ui.js?v=9';
 
 /* --------------------------------------------------------------- follow up */
 

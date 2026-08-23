@@ -1,11 +1,11 @@
 // Follow ups, grouped by when they are due. Overdue is first and stays first.
 
-import { api, state } from './api.js';
+import { api, state } from './api.js?v=9';
 import {
   $, $$, esc, toast, telHref, humanDate, dayISO, addDays, loading, empty, qualityBadge, channelIcons,
-} from './ui.js';
-import { followUpModal, emailModal } from './dialogs.js';
-import { refreshFollowUpDot } from './nav.js';
+} from './ui.js?v=9';
+import { followUpModal, emailModal } from './dialogs.js?v=9';
+import { refreshFollowUpDot } from './nav.js?v=9';
 
 let root = null;
 let items = [];
@@ -98,7 +98,7 @@ function wire() {
     call.onclick = async () => {
       // Everything due is already at the top of today's generated queue, so
       // going to Today is the honest route rather than a second parallel list.
-      (await import('./nav.js')).go('today');
+      (await import('./nav.js?v=9')).go('today');
     };
   }
 
@@ -110,7 +110,7 @@ function wire() {
     const on = (sel, fn) => { const b = $(sel, el); if (b) b.onclick = fn; };
 
     on('[data-open]', async () => {
-      const { openProspect } = await import('./record.js');
+      const { openProspect } = await import('./record.js?v=9');
       openProspect(companyId, { onSaved: () => render(root) });
     });
 
