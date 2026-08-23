@@ -56,3 +56,15 @@ assets/work/vertical/*.mp4
 # Generated prospect lists. Business contact data, and regenerable from the
 # source projects, so it has no business in the repo.
 prospects-from-directories*.csv
+
+# Sales desk working data. The tooling in tools/sales-desk is code and belongs in
+# the repo; what it reads and writes does not.
+#   - voice-corpus.json is Earl's own sent email, read out of Outlook
+#   - VOICE.md quotes it, and names people outside the business
+#   - the rest is prospect contact data, same policy as the directory lists above
+tools/sales-desk/voice-corpus.json
+tools/sales-desk/VOICE.md
+tools/sales-desk/*.csv
+tools/sales-desk/sequence.json
+tools/sales-desk/prospects.enriched.json
+tools/sales-desk/sales-desk.html

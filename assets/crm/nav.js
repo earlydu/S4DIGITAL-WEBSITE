@@ -13,6 +13,7 @@ import { $, $$, esc } from './ui.js';
 const VIEWS = {
   dashboard: () => import('./view-dashboard.js'),
   today: () => import('./view-today.js'),
+  email: () => import('./view-email.js'),
   pipeline: () => import('./view-pipeline.js'),
   prospects: () => import('./view-prospects.js'),
   followups: () => import('./view-followups.js'),

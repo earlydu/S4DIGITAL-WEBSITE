@@ -675,3 +675,46 @@ a.chan:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)
 }
 [data-theme="dark"] .ob--win kbd{color:rgba(255,255,255,.65)}
 [data-theme="dark"] .ob--win:hover{background:#169a68;border-color:#22c184}
+
+/* ------------------------------------------------------------------ Email view
+   Sits beside Today. Same pipeline idea as the call queue, worked by keyboard
+   and mouse rather than by phone. */
+.em-pet{display:grid; grid-template-columns:132px minmax(0,1fr) auto; gap:22px; align-items:center;
+  border:1px solid var(--line); border-radius:10px; background:var(--card); padding:18px 22px;
+  margin-bottom:22px}
+.em-pet__art{display:flex; align-items:center; justify-content:center; color:var(--text)}
+.em-pet__art svg{width:118px; height:118px; overflow:visible}
+.em-pet__name{font-size:24px; font-weight:800; letter-spacing:-.02em; margin:0}
+.em-pet__sub{color:var(--muted); font-style:italic; margin:2px 0 12px; font-size:13px}
+.em-xp{display:flex; align-items:baseline; gap:9px; margin-bottom:6px}
+.em-xp b{font-size:21px; font-weight:800; color:var(--brand)}
+.em-xp span{font-size:12px; color:var(--muted)}
+.em-track{height:8px; border-radius:4px; background:var(--line); overflow:hidden; max-width:420px}
+.em-fill{height:100%; background:var(--brand); transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.em-today{text-align:right}
+.em-today b{display:block; font-size:30px; font-weight:800; line-height:1}
+.em-today i{font-style:normal; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted)}
+.em-target{display:flex; gap:4px; justify-content:flex-end; margin:10px 0 6px}
+.em-sub{font-size:11px; color:var(--muted)}
+
+.em-stage{margin-top:26px}
+.em-stage h3{font-size:18px; font-weight:800; letter-spacing:-.01em; margin:0 0 2px}
+.em-stage h3 span{font-size:12px; font-weight:500; color:var(--muted); margin-left:6px}
+.em-note{color:var(--muted); font-size:13.5px; margin:0 0 8px}
+.em-empty{color:var(--muted); font-size:12.5px; padding:10px 0; border-top:1px solid var(--line)}
+.em-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+.em-row{padding:14px 0; border-bottom:1px solid var(--line)}
+.em-name{font-size:16.5px; font-weight:700; letter-spacing:-.01em; margin-bottom:2px}
+.em-meta{font-size:12px; color:var(--muted); margin-bottom:5px}
+.em-to{color:var(--brand)}
+.em-state{display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:6px}
+.em-state--due{color:var(--warn, #9A6B18); font-weight:700}
+.em-obs{font-size:14px; color:var(--text); opacity:.85; margin:0 0 9px; max-width:60ch}
+.em-acts{display:flex; gap:6px; flex-wrap:wrap}
+@media (max-width:820px){
+  .em-pet{grid-template-columns:1fr; text-align:left}
+  .em-today{text-align:left}
+  .em-target{justify-content:flex-start}
+}
