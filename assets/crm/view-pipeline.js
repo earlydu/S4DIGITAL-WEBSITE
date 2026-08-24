@@ -3,10 +3,10 @@
 // Native HTML drag and drop on desktop, plus a "Move to" button on every card
 // so the board is still usable on a phone, where dragging is miserable.
 
-import { api, loadSettings } from './api.js?v=11';
+import { api, loadSettings } from './api.js?v=12';
 import {
   $, $$, esc, toast, money, humanDate, ago, qualityBadge, loading, modal, channelIcons,
-} from './ui.js?v=11';
+} from './ui.js?v=12';
 
 let board = null;
 let settings = null;
@@ -93,7 +93,7 @@ function wire() {
     el.addEventListener('mousemove', () => { moved = true; });
     el.addEventListener('click', async () => {
       if (moved) return;
-      const { openProspect } = await import('./record.js?v=11');
+      const { openProspect } = await import('./record.js?v=12');
       openProspect(el.dataset.id, { onSaved: async () => { board = await api('pipeline', { perStage: 40 }); paint(); } });
     });
 

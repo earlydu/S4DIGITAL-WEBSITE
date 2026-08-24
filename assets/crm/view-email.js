@@ -7,9 +7,9 @@
 // One loop: see who is due, hit Draft, Outlook opens filled in, the note and the
 // next follow-up are written automatically.
 
-import { api, state, loadSettings } from './api.js?v=11';
-import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=11';
-import { refreshFollowUpDot } from './nav.js?v=11';
+import { api, state, loadSettings } from './api.js?v=12';
+import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=12';
+import { refreshFollowUpDot } from './nav.js?v=12';
 
 let root = null;
 let rows = [];
@@ -36,16 +36,17 @@ const CREATURE = [
 
 // The ask is access, not a sale. No price in any touch: the offer is the free day,
 // and naming a number turns a request from a person into a quote from a supplier.
-const WHO = "I'm a filmmaker in London, putting together a set of short films about how skilled "
-          + 'trade work actually gets done. Not a marketing thing, more of a documentary. '
-          + 'One job, start to finish.';
+const WHO = "I'm a filmmaker in London. I'm putting together some short films on how this work "
+          + 'actually gets done. Not marketing, more of a documentary.';
 
-const OFFER = 'Would you let me film one of your jobs for a day? No cost to you, and you keep '
-            + 'everything I shoot to use however you want.';
+const OFFER = 'Any chance I could film one of your jobs for a day? Costs you nothing and you keep '
+            + 'everything I shoot.';
+
+const CLOSE = "Whenever suits, I'll work round you.";
 const LEAD_INS = [
-  'I looked your company up this week.',
-  'I had a look through your site this week.',
-  'I was reading through your site earlier.',
+  'Came across your site this week.',
+  'Had a look through your site earlier.',
+  'Came across you this week.',
 ];
 
 const target = () => Math.max(1, Number(localStorage.getItem(TARGET_KEY)) || 5);
@@ -76,20 +77,20 @@ function compose(c, touch) {
   if (touch === 3) {
     return {
       subject: 'Re: ' + subject,
-      body: [hi, '', 'I have not heard back, which is fair enough, you are busy.', '',
-        'Should I close the file on this one, or is it worth asking again later in the year?',
-        '', 'Either answer is genuinely fine, I would just rather know than keep emailing you.',
+      body: [hi, '', "Haven't heard back, which is fair enough, you're busy.", '',
+        'Shall I leave this one, or is it worth me asking again later in the year?', '',
+        "Either's fine, I'd just rather know than keep emailing you.",
         '', sig].join('\n'),
     };
   }
   if (touch === 2) {
     return {
       subject: 'Re: ' + subject,
-      body: [hi, '', 'Following up on my last email.', '',
-        'Most firms tell me they have nothing worth filming. Then I spend a day on site and '
-        + 'we come away with something they end up using for months.', '',
-        'Still happy to film one of yours. No cost, and nothing to sign.',
-        '', 'Worth a quick 10 minutes?', '', sig].join('\n'),
+      body: [hi, '', 'Just following up on this.', '',
+        "Most people tell me they've got nothing worth filming, then we do a day and they "
+        + 'end up using it for months.', '',
+        "Offer stands. Costs you nothing and there's nothing to sign.",
+        '', 'Worth 10 minutes?', '', sig].join('\n'),
     };
   }
   return {
@@ -97,8 +98,7 @@ function compose(c, touch) {
     body: [hi, '',
       (LEAD_INS[n % LEAD_INS.length] + (obs ? ' ' + obs : '')).trim(), '',
       WHO, '',
-      OFFER, '',
-      'Happy to work around whatever is already in the diary.', '', sig].join('\n'),
+      OFFER, '', CLOSE, '', sig].join('\n'),
   };
 }
 

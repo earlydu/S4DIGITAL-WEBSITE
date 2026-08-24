@@ -2,23 +2,23 @@
 //
 // This lives apart from app.js on purpose. The page loads app.js with a
 // cache-busting query (`app.js?v=3`), and a module specifier is part of its
-// identity: a view doing `import('./app.js?v=11')` would resolve to a *different*
+// identity: a view doing `import('./app.js?v=12')` would resolve to a *different*
 // URL and get a second copy of the module, with a second set of event
 // listeners. Everything shared with the views lives here instead, where both
 // sides spell the specifier the same way and there is only ever one instance.
 
-import { api, state } from './api.js?v=11';
-import { $, $$, esc } from './ui.js?v=11';
+import { api, state } from './api.js?v=12';
+import { $, $$, esc } from './ui.js?v=12';
 
 const VIEWS = {
-  dashboard: () => import('./view-dashboard.js?v=11'),
-  today: () => import('./view-today.js?v=11'),
-  email: () => import('./view-email.js?v=11'),
-  pipeline: () => import('./view-pipeline.js?v=11'),
-  prospects: () => import('./view-prospects.js?v=11'),
-  followups: () => import('./view-followups.js?v=11'),
-  import: () => import('./view-import.js?v=11'),
-  settings: () => import('./view-settings.js?v=11'),
+  dashboard: () => import('./view-dashboard.js?v=12'),
+  today: () => import('./view-today.js?v=12'),
+  email: () => import('./view-email.js?v=12'),
+  pipeline: () => import('./view-pipeline.js?v=12'),
+  prospects: () => import('./view-prospects.js?v=12'),
+  followups: () => import('./view-followups.js?v=12'),
+  import: () => import('./view-import.js?v=12'),
+  settings: () => import('./view-settings.js?v=12'),
 };
 
 export const viewNames = Object.keys(VIEWS);

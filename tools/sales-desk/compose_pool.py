@@ -14,30 +14,27 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 SIGNATURE = 'Thanks,\nEarl'
 
-WHO = ("I'm a filmmaker in London, putting together a set of short films about how skilled "
-       "trade work actually gets done. Not a marketing thing, more of a documentary. "
-       "One job, start to finish.")
+WHO = ("I'm a filmmaker in London. I'm putting together some short films on how this work "
+       "actually gets done. Not marketing, more of a documentary.")
 
-OFFER = ('Would you let me film one of your jobs for a day? No cost to you, and you keep '
-         'everything I shoot to use however you want.')
+OFFER = ('Any chance I could film one of your jobs for a day? Costs you nothing and you keep '
+         'everything I shoot.')
+
+CLOSE = "Whenever suits, I'll work round you."
 
 # Sector fluency, not name-dropping. Earl does not want clients named in cold
 # outreach, and the credibility here comes from knowing how the day actually
 # runs rather than from whose logo he can list. Every line below is true of him.
 PROOF = {
-    'Building controls': "I've filmed on the controls side before, so I know my way around a "
-                         "plant room and a panel, and I know to stay out of the way.",
-    'EV charging': "I've filmed installs before, so I know how the day runs and I won't slow "
+    'Building controls': "I've filmed controls work before so I know my way round a plant room "
+                         "and I'll stay out of the way.",
+    'EV charging': "I've filmed installs before so I know how a day runs and I won't slow "
                    "anyone down.",
-    'Drainage and plumbing': "I've filmed drainage work before, so I know how a job like that "
-                             "runs and what not to stand on.",
-    'Commercial heating': "I've filmed plant room work before, so I know how a job like that "
-                          "runs and I'll keep out of the way.",
-    'HVAC': "I've filmed plant and rooftop work before, so I know how the day runs and I'll "
-            "keep out of the way.",
-    'Roofing': "I've filmed at height before and I'm used to working around a site's rules.",
-    'Electrical': "I've filmed electrical work before, so I know how the day runs and I'll keep "
-                  "out of the way.",
+    'Drainage and plumbing': "I've filmed drainage jobs before so I know how these days run.",
+    'Commercial heating': "I've filmed plant room work before so I know how these days run.",
+    'HVAC': "I've filmed plant and rooftop work before so I know how these days run.",
+    'Roofing': "I've filmed at height before and I'm used to working round site rules.",
+    'Electrical': "I've filmed electrical work before so I know how a day runs.",
 }
 
 SECTOR_FIX = {
@@ -59,9 +56,9 @@ SPOKEN = {'EV charging': 'EV charger installers', 'Building controls': 'building
           'Landscaping': 'landscaping firms'}
 
 LEAD_INS = [
-    'Came across you while I was looking at %s in London.',
-    'I looked your company up this week.',
-    'I had a look through your site earlier.',
+    'Came across you looking at %s in London.',
+    'Had a look through your site this week.',
+    'Came across your site earlier.',
 ]
 
 ACCRED = {'gas safe': 'Gas Safe', 'niceic': 'NICEIC', 'refcom': 'REFCOM', 'f-gas': 'F-Gas',
@@ -160,11 +157,11 @@ def opener(r):
         return None
 
     if h.get('sector'):
-        tail = "The %s side is exactly the sort of work I'm after." % str(h['sector']).lower()
+        tail = "The %s side is what I'm after." % str(h['sector']).lower()
     elif r.get('usesVideo'):
-        tail = "You clearly take how it looks seriously, which is half the battle on a shoot."
+        tail = "You clearly care how it looks, which helps on a shoot."
     else:
-        tail = "That's exactly the sort of work I'm after."
+        tail = "That's the sort of work I'm after."
     return ' and '.join(obs[:2]) + '. ' + tail
 
 
@@ -180,20 +177,19 @@ def emails(r, i):
     first = ['Hi,', '', lead + ' ' + op, '', WHO, '']
     if proof:
         first += [proof, '']
-    first += [OFFER, '', 'Happy to work around whatever is already in the diary.', '', SIGNATURE]
+    first += [OFFER, '', CLOSE, '', SIGNATURE]
 
     subject = subject_for(sec)
 
-    second = ['Hi,', '', 'Following up on my last email.', '',
-              'Most firms tell me they have nothing worth filming. Then I spend a day on site '
-              'and we come away with something they end up using for months.', '',
-              'Still happy to film one of yours. No cost, and nothing to sign.', '',
-              'Worth a quick 10 minutes?', '', SIGNATURE]
+    second = ['Hi,', '', 'Just following up on this.', '',
+              "Most people tell me they've got nothing worth filming, then we do a day and "
+              'they end up using it for months.', '',
+              "Offer stands. Costs you nothing and there's nothing to sign.", '',
+              'Worth 10 minutes?', '', SIGNATURE]
 
-    third = ['Hi,', '', 'I have not heard back, which is fair enough, you are busy.', '',
-             'Should I close the file on this one, or is it worth asking again later in the year?',
-             '', 'Either answer is genuinely fine, I would just rather know than keep emailing you.',
-             '', SIGNATURE]
+    third = ['Hi,', '', "Haven't heard back, which is fair enough, you're busy.", '',
+             'Shall I leave this one, or is it worth me asking again later in the year?', '',
+             "Either's fine, I'd just rather know than keep emailing you.", '', SIGNATURE]
 
     return ({'subject': subject, 'body': '\n'.join(first)},
             {'subject': 'Re: ' + subject, 'body': '\n'.join(second)},

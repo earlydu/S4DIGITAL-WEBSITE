@@ -1,12 +1,12 @@
 // The full prospect record, in a side drawer so it opens from anywhere without
 // losing your place. Four tabs: details, contacts, sales, and the timeline.
 
-import { api, loadSettings } from './api.js?v=11';
+import { api, loadSettings } from './api.js?v=12';
 import {
   $, $$, esc, safeUrl, telHref, drawer, toast, money, humanDate, humanStamp, ago,
   qualityBadge, stageBadge, confirmBox, initials, loading,
-} from './ui.js?v=11';
-import { followUpModal, opportunityModal, emailModal, meetingModal } from './dialogs.js?v=11';
+} from './ui.js?v=12';
+import { followUpModal, opportunityModal, emailModal, meetingModal } from './dialogs.js?v=12';
 
 let data = null;
 let settings = null;
