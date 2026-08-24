@@ -7,9 +7,9 @@
 // One loop: see who is due, hit Draft, Outlook opens filled in, the note and the
 // next follow-up are written automatically.
 
-import { api, state, loadSettings } from './api.js?v=10';
-import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=10';
-import { refreshFollowUpDot } from './nav.js?v=10';
+import { api, state, loadSettings } from './api.js?v=11';
+import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=11';
+import { refreshFollowUpDot } from './nav.js?v=11';
 
 let root = null;
 let rows = [];
@@ -96,10 +96,9 @@ function compose(c, touch) {
     subject,
     body: [hi, '',
       (LEAD_INS[n % LEAD_INS.length] + (obs ? ' ' + obs : '')).trim(), '',
-      'I run S4Digital. We shoot photo and video content for businesses like yours.', '',
+      WHO, '',
       OFFER, '',
-      'Some of what we have made is here: www.s4digi.com/work', '',
-      CLOSERS[n % CLOSERS.length], '', sig].join('\n'),
+      'Happy to work around whatever is already in the diary.', '', sig].join('\n'),
   };
 }
 
@@ -228,6 +227,8 @@ function paint() {
         <span class="em-sub">${doneToday} sent today</span>
       </div>
     </div>
+    <p class="em-note" style="margin-top:-14px">${rows.length} prospects with an email address
+      loaded${dueMap.size ? `, ${dueMap.size} follow-up${dueMap.size === 1 ? '' : 's'} due` : ''}.</p>
     ${stack('today', 'Today', 'Follow-ups first, then the next best names. Clear it and stop.')}
     ${stack('waiting', 'Waiting', 'Sent, no answer yet.')}
     ${stack('won', 'In play', 'Replied or better. Get a date in.')}
@@ -238,16 +239,33 @@ function paint() {
 
 /* ------------------------------------------------------------------ actions */
 
+// A real anchor click is more reliable than assigning location.href for a
+// protocol handler, particularly from inside an async click handler.
+function mailto(to, subject, body) {
+  const a = document.createElement('a');
+  a.href = 'mailto:' + encodeURIComponent(to)
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => a.remove(), 0);
+}
+
 async function draft(id) {
   const c = rows.find(x => String(x.id) === String(id));
-  if (!c) return;
+  if (!c) { toast('Could not find that row. Reload the tab.'); return; }
   const to = emailOf(c);
   if (!to) { toast('No email address on this one'); return; }
 
   const touch = touchFor(c);
   const { subject, body } = compose(c, touch);
-  window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}`
-    + `&body=${encodeURIComponent(body)}`;
+  try {
+    mailto(to, subject, body);
+  } catch (err) {
+    toast('Could not open your mail app: ' + err.message);
+    return;
+  }
 
   try {
     await api('prospect-note', { companyId: c.id, note: `Emailed (touch ${touch}): ${subject}` });
@@ -306,11 +324,15 @@ export async function render(host) {
   root.addEventListener('click', async (e) => {
     const t = e.target.closest('button');
     if (!t) return;
-    if (t.dataset.draft) return draft(t.dataset.draft);
-    if (t.dataset.reply) return mark(t.dataset.reply, 'Engaged', 'They replied');
-    if (t.dataset.win) return mark(t.dataset.win, 'Qualified', 'Interested in a content day');
-    if (t.dataset.no) return mark(t.dataset.no, 'Not Now', 'Not interested');
-    if (t.dataset.target) { localStorage.setItem(TARGET_KEY, t.dataset.target); paint(); }
+    try {
+      if (t.dataset.draft) return await draft(t.dataset.draft);
+      if (t.dataset.reply) return await mark(t.dataset.reply, 'Engaged', 'They replied');
+      if (t.dataset.win) return await mark(t.dataset.win, 'Qualified', 'Said yes to a day');
+      if (t.dataset.no) return await mark(t.dataset.no, 'Not Now', 'Not interested');
+      if (t.dataset.target) { localStorage.setItem(TARGET_KEY, t.dataset.target); paint(); }
+    } catch (err) {
+      toast('That did not work: ' + (err && err.message ? err.message : err));
+    }
   });
 }
 

@@ -4,13 +4,13 @@
 // see the prospect, dial, hit an outcome, next prospect. Everything else on the
 // screen exists only to make that loop faster.
 
-import { api, state, loadSettings } from './api.js?v=10';
+import { api, state, loadSettings } from './api.js?v=11';
 import {
   $, $$, esc, safeUrl, telHref, toast, initials, humanDate, humanStamp, ago,
   qualityBadge, stageBadge, fill, loading, empty, confirmBox, channelIcons,
-} from './ui.js?v=10';
-import { followUpModal, meetingModal, emailModal } from './dialogs.js?v=10';
-import { refreshFollowUpDot } from './nav.js?v=10';
+} from './ui.js?v=11';
+import { followUpModal, meetingModal, emailModal } from './dialogs.js?v=11';
+import { refreshFollowUpDot } from './nav.js?v=11';
 
 let queue = null;
 let at = 0;              // index into queue.items
@@ -405,7 +405,7 @@ function wireStart() {
   }
 
   $$('[data-goto]', root).forEach(b => {
-    b.onclick = async () => { (await import('./nav.js?v=10')).go(b.dataset.goto); };
+    b.onclick = async () => { (await import('./nav.js?v=11')).go(b.dataset.goto); };
   });
 
   $$('[data-jump]', root).forEach(r => {
@@ -431,7 +431,7 @@ function wireCall() {
   $('[data-skip]', root).onclick = () => skip();
 
   $('[data-open]', root).onclick = async () => {
-    const { openProspect } = await import('./record.js?v=10');
+    const { openProspect } = await import('./record.js?v=11');
     openProspect(c.id, { onSaved: refresh });
   };
 
