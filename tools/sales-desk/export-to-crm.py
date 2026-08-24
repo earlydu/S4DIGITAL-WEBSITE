@@ -24,30 +24,31 @@ with open('crm-import-london.csv', 'w', newline='', encoding='utf-8-sig') as f:
     w.writeheader()
     for r in rows:
         notes = []
-        if r['hooks']:
-            notes.append('Found on site: ' + ', '.join(r['hooks']))
-        notes.append('Already using video' if r['usesVideo'] else 'No video anywhere')
-        if r['emailNote']:
+        notes.append('Sector: ' + (r.get('sector') or 'unknown')
+                     + (' (client to name: yes)' if r.get('hasProof') else ''))
+        notes.append('Already using video' if r.get('usesVideo') else 'No video anywhere')
+        if r.get('emailNote'):
             notes.append('Address note: ' + r['emailNote'])
-        notes.append('Lead offer: content day, £795 + VAT')
+        notes.append('Source: ' + (r.get('source') or ''))
+        notes.append('Offer: free day of filming, documentary framing')
 
         w.writerow({
-            'Company Name': r['company'],
-            'Sector': r['sector'],
+            'Company Name': r.get('company'),
+            'Sector': r.get('sector'),
             'Sub-Sector': '',
-            'Location': r['location'],
-            'Postcode': r['postcode'],
-            'Region': 'London',
-            'Website': r['website'],
-            'Main Phone': r['phone'],
-            'General Email': r['email'],
-            'Instagram': ('https://instagram.com/' + r['instagram']) if r['instagram'] else '',
-            'Google Review Count': r['reviews'],
-            'Google Rating': r['rating'],
+            'Location': r.get('location'),
+            'Postcode': r.get('postcode'),
+            'Region': r.get('region', 'London'),
+            'Website': r.get('website'),
+            'Main Phone': r.get('phone'),
+            'General Email': r.get('email'),
+            'Instagram': ('https://instagram.com/' + r['instagram']) if r.get('instagram') else '',
+            'Google Review Count': r.get('reviews', ''),
+            'Google Rating': r.get('rating', ''),
             'Key Services': '',
-            'Marketing Opportunity': r['observation'] or '',
-            'Lead Quality': r['quality'],
-            'Estimated One-Off Value': '795',
+            'Marketing Opportunity': r.get('observation') or '',
+            'Lead Quality': r.get('quality', 'C'),
+            'Estimated One-Off Value': '',
             'Ask For (job title)': 'Owner or whoever handles marketing',
             'Notes': '. '.join(notes),
         })

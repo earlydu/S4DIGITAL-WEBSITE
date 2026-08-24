@@ -63,9 +63,14 @@ prospects-from-directories*.csv
 #   - voice-corpus.json is Earl's own sent email, read out of Outlook
 #   - VOICE.md quotes it, and names people outside the business
 #   - the rest is prospect contact data, same policy as the directory lists above
-tools/sales-desk/voice-corpus.json
-tools/sales-desk/VOICE.md
+# Deny by default rather than naming each file. Every data file this tooling
+# produces holds either Earl's own correspondence or other people's contact
+# details, and enumerating them means the next one gets missed.
+tools/sales-desk/*.json
 tools/sales-desk/*.csv
-tools/sales-desk/sequence.json
-tools/sales-desk/prospects.enriched.json
-tools/sales-desk/sales-desk.html
+tools/sales-desk/*.html
+tools/sales-desk/*.md
+
+# Python build junk
+__pycache__/
+*.pyc

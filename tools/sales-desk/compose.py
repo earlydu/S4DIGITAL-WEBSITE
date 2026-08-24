@@ -12,11 +12,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 SIGNATURE = 'Thanks,\nEarl'          # 191 uses against 30 for "Best regards"
 WORK_LINK = 'www.s4digi.com/work'
 
-# only where it is true - he has these on the books
-PROOF = {
-    'EV Charging': "I've worked with a number of EV businesses, including Plug In Stations "
-                   "and Trade Electrical Distributors.",
-}
+# Superseded by compose_pool.py. Clients are never named in cold outreach.
+PROOF = {}
 
 ACCRED_CASE = {'gas safe': 'Gas Safe', 'niceic': 'NICEIC', 'refcom': 'REFCOM', 'f-gas': 'F-Gas',
                'oftec': 'OFTEC', 'chas': 'CHAS', 'safecontractor': 'SafeContractor',
@@ -36,12 +33,13 @@ CLOSERS = [                           # his own, in his order of preference
     'Worth a quick 10 minutes?',
 ]
 
-WHO = 'I run S4Digital. We shoot photo and video content for businesses like yours.'
+WHO = ("I'm a filmmaker in London, putting together a set of short films about how skilled "
+       "trade work actually gets done. Not a marketing thing, more of a documentary. One job, "
+       "start to finish.")
 
-# the entry offer off the site: Spotlight, one shoot, creation only
-OFFER = ('Simplest way to start is a content day. I come to you for a day, film the work as '
-         'it happens, and you get a batch of edited photos and short videos out of it. '
-         '£795 plus VAT, deliverables agreed in writing before we start.')
+# The ask is access, not a sale. No price anywhere, in any touch.
+OFFER = ('Would you let me film one of your jobs for a day? No cost to you, and you keep '
+         'everything I shoot to use however you want.')
 
 
 LONDON = set('E EC N NW SE SW W WC BR CR DA EN HA IG KT RM SM TW UB WD'.split())
@@ -111,16 +109,14 @@ def opener(r):
         return None
     line = ' and '.join(obs[:2]) + '.'
 
-    # --- the gap, only ever stated as what is or is not there ---
-    if has_video and has_ig:
-        gap = ('You are already using video, which most of your competitors are not. '
-               'The hard part is keeping it coming.')
+    # The frame is a documentary, not a pitch, so the second half is interest in their
+    # work rather than a note on their marketing. Pointing out what is missing from
+    # someone's Instagram is a sales move and it reads like one.
+    gap = "That's exactly the sort of work I'm after."
+    if h.get('sector'):
+        gap = "The %s side is exactly the sort of work I'm after." % str(h['sector']).lower()
     elif has_video:
-        gap = 'There is video on the site but nothing on social to carry it.'
-    elif has_ig:
-        gap = 'You are on Instagram but there is no video on there, and video is the bit that travels.'
-    else:
-        gap = 'Nothing on social to show any of it though.'
+        gap = "You clearly take how it looks seriously, which is half the battle on a shoot."
 
     return line + ' ' + gap
 
@@ -139,7 +135,6 @@ def first_email(r):
         return None
     name = (r.get('_firstName') or '').strip()
     proof = PROOF.get(r.get('Sector'), '')
-    closer = CLOSERS[int(r.get('_i', 0)) % len(CLOSERS)]
 
     body = [
         ('Hi %s,' % name) if name else 'Hi,',
@@ -154,9 +149,7 @@ def first_email(r):
     if proof:
         body += [proof, '']
     body += [
-        'Some of what we have made is here: ' + WORK_LINK,
-        '',
-        closer,
+        'Happy to work around whatever is already in the diary.',
         '',
         SIGNATURE,
     ]
@@ -177,11 +170,11 @@ def second_email(r):
     """Touch two. A different angle, never a repeat of touch one."""
     name = (r.get('_firstName') or '').strip()
     has_ig = 'instagram' in r.get('socials', {})
-    angle = ('Most firms tell me they have nothing worth filming. Then we spend a day on site '
-             'and come away with a month of content out of one ordinary job.')
+    angle = ('Most firms tell me they have nothing worth filming. Then I spend a day on site and '
+             'we come away with something they end up using for months.')
     if has_ig:
-        angle = ('One day on site usually gives us enough for a month of posts, which is the bit '
-                 'most people run out of time for rather than ideas.')
+        angle = ('A day on site usually turns into more than people expect, and you would have '
+                 'plenty to post off the back of it.')
     return {
         'subject': 'Re: ' + subject_for(r),
         'body': '\n'.join([
@@ -191,7 +184,7 @@ def second_email(r):
             '',
             angle,
             '',
-            'The content day is £795 plus VAT and there is nothing to sign beyond that one day.',
+            'Still happy to film one of yours. No cost, and nothing to sign.',
             '',
             'Worth a quick 10 minutes?',
             '',
@@ -210,7 +203,7 @@ def third_email(r):
             '',
             'I have not heard back, which is fair enough, you are busy.',
             '',
-            'Should I close the file on this one, or is it worth me trying again later in the year?',
+            'Should I close the file on this one, or is it worth asking again later in the year?',
             '',
             'Either answer is genuinely fine, I would just rather know than keep emailing you.',
             '',
@@ -221,6 +214,21 @@ def third_email(r):
 
 def main():
     rows = json.load(open('prospects.enriched.json', encoding='utf-8'))
+
+    # Anyone already approached for the EV film series is off this list. They have had
+    # one free-film email from Earl already; a second, differently worded one would land
+    # as a mailshot rather than a person asking.
+    already = set()
+    try:
+        import csv as _csv
+        ev = os.path.join('..', '..', '..', 'LONDON EV SERIES', 'london-ev-outreach.csv')
+        for e in _csv.DictReader(open(ev, encoding='utf-8-sig')):
+            if e.get('email'):
+                already.add(e['email'].strip().lower())
+            already.add(re.sub(r'[^a-z0-9]', '', (e.get('name') or '').lower()))
+    except FileNotFoundError:
+        pass
+
     out, held = [], []
     seen_inbox = {}
 
@@ -234,6 +242,10 @@ def main():
             continue
         if not first:
             held.append((r, 'nothing specific to open with'))
+            continue
+        if (email in already
+                or re.sub(r'[^a-z0-9]', '', (r.get('Company Name') or '').lower()) in already):
+            held.append((r, 'already approached for the EV series'))
             continue
         if region(r.get('Postcode')) != 'London':
             held.append((r, 'not London'))

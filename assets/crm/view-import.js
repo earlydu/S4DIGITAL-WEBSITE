@@ -2,9 +2,9 @@
 // already exists, then commit. The file never leaves the browser as a file, only
 // as the rows you confirmed.
 
-import { api } from './api.js?v=9';
-import { $, $$, esc, toast, humanStamp, loading, empty } from './ui.js?v=9';
-import { readSheet } from './sheet.js?v=9';
+import { api } from './api.js?v=10';
+import { $, $$, esc, toast, humanStamp, loading, empty } from './ui.js?v=10';
+import { readSheet } from './sheet.js?v=10';
 
 let root = null;
 let fields = [];
@@ -178,7 +178,7 @@ function wire() {
   }
 
   const goto = $('[data-goto]', root);
-  if (goto) goto.onclick = async () => { (await import('./nav.js?v=9')).go(goto.dataset.goto); };
+  if (goto) goto.onclick = async () => { (await import('./nav.js?v=10')).go(goto.dataset.goto); };
 
   if (step === 'drop') {
     const drop = $('#drop', root);

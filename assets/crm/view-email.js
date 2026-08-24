@@ -7,9 +7,9 @@
 // One loop: see who is due, hit Draft, Outlook opens filled in, the note and the
 // next follow-up are written automatically.
 
-import { api, state, loadSettings } from './api.js?v=9';
-import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=9';
-import { refreshFollowUpDot } from './nav.js?v=9';
+import { api, state, loadSettings } from './api.js?v=10';
+import { esc, safeUrl, toast, humanDate, qualityBadge, loading } from './ui.js?v=10';
+import { refreshFollowUpDot } from './nav.js?v=10';
 
 let root = null;
 let rows = [];
@@ -34,11 +34,14 @@ const CREATURE = [
   [700, 'Floodlight', 'lights the whole room'],
 ];
 
-const OFFER = 'Simplest way to start is a content day. I come to you for a day, film the work as '
-            + 'it happens, and you get a batch of edited photos and short videos out of it. '
-            + '£795 plus VAT, deliverables agreed in writing before we start.';
+// The ask is access, not a sale. No price in any touch: the offer is the free day,
+// and naming a number turns a request from a person into a quote from a supplier.
+const WHO = "I'm a filmmaker in London, putting together a set of short films about how skilled "
+          + 'trade work actually gets done. Not a marketing thing, more of a documentary. '
+          + 'One job, start to finish.';
 
-const CLOSERS = ['Worth a quick chat?', 'Fancy a quick 10-minute call?', 'Worth a quick 10 minutes?'];
+const OFFER = 'Would you let me film one of your jobs for a day? No cost to you, and you keep '
+            + 'everything I shoot to use however you want.';
 const LEAD_INS = [
   'I looked your company up this week.',
   'I had a look through your site this week.',
@@ -74,7 +77,7 @@ function compose(c, touch) {
     return {
       subject: 'Re: ' + subject,
       body: [hi, '', 'I have not heard back, which is fair enough, you are busy.', '',
-        'Should I close the file on this one, or is it worth me trying again later in the year?',
+        'Should I close the file on this one, or is it worth asking again later in the year?',
         '', 'Either answer is genuinely fine, I would just rather know than keep emailing you.',
         '', sig].join('\n'),
     };
@@ -83,9 +86,9 @@ function compose(c, touch) {
     return {
       subject: 'Re: ' + subject,
       body: [hi, '', 'Following up on my last email.', '',
-        'Most firms tell me they have nothing worth filming. Then we spend a day on site and '
-        + 'come away with a month of content out of one ordinary job.', '',
-        'The content day is £795 plus VAT and there is nothing to sign beyond that one day.',
+        'Most firms tell me they have nothing worth filming. Then I spend a day on site and '
+        + 'we come away with something they end up using for months.', '',
+        'Still happy to film one of yours. No cost, and nothing to sign.',
         '', 'Worth a quick 10 minutes?', '', sig].join('\n'),
     };
   }

@@ -1,12 +1,12 @@
 // The prospect list: search, filter, page, export.
 // Nothing is loaded that is not on screen, so this stays quick at 10,000 rows.
 
-import { api, loadSettings } from './api.js?v=9';
+import { api, loadSettings } from './api.js?v=10';
 import {
   $, $$, esc, toast, ago, humanDate, qualityBadge, stageBadge, loading, empty,
   download, dayISO, telHref, channelIcons,
-} from './ui.js?v=9';
-import { toCSV, toXLSX } from './sheet.js?v=9';
+} from './ui.js?v=10';
+import { toCSV, toXLSX } from './sheet.js?v=10';
 
 let settings = null;
 let root = null;
@@ -138,7 +138,7 @@ async function load() {
         : 'Import a researched list to get started.',
       Object.keys(filters).length ? '' : '<button class="btn" data-goto="import">Import prospects</button>');
     const g = $('[data-goto]', list);
-    if (g) g.onclick = async () => { (await import('./nav.js?v=9')).go('import'); };
+    if (g) g.onclick = async () => { (await import('./nav.js?v=10')).go('import'); };
     $('#pager', root).innerHTML = '';
     return;
   }
@@ -147,7 +147,7 @@ async function load() {
   $$('.row', list).forEach(el => {
     el.onclick = async e => {
       if (e.target.closest('a')) return;
-      const { openProspect } = await import('./record.js?v=9');
+      const { openProspect } = await import('./record.js?v=10');
       openProspect(el.dataset.id, { onSaved: load });
     };
   });
@@ -239,7 +239,7 @@ async function doExport() {
 /* -------------------------------------------------------------------- new */
 
 async function newProspect() {
-  const { modal } = await import('./ui.js?v=9');
+  const { modal } = await import('./ui.js?v=10');
   const out = await modal({
     html: `
       <h2>Add a prospect</h2>
@@ -278,7 +278,7 @@ async function newProspect() {
   try {
     const saved = await api('prospect-save', { company: out });
     toast('Added', 'good');
-    const { openProspect } = await import('./record.js?v=9');
+    const { openProspect } = await import('./record.js?v=10');
     openProspect(saved.company.id, { onSaved: load });
     load();
   } catch (err) { toast(err.message, 'bad'); }

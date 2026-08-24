@@ -1,8 +1,8 @@
 // The sales command centre. Today at the top, the week under it, then the
 // conversion rates and the sector split that say which niche is worth more time.
 
-import { api, loadSettings } from './api.js?v=9';
-import { $, $$, esc, money, pct, humanDate, loading } from './ui.js?v=9';
+import { api, loadSettings } from './api.js?v=10';
+import { $, $$, esc, money, pct, humanDate, loading } from './ui.js?v=10';
 
 let settings = null;
 
@@ -12,7 +12,7 @@ export async function render(host) {
   const d = await api('dashboard');
   host.innerHTML = view(d);
   $$('[data-goto]', host).forEach(b => {
-    b.onclick = async () => { (await import('./nav.js?v=9')).go(b.dataset.goto); };
+    b.onclick = async () => { (await import('./nav.js?v=10')).go(b.dataset.goto); };
   });
 }
 
