@@ -165,33 +165,34 @@ def opener(r):
     return ' and '.join(obs[:2]) + '. ' + tail
 
 
-def emails(r, i):
+def emails(r, i, first_name=''):
     op = opener(r)
     if not op:
         return None
+    hi = ('Hi %s,' % first_name) if first_name else 'Hi,'
     sec = sector_of(r)
     lead = LEAD_INS[i % len(LEAD_INS)]
     lead = lead % SPOKEN.get(sec, (sec or 'local').lower() + ' firms') if '%s' in lead else lead
     proof = PROOF.get(sec, '')
 
-    first = ['Hi,', '', lead + ' ' + op, '', WHO, '']
+    body1 = [hi, '', lead + ' ' + op, '', WHO, '']
     if proof:
-        first += [proof, '']
-    first += [OFFER, '', CLOSE, '', SIGNATURE]
+        body1 += [proof, '']
+    body1 += [OFFER, '', CLOSE, '', SIGNATURE]
 
     subject = subject_for(sec)
 
-    second = ['Hi,', '', 'Just following up on this.', '',
+    second = [hi, '', 'Just following up on this.', '',
               "Most people tell me they've got nothing worth filming, then we do a day and "
               'they end up using it for months.', '',
               "Offer stands. Costs you nothing and there's nothing to sign.", '',
               'Worth 10 minutes?', '', SIGNATURE]
 
-    third = ['Hi,', '', "Haven't heard back, which is fair enough, you're busy.", '',
+    third = [hi, '', "Haven't heard back, which is fair enough, you're busy.", '',
              'Shall I leave this one, or is it worth me asking again later in the year?', '',
              "Either's fine, I'd just rather know than keep emailing you.", '', SIGNATURE]
 
-    return ({'subject': subject, 'body': '\n'.join(first)},
+    return ({'subject': subject, 'body': '\n'.join(body1)},
             {'subject': 'Re: ' + subject, 'body': '\n'.join(second)},
             {'subject': 'Re: ' + subject, 'body': '\n'.join(third)})
 
@@ -212,7 +213,7 @@ def main():
         if reg == 'Out':
             held['too far from London'] += 1
             continue
-        built = emails(r, i)
+        built = emails(r, i, r.get('contactFirst') or '')
         if not built:
             held['nothing specific to open with'] += 1
             continue
@@ -232,6 +233,9 @@ def main():
                         else 'B' if PROOF.get(sector_of(r)) or num(r.get('reviews')) >= 25
                         else 'C'),
             'observation': opener(r),
+            'contactName': r.get('contactName', ''),
+            'contactFirst': r.get('contactFirst', ''),
+            'nameGrade': r.get('nameGrade', 'none'),
             'touch1': t1, 'touch2': t2, 'touch3': t3,
         })
 
@@ -242,7 +246,8 @@ def main():
 
     json.dump(out, open('sequence.json', 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 
-    cols = ['rank', 'company', 'sector', 'region', 'quality', 'location', 'postcode', 'email', 'phone', 'website',
+    cols = ['rank', 'company', 'contactName', 'nameGrade', 'sector', 'region', 'quality',
+            'location', 'postcode', 'email', 'phone', 'website',
             'instagram', 'reviews', 'rating', 'hasProof', 'observation', 'subject',
             'touch1', 'touch2', 'touch3', 'emailNote', 'source']
     with open('sales-sequence.csv', 'w', newline='', encoding='utf-8-sig') as f:
@@ -259,6 +264,7 @@ def main():
     print('  by region    :', Counter(x['region'] for x in out).most_common())
     print('  by sector    :', Counter(x['sector'] for x in out).most_common(10))
     print('  with proof   :', sum(1 for x in out if x['hasProof']))
+    print('  addressed to a person:', sum(1 for x in out if x['contactFirst']))
     print('held back      :', sum(held.values()))
     print('  reasons      :', held.most_common(5))
 

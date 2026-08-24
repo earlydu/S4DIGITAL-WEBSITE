@@ -13,7 +13,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 rows = json.load(open('sequence.json', encoding='utf-8'))
 
 # exactly the labels lib/crm/importer.mjs auto-maps
-COLS = ['Company Name', 'Sector', 'Sub-Sector', 'Location', 'Postcode', 'Region',
+COLS = ['Company Name', 'Contact First Name', 'Contact Last Name',
+        'Sector', 'Sub-Sector', 'Location', 'Postcode', 'Region',
         'Website', 'Main Phone', 'General Email', 'Instagram',
         'Google Review Count', 'Google Rating', 'Key Services',
         'Marketing Opportunity', 'Lead Quality', 'Estimated One-Off Value',
@@ -34,6 +35,8 @@ with open('crm-import-london.csv', 'w', newline='', encoding='utf-8-sig') as f:
 
         w.writerow({
             'Company Name': r.get('company'),
+            'Contact First Name': r.get('contactFirst', ''),
+            'Contact Last Name': ' '.join((r.get('contactName') or '').split()[1:]),
             'Sector': r.get('sector'),
             'Sub-Sector': '',
             'Location': r.get('location'),
