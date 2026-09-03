@@ -1513,3 +1513,34 @@ body.is-no-scroll{overflow:hidden}
 /* Stills: two balanced columns rather than a wide ragged masonry. */
 .cs__gallery--wide figure{flex:0 0 clamp(300px,36vw,440px)}
 .cs__gallery--wide img{aspect-ratio:3/2}
+
+/* ------------------------------------------------------------------
+   Films lead-in (home page) + the two-up monthly grid beneath it.
+   The film offer deliberately sits on its own full-width band. Put it in
+   a row beside the monthly cards and it stops being the headline and
+   starts being the expensive option, which is the opposite of the point.
+   ------------------------------------------------------------------ */
+.filmlead{position:relative;isolation:isolate;overflow:hidden;padding:104px 0 96px;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filmlead__bg{position:absolute;right:-90px;top:-70px;width:420px;height:420px;opacity:.05;z-index:0;pointer-events:none}
+.filmlead__inner{position:relative;z-index:1;max-width:920px}
+.filmlead__tag{display:inline-flex;font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.filmlead h2{font-weight:900;font-size:clamp(32px,4.4vw,58px);line-height:1.02;letter-spacing:-.03em;max-width:20ch;margin-bottom:20px}
+.filmlead h2 .kw{color:var(--blue)}
+.filmlead__sub{font-size:17px;line-height:1.7;color:var(--ink-2);max-width:62ch}
+.filmlead__list{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:12px;max-width:60ch}
+.filmlead__list li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+.filmlead__list li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.filmlead__foot{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px;margin-top:38px;padding-top:30px;border-top:1px solid var(--line)}
+.filmlead__price{display:flex;align-items:baseline;gap:8px}
+.filmlead__price .from{font-size:13px;font-weight:700;color:var(--muted)}
+.filmlead__price .num{font-weight:900;font-size:clamp(34px,4vw,48px);letter-spacing:-.03em;color:var(--blue);line-height:1}
+.filmlead__vat{font-size:13px;color:var(--muted);margin-right:auto}
+.pricing__grid--two{grid-template-columns:repeat(2,1fr);max-width:820px;margin:0 auto}
+/* Each collection on /work gets its own heading and breathing room. */
+.wcollection .sec__head{margin-bottom:30px}
+@media (max-width:820px){
+  .filmlead{padding:76px 0 68px}
+  .filmlead__foot{gap:16px}
+  .filmlead__vat{margin-right:0;width:100%}
+}
+[data-theme="dark"] .filmlead{background:#101319;border-color:#1c1f27}

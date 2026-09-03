@@ -13,14 +13,14 @@
 
   fetch('/api/content?file=work', { cache: 'no-cache' })
     .then(r => (r.ok ? r.json() : Promise.reject(new Error('work ' + r.status))))
-    .then(json => render(json.items || [], json.categories || []))
+    .then(json => render(json.items || [], json.categories || [], json.collections || []))
     .catch(err => {
       console.error('[s4digital] could not load case studies:', err);
       const target = document.getElementById('workGrid') || document.getElementById('caseStudy') || document.getElementById('featuredWork');
       if (target) target.innerHTML = '<p class="wempty">Our work is taking a moment to load. Please refresh the page.</p>';
     });
 
-function render(DATA, CATEGORIES) {
+function render(DATA, CATEGORIES, COLLECTIONS) {
   const url = p => (p && p.charAt(0) === '/' ? p : '/' + p);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -63,11 +63,15 @@ function render(DATA, CATEGORIES) {
     playCoversInView(featured);
   }
 
+  // Website builds still have live case study pages, they just don't belong in a
+  // portfolio that now leads with films. Everything below works off this list.
+  const INDEXED = DATA.filter(w => w.collection !== 'websites');
+
   /* ---------- /work: filterable index ---------- */
   const grid = document.getElementById('workGrid');
   if (grid) {
     const filters = document.getElementById('workFilters');
-    const used = CATEGORIES.filter(c => DATA.some(w => w.categories.indexOf(c) > -1));
+    const used = CATEGORIES.filter(c => INDEXED.some(w => w.categories.indexOf(c) > -1));
 
     if (filters) {
       filters.innerHTML = ['All work'].concat(used)
@@ -75,11 +79,35 @@ function render(DATA, CATEGORIES) {
         .join('');
     }
 
+    // The index is split into collections rather than one long grid, because a
+    // brand film and a product launch are not the same offer and should not be
+    // read as a single list. A collection with nothing in it after filtering
+    // simply doesn't render.
+    const groups = (COLLECTIONS.length ? COLLECTIONS : [{ key: null, heading: 'All work' }]);
+
+    const block = (col, list, first) =>
+      '<div class="wcollection"' + (first ? '' : ' style="margin-top:64px"') + '>' +
+        (col.heading
+          ? '<div class="sec__head"><h2>' + esc(col.heading) + '</h2>' +
+              (col.note ? '<p>' + esc(col.note) + '</p>' : '') + '</div>'
+          : '') +
+        '<div class="wgrid">' + list.map(card).join('') + '</div>' +
+      '</div>';
+
     const draw = cat => {
-      const list = cat && cat !== 'All work' ? DATA.filter(w => w.categories.indexOf(cat) > -1) : DATA;
-      grid.innerHTML = list.length
-        ? list.map(card).join('')
-        : '<p class="wempty">Nothing in this category yet.</p>';
+      const pool = cat && cat !== 'All work'
+        ? INDEXED.filter(w => w.categories.indexOf(cat) > -1)
+        : INDEXED;
+
+      let html = '', shown = 0;
+      groups.forEach(col => {
+        const list = col.key ? pool.filter(w => w.collection === col.key) : pool;
+        if (!list.length) return;
+        html += block(col, list, shown === 0);
+        shown++;
+      });
+
+      grid.innerHTML = html || '<p class="wempty">Nothing in this category yet.</p>';
       playCoversInView(grid);
     };
     draw();
@@ -349,7 +377,12 @@ function render(DATA, CATEGORIES) {
     '<section class="sec sec--tight" style="padding-top:0">' +
       '<div class="shell">' +
         '<div class="sec__head"><h2>More work</h2></div>' +
-        '<div class="wgrid">' + DATA.filter(x => x.slug !== w.slug).slice(0, 3).map(card).join('') + '</div>' +
+        '<div class="wgrid">' + (function () {
+          // Same collection first, so a film page recommends films.
+          const rest = INDEXED.filter(x => x.slug !== w.slug);
+          const same = rest.filter(x => x.collection === w.collection);
+          return same.concat(rest.filter(x => same.indexOf(x) < 0)).slice(0, 3).map(card).join('');
+        })() + '</div>' +
       '</div>' +
     '</section>';
 
