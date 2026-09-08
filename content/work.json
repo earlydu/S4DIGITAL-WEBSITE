@@ -104,55 +104,55 @@
       ]
     },
     {
-      "slug": "isaac-chamberlain-boxraw",
-      "title": "A professional boxer training, shot for a boxing brand",
-      "client": "Isaac Chamberlain for Boxraw",
-      "industry": "Boxing apparel",
-      "sector": "Brand content",
+      "slug": "la-fromagerie",
+      "title": "Thirty three years of cheese, starting in a garden shed",
+      "client": "La Fromagerie",
+      "industry": "Artisan food retail",
+      "sector": "Brand documentary",
       "collection": "films",
       "featured": true,
       "categories": [
-        "Fitness and Combat Sports",
+        "Documentary",
         "Commercial Content",
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/boxraw-1.jpg",
-        "loop": "assets/work/gifs/boxraw-1.mp4",
-        "alt": "Isaac Chamberlain training, filmed for Boxraw"
+        "src": "assets/work/la-fromagerie/patricia.jpg",
+        "loop": "assets/work/gifs/la-fromagerie.mp4",
+        "alt": "The founder of La Fromagerie, filmed at the counter in her own shop"
       },
-      "summary": "Training session content with professional boxer Isaac Chamberlain, filmed for Boxraw.",
-      "overview": "Boxraw make kit for people who actually box. Isaac Chamberlain is a professional cruiserweight. The content had to look like training rather than a photoshoot pretending to be training, which means filming the work as it happens rather than asking for it again.",
-      "challenge": "A boxer mid-session is not a model. You get the round you get, in the light the gym has, and if you interrupt to reset a shot you have broken the thing you came to film.",
+      "summary": "A documentary about the London cheese business that started with a wheel of Beaufort in a garden shed, told by the founder and the people who run it with her.",
+      "overview": "La Fromagerie began with a market stall at Camden Lock and a shop in Highbury at eighty pounds a week. Thirty three years on it's three shops with walk-in cheese rooms and a wholesale business supplying restaurants across London. The founder tells that story, and the cheesemongers and the wholesale side fill in what the business actually is now.",
+      "challenge": "Most food films are shot as adverts. Shallow depth of field, hands, a voiceover, nobody in them. This one had to carry four people's accounts of the same business without turning into a corporate video, and it had to be filmed in shops that were open and trading, in cheese rooms that are cold, dark and full of customers.",
       "delivered": [
-        "Training session coverage shot around the work, not staged",
-        "Bag work, pads and detail shots of the kit in use",
-        "Cuts built for the brand’s social channels"
+        "Interviews with the founder, the cheesemongers and the wholesale side",
+        "Coverage across the shops, the cheese rooms and the counter",
+        "Filming done during trading hours, around customers rather than after hours",
+        "One documentary edit that holds several voices instead of one"
       ],
       "outputs": [
         {
-          "value": "Pro",
-          "label": "Filmed with a professional cruiserweight"
+          "value": "33 years",
+          "label": "From a garden shed to three shops"
         },
         {
-          "value": "Unstaged",
-          "label": "Real sessions, shot as they happened"
+          "value": "Four voices",
+          "label": "Founder, cheesemongers and wholesale"
+        },
+        {
+          "value": "Open shops",
+          "label": "Filmed while they were trading"
         }
       ],
       "cta": {
-        "label": "Talk to us about sports content",
+        "label": "Talk to us about documentary work",
         "href": "/contact"
       },
       "videos": [
         {
-          "youtube": "gjiGWO4vmjE",
-          "poster": "assets/work/boxraw-2.jpg",
-          "title": "Boxing training, one"
-        },
-        {
-          "youtube": "aQjySMKR4T0",
-          "poster": "assets/work/boxraw-1.jpg",
-          "title": "Boxing training, two"
+          "youtube": "QO3w0LUQiJs",
+          "poster": "assets/work/la-fromagerie/patricia.jpg",
+          "title": "La Fromagerie"
         }
       ]
     },
@@ -234,6 +234,219 @@
           "youtube": "1snYkU72u4w",
           "poster": "assets/work/barry-road/door.jpg",
           "title": "The renovation, told by the client"
+        }
+      ]
+    },
+    {
+      "slug": "nimrod-road-renovation",
+      "title": "A period house in Tooting, told by the couple who bought it",
+      "client": "Nimrod Road, Tooting",
+      "industry": "Residential renovation",
+      "sector": "Case study film",
+      "collection": "films",
+      "featured": false,
+      "categories": [
+        "Trades and Construction",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/nimrod-road/living-bay.jpg",
+        "loop": "assets/work/gifs/nimrod-road.mp4",
+        "alt": "The finished front living room at Nimrod Road, with one of the owners settling in to read"
+      },
+      "summary": "A Victorian house in southwest London that had sat empty, renovated in eight weeks with a baby due, and told by the couple who paid for it.",
+      "overview": "The house came up in Tooting after the previous owners died and nobody had lived in it since. The couple who bought it wanted the period features kept and the ground floor opened up, and they had a baby due at the end of November against a project that started in September. The film is their account of what they took on and what they ended up with.",
+      "challenge": "Renovation films are almost always made from the builder's side, which is the one side a prospective client discounts straight away. This one also had to be filmed after the fact, with the family already moved back in, so the before only exists in the original listing photos.",
+      "delivered": [
+        "An interview-led film with both homeowners, cut as their account rather than a walkthrough",
+        "The original listing photos cut in so the state of the house beforehand reads on screen",
+        "Coverage of every finished room, from the opened up reception through to the utility and the bathrooms",
+        "The street and the neighbourhood, because part of their story is why they bought there",
+        "An edit a contractor can send to someone deciding whether to trust them with a house"
+      ],
+      "outputs": [
+        {
+          "value": "8 weeks",
+          "label": "Finished two weeks inside the estimate"
+        },
+        {
+          "value": "Owner led",
+          "label": "Told by the people who paid for it"
+        },
+        {
+          "value": "Before / after",
+          "label": "Listing photos cut against the finished rooms"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about case study films",
+        "href": "/contact"
+      },
+      "videos": [
+        {
+          "youtube": "aaymq8TYJdE",
+          "poster": "assets/work/nimrod-road/living-bay.jpg",
+          "title": "The renovation, told by the homeowners"
+        }
+      ]
+    },
+    {
+      "slug": "carreducker-shoemakers",
+      "title": "Two shoemakers, 210 steps and six months a pair",
+      "client": "Carreducker",
+      "industry": "Bespoke shoemaking",
+      "sector": "Craft film",
+      "collection": "films",
+      "featured": false,
+      "categories": [
+        "Personal Brands",
+        "Trades and Construction",
+        "Documentary"
+      ],
+      "cover": {
+        "src": "assets/work/carreducker/interview.jpg",
+        "loop": "assets/work/gifs/carreducker.mp4",
+        "alt": "Deborah Carre and James Ducker laughing at the end of the interview, in front of their wall of lasts"
+      },
+      "summary": "A film about hand sewn bespoke shoemaking at the Oxo Tower, made with the two makers who trained at John Lobb and then set up on their own.",
+      "overview": "Deborah Carre and James Ducker met as apprentices under the same master shoemaker at John Lobb, finished their apprenticeships and eventually started their own business. Everything is made by hand, from measuring the foot through to the shoe trees, and they teach the trade as well as work in it. They also documented all 210 steps of it publicly, one post at a time, years before anyone called that content.",
+      "challenge": "Six months and 210 steps don't fit inside a film, and the parts that matter most are the slowest to watch. It's also a business with two founders who finish each other's sentences, so the interview had to run as one conversation rather than two takes cut together.",
+      "delivered": [
+        "A two hander interview shot as a conversation, in front of the wall of lasts",
+        "Close coverage of the hand sewing and the bench work, at the speed it happens",
+        "The workshop, the tools and the finished shoes",
+        "A film that carries both halves of the business, the making and the teaching"
+      ],
+      "outputs": [
+        {
+          "value": "210 steps",
+          "label": "Every pair, all by hand"
+        },
+        {
+          "value": "6 months",
+          "label": "Order to delivery"
+        },
+        {
+          "value": "Two founders",
+          "label": "Filmed as one conversation"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about craft films",
+        "href": "/contact"
+      },
+      "videos": [
+        {
+          "youtube": "QKw74LrV4XY",
+          "poster": "assets/work/carreducker/interview.jpg",
+          "title": "Carreducker"
+        }
+      ]
+    },
+    {
+      "slug": "catherine-marche-jeweller",
+      "title": "A goldsmith who works only in recycled metal",
+      "client": "Catherine Marche Designs",
+      "industry": "Bespoke jewellery",
+      "sector": "Personal brand film",
+      "collection": "films",
+      "featured": false,
+      "categories": [
+        "Personal Brands",
+        "Documentary",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/catherine-marche/earring-worn.jpg",
+        "loop": "assets/work/gifs/catherine-marche.mp4",
+        "alt": "A handmade earring being worn, filmed in the shop"
+      },
+      "summary": "A film about a French bespoke jeweller and goldsmith in London, built around the way she works rather than the pieces in the case.",
+      "overview": "Catherine Marche has been in London around twenty five years, designing and making bespoke jewellery by hand and remodelling pieces people have stopped wearing. She works only in recycled metal and holds the packaging to the same rule, and she teaches as well as makes. The film is about why she works that way, told by her at the bench and in the shop.",
+      "challenge": "Jewellery films usually end up as product photography that moves, which shows you the object and tells you nothing about the person. With bespoke, the person is what the client is actually choosing. It also meant filming in a working studio and a glass fronted shop, where reflections and mixed lighting fight you the whole way.",
+      "delivered": [
+        "An interview built around how she works and why, rather than a run through the collections",
+        "Bench coverage close on the hands, at the speed the work happens",
+        "The shop, the window and the pieces on display",
+        "A film she can use as her own introduction"
+      ],
+      "outputs": [
+        {
+          "value": "Recycled only",
+          "label": "Metal, packaging and process"
+        },
+        {
+          "value": "By hand",
+          "label": "Made at the bench, filmed at the bench"
+        },
+        {
+          "value": "25 years",
+          "label": "In London, working bespoke"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about personal brand films",
+        "href": "/contact"
+      },
+      "videos": [
+        {
+          "youtube": "pIAuuQhrbSY",
+          "poster": "assets/work/catherine-marche/earring-worn.jpg",
+          "title": "Catherine Marche Designs"
+        }
+      ]
+    },
+    {
+      "slug": "isaac-chamberlain-boxraw",
+      "title": "A professional boxer training, shot for a boxing brand",
+      "client": "Isaac Chamberlain for Boxraw",
+      "industry": "Boxing apparel",
+      "sector": "Brand content",
+      "collection": "films",
+      "featured": false,
+      "categories": [
+        "Fitness and Combat Sports",
+        "Commercial Content",
+        "Video Production"
+      ],
+      "cover": {
+        "src": "assets/work/boxraw-pads.jpg",
+        "loop": "assets/work/gifs/boxraw-pads.mp4",
+        "alt": "Isaac Chamberlain working the pads, filmed for Boxraw"
+      },
+      "summary": "Training session content with professional boxer Isaac Chamberlain, filmed for Boxraw.",
+      "overview": "Boxraw make kit for people who actually box. Isaac Chamberlain is a professional cruiserweight. The content had to look like training rather than a photoshoot pretending to be training, which means filming the work as it happens rather than asking for it again.",
+      "challenge": "A boxer mid-session is not a model. You get the round you get, in the light the gym has, and if you interrupt to reset a shot you have broken the thing you came to film.",
+      "delivered": [
+        "Training session coverage shot around the work, not staged",
+        "Bag work, pads and detail shots of the kit in use",
+        "Cuts built for the brand’s social channels"
+      ],
+      "outputs": [
+        {
+          "value": "Pro",
+          "label": "Filmed with a professional cruiserweight"
+        },
+        {
+          "value": "Unstaged",
+          "label": "Real sessions, shot as they happened"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about sports content",
+        "href": "/contact"
+      },
+      "videos": [
+        {
+          "youtube": "gjiGWO4vmjE",
+          "poster": "assets/work/boxraw-2.jpg",
+          "title": "Boxing training, one"
+        },
+        {
+          "youtube": "aQjySMKR4T0",
+          "poster": "assets/work/boxraw-1.jpg",
+          "title": "Boxing training, two"
         }
       ]
     },
@@ -384,54 +597,19 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/southwick-opening.jpg",
-        "loop": "assets/work/gifs/southwick-opening.mp4",
-        "alt": "The D-Day 80th anniversary commemoration at Southwick"
+        "src": "assets/work/southwick-panel.jpg",
+        "loop": "assets/work/gifs/southwick-panel.mp4",
+        "alt": "The D-Day 80 panel discussion at Southwick, filmed from the back of the marquee"
       },
-      "summary": "Coverage of the eightieth anniversary commemorations in the village of Southwick, where the D-Day landings were planned, including the arrivals, the ceremony and the full talk in the map room.",
-      "overview": "Southwick House is where the D-Day landings were planned, and the original map room is still there. For the eightieth anniversary the village held a commemoration: period vehicles, veterans, a service, and a panel talk given in front of the map itself.",
+      "summary": "Coverage of the eightieth anniversary commemorations in the village of Southwick, where the D-Day landings were planned, including the arrivals, the ceremony and the full panel talk.",
+      "overview": "Southwick House is where the D-Day landings were planned, and the original map room is still there. For the eightieth anniversary the village held a commemoration: period vehicles, veterans, a service, and a panel talk with historians and serving officers in front of a full marquee.",
       "challenge": "A commemoration is a single-take event with no rehearsal, real crowds, and people for whom the day matters enormously. Nothing can be asked for twice, and a camera has to stay out of the way of the thing it is there to record.",
       "delivered": [
         "Coverage of the arrivals, including the period vehicles",
         "The village procession and the opening ceremony",
-        "The full panel talk recorded in the Southwick House map room",
+        "The full panel talk, recorded end to end",
         "Photography across the day",
         "Edits the organisers can use to record the anniversary and promote the next one"
-      ],
-      "galleryNote": "Arrivals at Southwick House, the map room, and the village ceremony.",
-      "gallery": [
-        {
-          "src": "assets/work/southwick-a60.jpg",
-          "alt": "A period vehicle arriving at Southwick House"
-        },
-        {
-          "src": "assets/work/southwick-o40.jpg",
-          "alt": "The procession through the village of Southwick"
-        },
-        {
-          "src": "assets/work/southwick-a140.jpg",
-          "alt": "The panel talk in front of the original D-Day map"
-        },
-        {
-          "src": "assets/work/southwick-a430.jpg",
-          "alt": "A speaker in the map room, flanked by the Union Jack and the Stars and Stripes"
-        },
-        {
-          "src": "assets/work/southwick-o120.jpg",
-          "alt": "Dignitaries and veterans at the commemoration"
-        },
-        {
-          "src": "assets/work/southwick-a240.jpg",
-          "alt": "The panel taking questions in the map room"
-        },
-        {
-          "src": "assets/work/southwick-o300.jpg",
-          "alt": "Addressing the crowd at the village ceremony"
-        },
-        {
-          "src": "assets/work/southwick-a330.jpg",
-          "alt": "A full room for the map room talk"
-        }
       ],
       "outputs": [
         {
@@ -439,8 +617,8 @@
           "label": "Years since the landings were planned here"
         },
         {
-          "value": "3",
-          "label": "Films: arrivals, opening and the full map room talk"
+          "value": "2",
+          "label": "Films: the opening ceremony and the full panel talk"
         },
         {
           "value": "One take",
@@ -459,10 +637,11 @@
         },
         {
           "youtube": "QKOVKMhJ4AM",
-          "poster": "assets/work/southwick-a240.jpg",
+          "poster": "assets/work/southwick-panel.jpg",
           "title": "The D-Day talk, in full"
         }
-      ]
+      ],
+      "videosFull": true
     },
     {
       "slug": "car-planet-ev-install-film",

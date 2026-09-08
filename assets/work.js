@@ -270,7 +270,8 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     ? '<section class="sec sec--tight">' +
         '<div class="shell">' +
           '<div class="sec__head"><h2>' + (videos.length > 1 ? 'Videos' : 'Video') + '</h2>' + (w.videoNote ? '<p>' + esc(w.videoNote) + '</p>' : '') + '</div>' +
-          '<div class="cs__films' + (videos.length > 1 ? ' cs__films--multi' : '') + (videos.every(v => v.vertical) ? ' cs__films--tall' : '') + '">' +
+          // videosFull stacks them one per row at full width instead of side by side.
+          '<div class="cs__films' + (videos.length > 1 && !w.videosFull ? ' cs__films--multi' : '') + (videos.every(v => v.vertical) ? ' cs__films--tall' : '') + '">' +
             videos.map(filmMarkup).join('') +
           '</div>' +
           (w.videoCta
