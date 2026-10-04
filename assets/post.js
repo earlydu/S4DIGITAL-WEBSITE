@@ -236,7 +236,7 @@
       const box = document.createElement('aside');
       box.className = 'pgear';
       let anyAff = false;
-      box.innerHTML = '<h3>What I use</h3>' + hits.map(it => {
+      box.innerHTML = hits.map(it => {
         let link = it.affiliate || it.url, aff = !!it.affiliate;
         const pr = g.programmes || {};
         if (!aff && pr.amazon_uk_tag && /^https:\/\/(www\.)?amazon\.co\.uk\//.test(link)) {
