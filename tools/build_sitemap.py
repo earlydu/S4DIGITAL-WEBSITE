@@ -16,7 +16,6 @@ PAGES = [
     ('/services', 'services.html', '0.8'),
     ('/about', 'about.html', '0.8'),
     ('/personal-brand-shoot', 'personal-brand-shoot.html', '0.6'),
-    ('/blog', 'blog.html', '0.5'),
     ('/planpulse', 'planpulse.html', '0.4'),
     ('/privacy', 'privacy.html', '0.2'),
     ('/terms', 'terms.html', '0.2'),
@@ -32,6 +31,9 @@ def load(name):
 urls = [(SITE + p, mtime(f), pr) for p, f, pr in PAGES]
 work_date = mtime('content/work.json')
 urls += [(f"{SITE}/work/{w['slug']}", work_date, '0.7') for w in load('work.json') if w.get('slug')]
+posts = [p for p in load('posts.json') if p.get('status') == 'published' and p.get('slug')]
+if posts:  # the blog index only goes in once there is something on it
+    urls.append((SITE + '/blog', mtime('blog.html'), '0.5'))
 urls += [(f"{SITE}/blog/{p['slug']}", p.get('date') or mtime('content/posts.json'), '0.4')
          for p in load('posts.json') if p.get('status') == 'published' and p.get('slug')]
 
