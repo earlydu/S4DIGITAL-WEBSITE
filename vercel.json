@@ -230,6 +230,19 @@
           "value": "no-referrer"
         }
       ]
+    },
+    {
+      "source": "/assets/guide/before-you-film.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"Before the camera comes out - s4digital.pdf\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
     }
   ]
 }
