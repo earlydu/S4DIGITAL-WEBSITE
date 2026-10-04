@@ -576,7 +576,7 @@
       btn.disabled = true;
       btn.querySelector('span').textContent = 'Sending';
       try {
-        await fetch('https://formsubmit.co/ajax/earl@s4digi.com', {
+        await fetch('https://formsubmit.co/ajax/005f38c83e0554279919ce0dff944657', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify({

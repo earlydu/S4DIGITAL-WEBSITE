@@ -86,7 +86,7 @@ const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent =
     <div class="lmodal__inputs">
       <h3>Get your <span class="kw">leak breakdown</span></h3>
       <p class="lmodal__sub">We will email you the report using the numbers you entered. No spam.</p>
-      <form id="lf_form" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
+      <form id="lf_form" action="https://formsubmit.co/ajax/005f38c83e0554279919ce0dff944657" method="POST">
         <input type="hidden" name="_subject" value="New Lead Leak (blog)" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
