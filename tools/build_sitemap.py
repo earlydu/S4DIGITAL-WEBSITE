@@ -39,7 +39,7 @@ work_date = mtime('content/work.json')
 urls += [(f"{SITE}/work/{w['slug']}", work_date, '0.7') for w in load('work.json') if w.get('slug')]
 posts = [p for p in load('posts.json') if p.get('status') == 'published' and p.get('slug') and p.get('date', '') <= TODAY]
 if posts:  # the blog index only goes in once there is something on it
-    urls.append((SITE + '/blog', mtime('blog.html'), '0.5'))
+    urls.append((SITE + '/blog', mtime('templates/blog.html'), '0.5'))
 urls += [(f"{SITE}/blog/{p['slug']}", p.get('date') or mtime('content/posts.json'), '0.4')
          for p in load('posts.json') if p.get('status') == 'published' and p.get('slug') and p.get('date', '') <= TODAY]
 

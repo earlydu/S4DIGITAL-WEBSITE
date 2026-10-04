@@ -12,7 +12,9 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 const stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
 const TARGET = /(\/assets\/(?:site|work|form|post|admin)\.(?:css|js))(\?v=[0-9]+)?/g;
 
-const pages = readdirSync('.').filter(f => f.endsWith('.html'));
+// Root pages plus the server-rendered templates (blog, post, case study).
+const pages = readdirSync('.').filter(f => f.endsWith('.html'))
+  .concat(readdirSync('templates').filter(f => f.endsWith('.html')).map(f => 'templates/' + f));
 let touched = 0, refs = 0;
 
 for (const page of pages) {

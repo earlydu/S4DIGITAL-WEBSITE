@@ -1,7 +1,7 @@
 // Minimal zero-dependency static server for the s4digital build (incl. PlanPulse).
 // Run: node serve.mjs  →  http://localhost:4000   |  PlanPulse: http://localhost:4000/planpulse
 import { createServer } from 'node:http';
-import { stat } from 'node:fs/promises';
+import { stat, readFile } from 'node:fs/promises';
 import { createReadStream } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -122,18 +122,37 @@ const server = createServer(async (req, res) => {
       return;
     }
 
+    // Local parity with vercel.json: templates are only read by the server renderer.
+    if (bare === '/templates' || bare.startsWith('/templates/')) {
+      res.writeHead(302, { Location: '/' });
+      res.end();
+      return;
+    }
+
+    // Local parity with the server-rendered routes (api/blog.mjs and api/work.mjs on Vercel).
+    // ESM caches the import, so restart the server after editing lib files.
+    if (['/blog/feed.xml', '/feed.xml', '/rss.xml'].includes(bare)) {
+      const { renderFeed } = await import(new URL('./lib/blogssr.mjs', import.meta.url));
+      res.writeHead(200, { 'content-type': 'application/rss+xml; charset=utf-8', 'cache-control': 'no-store' });
+      res.end(await renderFeed());
+      return;
+    }
+    if (bare === '/blog' || /^\/blog\/[^/.]+$/.test(bare) || /^\/work\/[^/.]+$/.test(bare)) {
+      const ssr = await import(new URL('./lib/blogssr.mjs', import.meta.url));
+      const slug = bare.split('/')[2];
+      const out = bare === '/blog' ? await ssr.renderBlogIndex(parsed.searchParams.get('page') ?? undefined)
+        : bare.startsWith('/blog/') ? await ssr.renderPost(slug)
+        : await ssr.renderCaseStudy(slug);
+      res.writeHead(out.status, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', ...(out.status === 404 ? { 'x-robots-tag': 'noindex' } : {}) });
+      res.end(out.html);
+      return;
+    }
+
     // Local parity with vercel.json rewrites
     if (bare === '/') urlPath = '/index.html';
     else if (bare === '/contact') urlPath = '/index.html';
     else if (bare === '/admin' || bare.startsWith('/admin/')) urlPath = '/admin.html';
     else if (bare === '/sales' || bare.startsWith('/sales/')) urlPath = '/sales.html';
-    // Slug routes only. A path with a file extension (/blog/blog.js) is a real asset.
-    else if (/^\/work\/[^/.]+$/.test(bare)) urlPath = '/case-study.html';
-    else if (/^\/blog\/[^/.]+$/.test(bare)) {
-      // A legacy post has its own file. Anything else is rendered from the content store.
-      try { await stat(join(ROOT, bare + '.html')); urlPath = bare + '.html'; }
-      catch { urlPath = '/post.html'; }
-    }
 
     const safePath = normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
     let filePath = join(ROOT, safePath);
@@ -167,8 +186,9 @@ const server = createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': type, 'Content-Length': info.size, 'Cache-Control': 'no-cache' });
     createReadStream(filePath).pipe(res);
   } catch {
+    // Same as Vercel: the branded 404.html for anything that doesn't exist.
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end('<h1>404 — Not found</h1>');
+    try { res.end(await readFile(join(ROOT, '404.html'))); } catch { res.end('<h1>Not found</h1>'); }
   }
 });
 

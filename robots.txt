@@ -7,6 +7,8 @@ Disallow: /crm
 Disallow: /crm/
 Disallow: /admin
 Disallow: /admin/
+# Case studies and the home page still draw from this in the browser, so crawlers need to read it.
+Allow: /api/content
 Disallow: /api/
 Allow: /
 

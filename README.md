@@ -26,11 +26,13 @@ ADMIN_PASSWORD=something node serve.mjs   # http://localhost:4000
 | `/services` | `services.html` | Three service levels, disciplines, add-ons, terms, FAQ |
 | `/personal-brand-shoot` | `personal-brand-shoot.html` | The £795 + VAT one-off shoot |
 | `/work` | `work.html` | Filterable case study index |
-| `/work/<slug>` | `case-study.html` | One case study, rendered from `content/work.json` |
+| `/work/<slug>` | `api/work.mjs` + `templates/case-study.html` | One case study. Title, description, canonical and social card are set on the server; `assets/work.js` draws the body from `content/work.json`. Unknown slugs return 404 |
 | `/about` | `about.html` | Studio story and how the team is set up |
 | `/contact` | `index.html#contact` | Rewrite to the home page contact section |
-| `/blog` | `blog.html` | Index, rendered from `content/posts.json` |
-| `/blog/<slug>` | existing file, else `post.html` | The seven original posts still have their own files |
+| `/blog`, `/blog?page=N` | `api/blog.mjs` + `templates/blog.html` | Index, server-rendered from `content/posts.json` (`lib/blogssr.mjs`) with real pager links |
+| `/blog/<slug>` | `api/blog.mjs` + `templates/post.html` | Full post rendered on the server, with per-post meta and JSON-LD; `assets/post.js` only adds behaviour. Unknown, draft and scheduled slugs return 404 |
+| `/blog/feed.xml` (also `/feed.xml`, `/rss.xml`) | `api/blog.mjs` | RSS feed of published posts |
+| anything missing | `404.html` | Branded 404, served by Vercel automatically |
 | `/admin` | `admin.html` | Password protected editor |
 | `/sales` | `sales.html` | The private sales CRM (`/crm` redirects here) |
 | `/planpulse` | `planpulse.html` | Unchanged |
@@ -70,7 +72,8 @@ Until that is done the live site still renders fine, it just cannot be edited fr
 
 ## Files
 
-- `index.html`, `services.html`, `personal-brand-shoot.html`, `work.html`, `case-study.html`, `about.html`, `blog.html`, `post.html`, `admin.html`
+- `index.html`, `services.html`, `personal-brand-shoot.html`, `work.html`, `about.html`, `admin.html`, `404.html`
+- `templates/blog.html`, `templates/post.html`, `templates/case-study.html`: read by `lib/blogssr.mjs`, never served directly
 - `assets/site.css` — the whole design system, shared by every page
 - `assets/site.js` — nav, theme, booking modal, carousels, accordions, reveal
 - `assets/work.js`, `assets/post.js`, `assets/form.js`, `assets/admin.js`, `assets/admin.css`
