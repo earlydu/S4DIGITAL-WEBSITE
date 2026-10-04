@@ -6,6 +6,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
       "source": "/contact",
       "destination": "/"
     },
@@ -31,6 +35,71 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/content/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/tools/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/lib/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/.tools/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/_backup/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:file(.*\\.md)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:file(.*\\.py)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:file(.*\\.ps1)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:file(.*\\.sql)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:file(.*\\.csv)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/serve.mjs",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/.serve.js",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/.env:rest*",
+      "destination": "/",
+      "permanent": false
+    },
     {
       "source": "/pricing",
       "destination": "/services",

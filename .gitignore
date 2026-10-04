@@ -74,3 +74,4 @@ tools/sales-desk/*.md
 # Python build junk
 __pycache__/
 *.pyc
+sitemap.xml

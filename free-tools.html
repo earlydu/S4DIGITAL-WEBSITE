@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Our Work | Content Case Studies | s4digital</title>
-<meta name="description" content="Photography and video case studies from s4digital across personal brands, trades, automotive, professional services, fitness and combat sports, events and documentary." />
-<link rel="canonical" href="https://s4digi.com/work" />
-<meta property="og:title" content="Our Work | Content Case Studies | s4digital" />
-<meta property="og:description" content="Photography and video case studies across personal brands, trades, automotive, professional services, fitness and combat sports." />
+<title>Free Tools for People Who Make Content | s4digital</title>
+<meta name="description" content="Free browser tools for people who make content: a social video resizer, PDF tools and a brand film budget calculator. No sign-up, and your files never leave your computer." />
+<link rel="canonical" href="https://s4digi.com/free-tools" />
+<meta property="og:title" content="Free Tools for People Who Make Content | s4digital" />
+<meta property="og:description" content="Free browser tools for people who make content: a social video resizer, PDF tools and a brand film budget calculator. No sign-up, and your files never leave your computer." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://s4digi.com/work" />
+<meta property="og:url" content="https://s4digi.com/free-tools" />
 <meta property="og:image" content="https://s4digi.com/assets/og-card.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
 <link rel="stylesheet" href="/assets/site.css?v=202610050500" />
+<link rel="stylesheet" href="/assets/free-tools.css?v=202610041200" />
 </head>
 <body>
 
@@ -35,7 +36,7 @@
     <a href="/">Home</a>
     <a href="/services">Services</a>
     <a href="/films">Films</a>
-    <a href="/work" class="is-active">Our Work</a>
+    <a href="/work">Our Work</a>
     <a href="/about">About</a>
     <a href="/blog">Blog</a>
     <a href="/contact">Contact</a>
@@ -74,39 +75,91 @@
   </div>
 </aside>
 
-<section class="phero">
+<section class="phero ft-hero">
   <span class="ast phero__bg" aria-hidden="true"></span>
   <div class="shell">
-<h1>Case <span class="kw">studies</span>.</h1>
-    <p class="phero__sub">What the client needed, what we produced and what was delivered.</p>
+    <h1>Free tools for people who make <span class="kw">content</span>.</h1>
+    <p class="phero__sub">Small, useful tools we use on our own projects. Everything runs in your browser, so your files never leave your computer. No sign-up, no watermark, no catch.</p>
   </div>
 </section>
 
-<section class="sec" style="padding-top:24px">
+<section class="sec" style="padding-top:12px">
   <div class="shell">
-    <div class="wfilter" id="workFilters" role="group" aria-label="Filter case studies"></div>
-    <div id="workGrid"></div>
+    <div class="ft-cards">
+      <a class="ft-card" href="/free-tools/video-resizer">
+        <div class="ft-card__art" aria-hidden="true">
+          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linejoin="round">
+            <rect x="20" y="30" width="128" height="72" rx="5" stroke="currentColor" opacity=".35"/>
+            <rect x="96" y="12" width="62" height="110" rx="5" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".1"/>
+            <rect x="172" y="44" width="48" height="60" rx="5" stroke="currentColor" opacity=".6"/>
+            <rect x="172" y="112" width="48" height="26" rx="4" class="ft-art-orange" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
+            <path d="M120 58l16 9-16 9z" class="ft-art-blue" fill="currentColor" stroke="none"/>
+            <text x="127" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif">9:16</text>
+            <text x="196" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif" opacity=".7">4:5</text>
+            <text x="40" y="120" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif" opacity=".5">16:9</text>
+          </svg>
+        </div>
+        <div class="ft-card__body">
+          <h2>Video resizer for socials</h2>
+          <p>Turn one landscape clip into 9:16, 1:1, 4:5 or 16:9. Crop to the bit that matters, or fit it over a blurred background. Trim it while you&rsquo;re there.</p>
+          <span class="ft-card__go">Resize a video <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="ft-card" href="/free-tools/pdf-tools">
+        <div class="ft-card__art" aria-hidden="true">
+          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linejoin="round">
+            <rect x="46" y="28" width="66" height="88" rx="5" stroke="currentColor" opacity=".35" transform="rotate(-8 79 72)"/>
+            <rect x="62" y="22" width="66" height="88" rx="5" stroke="currentColor" fill="var(--paper)"/>
+            <path d="M74 44h42M74 56h42M74 68h30" stroke="currentColor" opacity=".45" stroke-linecap="round"/>
+            <path d="M140 66h22" class="ft-art-blue" stroke="currentColor" stroke-linecap="round"/>
+            <path d="M156 59l8 7-8 7" class="ft-art-blue" stroke="currentColor" stroke-linecap="round"/>
+            <rect x="174" y="22" width="44" height="58" rx="4" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".1"/>
+            <rect x="174" y="86" width="44" height="40" rx="4" class="ft-art-orange" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
+          </svg>
+        </div>
+        <div class="ft-card__body">
+          <h2>PDF tools</h2>
+          <p>Merge PDFs, pull out the pages you need, rotate and reorder pages, or turn a pile of JPGs and PNGs into one tidy A4 PDF.</p>
+          <span class="ft-card__go">Work on a PDF <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="ft-card" href="/free-tools/film-budget">
+        <div class="ft-card__art" aria-hidden="true">
+          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linecap="round">
+            <path d="M30 32h120M30 56h96M30 80h110M30 104h70" stroke="currentColor" opacity=".35"/>
+            <path d="M176 32h34M184 56h26M170 80h40M190 104h20" stroke="currentColor" opacity=".6"/>
+            <path d="M30 126h180" stroke="currentColor"/>
+            <rect x="120" y="116" width="90" height="20" rx="10" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
+            <circle cx="20" cy="104" r="4" class="ft-art-orange" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="ft-card__body">
+          <h2>Brand film budget calculator</h2>
+          <p>See what a film usually costs in the UK, line by line, before you talk to anyone. Typical market ranges, not a quote, with the working shown.</p>
+          <span class="ft-card__go">Work out a budget <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="ft-how">
+      <div><h3>Nothing gets uploaded</h3><p>The video and PDF tools do all the work on your own device. There&rsquo;s no server in the middle, so client files and rough cuts stay private.</p></div>
+      <div><h3>No account, no email</h3><p>Open a tool and use it. We don&rsquo;t ask for your details and we don&rsquo;t stamp anything on what you make.</p></div>
+      <div><h3>Built for real jobs</h3><p>These started as things we needed in the studio. If one breaks on a file of yours, tell us and we&rsquo;ll fix it.</p></div>
+    </div>
   </div>
 </section>
 
-<section class="cta" id="contact">
-  <span class="ast cta__giant" aria-hidden="true"></span>
-  <div class="cta__inner">
-    <div>
-<h2>Your turn</h2>
-      <p class="cta__sub">Tell us what you need content for and roughly when. We’ll come back within one working day with a clear next step.</p>
+<section class="ft-band">
+  <div class="shell">
+    <div class="ft-band__inner">
+      <p><strong>Need a proper film rather than a quick fix?</strong>We make documentary brand films for businesses worth telling a story about. Or start with our free playbook on planning, budgeting and hiring for one.</p>
+      <div class="ft-band__ctas">
+        <a class="btn" href="/films"><span>See our films</span><span class="arrow">&rarr;</span></a>
+        <a class="btn btn--ghost" href="/guide"><span>Free playbook</span><span class="arrow">&rarr;</span></a>
+      </div>
     </div>
-    <form class="cta__form" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
-      <input type="hidden" name="_subject" value="New enquiry from the work page">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off">
-      <input type="text" name="Name" placeholder="Your name" required />
-      <input type="email" name="Email" placeholder="Email address" required />
-      <input type="text" name="Company" placeholder="Company or brand" />
-      <textarea name="Message" placeholder="What do you need content for?"></textarea>
-      <button type="submit"><span>Send message</span><span class="arrow">&rarr;</span></button>
-    </form>
   </div>
 </section>
 
@@ -182,7 +235,6 @@
 </button>
 
 <script src="/assets/site.js?v=202608181902"></script>
-<script src="/assets/work.js?v=202608181902"></script>
 <script src="/assets/form.js?v=202608181902"></script>
 </body>
 </html>

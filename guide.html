@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Our Work | Content Case Studies | s4digital</title>
-<meta name="description" content="Photography and video case studies from s4digital across personal brands, trades, automotive, professional services, fitness and combat sports, events and documentary." />
-<link rel="canonical" href="https://s4digi.com/work" />
-<meta property="og:title" content="Our Work | Content Case Studies | s4digital" />
-<meta property="og:description" content="Photography and video case studies across personal brands, trades, automotive, professional services, fitness and combat sports." />
+<title>Free guide: Before the Camera Comes Out | s4digital</title>
+<meta name="description" content="A free 44-page brand film playbook: story question banks, honest costs, a brief template, a licensing checklist, a release plan and a phone-filming guide." />
+<link rel="canonical" href="https://s4digi.com/guide" />
+<meta property="og:title" content="Before the Camera Comes Out: the free brand film playbook" />
+<meta property="og:description" content="Everything to know before you spend a penny on a film. Free." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://s4digi.com/work" />
+<meta property="og:url" content="https://s4digi.com/guide" />
 <meta property="og:image" content="https://s4digi.com/assets/og-card.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -21,6 +21,30 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
 <link rel="stylesheet" href="/assets/site.css?v=202610050500" />
+<style>
+  .ghero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  .ghero__cover img{width:100%;max-width:460px;display:block;margin:0 auto}
+  .ghero h1{font-weight:900;font-size:clamp(40px,5.4vw,72px);line-height:.98;letter-spacing:-.035em;margin:12px 0 18px}
+  .ghero h1 .kw{color:var(--blue)}
+  .ghero__kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--orange)}
+  .ghero__sub{font-size:18px;line-height:1.6;color:var(--ink-2);max-width:52ch;margin-bottom:26px}
+  .gform{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px}
+  .gform input{font:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+  .gform input:focus{outline:2px solid var(--blue);border-color:transparent}
+  .gform .btn{grid-column:1 / -1;justify-content:center}
+  .gform small{grid-column:1 / -1;font-size:12.5px;color:var(--muted)}
+  .gform__hp{position:absolute;left:-9999px}
+  .gdone{max-width:560px;padding:22px;border-radius:16px;background:var(--paper-2);border:1px solid var(--line)}
+  .gdone strong{display:block;font-size:20px;font-weight:900;margin-bottom:8px}
+  .ginside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:g;padding:0;margin:0}
+  .ginside li{list-style:none;padding:22px;border-radius:16px;background:var(--paper-2);border:1px solid var(--line);counter-increment:g}
+  .ginside li::before{content:counter(g,decimal-leading-zero);display:block;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--blue);margin-bottom:8px}
+  .ginside strong{display:block;font-size:17px;font-weight:900;letter-spacing:-.01em;margin-bottom:6px}
+  .ginside span{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+  @media (max-width:900px){.ghero{grid-template-columns:1fr}.ginside{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.gform,.ginside{grid-template-columns:1fr}}
+  [data-theme="dark"] .ginside li,[data-theme="dark"] .gdone{background:#15171c;border-color:#22252d}
+</style>
 </head>
 <body>
 
@@ -35,7 +59,7 @@
     <a href="/">Home</a>
     <a href="/services">Services</a>
     <a href="/films">Films</a>
-    <a href="/work" class="is-active">Our Work</a>
+    <a href="/work">Our Work</a>
     <a href="/about">About</a>
     <a href="/blog">Blog</a>
     <a href="/contact">Contact</a>
@@ -74,41 +98,48 @@
   </div>
 </aside>
 
-<section class="phero">
-  <span class="ast phero__bg" aria-hidden="true"></span>
-  <div class="shell">
-<h1>Case <span class="kw">studies</span>.</h1>
-    <p class="phero__sub">What the client needed, what we produced and what was delivered.</p>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:24px">
-  <div class="shell">
-    <div class="wfilter" id="workFilters" role="group" aria-label="Filter case studies"></div>
-    <div id="workGrid"></div>
-  </div>
-</section>
-
-<section class="cta" id="contact">
-  <span class="ast cta__giant" aria-hidden="true"></span>
-  <div class="cta__inner">
+<section class="phero" style="padding-bottom:60px">
+  <div class="shell ghero">
     <div>
-<h2>Your turn</h2>
-      <p class="cta__sub">Tell us what you need content for and roughly when. We’ll come back within one working day with a clear next step.</p>
+      <h1>Before the camera <span class="kw">comes out</span>.</h1>
+      <p class="ghero__sub">A free 44-page playbook. Everything I&rsquo;d want you to know before you spend a penny on a film. The questions we ask, what things really cost, the templates we use and the mistakes that land businesses with copyright letters. Free, no strings.</p>
+      <form class="gform" id="guideForm" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
+        <input type="hidden" name="_subject" value="Guide download">
+        <input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="gform__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="Name" placeholder="Your name" autocomplete="name" required aria-label="Your name">
+        <input type="email" name="Email" placeholder="Email address" autocomplete="email" required aria-label="Email address">
+        <button type="submit" class="btn btn--orange btn--lg"><span>Get the free guide</span><span class="arrow">&rarr;</span></button>
+        <small>The guide opens straight away. I&rsquo;ll send the odd useful note after that, and you can tell me to stop any time.</small>
+      </form>
+      <div class="gdone" id="guideDone" hidden><strong>It&rsquo;s yours.</strong><p style="margin:0 0 14px">If it didn&rsquo;t open, use the button below.</p><a class="btn btn--orange" href="/assets/guide/before-you-film.pdf" target="_blank" rel="noopener"><span>Open the guide</span><span class="arrow">&rarr;</span></a></div>
     </div>
-    <form class="cta__form" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
-      <input type="hidden" name="_subject" value="New enquiry from the work page">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off">
-      <input type="text" name="Name" placeholder="Your name" required />
-      <input type="email" name="Email" placeholder="Email address" required />
-      <input type="text" name="Company" placeholder="Company or brand" />
-      <textarea name="Message" placeholder="What do you need content for?"></textarea>
-      <button type="submit"><span>Send message</span><span class="arrow">&rarr;</span></button>
-    </form>
+    <div class="ghero__cover"><img src="/assets/guide/guide-cover.png" alt="Before the Camera Comes Out, the free s4digital brand film playbook" /></div>
   </div>
 </section>
+
+<section class="sec">
+  <div class="shell">
+    <div class="sec__head"><h2>What&rsquo;s <span class="kw">inside</span>.</h2></div>
+    <ol class="ginside"><li><strong>Is a film right for you?</strong><span>A ten-point self-check, and when something cheaper is the better call.</span></li><li><strong>Finding the story</strong><span>Thirty questions to run with your founder, team, customers and partners.</span></li><li><strong>The interview question bank</strong><span>The questions that get people talking on camera, and the follow-ups that do the heavy lifting.</span></li><li><strong>What things cost</strong><span>Honest UK market ranges, line by line, with a budget planner to fill in.</span></li><li><strong>A brief that works</strong><span>A fill-in template you can send to any production company.</span></li><li><strong>Hiring well</strong><span>Twenty questions to ask, the red flags, and what a good quote includes.</span></li><li><strong>Getting people ready</strong><span>A prep sheet for anyone being filmed: what to wear, the mic, nerves.</span></li><li><strong>Licensing and copyright</strong><span>The checklist that keeps you out of claim letters.</span></li><li><strong>The release plan</strong><span>Thirty days to launch a film, and twelve months of reuse.</span></li><li><strong>Measuring it</strong><span>What to track, and what &ldquo;worked&rdquo; actually looks like.</span></li><li><strong>No budget yet?</strong><span>How to film it yourself on a phone, properly.</span></li><li><strong>Every template</strong><span>Copy, print or paste them straight into your own documents.</span></li></ol>
+  </div>
+</section>
+
+<script>
+(function () {
+  var f = document.getElementById('guideForm'), done = document.getElementById('guideDone');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    f.querySelector('button').disabled = true;
+    var w = window.open('', '_blank');
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } }).catch(function () {})
+      .then(function () {
+        f.hidden = true; done.hidden = false;
+        if (w) w.location = '/assets/guide/before-you-film.pdf';
+      });
+  });
+})();
+</script>
 
 <footer class="footer">
   <div class="footer__inner">
@@ -182,7 +213,6 @@
 </button>
 
 <script src="/assets/site.js?v=202608181902"></script>
-<script src="/assets/work.js?v=202608181902"></script>
 <script src="/assets/form.js?v=202608181902"></script>
 </body>
 </html>

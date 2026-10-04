@@ -117,7 +117,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/la-fromagerie/patricia.jpg",
+        "src": "assets/work/la-fromagerie/patricia-talking.jpg",
         "loop": "assets/work/gifs/la-fromagerie.mp4",
         "alt": "The founder of La Fromagerie, filmed at the counter in her own shop"
       },
@@ -151,7 +151,7 @@
       "videos": [
         {
           "youtube": "QO3w0LUQiJs",
-          "poster": "assets/work/la-fromagerie/patricia.jpg",
+          "poster": "assets/work/la-fromagerie/patricia-talking.jpg",
           "title": "La Fromagerie"
         }
       ]

@@ -31,6 +31,12 @@ const server = createServer(async (req, res) => {
     let urlPath = decodeURIComponent(parsed.pathname);
 
     // Local parity with the Vercel functions: /api/content and /api/admin
+    if (urlPath === '/sitemap.xml') {
+      const { buildSitemap } = await import(new URL('./lib/sitemap.mjs', import.meta.url));
+      res.writeHead(200, { 'content-type': 'application/xml; charset=utf-8', 'cache-control': 'no-store' });
+      res.end(await buildSitemap());
+      return;
+    }
     if (urlPath === '/api/content' && req.method === 'GET') {
       const { handleContent } = await import(new URL('./lib/api.mjs', import.meta.url));
       const out = await handleContent(parsed.searchParams.get('file'));

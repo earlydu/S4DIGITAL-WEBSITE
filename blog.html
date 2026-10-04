@@ -2,11 +2,10 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<meta name="robots" content="noindex" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notes | s4digital</title>
+<title>Blog | s4digital, documentary brand films</title>
 <meta property="og:title" content="Insights | s4digital" />
-<meta property="og:description" content="Notes on content, photography and video for businesses and personal brands." />
+<meta property="og:description" content="Earl Duncan on brand films: budgets, craft, being on camera and what makes people watch." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://s4digi.com/blog" />
 <meta property="og:image" content="https://s4digi.com/assets/og-card.jpg" />
@@ -14,11 +13,11 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://s4digi.com/assets/og-card.jpg" />
-<meta name="description" content="Notes on content, photography and video from s4digital." />
+<meta name="description" content="Earl Duncan on brand films: budgets, craft, being on camera and what makes people watch." />
 <link rel="icon" type="image/png" href="/assets/32wh.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
-<link rel="stylesheet" href="/assets/site.css?v=202608181902" />
+<link rel="stylesheet" href="/assets/site.css?v=202610050500" />
 <style>
   .article{max-width:760px;margin-inline:auto}
   .article__body{font-size:17px;line-height:1.75;color:var(--ink-2)}
@@ -33,6 +32,47 @@
   .article__body a{color:var(--blue);font-weight:700;text-decoration:underline}
   .article__meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:12.5px;color:var(--muted);font-weight:700}
   .article__cover{border-radius:var(--radius-lg);overflow:hidden;margin:36px 0 42px}
+  /* blog index: featured post and recent list on top, then topics down the side and the posts as rows */
+  .btop{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;margin-bottom:72px}
+  .bfeat{display:block;color:inherit;text-decoration:none}
+  .bfeat__img{aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:var(--paper-3)}
+  .bfeat__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .bfeat:hover .bfeat__img img{transform:scale(1.03)}
+  .bfeat h2{font-weight:900;font-size:clamp(26px,3vw,40px);line-height:1.08;letter-spacing:-.03em;margin:22px 0 10px}
+  .bfeat:hover h2{color:var(--blue)}
+  .bfeat p{font-size:16.5px;line-height:1.6;color:var(--ink-2);max-width:60ch;margin:0 0 12px}
+  .bmeta{font-size:12.5px;font-weight:700;color:var(--muted)}
+  .brecent h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 6px;padding-bottom:12px;border-bottom:2px solid var(--blue)}
+  .brecent a{display:block;padding:18px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+  .brecent a strong{display:block;font-size:17px;line-height:1.3;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .brecent a:hover strong{color:var(--blue)}
+  .blayout{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
+  .btopics{position:sticky;top:110px}
+  .btopics h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 14px}
+  .btopics button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:10px 12px;margin-bottom:4px;font:inherit;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer}
+  .btopics button span{color:var(--muted);font-weight:600}
+  .btopics button:hover{background:var(--paper-2);color:var(--ink)}
+  .btopics button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .btopics button[aria-pressed="true"] span{color:inherit;opacity:.7}
+  .brows h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 6px}
+  .brow{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;align-items:center}
+  .brow__img{aspect-ratio:3/2;border-radius:14px;overflow:hidden;background:var(--paper-3)}
+  .brow__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .brow:hover .brow__img img{transform:scale(1.04)}
+  .brow h2{font-weight:900;font-size:clamp(20px,2vw,26px);line-height:1.15;letter-spacing:-.02em;margin:0 0 8px}
+  .brow:hover h2{color:var(--blue)}
+  .brow p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0 0 10px}
+  .breport{display:grid;grid-template-columns:230px 1fr;gap:36px;align-items:center;margin:0 0 72px;padding:34px 40px;border-radius:24px;background:#0d0d0f;color:#fff;text-decoration:none;overflow:hidden}
+  .breport__img img{width:100%;display:block;transition:transform .4s ease}
+  .breport:hover .breport__img img{transform:translateY(-4px) rotate(-1.5deg)}
+  .breport__kicker{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--orange);margin-bottom:8px}
+  .breport strong{display:block;font-size:clamp(26px,3vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:10px}
+  .breport p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:58ch;margin:0 0 20px}
+  .brows{max-width:980px}
+  @media (max-width:700px){.breport{grid-template-columns:1fr;padding:26px}.breport__img{max-width:160px}}
+  [data-theme="dark"] .breport{background:#15171c;border:1px solid #22252d}
+  @media (max-width:900px){.btop,.blayout{grid-template-columns:1fr;gap:32px}.btopics{position:static;display:flex;flex-wrap:wrap;gap:8px}.btopics h3{width:100%}.btopics button{width:auto;gap:8px;border:1px solid var(--line)}}
+  @media (max-width:600px){.brow{grid-template-columns:1fr;gap:14px}}
 </style>
 </head>
 <body>
@@ -50,6 +90,7 @@
     <a href="/films">Films</a>
     <a href="/work">Our Work</a>
     <a href="/about">About</a>
+    <a href="/blog" class="is-active">Blog</a>
     <a href="/contact">Contact</a>
   </nav>
   <div class="nav__cta">
@@ -73,6 +114,7 @@
     <li><a href="/films" data-mnav-link>Films</a></li>
     <li><a href="/work" data-mnav-link>Our Work</a></li>
     <li><a href="/about" data-mnav-link>About</a></li>
+    <li><a href="/blog" data-mnav-link>Blog</a></li>
     <li><a href="/contact" data-mnav-link>Contact</a></li>
   </ul>
   <div class="mnav__cta"><a class="btn btn--orange" data-book data-mnav-link href="/contact"><span>Book a Discovery Call</span><span class="arrow">&rarr;</span></a></div>
@@ -81,14 +123,14 @@
 <section class="phero">
   <span class="ast phero__bg" aria-hidden="true"></span>
   <div class="shell">
-<h1>Writing about <span class="kw">content</span>.</h1>
-    <p class="phero__sub">Occasional notes on photography, video and getting a business seen properly.</p>
+<h1>Writing about <span class="kw">films</span>.</h1>
+    <p class="phero__sub">Budgets, craft, being on camera and what actually makes people watch. Written by Earl, from the shoots themselves.</p>
   </div>
 </section>
 
 <section class="sec" style="padding-top:24px">
   <div class="shell">
-    <div class="wgrid" id="postList"></div>
+    <div id="postList"></div>
   </div>
 </section>
 
@@ -96,7 +138,7 @@
   <div class="footer__inner">
     <div class="footer__bottom" style="border-top:0;padding-top:0">
       <span>&copy; <span id="year">2026</span> s4digital. All rights reserved.</span>
-      <span><a href="/work">Our Work</a> &middot; <a href="/services">Services</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/sales" rel="nofollow" title="Sales" aria-label="Sales">&#9742;&#65039;</a></span>
+      <span><a href="/work">Our Work</a> &middot; <a href="/services">Services</a> &middot; <a href="/blog">Blog</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/sales" rel="nofollow" title="Sales" aria-label="Sales">&#9742;&#65039;</a></span>
     </div>
   </div>
 </footer>
@@ -114,6 +156,6 @@
 </button>
 
 <script src="/assets/site.js?v=202608181902"></script>
-<script src="/assets/post.js?v=202608181902"></script>
+<script src="/assets/post.js?v=202610050100"></script>
 </body>
 </html>

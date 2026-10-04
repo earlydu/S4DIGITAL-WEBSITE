@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Our Work | Content Case Studies | s4digital</title>
-<meta name="description" content="Photography and video case studies from s4digital across personal brands, trades, automotive, professional services, fitness and combat sports, events and documentary." />
-<link rel="canonical" href="https://s4digi.com/work" />
-<meta property="og:title" content="Our Work | Content Case Studies | s4digital" />
-<meta property="og:description" content="Photography and video case studies across personal brands, trades, automotive, professional services, fitness and combat sports." />
+<title>Free Video Resizer for Reels, TikTok and Shorts | s4digital</title>
+<meta name="description" content="Resize a video to 9:16, 1:1, 4:5 or 16:9 for socials, free and in your browser. Crop to the action or fit it over a blurred background, trim it, export it. Nothing is uploaded." />
+<link rel="canonical" href="https://s4digi.com/free-tools/video-resizer" />
+<meta property="og:title" content="Free Video Resizer for Reels, TikTok and Shorts | s4digital" />
+<meta property="og:description" content="Resize a video to 9:16, 1:1, 4:5 or 16:9 for socials, free and in your browser. Crop to the action or fit it over a blurred background, trim it, export it. Nothing is uploaded." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://s4digi.com/work" />
+<meta property="og:url" content="https://s4digi.com/free-tools/video-resizer" />
 <meta property="og:image" content="https://s4digi.com/assets/og-card.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
 <link rel="stylesheet" href="/assets/site.css?v=202610050500" />
+<link rel="stylesheet" href="/assets/free-tools.css?v=202610041200" />
 </head>
 <body>
 
@@ -35,7 +36,7 @@
     <a href="/">Home</a>
     <a href="/services">Services</a>
     <a href="/films">Films</a>
-    <a href="/work" class="is-active">Our Work</a>
+    <a href="/work">Our Work</a>
     <a href="/about">About</a>
     <a href="/blog">Blog</a>
     <a href="/contact">Contact</a>
@@ -74,39 +75,107 @@
   </div>
 </aside>
 
-<section class="phero">
+<section class="phero ft-hero">
   <span class="ast phero__bg" aria-hidden="true"></span>
   <div class="shell">
-<h1>Case <span class="kw">studies</span>.</h1>
-    <p class="phero__sub">What the client needed, what we produced and what was delivered.</p>
+    <h1>Resize a video for <span class="kw">socials</span>.</h1>
+    <p class="phero__sub">Turn one clip into 9:16 for Reels, TikTok and Shorts, 4:5 or 1:1 for the feed, or 16:9 for YouTube. It all happens in your browser, so the file never leaves your computer.</p>
   </div>
 </section>
 
-<section class="sec" style="padding-top:24px">
+<section class="ft-sec">
   <div class="shell">
-    <div class="wfilter" id="workFilters" role="group" aria-label="Filter case studies"></div>
-    <div id="workGrid"></div>
+    <div class="ft-panel">
+      <div class="ft-grid">
+        <div class="vr-stage">
+          <label class="ft-drop ft-drop--slim" id="vrDrop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z" fill="currentColor"/></svg>
+            <div><strong>Drop a video here, or choose one</strong><br><span>MP4, MOV or WebM. Whatever your browser can play.</span></div>
+            <input type="file" id="vrFile" accept="video/*" aria-label="Choose a video file" />
+          </label>
+          <div class="vr-canvas-wrap">
+            <canvas class="vr-canvas" id="vrCanvas" width="1080" height="1920" aria-label="Preview of the resized video"></canvas>
+            <div class="vr-empty" id="vrEmpty">Your preview shows up here.</div>
+          </div>
+          <div class="vr-transport">
+            <button class="ft-btn ft-btn--icon" id="vrPlay" type="button" aria-label="Play preview" disabled>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>
+            </button>
+            <input class="ft-range" type="range" id="vrScrub" min="0" max="1" step="0.01" value="0" aria-label="Scrub through the video" disabled />
+            <span class="vr-time" id="vrTime">0:00.0 / 0:00.0</span>
+          </div>
+          <p class="vr-file" id="vrFileName"></p>
+          <video class="vr-hidden-video" id="vrVideo" playsinline preload="auto"></video>
+        </div>
+
+        <div>
+          <div class="ft-group">
+            <span class="ft-label">Output size</span>
+            <div class="ft-seg" role="radiogroup" aria-label="Output size">
+              <label><input type="radio" name="vrRatio" value="9:16" checked><span>9:16<small>1080 x 1920</small></span></label>
+              <label><input type="radio" name="vrRatio" value="1:1"><span>1:1<small>1080 x 1080</small></span></label>
+              <label><input type="radio" name="vrRatio" value="4:5"><span>4:5<small>1080 x 1350</small></span></label>
+              <label><input type="radio" name="vrRatio" value="16:9"><span>16:9<small>1920 x 1080</small></span></label>
+            </div>
+          </div>
+
+          <div class="ft-group">
+            <span class="ft-label">How it fits</span>
+            <div class="ft-seg" role="radiogroup" aria-label="Fit mode">
+              <label><input type="radio" name="vrMode" value="fill" checked><span>Fill (crop)</span></label>
+              <label><input type="radio" name="vrMode" value="blur"><span>Fit with blurred background</span></label>
+            </div>
+            <div id="vrFocus" class="ft-row ft-row--split">
+              <label class="ft-field"><span>Left to right</span><input class="ft-range" type="range" id="vrFx" min="0" max="100" value="50" /></label>
+              <label class="ft-field"><span>Top to bottom</span><input class="ft-range" type="range" id="vrFy" min="0" max="100" value="50" /></label>
+            </div>
+            <p class="ft-hint" id="vrFocusHint">Drag the preview, or use the sliders, to choose which part of the frame stays in shot.</p>
+          </div>
+
+          <div class="ft-group">
+            <span class="ft-label">Trim (seconds)</span>
+            <div class="ft-row ft-row--split">
+              <label class="ft-field"><span>Start</span><input class="ft-input" type="number" id="vrStart" min="0" step="0.1" value="0" disabled /></label>
+              <label class="ft-field"><span>End</span><input class="ft-input" type="number" id="vrEnd" min="0" step="0.1" value="0" disabled /></label>
+            </div>
+            <div class="ft-row">
+              <button class="ft-btn" type="button" id="vrSetStart" disabled>Start at playhead</button>
+              <button class="ft-btn" type="button" id="vrSetEnd" disabled>End at playhead</button>
+            </div>
+          </div>
+
+          <div class="ft-group">
+            <button class="btn btn--orange" type="button" id="vrExport" disabled><span>Export video</span><span class="arrow">&rarr;</span></button>
+            <div class="ft-progress" id="vrProgressWrap" hidden><i id="vrProgress"></i></div>
+            <p class="ft-status" id="vrStatus" role="status" aria-live="polite"></p>
+            <div class="ft-result" id="vrResult" hidden>
+              <p id="vrResultText">Done.</p>
+              <a class="btn" id="vrDownload" href="#" download><span>Download</span><span class="arrow">&darr;</span></a>
+            </div>
+            <p class="ft-hint"><strong id="vrFormat">Output format</strong>. MP4 in Chrome, Edge and Safari; WebM in Firefox. Export runs in real time, so a 30 second clip takes about 30 seconds. Keep this tab open and in view until it&rsquo;s finished.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-how">
+      <div><h3>Fill or fit?</h3><p>Fill crops into the frame, which suits people and products in the middle of the shot. Fit keeps the whole picture and fills the gaps with a soft blur of the same clip.</p></div>
+      <div><h3>Which size where</h3><p>9:16 for Reels, TikTok, Shorts and Stories. 4:5 takes up the most room in the Instagram and Facebook feed. 1:1 is the safe all-rounder. 16:9 for YouTube and websites.</p></div>
+      <div><h3>Quality</h3><p>Exports at about 8 Mbps, which is plenty for social. If your browser can&rsquo;t open a file (some iPhone HEVC clips on Windows), convert it to a standard MP4 first.</p></div>
+    </div>
   </div>
 </section>
 
-<section class="cta" id="contact">
-  <span class="ast cta__giant" aria-hidden="true"></span>
-  <div class="cta__inner">
-    <div>
-<h2>Your turn</h2>
-      <p class="cta__sub">Tell us what you need content for and roughly when. We’ll come back within one working day with a clear next step.</p>
+<section class="ft-band">
+  <div class="shell">
+    <div class="ft-band__inner">
+      <p><strong>Need a proper film rather than a quick fix?</strong>We make documentary brand films for businesses worth telling a story about. Or start with our free playbook on planning, budgeting and hiring for one.</p>
+      <div class="ft-band__ctas">
+        <a class="btn" href="/films"><span>See our films</span><span class="arrow">&rarr;</span></a>
+        <a class="btn btn--ghost" href="/guide"><span>Free playbook</span><span class="arrow">&rarr;</span></a>
+      </div>
     </div>
-    <form class="cta__form" action="https://formsubmit.co/ajax/earl@s4digi.com" method="POST">
-      <input type="hidden" name="_subject" value="New enquiry from the work page">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off">
-      <input type="text" name="Name" placeholder="Your name" required />
-      <input type="email" name="Email" placeholder="Email address" required />
-      <input type="text" name="Company" placeholder="Company or brand" />
-      <textarea name="Message" placeholder="What do you need content for?"></textarea>
-      <button type="submit"><span>Send message</span><span class="arrow">&rarr;</span></button>
-    </form>
+    <a class="ft-back" href="/free-tools">&larr; All free tools</a>
   </div>
 </section>
 
@@ -182,7 +251,7 @@
 </button>
 
 <script src="/assets/site.js?v=202608181902"></script>
-<script src="/assets/work.js?v=202608181902"></script>
 <script src="/assets/form.js?v=202608181902"></script>
+<script src="/assets/free-tools/video-resizer.js?v=202610041200"></script>
 </body>
 </html>

@@ -275,6 +275,10 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .about__photo .placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;text-align:center;padding:18px;z-index:1}
 .about__copy h2{font-weight:900;font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.03em;margin:14px 0 16px}
 .about__copy h2 .kw{color:var(--blue)}
+/* two fixed lines, each kept whole */
+.about__copy h2.about__twoline{font-size:clamp(30px,3.5vw,50px)}
+.about__twoline > span{display:block;white-space:nowrap}
+@media (max-width:420px){.about__twoline > span{white-space:normal}}
 .about__copy .signed{font-weight:900;font-size:18px;color:var(--ink);margin-bottom:18px}
 .about__copy .signed .kw{color:var(--blue)}
 .about__copy p{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin-bottom:14px;max-width:54ch}
@@ -1578,3 +1582,7 @@ body.is-no-scroll{overflow:hidden}
 .lbox__prev{left:16px;top:50%;transform:translateY(-50%)}
 .lbox__next{right:16px;top:50%;transform:translateY(-50%)}
 @media (max-width:720px){.lbox{padding:64px 14px}.lbox__prev,.lbox__next{top:auto;bottom:16px;transform:none}}
+
+/* No widows: never leave one short word alone on the last line. */
+h1,h2,h3,h4,.btn,figcaption,summary,strong{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
