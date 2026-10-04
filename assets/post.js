@@ -30,31 +30,63 @@
     const href = p => esc(p.legacyUrl || '/blog/' + p.slug);
     const meta = p => '<span class="bmeta">' + esc(nice(p.date)) + ' &middot; ' + esc(p.readingTime || 5) + ' min read</span>';
     const img = p => p.cover ? '<img src="' + esc(p.cover) + '" alt="' + esc(p.coverAlt) + '" loading="lazy" />' : '';
-    const [lead, ...rest] = items;
+    const PER = 9, pages = Math.max(1, Math.ceil(items.length / PER));
+    const pageFromUrl = () => Math.min(pages, Math.max(1, parseInt(new URLSearchParams(location.search).get('page'), 10) || 1));
+    const row = p =>
+      '<a class="brow" href="' + href(p) + '">' +
+        '<div class="brow__img">' + img(p) + '</div>' +
+        '<div><h2>' + esc(p.title) + '</h2><p>' + esc(p.excerpt) + '</p>' + meta(p) + '</div>' +
+      '</a>';
+    const pager = n => {
+      if (pages < 2) return '';
+      const link = (k, label, cls) => '<a class="bpage' + (cls ? ' ' + cls : '') + '" href="/blog' + (k > 1 ? '?page=' + k : '') + '" data-page="' + k + '"' + (k === n && !cls ? ' aria-current="page"' : '') + '>' + label + '</a>';
+      let out = '<nav class="bpager" aria-label="Blog pages">';
+      if (n > 1) out += link(n - 1, '&larr; Newer', 'bpage--step');
+      for (let k = 1; k <= pages; k++) out += link(k, k);
+      if (n < pages) out += link(n + 1, 'Older &rarr;', 'bpage--step');
+      return out + '</nav>';
+    };
 
-    list.innerHTML =
-      '<div class="btop" id="blogTop">' +
-        '<a class="bfeat" href="' + href(lead) + '"><div class="bfeat__img">' + img(lead) + '</div>' +
-          '<h2>' + esc(lead.title) + '</h2><p>' + esc(lead.excerpt) + '</p>' + meta(lead) + '</a>' +
-        '<div class="brecent"><h3>Recent</h3>' +
-          rest.slice(0, 4).map(p => '<a href="' + href(p) + '"><strong>' + esc(p.title) + '</strong>' + meta(p) + '</a>').join('') +
-        '</div>' +
-      '</div>' +
-      '<a class="breport" href="/guide">' +
-        '<div class="breport__img"><img src="/assets/guide/guide-cover.png" alt="Cover of Before the Camera Comes Out, the free brand film playbook" loading="lazy" /></div>' +
-        '<div class="breport__body">' +
-          '<strong>Before the camera comes out: the free brand film playbook</strong>' +
-          '<p>The questions we ask, what films really cost, a brief template, a licensing checklist and a 30-day release plan. Everything we know, free.</p>' +
-          '<span class="btn btn--orange"><span>Get the guide</span><span class="arrow">&rarr;</span></span></div>' +
-      '</a>' +
-      '<div class="brows"><h3>All posts</h3>' +
-        items.map(p =>
-          '<a class="brow" href="' + href(p) + '">' +
-            '<div class="brow__img">' + img(p) + '</div>' +
-            '<div><h2>' + esc(p.title) + '</h2><p>' + esc(p.excerpt) + '</p>' + meta(p) + '</div>' +
-          '</a>').join('') +
-      '</div>';
+    const draw = (n, scroll) => {
+      const [lead, ...rest] = items;
+      const slice = items.slice((n - 1) * PER, n * PER);
+      list.innerHTML =
+        (n === 1 ?
+          '<div class="btop" id="blogTop">' +
+            '<a class="bfeat" href="' + href(lead) + '"><div class="bfeat__img">' + img(lead) + '</div>' +
+              '<h2>' + esc(lead.title) + '</h2><p>' + esc(lead.excerpt) + '</p>' + meta(lead) + '</a>' +
+            '<div class="brecent"><h3>Recent</h3>' +
+              rest.slice(0, 4).map(p => '<a href="' + href(p) + '"><strong>' + esc(p.title) + '</strong>' + meta(p) + '</a>').join('') +
+            '</div>' +
+          '</div>' +
+          '<a class="breport" href="/guide">' +
+            '<div class="breport__img"><img src="/assets/guide/guide-cover.png" alt="Cover of Before the Camera Comes Out, the free brand film playbook" loading="lazy" /></div>' +
+            '<div class="breport__body">' +
+              '<strong>Before the camera comes out: the free brand film playbook</strong>' +
+              '<p>The questions we ask, what films really cost, a brief template, a licensing checklist and a 30-day release plan. Everything we know, free.</p>' +
+              '<span class="btn btn--orange"><span>Get the guide</span><span class="arrow">&rarr;</span></span></div>' +
+          '</a>' : '') +
+        '<div class="brows" id="blogRows"><h3>' + (n === 1 ? 'All posts' : 'All posts &middot; page ' + n + ' of ' + pages) + '</h3>' +
+          slice.map(row).join('') +
+        '</div>' + pager(n);
+      document.title = (n > 1 ? 'Blog, page ' + n + ' | ' : 'Blog | ') + 's4digital, documentary brand films';
+      if (scroll) {
+        const t = document.getElementById(n === 1 ? 'blogTop' : 'blogRows');
+        const nav = document.querySelector('.nav');
+        if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - ((nav ? nav.offsetHeight : 0) + 24), behavior: 'smooth' });
+      }
+    };
 
+    list.addEventListener('click', e => {
+      const a = e.target.closest('a[data-page]');
+      if (!a) return;
+      e.preventDefault();
+      const n = +a.dataset.page;
+      history.pushState({ page: n }, '', a.getAttribute('href'));
+      draw(n, true);
+    });
+    window.addEventListener('popstate', () => draw(pageFromUrl(), true));
+    draw(pageFromUrl(), false);
   }
 
   function renderPost(items) {
