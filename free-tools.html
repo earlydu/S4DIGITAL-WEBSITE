@@ -20,8 +20,22 @@
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
-<link rel="stylesheet" href="/assets/site.css?v=202610050500" />
+<link rel="stylesheet" href="/assets/site.css?v=202610051000" />
 <link rel="stylesheet" href="/assets/free-tools.css?v=202610041200" />
+<style>
+  .ft-group{margin:0 0 56px}
+  .ft-group h2{font-weight:900;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em;margin:0 0 18px}
+  .ft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .ft-tool{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--paper);border:1px solid var(--line);color:inherit;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+  .ft-tool:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(13,13,15,.35)}
+  .ft-tool__tile{display:grid;place-items:center;aspect-ratio:16/10}
+  .ft-tool__tile img{width:46%;height:auto;filter:drop-shadow(0 12px 14px rgba(13,13,15,.25));transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+  .ft-tool:hover .ft-tool__tile img{transform:scale(1.08) rotate(-3deg)}
+  .ft-tool__body{display:block;padding:14px 16px 16px}
+  .ft-tool__body strong{display:block;font-size:16.5px;font-weight:900;letter-spacing:-.01em;margin-bottom:4px}
+  .ft-tool__body span{font-size:14px;line-height:1.45;color:var(--ink-2)}
+  [data-theme="dark"] .ft-tool{background:#15171c;border-color:#22252d}
+</style>
 </head>
 <body>
 
@@ -85,64 +99,7 @@
 
 <section class="sec" style="padding-top:12px">
   <div class="shell">
-    <div class="ft-cards">
-      <a class="ft-card" href="/free-tools/video-resizer">
-        <div class="ft-card__art" aria-hidden="true">
-          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linejoin="round">
-            <rect x="20" y="30" width="128" height="72" rx="5" stroke="currentColor" opacity=".35"/>
-            <rect x="96" y="12" width="62" height="110" rx="5" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".1"/>
-            <rect x="172" y="44" width="48" height="60" rx="5" stroke="currentColor" opacity=".6"/>
-            <rect x="172" y="112" width="48" height="26" rx="4" class="ft-art-orange" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
-            <path d="M120 58l16 9-16 9z" class="ft-art-blue" fill="currentColor" stroke="none"/>
-            <text x="127" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif">9:16</text>
-            <text x="196" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif" opacity=".7">4:5</text>
-            <text x="40" y="120" font-size="12" font-weight="700" fill="currentColor" stroke="none" font-family="Satoshi, sans-serif" opacity=".5">16:9</text>
-          </svg>
-        </div>
-        <div class="ft-card__body">
-          <h2>Video resizer for socials</h2>
-          <p>Turn one landscape clip into 9:16, 1:1, 4:5 or 16:9. Crop to the bit that matters, or fit it over a blurred background. Trim it while you&rsquo;re there.</p>
-          <span class="ft-card__go">Resize a video <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="ft-card" href="/free-tools/pdf-tools">
-        <div class="ft-card__art" aria-hidden="true">
-          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linejoin="round">
-            <rect x="46" y="28" width="66" height="88" rx="5" stroke="currentColor" opacity=".35" transform="rotate(-8 79 72)"/>
-            <rect x="62" y="22" width="66" height="88" rx="5" stroke="currentColor" fill="var(--paper)"/>
-            <path d="M74 44h42M74 56h42M74 68h30" stroke="currentColor" opacity=".45" stroke-linecap="round"/>
-            <path d="M140 66h22" class="ft-art-blue" stroke="currentColor" stroke-linecap="round"/>
-            <path d="M156 59l8 7-8 7" class="ft-art-blue" stroke="currentColor" stroke-linecap="round"/>
-            <rect x="174" y="22" width="44" height="58" rx="4" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".1"/>
-            <rect x="174" y="86" width="44" height="40" rx="4" class="ft-art-orange" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
-          </svg>
-        </div>
-        <div class="ft-card__body">
-          <h2>PDF tools</h2>
-          <p>Merge PDFs, pull out the pages you need, rotate and reorder pages, or turn a pile of JPGs and PNGs into one tidy A4 PDF.</p>
-          <span class="ft-card__go">Work on a PDF <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="ft-card" href="/free-tools/film-budget">
-        <div class="ft-card__art" aria-hidden="true">
-          <svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linecap="round">
-            <path d="M30 32h120M30 56h96M30 80h110M30 104h70" stroke="currentColor" opacity=".35"/>
-            <path d="M176 32h34M184 56h26M170 80h40M190 104h20" stroke="currentColor" opacity=".6"/>
-            <path d="M30 126h180" stroke="currentColor"/>
-            <rect x="120" y="116" width="90" height="20" rx="10" class="ft-art-blue" stroke="currentColor" fill="currentColor" fill-opacity=".12"/>
-            <circle cx="20" cy="104" r="4" class="ft-art-orange" fill="currentColor" stroke="none"/>
-          </svg>
-        </div>
-        <div class="ft-card__body">
-          <h2>Brand film budget calculator</h2>
-          <p>See what a film usually costs in the UK, line by line, before you talk to anyone. Typical market ranges, not a quote, with the working shown.</p>
-          <span class="ft-card__go">Work out a budget <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-    </div>
-
+    <div class="ft-group"><h2>Video and GIF</h2><div class="ft-grid"><a class="ft-tool" href="/free-tools/video-resizer"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/resize.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Video resizer for socials</strong><span>Any clip to 9:16, 1:1, 4:5 or 16:9.</span></span></a><a class="ft-tool" href="/free-tools/video-to-gif"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/gif.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Video to GIF</strong><span>Pick a moment, get a crisp GIF.</span></span></a><a class="ft-tool" href="/free-tools/trim-video"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/camera.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Trim video</strong><span>Cut a clip down to the good bit.</span></span></a><a class="ft-tool" href="/free-tools/compress-video"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/compress.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Compress video</strong><span>Smaller files for email and WhatsApp.</span></span></a><a class="ft-tool" href="/free-tools/mute-video"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/audio.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Mute video</strong><span>Strip the sound out of a clip.</span></span></a><a class="ft-tool" href="/free-tools/extract-audio"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/audio.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Extract audio</strong><span>Pull the sound out as a WAV.</span></span></a><a class="ft-tool" href="/free-tools/images-to-gif"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/gif.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Images to GIF</strong><span>Turn a set of photos into a GIF.</span></span></a><a class="ft-tool" href="/free-tools/gif-optimise"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/compress.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Optimise GIF</strong><span>Make a GIF much smaller.</span></span></a><a class="ft-tool" href="/free-tools/gif-resize"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/resize.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Resize GIF</strong><span>Change a GIF’s size.</span></span></a><a class="ft-tool" href="/free-tools/gif-crop"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/crop.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Crop GIF</strong><span>Crop to any shape or ratio.</span></span></a><a class="ft-tool" href="/free-tools/gif-speed"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/gif.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>GIF speed</strong><span>Speed a GIF up or slow it down.</span></span></a><a class="ft-tool" href="/free-tools/gif-reverse"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/gif.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Reverse GIF</strong><span>Backwards or boomerang.</span></span></a><a class="ft-tool" href="/free-tools/add-text-to-gif"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/gif.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Add text to GIF</strong><span>Captions and meme text.</span></span></a><a class="ft-tool" href="/free-tools/gif-to-mp4"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/camera.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>GIF to MP4</strong><span>A GIF as a proper video file.</span></span></a><a class="ft-tool" href="/free-tools/gif-frames"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/image.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Split GIF into frames</strong><span>Every frame as a PNG.</span></span></a></div></div><div class="ft-group"><h2>PDF and documents</h2><div class="ft-grid"><a class="ft-tool" href="/free-tools/merge-pdf"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/merge.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Merge PDF</strong><span>Join several PDFs into one.</span></span></a><a class="ft-tool" href="/free-tools/split-pdf"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/split.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Split PDF</strong><span>Break a PDF into parts.</span></span></a><a class="ft-tool" href="/free-tools/compress-pdf"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/compress.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Compress PDF</strong><span>Shrink a heavy PDF.</span></span></a><a class="ft-tool" href="/free-tools/word-to-pdf"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/convert.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Word to PDF</strong><span>A .docx as a clean PDF.</span></span></a><a class="ft-tool" href="/free-tools/pdf-to-word"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/convert.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>PDF to Word</strong><span>Editable text from a PDF.</span></span></a><a class="ft-tool" href="/free-tools/excel-to-pdf"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/excel.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Excel to PDF</strong><span>Spreadsheets as tidy pages.</span></span></a><a class="ft-tool" href="/free-tools/pdf-to-excel"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/excel.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>PDF to Excel</strong><span>Tables out of a PDF.</span></span></a><a class="ft-tool" href="/free-tools/powerpoint-to-pdf"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/powerpoint.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>PowerPoint to PDF</strong><span>Simple decks as a PDF.</span></span></a><a class="ft-tool" href="/free-tools/sign-pdf"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/sign.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Sign PDF</strong><span>Draw or type a signature.</span></span></a><a class="ft-tool" href="/free-tools/pdf-to-jpg"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/image.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>PDF to JPG</strong><span>Every page as an image.</span></span></a><a class="ft-tool" href="/free-tools/jpg-to-pdf"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>JPG to PDF</strong><span>Photos into one PDF.</span></span></a><a class="ft-tool" href="/free-tools/extract-pages"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/split.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Extract pages</strong><span>Keep only the pages you need.</span></span></a><a class="ft-tool" href="/free-tools/delete-pages"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Delete pages</strong><span>Remove pages from a PDF.</span></span></a><a class="ft-tool" href="/free-tools/organise-pdf"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Organise PDF</strong><span>Reorder, rotate and remove.</span></span></a><a class="ft-tool" href="/free-tools/rotate-pdf"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Rotate PDF</strong><span>Turn pages the right way up.</span></span></a><a class="ft-tool" href="/free-tools/add-page-numbers"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Add page numbers</strong><span>Number every page.</span></span></a><a class="ft-tool" href="/free-tools/watermark-pdf"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/pdf.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Watermark PDF</strong><span>Stamp text across pages.</span></span></a><a class="ft-tool" href="/free-tools/crop-pdf"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/crop.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Crop PDF</strong><span>Trim the margins.</span></span></a><a class="ft-tool" href="/free-tools/pdf-to-text"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/convert.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>PDF to text</strong><span>Copy out all the words.</span></span></a></div></div><div class="ft-group"><h2>Images</h2><div class="ft-grid"><a class="ft-tool" href="/free-tools/compress-image"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/compress.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Compress image</strong><span>Smaller JPG, PNG and WebP.</span></span></a><a class="ft-tool" href="/free-tools/resize-image"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/resize.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Resize image</strong><span>Exact sizes, in batches.</span></span></a><a class="ft-tool" href="/free-tools/convert-image"><span class="ft-tool__tile" style="background:#0d0d0f"><img src="/assets/free-tools/icons/convert.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Convert image</strong><span>JPG, PNG, WebP, and HEIC to JPG.</span></span></a><a class="ft-tool" href="/free-tools/crop-image"><span class="ft-tool__tile" style="background:#F4EEE4"><img src="/assets/free-tools/icons/crop.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Crop image</strong><span>Free or 1:1, 4:5, 9:16, 16:9.</span></span></a><a class="ft-tool" href="/free-tools/youtube-thumbnail"><span class="ft-tool__tile" style="background:#3EA3FC"><img src="/assets/free-tools/icons/youtube.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>YouTube thumbnail</strong><span>Grab any video’s thumbnail.</span></span></a></div></div><div class="ft-group"><h2>Planning a film</h2><div class="ft-grid"><a class="ft-tool" href="/free-tools/film-budget"><span class="ft-tool__tile" style="background:#FF6A2C"><img src="/assets/free-tools/icons/budget.webp" alt="" loading="lazy" width="120" height="120"></span><span class="ft-tool__body"><strong>Brand film budget calculator</strong><span>What a film really costs, line by line.</span></span></a></div></div>
     <div class="ft-how">
       <div><h3>Nothing gets uploaded</h3><p>The video and PDF tools do all the work on your own device. There&rsquo;s no server in the middle, so client files and rough cuts stay private.</p></div>
       <div><h3>No account, no email</h3><p>Open a tool and use it. We don&rsquo;t ask for your details and we don&rsquo;t stamp anything on what you make.</p></div>
@@ -199,6 +156,19 @@
           <li><a href="/services#faq">FAQ</a></li>
           <li><a href="/planpulse">Content planning app</a></li>
           <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="/free-tools/video-to-gif">Video to GIF</a></li>
+          <li><a href="/free-tools/video-resizer">Video resizer</a></li>
+          <li><a href="/free-tools/merge-pdf">Merge PDF</a></li>
+          <li><a href="/free-tools/word-to-pdf">Word to PDF</a></li>
+          <li><a href="/free-tools/compress-image">Compress image</a></li>
+          <li><a href="/free-tools/youtube-thumbnail">YouTube thumbnail</a></li>
+          <li><a href="/free-tools/film-budget">Film budget calculator</a></li>
+          <li><a href="/free-tools">All free tools</a></li>
         </ul>
       </div>
       <div class="footer__col">

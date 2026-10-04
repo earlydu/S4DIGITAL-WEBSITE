@@ -683,7 +683,7 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 /* footer */
 .footer{background:var(--ink);color:#cfd0d6;padding:64px var(--gutter) 28px}
 .footer__inner{max-width:var(--max);margin-inline:auto}
-.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer__top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer__brand img{height:24px;margin-bottom:18px;filter:brightness(0) invert(1)}
 .footer__brand p{font-size:14px;line-height:1.6;max-width:34ch;color:#a5a6ae}
 .footer__brand .socials{display:flex;gap:8px;margin-top:22px}
