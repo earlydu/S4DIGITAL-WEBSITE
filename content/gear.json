@@ -1,0 +1,15 @@
+{
+  "note": "Kit Earl actually uses. A card appears automatically on any blog post whose text matches one of the 'match' phrases. Set 'affiliate' to the tracked link once the programme approves you; 'url' is used until then.",
+  "items": [
+    {
+      "id": "ursa-circles",
+      "name": "URSA Circles",
+      "maker": "URSA Straps",
+      "why": "The furry covers I put on every lav. They cut clothing rustle and light wind, and they hide the mic under a shirt.",
+      "image": "",
+      "url": "https://ursastraps.com/collections/lav-accessories",
+      "affiliate": "",
+      "match": ["lav mic", "lavalier", "clothing rustle", "lav "]
+    }
+  ]
+}

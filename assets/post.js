@@ -227,6 +227,27 @@
       move();
     }
 
+    // Gear I actually use: matched automatically from content/gear.json by phrases in the post.
+    if (body) fetch('/api/content?file=gear', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(g => {
+      if (!g || !g.items) return;
+      const text = body.innerText.toLowerCase();
+      const hits = g.items.filter(it => (it.match || []).some(m => text.includes(m.toLowerCase())));
+      if (!hits.length) return;
+      const box = document.createElement('aside');
+      box.className = 'pgear';
+      box.innerHTML = '<h3>What I use</h3>' + hits.map(it => {
+        const link = it.affiliate || it.url, aff = !!it.affiliate;
+        return '<a class="pgear__item" href="' + esc(link) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '">' +
+          (it.image ? '<img src="' + esc(it.image) + '" alt="' + esc(it.name) + '" loading="lazy" />' : '') +
+          '<span><strong>' + esc(it.name) + '</strong><em>' + esc(it.maker || '') + '</em><span>' + esc(it.why) + '</span>' +
+          '<b>' + (aff ? 'See the price' : 'Take a look') + ' &rarr;</b></span></a>';
+      }).join('') +
+        (hits.some(it => it.affiliate) ? '<p class="pgear__note">Some links here are affiliate links. If you buy through one I may earn a small commission, at no extra cost to you. I only list kit I use.</p>' : '');
+      const h2 = body.querySelectorAll(':scope > h2');
+      const at = h2[Math.min(2, h2.length - 1)];
+      at ? at.parentNode.insertBefore(box, at) : body.appendChild(box);
+    }).catch(() => {});
+
     // Photos in the article open full size when clicked.
     if (body) {
       const imgs = Array.from(body.querySelectorAll('figure img, .pair img')).concat(Array.from(page.querySelectorAll('.article__cover img')));
