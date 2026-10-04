@@ -235,14 +235,20 @@
       if (!hits.length) return;
       const box = document.createElement('aside');
       box.className = 'pgear';
+      let anyAff = false;
       box.innerHTML = '<h3>What I use</h3>' + hits.map(it => {
-        const link = it.affiliate || it.url, aff = !!it.affiliate;
+        let link = it.affiliate || it.url, aff = !!it.affiliate;
+        const pr = g.programmes || {};
+        if (!aff && pr.amazon_uk_tag && /^https:\/\/(www\.)?amazon\.co\.uk\//.test(link)) {
+          link += (link.includes('?') ? '&' : '?') + 'tag=' + encodeURIComponent(pr.amazon_uk_tag); aff = true;
+        }
+        if (aff) anyAff = true;
         return '<a class="pgear__item" href="' + esc(link) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '">' +
           (it.image ? '<img src="' + esc(it.image) + '" alt="' + esc(it.name) + '" loading="lazy" />' : '') +
           '<span><strong>' + esc(it.name) + '</strong><em>' + esc(it.maker || '') + '</em><span>' + esc(it.why) + '</span>' +
-          '<b>' + (aff ? 'See the price' : 'Take a look') + ' &rarr;</b></span></a>';
+          '<b>' + (aff ? 'See the price' : 'Take a look') + ' &rarr;</b>' + (it.imageCredit ? '<small>' + esc(it.imageCredit) + '</small>' : '') + '</span></a>';
       }).join('') +
-        (hits.some(it => it.affiliate) ? '<p class="pgear__note">Some links here are affiliate links. If you buy through one I may earn a small commission, at no extra cost to you. I only list kit I use.</p>' : '');
+        (anyAff ? '<p class="pgear__note">Some links here are affiliate links. If you buy through one I may earn a small commission, at no extra cost to you. I only list kit I use.</p>' : '');
       const h2 = body.querySelectorAll(':scope > h2');
       const at = h2[Math.min(2, h2.length - 1)];
       at ? at.parentNode.insertBefore(box, at) : body.appendChild(box);
