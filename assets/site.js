@@ -409,28 +409,6 @@
       .catch(() => { track.innerHTML = '<div class="gal__loading">Films are loading. Please refresh in a moment.</div>'; });
   })();
 
-  /* ---------- Static sideways rails (about page). Case study rails are wired in work.js ---------- */
-  document.querySelectorAll('.rail[data-static]').forEach(rail => {
-    const track = rail.querySelector('.cs__gallery--row');
-    if (!track) return;
-    const sync = () => {
-      const far = track.scrollWidth - track.clientWidth;
-      rail.classList.toggle('rail--off', far <= 1);
-      rail.classList.toggle('at-start', track.scrollLeft <= 1);
-      rail.classList.toggle('at-end', track.scrollLeft >= far - 1);
-    };
-    rail.querySelectorAll('[data-rail]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const step = Math.max(240, Math.round(track.clientWidth * 0.85));
-        track.scrollBy({ left: btn.dataset.rail === 'prev' ? -step : step, behavior: 'smooth' });
-      });
-    });
-    track.addEventListener('scroll', sync, { passive: true });
-    window.addEventListener('resize', sync);
-    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(track);
-    sync();
-  });
-
   /* ---------- Lightbox for [data-lightbox] links (about page photos) ---------- */
   (function () {
     const links = Array.from(document.querySelectorAll('a[data-lightbox]'));
