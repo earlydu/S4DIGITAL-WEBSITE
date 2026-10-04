@@ -409,6 +409,83 @@
       .catch(() => { track.innerHTML = '<div class="gal__loading">Films are loading. Please refresh in a moment.</div>'; });
   })();
 
+  /* ---------- Static sideways rails (about page). Case study rails are wired in work.js ---------- */
+  document.querySelectorAll('.rail[data-static]').forEach(rail => {
+    const track = rail.querySelector('.cs__gallery--row');
+    if (!track) return;
+    const sync = () => {
+      const far = track.scrollWidth - track.clientWidth;
+      rail.classList.toggle('rail--off', far <= 1);
+      rail.classList.toggle('at-start', track.scrollLeft <= 1);
+      rail.classList.toggle('at-end', track.scrollLeft >= far - 1);
+    };
+    rail.querySelectorAll('[data-rail]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const step = Math.max(240, Math.round(track.clientWidth * 0.85));
+        track.scrollBy({ left: btn.dataset.rail === 'prev' ? -step : step, behavior: 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(track);
+    sync();
+  });
+
+  /* ---------- Lightbox for [data-lightbox] links (about page photos) ---------- */
+  (function () {
+    const links = Array.from(document.querySelectorAll('a[data-lightbox]'));
+    if (!links.length) return;
+    const arrow = d => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="' + (d < 0 ? '15 18 9 12 15 6' : '9 18 15 12 9 6') + '"/></svg>';
+    const box = document.createElement('div');
+    box.className = 'lbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-hidden', 'true');
+    box.innerHTML =
+      '<figure class="lbox__fig"><img class="lbox__img" alt="" /><figcaption class="lbox__cap"></figcaption></figure>' +
+      '<button type="button" class="lbox__btn lbox__close" aria-label="Close">&times;</button>' +
+      '<button type="button" class="lbox__btn lbox__prev" aria-label="Previous photo">' + arrow(-1) + '</button>' +
+      '<button type="button" class="lbox__btn lbox__next" aria-label="Next photo">' + arrow(1) + '</button>';
+    document.body.appendChild(box);
+    const img = box.querySelector('.lbox__img');
+    const cap = box.querySelector('.lbox__cap');
+    let i = 0, opener = null;
+
+    const show = n => {
+      i = (n + links.length) % links.length;
+      const a = links[i], thumb = a.querySelector('img'), fc = a.querySelector('figcaption');
+      img.src = a.href;
+      img.alt = thumb ? thumb.alt : '';
+      cap.textContent = fc ? fc.textContent : '';
+    };
+    const open = n => {
+      opener = document.activeElement;
+      show(n);
+      box.classList.add('is-open');
+      box.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      box.querySelector('.lbox__close').focus();
+    };
+    const close = () => {
+      box.classList.remove('is-open');
+      box.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (opener) opener.focus();
+    };
+
+    links.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); open(n); }));
+    box.querySelector('.lbox__close').addEventListener('click', close);
+    box.querySelector('.lbox__prev').addEventListener('click', () => show(i - 1));
+    box.querySelector('.lbox__next').addEventListener('click', () => show(i + 1));
+    box.addEventListener('click', e => { if (e.target === box) close(); });
+    document.addEventListener('keydown', e => {
+      if (!box.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(i - 1);
+      else if (e.key === 'ArrowRight') show(i + 1);
+    });
+  })();
+
   /* ---------- In-page smooth scrolling ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (a.hasAttribute('data-book')) return;
