@@ -114,20 +114,30 @@
     const h2s = body ? body.querySelectorAll(':scope > h2') : [];
 
     // A stat with its source, drawn as a single-series bar chart in the brand blue.
-    if (p.stat && h2s.length) {
-      const st = p.stat, max = Math.max.apply(null, st.bars.map(b => b.value)) || 1;
+    // A stat with its source. One per post via p.stat, or several via p.stats placed in <div class="pstat-slot" data-stat="id">.
+    const makeStat = st => {
+      const max = Math.max.apply(null, st.bars.map(b => b.value)) || 1;
       const fig = document.createElement('figure');
-      fig.className = 'pstat';
       fig.className = 'pstat pstat--' + (st.type || 'bars');
       fig.innerHTML = '<figcaption class="pstat__title">' + esc(st.title) + '</figcaption>' + vizHtml(st, max) +
         (st.takeaway ? '<p class="pstat__take">' + esc(st.takeaway) + '</p>' : '') +
-        '<p class="pstat__src">Source: <a href="' + esc(st.source.url) + '" target="_blank" rel="noopener">' + esc(st.source.name) + '</a></p>';
-      const at = h2s[Math.min(st.after != null ? st.after : 1, h2s.length - 1)];
-      at.parentNode.insertBefore(fig, at);
+        (st.note ? '<p class="pstat__src">' + esc(st.note) + '</p>' : '') +
+        (st.source ? '<p class="pstat__src">Source: ' + (st.source.url ? '<a href="' + esc(st.source.url) + '" target="_blank" rel="noopener">' + esc(st.source.name) + '</a>' : esc(st.source.name)) + '</p>' : '');
       if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { fig.classList.add('is-in'); countUp(fig); io.disconnect(); } }), { threshold: 0.4 });
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { fig.classList.add('is-in'); countUp(fig); io.disconnect(); } }), { threshold: 0.3 });
         io.observe(fig);
       } else { fig.classList.add('is-in'); countUp(fig); }
+      return fig;
+    };
+    if (p.stat && h2s.length) {
+      const at = h2s[Math.min(p.stat.after != null ? p.stat.after : 1, h2s.length - 1)];
+      at.parentNode.insertBefore(makeStat(p.stat), at);
+    }
+    if (Array.isArray(p.stats) && body) {
+      body.querySelectorAll('.pstat-slot[data-stat]').forEach(slot => {
+        const st = p.stats.find(x => x.id === slot.dataset.stat);
+        if (st) slot.replaceWith(makeStat(st)); else slot.remove();
+      });
     }
 
     // One promo break a little past the middle: the free planning guide.
@@ -321,6 +331,13 @@
         '<circle cx="50" cy="50" r="' + r + '" class="pstat__ringfg" style="--c:' + c.toFixed(1) + ';--o:' + (c * (1 - v / 100)).toFixed(1) + '" transform="rotate(-90 50 50)"/></svg>';
     };
     switch (st.type) {
+      case 'paired': {
+        const names = (st.series || []).map(x => x.name), mx = Math.max.apply(null, bars.map(b => Math.max.apply(null, b.values))) || 1;
+        return '<div class="pstat__legendrow">' + names.map((n, i) => '<span class="s' + i + '"><i></i>' + esc(n) + '</span>').join('') + '</div>' +
+          '<div class="pstat__paired">' + bars.map(b => '<div class="pstat__pgroup"><span class="pstat__label">' + esc(b.label) + '</span>' +
+            b.values.map((v, i) => '<div class="pstat__prow s' + i + '"><span class="pstat__track"><span class="pstat__bar" style="--w:' + (v / mx * 100).toFixed(1) + '%"></span></span><span class="pstat__val">' + esc(v) + u + '</span></div>').join('') +
+          '</div>').join('') + '</div>';
+      }
       case 'rings':
         return '<div class="pstat__rings">' + bars.map(b => '<div class="pstat__ringitem"><div class="pstat__ringwrap">' + ring(b.value, 120) +
           '<span class="pstat__ringval">' + esc(b.value) + u + '</span></div><span class="pstat__label">' + esc(b.label) + '</span></div>').join('') + '</div>';

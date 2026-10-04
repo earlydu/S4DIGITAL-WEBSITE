@@ -5,7 +5,8 @@
     "Budgets and pricing",
     "Being on camera",
     "Strategy",
-    "Craft and gear"
+    "Craft and gear",
+    "Research"
   ],
   "items": [
     {
@@ -956,6 +957,262 @@
         },
         "after": 5
       }
+    },
+    {
+      "slug": "faceless-small-business-websites-report-2026",
+      "title": "Half of UK small business websites are faceless",
+      "category": "Research",
+      "excerpt": "We checked 1,381 UK small business websites. 751 had no video and named nobody. Here's what we found, sector by sector, and the cheap fixes that work.",
+      "cover": "/assets/blog/faceless-small-business-websites-report-2026.jpg",
+      "coverAlt": "A laptop on an independent shop counter showing a website whose team photos are grey placeholder silhouettes",
+      "body": "<p>More than half of the UK small business websites we checked are faceless. 751 of 1,381 sites (54.4%) had no video on the homepage or about page and didn't name a single person behind the business. Seven in ten had no video at all, and three in four didn't put a name to anyone.</p><p>We make documentary-style brand films, so I'll be honest: I went in expecting a gap. I didn't expect it to be this wide. Here's what we did, what came out, and what I'd do about it this month if it were my website.</p><h2>What did we actually check?</h2><p>On 4 October 2026 we ran an automated check on 1,381 UK small business websites, drawn from two separate places.</p><p>783 came from our own prospecting and directory lists, with chains, plcs, charities and non-UK sites taken out. That list leans towards trades, EV charging and building services, because that's who we used to work with. So we didn't want to lean on it alone.</p><p>The other 598 came from <a href=\"https://www.openstreetmap.org\">OpenStreetMap</a>, the free, volunteer-built map. We pulled every business with a website listed across 24 UK cities, covering every nation and English region: independent shops, cafes, restaurants and pubs, food and drink makers, hair and beauty, creative studios, dentists, vets, clinics, gyms, accountants, solicitors and architects. Nobody picked those businesses off a sales list, which makes it the fairer test. We removed brands, chains, charities and public bodies, drew a random sample with quotas by business type, and checked it again by hand.</p><p>For each site we looked at the homepage plus one linked about or team page, and recorded a handful of things. Is there any video? Is a real person named? Does the business lean on reviews? Which social platforms does it link to? Same code and the same rules for both sources, so the numbers sit side by side.</p><div class=\"pstat-slot\" data-stat=\"two-samples\"></div><p>The OpenStreetMap sample, the one with no sales bias, came out slightly worse on both counts. 437 of 598 (73.1%) had no video, against 544 of 783 (69.5%) from our lists. 475 of 598 (79.4%) named nobody, against 569 of 783 (72.7%).</p><h2>How many small business websites have no video?</h2><p>981 of 1,381 (71.0%). Take trades, EV and building services out and it barely moves: 631 of 905 (69.7%).</p><div class=\"pstat-slot\" data-stat=\"no-video\"></div><p>No sector gets off lightly. Health, care and fitness did best, and still 108 of 180 (60.0%) had no video. Building services came bottom at 108 of 141 (76.6%), with EV charging and energy close behind at 98 of 130 (75.4%). Among independent shops in the OpenStreetMap sample it was 99 of 122 (81.1%), though that's a small group, so treat it as colour rather than a headline.</p><div class=\"pstat-slot\" data-stat=\"no-video-by-sector\"></div><h2>What kind of video do the rest have?</h2><p>Mostly the silent kind. Of the 400 sites with any video, 288 (72.0%) only had self-hosted video, which is usually a muted loop playing behind the headline. Only 112 of 1,381 (8.1%) embedded a playable video, the kind you press play on and hear someone talk.</p><div class=\"pstat-slot\" data-stat=\"video-kind\"></div><p>I get why the loops are there. Site builders make them easy and they make a homepage feel like it's moving. But nobody says anything. A visitor gets a mood and no information, and certainly no sense of who they'd be dealing with.</p><aside class=\"note\"><img class=\"note__head\" src=\"/assets/earl/earl-head.png\" alt=\"Earl\" loading=\"lazy\" /><p class=\"note__bubble\">A slow-motion pour of a flat white has never once answered the question \"who am I actually dealing with?\"</p></aside><h2>How many businesses name the people behind them?</h2><p>Very few. 1,044 of 1,381 (75.6%) didn't name a single person on the pages we checked. Having an about page didn't fix it either. Of the 765 sites with a linked about or team page, 458 (59.9%) still named nobody. An about page with nobody on it is a strange thing to publish, and it's the norm.</p><div class=\"pstat-slot\" data-stat=\"named-by-sector\"></div><p>Professional services were the most likely to name someone, at 80 of 159 (50.3%), followed by estate and letting agents at 44 of 104 (42.3%). Then it drops off a cliff. Trades named someone on 40 of 205 sites (19.5%), EV charging and energy on 22 of 130 (16.9%), independent retail and makers on 37 of 249 (14.9%), and hospitality, food and drink on 13 of 180 (7.2%). In the OpenStreetMap sample, cafes, restaurants and pubs named a person on 4 of 104 sites (3.8%).</p><h2>So how many are faceless?</h2><p>Put the two together, no video and no named person, and you get 751 of 1,381 (54.4%). In the OpenStreetMap sample on its own it's 351 of 598 (58.7%).</p><div class=\"pstat-slot\" data-stat=\"faceless\"></div><blockquote class=\"pull\">More than half of the small business websites we checked had no video and didn't name a single person.</blockquote><p>By sector, hospitality, food and drink was the most faceless at 120 of 180 (66.7%), then independent retail and makers at 163 of 249 (65.5%) and EV charging and energy at 83 of 130 (63.8%). Professional services were the least, at 54 of 159 (34.0%), which is still one in three.</p><h2>Where are businesses putting their trust instead?</h2><p>Mostly in reviews. 677 of 1,381 (49.0%) showed testimonials, a review widget or a review count, and 467 of those 677 (69.0%) had no video. So on a lot of sites, strangers are doing all the talking while the owner stays out of shot. Google was the most common widget (122 sites), then Trustpilot (57) and Checkatrade (28).</p><p>The social links tell a similar story. 195 of 1,381 (14.1%) linked to a YouTube channel, and 99 of those 195 (50.8%) showed no video on the pages we checked. Half the businesses with a YouTube channel are sending visitors off-site to find the video instead of putting it in front of them. TikTok turned up on 100 of 1,381 (7.2%), and 370 of 1,381 (26.8%) linked to none of YouTube, Instagram, TikTok, LinkedIn or Facebook.</p><div class=\"pstat-slot\" data-stat=\"socials\"></div><h2>Why does a faceless website matter?</h2><p>Because people buy from people. Someone picking a dentist, a builder, an accountant or a cafe for a works lunch is about to trust a stranger with their mouth, their house, their money or their afternoon. The first thing they want to know is who. A site that answers with a logo, a slogan and a stock photo makes them work harder for that answer, and some of them won't bother.</p><p>Reviews help, and I'd never tell anyone to take them down. But they're other people's words about you. They can tell a visitor you turned up on time. They can't show how you talk, what you care about, or whether you're someone they'd get on with. That's what a face, a name and a voice do, and it's what a muted background loop can't.</p><p>There's an upside in these numbers too. If more than half of the sites a customer compares are faceless, showing yourself is one of the cheapest ways to stand out. You don't need to beat everyone's design. You just need to be the one who turned up.</p><h2>What can you do about it this month?</h2><p>Start with the free stuff and work up. Most of this is an afternoon, not a project.</p><ol><li><strong>Name the owner.</strong> Put a full name and a role on the homepage and the about page. \"Run by\" plus a name costs nothing and changes how the whole site reads.</li><li><strong>Add one real photo.</strong> You, at work, in your actual place of work. A phone by a window in daylight is plenty. Swap out the stock image of a handshake while you're there.</li><li><strong>Record a 60 second phone video.</strong> Who you are, what you do, who it's for, and what happens when someone gets in touch. Don't script it word for word, just know your three points. If talking to a lens makes you freeze, <a href=\"/blog/how-to-prepare-for-being-filmed-brand-film-interview\">this guide to being filmed</a> works just as well for a phone as a crew. Then run it through our free <a href=\"/free-tools/video-resizer\">video resizer</a> to get versions for your site, Instagram and TikTok from one file.</li><li><strong>Put an actual video on the homepage.</strong> One people can press play on and hear. If you've already got a YouTube channel, embed the best one near the top instead of linking out. If there's a silent loop up there now, that's the spot.</li></ol><p>When you're ready for something with more weight behind it, our free 44-page playbook, <a href=\"/guide\">Before the camera comes out</a>, walks through finding the story in your business before anyone films anything. And if you want us to make it with you, have a look at <a href=\"/films\">how our films work</a>.</p><h2>How we did it, and what it can't tell you</h2><p>The crawler visited each site's homepage and one linked about or team page, with a desktop browser setting, a 10 second timeout, one request at a time, and robots.txt respected. Video meant embedded players, HTML video tags and video files, including site-builder background video. A named person meant a full name next to a role, \"founded by\" or \"run by\" plus a name, or a team profile. Reviewers' names didn't count.</p><p>A few honest limits. Neither sample is random across every UK small business. Our lists skew towards London, the South East and trades, and OpenStreetMap favours mapped, city-based businesses with shopfronts, drawn with quotas. So these figures describe these 1,381 sites, and the combined totals depend on the sector mix. We only checked two pages per site. Automated detection can miss video that loads by script, and it won't count an owner who only gives a first name. Spot checks suggest the \"no video\" and \"no named person\" figures may run a few points high, though in 440 OpenStreetMap \"no video\" sites we found only 2 or 3 missed videos, and 25 random named-person hits were all real staff. Sites that blocked automated visits (87 from our lists, 54 from OpenStreetMap) are missing, and they may be better resourced.</p><p>On London: within the OpenStreetMap sample there's no real difference. 63 of 87 London sites (72.4%) had no video, against 374 of 511 (73.2%) elsewhere. We don't name or describe any business, and the site-level data stays private.</p><h2>Can journalists get the full data?</h2><p>Yes. If you're writing about small businesses, marketing or trust online, I'm happy to share the sector tables, the confidence intervals and the full method, and to talk it through. Email <a href=\"/contact\">our contact page</a> or get in touch through the <a href=\"/contact\">contact page</a>.</p>",
+      "status": "published",
+      "date": "2026-10-06",
+      "readingTime": 8,
+      "author": "Earl Duncan",
+      "legacyUrl": "",
+      "faqs": [
+        {
+          "q": "How was the website audit done?",
+          "a": "We used an automated crawler on 4 October 2026 to check 1,381 UK small business websites, 783 from our own prospect lists and 598 sampled from OpenStreetMap across 24 UK cities. It looked at each homepage and one linked about or team page, recording video, named people, reviews and social links, with the same rules for both sources."
+        },
+        {
+          "q": "Is the sample representative of all UK small businesses?",
+          "a": "Not strictly, and we say so. Neither source is a random draw of every UK small business. Our lists lean towards trades and the South East, and OpenStreetMap favours city businesses with shopfronts. The figures describe these 1,381 sites, but the two samples point the same way, which is why we're confident the pattern is real."
+        },
+        {
+          "q": "Can I get the underlying data?",
+          "a": "Journalists and researchers can have the sector tables, confidence intervals and full method. Email the contact page at s4digi.com/contact or use the contact page. We don't share which businesses were checked, because the point of the study is the pattern across the sample, not any single website."
+        },
+        {
+          "q": "What's the quickest fix for a faceless website?",
+          "a": "Put the owner's full name and role on the homepage today. It's free and takes minutes. Next, add one real photo of you at work, then record a 60 second phone video saying who you are and who you help, and embed it where visitors can press play and hear you."
+        }
+      ],
+      "stats": [
+        {
+          "id": "no-video",
+          "type": "big",
+          "title": "Seven in ten small business websites have no video",
+          "unit": "%",
+          "note": "Embedded players (YouTube, Vimeo and similar) and self-hosted video files both count as video. Base: 1,381 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "No video on the homepage or about page",
+              "value": 71.0
+            }
+          ]
+        },
+        {
+          "id": "video-kind",
+          "type": "donut",
+          "title": "Where there is video, it's mostly a silent background loop",
+          "unit": "%",
+          "note": "Base is sites with any video. Base: 400 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "Self-hosted or background video only",
+              "value": 72.0
+            },
+            {
+              "label": "A playable embedded video (YouTube, Vimeo and similar)",
+              "value": 28.0
+            }
+          ]
+        },
+        {
+          "id": "faceless",
+          "type": "people",
+          "title": "More than half are faceless: no video and no named person",
+          "unit": "%",
+          "note": "Named person means a full name next to a role, or a team profile, on the homepage or a linked about or team page. Base: 1,381 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "No video and no named person",
+              "value": 54.4
+            }
+          ]
+        },
+        {
+          "id": "named-by-sector",
+          "type": "bars",
+          "title": "Who puts a name to the business",
+          "unit": "%",
+          "note": "Share of sites naming at least one person. Sectors with fewer than 50 sites left out. Base: 1,348 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "Professional services",
+              "value": 50.3
+            },
+            {
+              "label": "Estate and letting agents",
+              "value": 42.3
+            },
+            {
+              "label": "Health, care and fitness",
+              "value": 33.3
+            },
+            {
+              "label": "Building services",
+              "value": 27.7
+            },
+            {
+              "label": "Trades and construction",
+              "value": 19.5
+            },
+            {
+              "label": "EV charging and energy",
+              "value": 16.9
+            },
+            {
+              "label": "Independent retail, makers and other",
+              "value": 14.9
+            },
+            {
+              "label": "Hospitality, food and drink",
+              "value": 7.2
+            }
+          ]
+        },
+        {
+          "id": "no-video-by-sector",
+          "type": "bars",
+          "title": "No video, by sector",
+          "unit": "%",
+          "note": "Sectors with fewer than 50 sites left out. Base: 1,348 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "Building services",
+              "value": 76.6
+            },
+            {
+              "label": "EV charging and energy",
+              "value": 75.4
+            },
+            {
+              "label": "Independent retail, makers and other",
+              "value": 73.9
+            },
+            {
+              "label": "Hospitality, food and drink",
+              "value": 71.7
+            },
+            {
+              "label": "Professional services",
+              "value": 71.7
+            },
+            {
+              "label": "Trades and construction",
+              "value": 70.2
+            },
+            {
+              "label": "Estate and letting agents",
+              "value": 66.3
+            },
+            {
+              "label": "Health, care and fitness",
+              "value": 60.0
+            }
+          ]
+        },
+        {
+          "id": "socials",
+          "type": "rings",
+          "title": "Which social platforms small business websites link to",
+          "unit": "%",
+          "note": "Links on the homepage or about page; share buttons excluded. 370 of 1381 sites (26.8%) linked to none of the five. Base: 1,381 sites.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "bars": [
+            {
+              "label": "Facebook",
+              "value": 58.6
+            },
+            {
+              "label": "Instagram",
+              "value": 55.7
+            },
+            {
+              "label": "LinkedIn",
+              "value": 25.9
+            },
+            {
+              "label": "YouTube",
+              "value": 14.1
+            },
+            {
+              "label": "TikTok",
+              "value": 7.2
+            }
+          ]
+        },
+        {
+          "id": "two-samples",
+          "type": "paired",
+          "title": "Two different samples, the same picture",
+          "unit": "%",
+          "note": "The samples cover different sector mixes: the prospect lists are 61% trades, EV and building services, the OpenStreetMap sample has none.",
+          "source": {
+            "name": "s4digital audit of 1,381 UK small business websites, 4 October 2026"
+          },
+          "series": [
+            {
+              "name": "Prospect lists (783 sites)",
+              "source": "prospect_lists"
+            },
+            {
+              "name": "OpenStreetMap (598 sites)",
+              "source": "openstreetmap"
+            }
+          ],
+          "bars": [
+            {
+              "label": "No video",
+              "values": [
+                69.5,
+                73.1
+              ]
+            },
+            {
+              "label": "No named person",
+              "values": [
+                72.7,
+                79.4
+              ]
+            },
+            {
+              "label": "No video and no named person",
+              "values": [
+                51.1,
+                58.7
+              ]
+            },
+            {
+              "label": "Shows reviews or testimonials",
+              "values": [
+                56.3,
+                39.5
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "why-a-brand-film-needs-a-business-goal",
