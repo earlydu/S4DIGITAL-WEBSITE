@@ -254,6 +254,15 @@
       at ? at.parentNode.insertBefore(box, at) : body.appendChild(box);
     }).catch(() => {});
 
+    // A link to a post that isn't live yet reads as plain text until its publish date.
+    if (body) {
+      const live = new Set(items.map(x => x.slug));
+      body.querySelectorAll('a[href^="/blog/"]').forEach(a => {
+        const slug = a.getAttribute('href').replace(/^\/blog\//, '').split(/[?#]/)[0];
+        if (slug && !live.has(slug)) { const span = document.createElement('span'); span.textContent = a.textContent; a.replaceWith(span); }
+      });
+    }
+
     // Photos in the article open full size when clicked.
     if (body) {
       const imgs = Array.from(body.querySelectorAll('figure img, .pair img')).concat(Array.from(page.querySelectorAll('.article__cover img')));
