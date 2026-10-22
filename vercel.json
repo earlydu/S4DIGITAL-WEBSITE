@@ -163,6 +163,16 @@
       "source": "/crm/:path*",
       "destination": "/sales/:path*",
       "permanent": true
+    },
+    {
+      "source": "/work/carreducker",
+      "destination": "/work/carreducker-shoemakers",
+      "permanent": true
+    },
+    {
+      "source": "/work/catherine-marche",
+      "destination": "/work/catherine-marche-jeweller",
+      "permanent": true
     }
   ],
   "headers": [

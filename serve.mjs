@@ -109,6 +109,8 @@ const server = createServer(async (req, res) => {
       '/testimonials': '/work',
       '/projects': '/work',
       '/crm': '/sales',
+      '/work/carreducker': '/work/carreducker-shoemakers',
+      '/work/catherine-marche': '/work/catherine-marche-jeweller',
     };
     const bare = urlPath.replace(/\/$/, '') || '/';
     if (bare.startsWith('/crm/')) {
