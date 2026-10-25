@@ -1100,7 +1100,7 @@ body.is-no-scroll{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){
   .chero__reel{display:none}
-  .chero{background:#0b0d12 url('/assets/hero/showreel.jpg') center/cover no-repeat}
+  .chero{background:#0b0d12 url('/assets/hero/showreel-v4.jpg') center/cover no-repeat}
 }
 
 /* the hero is dark, so the band under it keeps its own light ground */

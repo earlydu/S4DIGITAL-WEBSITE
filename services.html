@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Films, Content and Partnerships | s4digital</title>
-<meta name="description" content="Photography, video, short-form content and social media management. One-off content shoots from £795 plus VAT, monthly content partnerships from £1,800 plus VAT, and custom growth partnerships." />
+<meta name="description" content="Photography, video, short-form content and social media management. One-off content shoots from £795 plus VAT, monthly content partnerships from £2,500 plus VAT, and custom growth partnerships." />
 <link rel="canonical" href="https://s4digi.com/services" />
 <meta property="og:title" content="Content Services and Partnerships | s4digital" />
 <meta property="og:description" content="Photography, video, short-form content and social media management for businesses, organisations and personal brands." />
@@ -21,6 +21,32 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
 <link rel="stylesheet" href="/assets/site.css?v=202610051000" />
+<style>
+/* iMac mockup, drawn in CSS so it stays sharp at any size. Sizes use cqw, so every part
+   scales with the width of the .imac box. The screen is 16:9 and holds a video or image. */
+.imac{container-type:inline-size;position:relative;width:100%}
+.imac__body{position:relative;background:linear-gradient(180deg,#f7f8fa 0%,#e9ebef 100%);border-radius:2.6cqw;padding:2.2cqw 2.2cqw 0;
+  box-shadow:inset 0 0 0 .18cqw rgba(255,255,255,.9),inset 0 -.3cqw .6cqw rgba(0,0,0,.06)}
+.imac__screen{position:relative;aspect-ratio:16/9;background:#050506;border-radius:.9cqw;overflow:hidden;box-shadow:0 0 0 .35cqw #0d0d0f}
+.imac__screen video,.imac__screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.imac__screen::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.imac__chin{height:8.6cqw;margin:2.2cqw -2.2cqw 0;border-radius:0 0 2.6cqw 2.6cqw;background:linear-gradient(180deg,#dfe3ea 0%,#cfd5de 100%);
+  box-shadow:inset 0 .25cqw .5cqw rgba(255,255,255,.55)}
+.imac__neck{width:21%;height:13cqw;margin:0 auto;background:linear-gradient(90deg,#b9bec7 0%,#eef0f3 38%,#f7f8fa 52%,#c6cbd3 100%);
+  clip-path:polygon(3% 0,97% 0,100% 100%,0 100%)}
+.imac__foot{position:relative;width:27%;height:1.5cqw;margin:0 auto;border-radius:.3cqw .3cqw 1cqw 1cqw;background:linear-gradient(180deg,#f2f3f6,#b4b9c2)}
+.imac__foot::after{content:"";position:absolute;left:-30%;right:-30%;top:100%;height:3cqw;background:radial-gradient(ellipse at 50% 0,rgba(0,0,0,.35),rgba(0,0,0,0) 70%);pointer-events:none}
+.imac--hero{max-width:640px;margin-left:auto}
+@media (max-width:980px){.imac--hero{margin-inline:auto;max-width:560px}}
+.phero__grid h1{max-width:none}
+.svc-use{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+.svc-use .imac{margin:0 0 18px}
+.svc-use span{display:block;font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--blue);margin-bottom:6px}
+.svc-use b{display:block;font-size:19px;line-height:1.3;font-weight:900}
+.svc-also{margin-top:40px;font-size:15.5px;line-height:1.7;color:var(--ink-2);max-width:72ch}
+@media (max-width:900px){.svc-use{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.svc-use{gap:30px 14px}.svc-use span{font-size:11.5px}.svc-use b{font-size:15px}}
+</style>
 </head>
 <body>
 
@@ -75,28 +101,90 @@
 </aside>
 
 <!-- HERO -->
-<section class="phero">
+<section class="phero phero--split">
   <span class="ast phero__bg" aria-hidden="true"></span>
-  <div class="shell">
-<h1>The film first. Everything else <span class="kw">follows it</span>.</h1>
-    <p class="phero__sub">A documentary-style brand film is the main thing we make. Photography, social content and monthly management are how a company stays visible once it exists. Advertising, websites, email and SEO are add-ons for clients who already have something worth pushing.</p>
-    <div class="phero__ctas">
-      <a class="btn btn--orange btn--lg" data-book href="/contact"><span>Book a Discovery Call</span><span class="arrow">&rarr;</span></a>
-      <a class="btn btn--ghost btn--lg" href="/work"><span>See our work</span><span class="arrow">&rarr;</span></a>
+  <div class="shell phero__grid">
+    <div>
+<h1>The film first.<br>Everything else <span class="kw">follows&nbsp;it</span>.</h1>
+      <p class="phero__sub">A documentary-style brand film is the main thing we make. Photography, social content and monthly management are how a company stays visible once it exists. Advertising, websites, email and SEO are add-ons for clients who already have something worth pushing.</p>
+      <div class="phero__ctas">
+        <a class="btn btn--orange btn--lg" data-book href="/contact"><span>Book a Discovery Call</span><span class="arrow">&rarr;</span></a>
+        <a class="btn btn--ghost btn--lg" href="/films"><span>How a film works</span><span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="imac imac--hero">
+      <div class="imac__body">
+        <div class="imac__screen">
+          <video id="svcReel" src="/assets/hero/showreel-v4.mp4?v=20261007b#t=4" poster="/assets/services/reel-poster.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Showreel of recent s4digital films playing on a desktop screen"></video>
+        </div>
+        <div class="imac__chin"></div>
+      </div>
+      <div class="imac__neck"></div><div class="imac__foot"></div>
     </div>
   </div>
 </section>
 
-<!-- Films sit above the monthly levels, and on their own, so this page reads as
-     "the film, and then the work that follows it" rather than a price ladder. -->
-<section class="sec" style="padding-bottom:0">
+<!-- ONE-JOB FILMS -->
+<section class="pricing" id="one-job">
   <div class="shell">
-    <div class="sec__head">
-      <h2>Films come <span class="kw">first</span></h2>
-      <p>The documentary-style brand film is the main thing we make, and it has its own page. Everything below is the ongoing work that keeps a company visible once the film exists.</p>
+    <div class="pricing__head">
+<h2>Films for <span class="kw">one job</span></h2>
+      <p>Not every film needs to be a documentary. These do one thing well, with real people talking about real work, and no scripts.</p>
     </div>
-    <div class="sec__foot">
-      <a class="btn btn--orange btn--lg" href="/films"><span>How a film works</span><span class="arrow">&rarr;</span></a>
+
+    <div class="pricing__grid">
+      <article class="pcard" id="recruitment-films">
+        <div class="pcard__name">People films</div>
+        <p class="pcard__q">I need people to see what it's like to work here.</p>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;3,000</span><span class="per">a series</span></div>
+        <span class="pcard__vat">+ VAT</span>
+        <p class="pcard__desc"><strong>Recruitment and employer brand.</strong> Your colleagues, talking honestly about the work and the culture, so candidates know what they're walking into.</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>A short series of colleague films</li>
+          <li>Real conversation, never a script</li>
+          <li>Cut for your careers page, LinkedIn and job ads</li>
+          <li>Planned around your hiring calendar</li>
+          <li>You sign off every cut</li>
+        </ul>
+        <a class="pcard__cta" href="/work/la-fromagerie"><span>See the kind of film</span><span class="arrow">&rarr;</span></a>
+      </article>
+
+      <article class="pcard pcard--featured" id="customer-stories">
+        <div class="pcard__name">Customer stories</div>
+        <p class="pcard__q">I need my clients to say it, not me.</p>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;2,500</span><span class="per">each</span></div>
+        <span class="pcard__vat">+ VAT</span>
+        <p class="pcard__desc"><strong>Case study films.</strong> A client tells the story of the work in their own words, which does more in a pitch than anything you could say about yourself.</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>One film, told by your client</li>
+          <li>Short cuts for sales decks and social</li>
+          <li>Filmed on their site or yours</li>
+          <li>We handle the client interview</li>
+          <li>You sign off every cut</li>
+        </ul>
+        <a class="pcard__cta" href="/work/barry-road-renovation"><span>See a customer story</span><span class="arrow">&rarr;</span></a>
+      </article>
+
+      <article class="pcard" id="content-day">
+        <div class="pcard__name">Content Day</div>
+        <p class="pcard__q">I want to try it before I commit to more.</p>
+        <div class="pcard__price"><span class="num">&pound;1,200</span><span class="per">one-off</span></div>
+        <span class="pcard__vat">+ VAT</span>
+        <p class="pcard__desc"><strong>A full day, edited.</strong> One day on location with your team, and the photography and video that comes out of it, edited and ready to use.</p>
+        <div class="pcard__divider"></div>
+        <ul>
+          <li>A full day on location</li>
+          <li>Professional photography and video</li>
+          <li>Deliverables agreed before the shoot</li>
+          <li>Professional editing</li>
+          <li>One round of revisions</li>
+        </ul>
+        <a class="pcard__cta" data-book href="/contact"><span>Book a Content Day</span><span class="arrow">&rarr;</span></a>
+      </article>
     </div>
   </div>
 </section>
@@ -138,7 +226,7 @@
         <span class="pcard__badge">Most chosen</span>
         <div class="pcard__name">Momentum</div>
         <p class="pcard__q">I need content, and I need someone to run it.</p>
-        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;1,800</span><span class="per">/month</span></div>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;2,500</span><span class="per">/month</span></div>
         <span class="pcard__vat">+ VAT per month</span>
         <p class="pcard__desc"><strong>Creating the content is only the beginning.</strong> We plan it, publish it and improve it, so the marketing actually gets done.</p>
         <div class="pcard__divider"></div>
@@ -160,7 +248,7 @@
       <article class="pcard" id="growth-partnership">
         <div class="pcard__name">Studio</div>
         <p class="pcard__q">I need an outsourced marketing team.</p>
-        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;2,500</span><span class="per">/month</span></div>
+        <div class="pcard__price"><span class="from">From</span><span class="num">&pound;4,000</span><span class="per">/month</span></div>
         <span class="pcard__vat">+ VAT, built around you</span>
         <p class="pcard__desc"><strong>Your marketing department, without hiring one.</strong> We take the function on and scope it around the business, so this one is quoted after a conversation rather than packaged.</p>
         <div class="pcard__divider"></div>
@@ -241,23 +329,18 @@
 <section class="sec sec--paper" id="add-ons">
   <div class="shell">
     <div class="sec__head">
-<h2>Supporting services, added when the content is <span class="kw">already working</span></h2>
-      <p>These are available to partnership clients and can be quoted on their own where it makes sense.</p>
+<h2>Then we put it <span class="kw">to work</span></h2>
+      <p>Supporting services for partnership clients, added once the content is working. Each can be quoted on its own where it makes sense.</p>
     </div>
-    <div class="addons">
-      <div class="addon"><h3>Additional content days</h3><p>Extra shoot days for partnership clients, quoted on request.</p></div>
-      <div class="addon"><h3>Paid advertising management</h3><p>Managed by a specialist advertising manager. Ad spend is paid separately by you.</p></div>
-      <div class="addon"><h3>Website design and updates</h3><p>New sites, landing pages and ongoing changes to what you already have.</p></div>
-      <div class="addon"><h3>Email marketing</h3><p>Campaigns and sequences built around the content you’re already producing.</p></div>
-      <div class="addon"><h3>SEO</h3><p>Technical and on-page work so the content you publish can actually be found.</p></div>
-      <div class="addon"><h3>Graphic design</h3><p>Brand assets, templates and campaign artwork.</p></div>
-      <div class="addon"><h3>YouTube editing</h3><p>Long-form edits, thumbnails and channel support.</p></div>
-      <div class="addon"><h3>Podcast production</h3><p>Filming, editing and clipping for a video podcast.</p></div>
-      <div class="addon"><h3>Event coverage</h3><p>Conferences, launches, competitions and company events.</p></div>
-      <div class="addon"><h3>Drone footage</h3><p>Aerial coverage of sites, buildings and events.</p></div>
-      <div class="addon"><h3>Commercial photography</h3><p>Interiors, sites, teams and everything that goes on a company website.</p></div>
-      <div class="addon"><h3>Product photography</h3><p>Clean product and packaging shots for web and retail.</p></div>
-    </div>
+    <ul class="svc-use" aria-label="Supporting services">
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-web.webp?v=1" alt="A homepage with a brand film playing" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>Website design and updates</span><b>Your film on the page that sells</b></li>
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-ads.webp?v=1" alt="A sponsored post using a 30-second cut" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>Paid advertising</span><b>Short cuts run as ads</b></li>
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-email.webp?v=1" alt="An email with a client story film inside" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>Email marketing</span><b>The film in the follow-up</b></li>
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-seo.webp?v=1" alt="Search results showing a company's videos" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>SEO</span><b>Found when they search</b></li>
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-youtube.webp?v=1" alt="A video page with a long-form edit" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>YouTube editing</span><b>Long-form edits and thumbnails</b></li>
+      <li><div class="imac"><div class="imac__body"><div class="imac__screen"><img src="/assets/services/screen-social.webp?v=1" alt="A content calendar full of scheduled posts" loading="lazy" width="1280" height="720"></div><div class="imac__chin"></div></div><div class="imac__neck"></div><div class="imac__foot"></div></div><span>Additional content days</span><b>More to post every month</b></li>
+    </ul>
+    <p class="svc-also"><strong>Also quoted on their own:</strong> graphic design, podcast production, event coverage, drone footage, commercial photography and product photography. Ad spend is always paid separately by you.</p>
 
     <div class="grntee" style="padding-top:44px;padding-bottom:0">
       <div class="grntee__card">
@@ -425,6 +508,15 @@
 </button>
 
 <script src="/assets/site.js?v=202610052130"></script>
+<script>
+(function(){
+  var v = document.getElementById('svcReel');
+  if (!v) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
+  /* Open on people at work, not the drone shot at the top of the reel */
+  v.addEventListener('loadedmetadata', function(){ if (v.currentTime < 4) v.currentTime = 4; }, { once: true });
+})();
+</script>
 <script src="/assets/form.js?v=202608181902"></script>
 </body>
 </html>
