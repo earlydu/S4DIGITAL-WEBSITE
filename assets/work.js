@@ -139,9 +139,9 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     return;
   }
 
-  document.title = w.client + ' | Case Study | s4digital';
+  document.title = w.seoTitle ? w.seoTitle + ' | s4digital' : w.client + ' | Case Study | s4digital';
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute('content', w.summary);
+  if (meta) meta.setAttribute('content', w.seoDescription || w.summary);
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute('href', 'https://s4digi.com/work/' + w.slug);
 

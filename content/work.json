@@ -105,6 +105,8 @@
     },
     {
       "slug": "la-fromagerie",
+      "seoTitle": "Brand documentary film, La Fromagerie, London",
+      "seoDescription": "A brand documentary about La Fromagerie, the London cheese business that began with a market stall at Camden Lock, told by the founder and the people who run it with her.",
       "title": "Thirty three years of cheese, starting in a garden shed",
       "client": "La Fromagerie",
       "industry": "Artisan food retail",
@@ -158,6 +160,8 @@
     },
     {
       "slug": "barry-road-renovation",
+      "seoTitle": "Renovation case study film, Barry Road, East Dulwich",
+      "seoDescription": "A case study film of a full house renovation on Barry Road in East Dulwich, told by the homeowner once the family had moved back in. Made by s4digital in South London.",
       "title": "A renovation explained by the person who lived through it",
       "client": "Barry Road Renovation",
       "industry": "Electrical and building contractor",
@@ -239,6 +243,8 @@
     },
     {
       "slug": "nimrod-road-renovation",
+      "seoTitle": "Renovation case study film, Nimrod Road, Tooting",
+      "seoDescription": "A case study film of a Victorian house renovation on Nimrod Road in Tooting, finished in eight weeks and told by the couple who bought it. Made by s4digital in South London.",
       "title": "A period house in Tooting, told by the couple who bought it",
       "client": "Nimrod Road, Tooting",
       "industry": "Residential renovation",
@@ -346,6 +352,8 @@
     },
     {
       "slug": "catherine-marche-jeweller",
+      "seoTitle": "Personal brand film, bespoke jeweller, London",
+      "seoDescription": "A personal brand film for Catherine Marche, a French bespoke jeweller and goldsmith in London who works only in recycled metal, filmed at the bench and in her shop.",
       "title": "A goldsmith who works only in recycled metal",
       "client": "Catherine Marche Designs",
       "industry": "Bespoke jewellery",
@@ -585,6 +593,8 @@
     },
     {
       "slug": "southwick-d-day",
+      "seoTitle": "D-Day 80 event coverage, Southwick",
+      "seoDescription": "Event coverage of the eightieth anniversary D-Day commemorations in the village of Southwick, where the landings were planned: the arrivals, the ceremony and the panel talk.",
       "title": "The eightieth anniversary of D-Day, where it was planned",
       "client": "Southwick D-Day 80",
       "industry": "Heritage and commemoration",
@@ -807,6 +817,8 @@
     },
     {
       "slug": "combat-sports-event-photography",
+      "seoTitle": "Event photography and video, Crystal Palace and Bromley",
+      "seoDescription": "Event photography and video for two London grappling competitions: All Stars BJJ at Crystal Palace National Sports Centre and Mat Masters 5 at Bromley High School.",
       "title": "Two competition days, 343 edited photographs and a video for each",
       "client": "All Stars BJJ and Mat Masters",
       "industry": "Combat sports events",
@@ -901,6 +913,8 @@
     },
     {
       "slug": "super-efficient-drainage",
+      "seoTitle": "Plumbing and drainage video content, Enfield, London",
+      "seoDescription": "A day filming one drainage job in Enfield for London plumbers Super Efficient, cut into a longform YouTube film, vertical shorts and two carousels.",
       "title": "One day on a drainage job, and everything that came out of it",
       "client": "Super Efficient",
       "industry": "Plumbing, heating and drainage",
@@ -2030,6 +2044,8 @@
     },
     {
       "slug": "road-installer-show",
+      "seoTitle": "Trade show content, Installer Show at the NEC",
+      "seoDescription": "Trade show content filmed over three days on a stand at the Installer Show at the NEC: brand interviews and b-roll to keep posting long after the show.",
       "title": "A stand at the NEC, turned into a year of content",
       "client": "Road",
       "industry": "EV charging",
