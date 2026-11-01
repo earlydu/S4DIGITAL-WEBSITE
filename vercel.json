@@ -130,6 +130,33 @@
       "permanent": false
     },
     {
+      "source": "/post",
+      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>[a-z0-9-]+)" }],
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/post",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/case-study",
+      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>[a-z0-9-]+)" }],
+      "destination": "/work/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/case-study",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug(90-day-playbook-ev-scale|consistent-enquiries-every-month|content-plan-ev-installers|ev-installer-website-conversion|ev-lead-follow-up-system|local-seo-for-ev-installers|paid-ads-ev-installers)",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/pricing",
       "destination": "/services",
       "permanent": true
