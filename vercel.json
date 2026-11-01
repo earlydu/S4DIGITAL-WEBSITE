@@ -157,6 +157,16 @@
       "permanent": true
     },
     {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-build-a-scalable-digital-marketing-strategy-for-your-ev-charging-business",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/pricing",
       "destination": "/services",
       "permanent": true
