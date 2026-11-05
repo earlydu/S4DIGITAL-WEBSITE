@@ -92,7 +92,8 @@ body.on-dark .bar .logo{background-image:url('/assets/s4digital-logo-white.png')
 .stats b{display:block;font:400 clamp(26px,3vw,38px)/1.1 var(--serif)}
 .stats span{font-size:15px;color:var(--soft)}
 .reels{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
-.reels img{width:100%;aspect-ratio:9/16;max-height:34vh;object-fit:cover;border-radius:4px}
+.reels .clip{width:100%;aspect-ratio:9/16;max-height:34vh;border-radius:4px}
+.reels .clip::after{width:40px;height:40px;margin:-20px 0 0 -20px;background-size:20px}
 .reels p{font-size:14px;line-height:1.35;margin-top:6px;color:var(--soft)}
 .reels p b{display:block;color:var(--ink)}
 .reels p b.you{color:var(--blue)}
@@ -105,16 +106,25 @@ th{font-size:14px;font-weight:600;color:var(--soft)}
 tr.us td{background:var(--tint)}
 
 /* click-to-play */
-.reel,.yt{position:relative;display:block;padding:0;border:0;background:#000;cursor:pointer;overflow:hidden}
+.reel,.yt,.clip{position:relative;display:block;padding:0;border:0;background:#000;cursor:pointer;overflow:hidden}
+.clip{border-radius:4px}
 .reel{height:min(46vh,430px);width:auto;aspect-ratio:9/16;border-radius:6px}
 .yt{width:100%;aspect-ratio:16/9;border-radius:4px}
-.reel img,.yt img{width:100%;height:100%;object-fit:cover}
-.reel span{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 9px;font:13px/1.2 var(--sans);color:#fff;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.65))}
-.reel::after,.yt::after{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/30px no-repeat}
-.reel:hover::after,.yt:hover::after{background-color:var(--blue)}
-iframe.reel-embed{height:min(62vh,600px);width:auto;aspect-ratio:9/17;border:0;border-radius:6px;background:#fff}
+.reel img,.yt img,.clip img{width:100%;height:100%;object-fit:cover}
+.reel::after,.yt::after,.clip::after{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/30px no-repeat}
+.reel:hover::after,.yt:hover::after,.clip:hover::after{background-color:var(--blue)}
 .yt-embed,video.film{width:100%;aspect-ratio:16/9;border:0;border-radius:4px;background:#000}
-video.vreel{height:min(48vh,420px);width:auto;aspect-ratio:9/16;border-radius:6px;background:#000;object-fit:cover}
+.vreel{height:min(48vh,420px);width:auto;aspect-ratio:9/16;border-radius:6px}
+
+/* full-screen player for every click-to-play clip */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(8,8,10,.94);display:flex;align-items:center;justify-content:center;padding:16px}
+.lb[hidden]{display:none}
+.lb figure{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:100%}
+.lb video{width:auto;max-width:100%;background:#000;border-radius:6px}
+.lb figcaption{font-size:15px;color:#D8D2C6;text-align:center;max-width:60ch}
+.lb-x{position:fixed;top:14px;right:16px;width:46px;height:46px;border-radius:50%;border:1px solid #4a4744;background:rgba(20,20,23,.8);color:#fff;font:400 28px/1 var(--sans);cursor:pointer}
+.lb-x:hover{background:var(--blue);border-color:var(--blue)}
+body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .fmt h3{font-size:clamp(22px,2vw,27px);margin-bottom:8px}
 .fmt h3 .num{margin-right:6px}
 .fmt .desc{font-size:16px;min-height:4.8em;margin-bottom:14px}
@@ -176,7 +186,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 @media (max-width:1100px){
   .ads{grid-template-columns:repeat(4,max-content)}
   .ads .side{grid-column:1/-1;padding-left:0}
-  video.vreel{height:min(40vh,360px)}
+  .vreel{height:min(40vh,360px)}
 }
 @media (max-width:860px){
   body{font-size:17px}
@@ -190,19 +200,18 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .cover .panel img{max-width:340px;max-height:none}
   .stats{grid-template-columns:1fr 1fr}
   .reels{grid-template-columns:repeat(4,1fr)}
-  .reels img{max-height:none}
+  .reels .clip{max-height:none}
   .tall{height:auto;width:calc(50% - 7px)}
   .photo{max-height:none}
   .reel{height:auto;width:100%;max-width:300px}
   .near .reels3{flex-direction:column}
   .near .reels3>div{width:100%;max-width:300px}
-  iframe.reel-embed{width:100%;max-width:340px;height:620px;aspect-ratio:auto}
   .fmt .desc{min-height:0}
   .about video.bg{position:relative;height:38vh}
   .about .panel{width:100%;min-height:0;background:#141417;padding:24px 16px 100px}
   .slide.about{flex-direction:column;padding-top:56px}
   .ads{grid-template-columns:1fr 1fr}
-  video.vreel{height:auto;width:100%}
+  .vreel{height:auto;width:100%}
   .plans{grid-template-columns:1fr}
   .plan:not(.rec) h3{margin-top:0}
   .close .nextimg{height:auto;width:100%;max-width:320px;margin:0}
@@ -255,14 +264,14 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     <div><b>3 to 11</b><span>likes per post</span></div>
   </div>
   <div class="reels">
-    <div><img src="/p/sandton/media/stock-commercial.jpg" alt="Sandton reel, 17 Oct" loading="lazy"><p><b>Stock</b>17 Oct, 7 likes</p></div>
-    <div><img src="/p/sandton/media/her-localexpert.jpg" alt="Sandton reel, 20 Oct" loading="lazy"><p><b class="you">You</b>20 Oct, 10 likes</p></div>
-    <div><img src="/p/sandton/media/her-hook.jpg" alt="Sandton reel, 24 Oct" loading="lazy"><p><b class="you">You</b>24 Oct, 11 likes</p></div>
-    <div><img src="/p/sandton/media/stock-lifestyle.jpg" alt="Sandton reel, 29 Oct" loading="lazy"><p><b>Stock</b>29 Oct, 4 likes</p></div>
-    <div><img src="/p/sandton/media/her-firstoffer.jpg" alt="Sandton reel, 30 Oct" loading="lazy"><p><b class="you">You</b>30 Oct, 8 likes</p></div>
-    <div><img src="/p/sandton/media/listing-morden.jpg" alt="Sandton reel, 31 Oct" loading="lazy"><p><b>Listing</b>31 Oct, 4 likes</p></div>
-    <div><img src="/p/sandton/media/listing-selsdon.jpg" alt="Sandton reel, 2 Nov" loading="lazy"><p><b>Listing</b>2 Nov, 4 likes</p></div>
-    <div><img src="/p/sandton/media/her-pricing.jpg" alt="Sandton reel, 4 Nov" loading="lazy"><p><b class="you">You</b>4 Nov, 3 likes so far</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1017.mp4" aria-label="Play Sandton reel, 17 Oct"><img src="/p/sandton/media/stock-commercial.jpg" alt="" loading="lazy"></button><p><b>Stock</b>17 Oct, 7 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1020.mp4" aria-label="Play Sandton reel, 20 Oct"><img src="/p/sandton/media/her-localexpert.jpg" alt="" loading="lazy"></button><p><b class="you">You</b>20 Oct, 10 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1024.mp4" aria-label="Play Sandton reel, 24 Oct"><img src="/p/sandton/media/her-hook.jpg" alt="" loading="lazy"></button><p><b class="you">You</b>24 Oct, 11 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1029.mp4" aria-label="Play Sandton reel, 29 Oct"><img src="/p/sandton/media/stock-lifestyle.jpg" alt="" loading="lazy"></button><p><b>Stock</b>29 Oct, 4 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1030.mp4" aria-label="Play Sandton reel, 30 Oct"><img src="/p/sandton/media/her-firstoffer.jpg" alt="" loading="lazy"></button><p><b class="you">You</b>30 Oct, 8 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1031.mp4" data-ar="720/902" aria-label="Play Sandton reel, 31 Oct"><img src="/p/sandton/media/listing-morden.jpg" alt="" loading="lazy"></button><p><b>Listing</b>31 Oct, 4 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1102.mp4" data-ar="720/902" aria-label="Play Sandton reel, 2 Nov"><img src="/p/sandton/media/listing-selsdon.jpg" alt="" loading="lazy"></button><p><b>Listing</b>2 Nov, 4 likes</p></div>
+    <div><button class="clip" type="button" data-src="/p/sandton/media/sandton-1104.mp4" aria-label="Play Sandton reel, 4 Nov"><img src="/p/sandton/media/her-pricing.jpg" alt="" loading="lazy"></button><p><b class="you">You</b>4 Nov, 3 likes so far</p></div>
   </div>
   <p class="lead">The three posts with the most likes all have you in them.</p>
 </div></section>
@@ -287,8 +296,8 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   <h2>What's already working is you</h2>
   <div class="two">
     <div class="pair">
-      <img class="tall" src="/p/sandton/media/her-cannonhill.jpg" alt="Beenish on camera at Cannon Hill Common" loading="lazy">
-      <img class="tall" src="/p/sandton/media/her-firstoffer.jpg" alt="Beenish on camera answering a question about first offers" loading="lazy">
+      <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1024.mp4" aria-label="Play Sandton reel, 24 Oct"><img src="/p/sandton/media/her-cannonhill.jpg" alt="Beenish on camera at Cannon Hill Common" loading="lazy"></button>
+      <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1030.mp4" aria-label="Play Sandton reel, 30 Oct"><img src="/p/sandton/media/her-firstoffer.jpg" alt="Beenish on camera answering a question about first offers" loading="lazy"></button>
     </div>
     <div>
       <p class="quote" style="margin-top:0">You come across calm, clear and unhurried.</p>
@@ -305,8 +314,8 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   <div class="two">
     <figure>
       <div class="pair">
-        <img class="tall" src="/p/sandton/media/her-hook.jpg" alt="A current reel: Beenish small in a wide frame" loading="lazy">
-        <img class="tall" src="/p/sandton/media/stock-commercial.jpg" alt="A current reel built from stock footage" loading="lazy">
+        <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1024.mp4" aria-label="Play Sandton reel, 24 Oct"><img src="/p/sandton/media/her-hook.jpg" alt="A current reel: Beenish small in a wide frame" loading="lazy"></button>
+        <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1017.mp4" aria-label="Play Sandton reel, 17 Oct"><img src="/p/sandton/media/stock-commercial.jpg" alt="A current reel built from stock footage" loading="lazy"></button>
       </div>
       <figcaption class="cap" style="text-align:center">Two of your current reels</figcaption>
     </figure>
@@ -348,11 +357,11 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
       <p class="lead">That's the gap Sandton fills.</p>
     </div>
     <div class="reels3">
-      <div><button class="reel" type="button" data-ig="DefXlRitpDf" aria-label="Play Goodfellows on Instagram"><img src="/p/sandton/media/ig-ex1.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <div><button class="reel clip" type="button" data-src="/p/sandton/media/ex1.mp4" aria-label="Play Goodfellows, Lower Morden"><img src="/p/sandton/media/ig-ex1.jpg" alt="" loading="lazy"></button>
         <p class="proof"><strong>Goodfellows, Lower Morden.</strong> An agent's tour of Kingsbridge Road, 14 Oct. 12 likes.</p></div>
-      <div><button class="reel" type="button" data-ig="Dd1jrf_DCz6" aria-label="Play KFH on Instagram"><img src="/p/sandton/media/ig-ex2.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <div><button class="reel clip" type="button" data-src="/p/sandton/media/ex2.mp4" aria-label="Play KFH, Wimbledon"><img src="/p/sandton/media/ig-ex2.jpg" alt="" loading="lazy"></button>
         <p class="proof"><strong>KFH, Wimbledon.</strong> A guess-the-area game. 73 likes, against 3 for their listings.</p></div>
-      <div><button class="reel" type="button" data-ig="Da-MxPEDqyj" aria-label="Play KFH on Instagram"><img src="/p/sandton/media/ig-ex3.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <div><button class="reel clip" type="button" data-src="/p/sandton/media/ex3.mp4" aria-label="Play KFH, Notting Hill"><img src="/p/sandton/media/ig-ex3.jpg" alt="" loading="lazy"></button>
         <p class="proof"><strong>KFH, Notting Hill.</strong> An agent at a local ice cream shop. 79&nbsp;likes.</p></div>
     </div>
   </div>
@@ -365,19 +374,19 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     <div class="fmt">
       <h3><span class="num">1</span>Ask the surveyor</h3>
       <p class="desc">Shop questions answered by you in under a minute: surveys, damp, offers, pricing.</p>
-      <button class="reel" type="button" data-ig="DeSENiOMHIb" aria-label="Play Daniel Daggers on Instagram"><img src="/p/sandton/media/ig-ex7.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex7.mp4" aria-label="Play Daniel Daggers"><img src="/p/sandton/media/ig-ex7.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Daniel Daggers.</strong> Calm advice for young buyers, straight to camera. 395&nbsp;likes.</p>
     </div>
     <div class="fmt">
       <h3><span class="num">2</span>The SM4 market minute</h3>
       <p class="desc">A monthly update on what's sold, what's let and what &pound;250,000 buys in Morden right now.</p>
-      <button class="reel" type="button" data-ig="DfUc57cNmTP" aria-label="Play Ari Reid on Instagram"><img src="/p/sandton/media/ig-ex8.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex8.mp4" aria-label="Play Ari Reid"><img src="/p/sandton/media/ig-ex8.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Ari Reid.</strong> Explains the new first-time buyer scheme the week it lands. 1,051&nbsp;likes in a day.</p>
     </div>
     <div class="fmt">
       <h3><span class="num">3</span>The landlord desk</h3>
       <p class="desc">Renters' Rights Act, EPC rules, HMOs and block management, from someone who manages them.</p>
-      <button class="reel" type="button" data-ig="DeFOzd_lKuQ" aria-label="Play Property Hub on Instagram"><img src="/p/sandton/media/ig-ex9.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex9.mp4" aria-label="Play Property Hub"><img src="/p/sandton/media/ig-ex9.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Property Hub.</strong> What landlords missed in the Renters' Rights Act. 41&nbsp;comments, and every question is a&nbsp;lead.</p>
     </div>
   </div>
@@ -390,19 +399,19 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     <div class="fmt">
       <h3><span class="num">4</span>Morden, street by street</h3>
       <p class="desc">Lower Morden, Morden Park, Merton Park, St Helier and the regeneration. What it's like to live there and what homes cost.</p>
-      <button class="reel" type="button" data-ig="DCHm0yrIGnw" aria-label="Play Daniel Daggers on Instagram"><img src="/p/sandton/media/ig-ex6.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex6.mp4" aria-label="Play Daniel Daggers"><img src="/p/sandton/media/ig-ex6.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Daniel Daggers.</strong> Opens on the street's story: Bob Marley lived next door. 1,030&nbsp;likes.</p>
     </div>
     <div class="fmt">
       <h3><span class="num">5</span>Your listings, by you</h3>
       <p class="desc">Film tours of your listings, presented by you, for Rightmove, your website and social.</p>
-      <button class="reel" type="button" data-ig="De6PRLyzkHq" aria-label="Play Tanya Baker on Instagram"><img src="/p/sandton/media/ig-ex10.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex10.mp4" aria-label="Play Tanya Baker, South East London"><img src="/p/sandton/media/ig-ex10.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Tanya Baker, South East London.</strong> Presents her own Nunhead listing, baby in tow. 2,297&nbsp;likes. Listings with video get 17.6% more&nbsp;views.</p>
     </div>
     <div class="fmt">
       <h3><span class="num">6</span>Morden people</h3>
       <p class="desc">Local businesses, schools and events, so Sandton is part of the area's story, not just its market.</p>
-      <button class="reel" type="button" data-ig="DfC7j0ooxgb" aria-label="Play Hortons on Instagram"><img src="/p/sandton/media/ig-ex4.jpg" alt="" loading="lazy"><span>Plays from Instagram</span></button>
+      <button class="reel clip" type="button" data-src="/p/sandton/media/ex4.mp4" aria-label="Play Hortons"><img src="/p/sandton/media/ig-ex4.jpg" alt="" loading="lazy"></button>
       <p class="proof"><strong>Already working for Hortons.</strong> Sells the town before the house, starting with a local shop. 111&nbsp;likes, their best recent&nbsp;post.</p>
     </div>
   </div>
@@ -504,10 +513,10 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 <section class="slide"><div class="in">
   <h2>The ads behind it</h2>
   <div class="ads">
-    <figure><video class="vreel" controls preload="none" playsinline poster="/p/sandton/media/pv-ev-stock.jpg" src="/p/sandton/media/ted-ev-stock.mp4"></video><figcaption><strong>EV installers.</strong><br>Stock problems. 25 sec.</figcaption></figure>
-    <figure><video class="vreel" controls preload="none" playsinline poster="/p/sandton/media/pv-ev-wrong.jpg" src="/p/sandton/media/ted-ev-wrong.mp4"></video><figcaption><strong>EV installers.</strong><br>Wrong orders. 24 sec.</figcaption></figure>
-    <figure><video class="vreel" controls preload="none" playsinline poster="/p/sandton/media/pv-bms-pricing.jpg" src="/p/sandton/media/ted-bms-pricing.mp4"></video><figcaption><strong>BMS contractors.</strong><br>Pricing and margins. 25&nbsp;sec.</figcaption></figure>
-    <figure><video class="vreel" controls preload="none" playsinline poster="/p/sandton/media/pv-bms-margins.jpg" src="/p/sandton/media/ted-bms-margins.mp4"></video><figcaption><strong>BMS contractors.</strong><br>Squeezed margins. 21 sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-stock.mp4" aria-label="Play TED ad: EV installers. Stock problems. 25 sec"><img src="/p/sandton/media/pv-ev-stock.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Stock problems. 25 sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-wrong.mp4" aria-label="Play TED ad: EV installers. Wrong orders. 24 sec"><img src="/p/sandton/media/pv-ev-wrong.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Wrong orders. 24 sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-bms-pricing.mp4" aria-label="Play TED ad: BMS contractors. Pricing and margins. 25 sec"><img src="/p/sandton/media/pv-bms-pricing.jpg" alt="" loading="lazy"></button><figcaption><strong>BMS contractors.</strong><br>Pricing and margins. 25&nbsp;sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-bms-margins.mp4" aria-label="Play TED ad: BMS contractors. Squeezed margins. 21 sec"><img src="/p/sandton/media/pv-bms-margins.jpg" alt="" loading="lazy"></button><figcaption><strong>BMS contractors.</strong><br>Squeezed margins. 21 sec.</figcaption></figure>
     <div class="side">
       <p class="quote">Each ad tackles one problem the customer has.</p>
       <p>For TED we filmed Aaron on camera at their warehouse, taking on the four problems their trade customers kept running into: pricing, stock, wrong orders and squeezed margins. Each one became its own ad, cut for EV installers and for BMS contractors.</p>
@@ -566,13 +575,18 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
       <li><span class="num">4</span><p>First videos live within a week of the shoot</p></li>
       <li><span class="num">5</span><p>Review together at 90 days</p></li>
     </ol>
-    <img class="nextimg" src="/p/sandton/media/her-nextsteps.jpg" alt="Beenish on camera in one of her own reels" loading="lazy">
+    <button class="nextimg clip" type="button" data-src="/p/sandton/media/sandton-1020.mp4" aria-label="Play Sandton reel, 20 Oct"><img src="/p/sandton/media/her-nextsteps.jpg" alt="Beenish on camera in one of her own reels" loading="lazy"></button>
   </div>
   <div class="contact"><div class="logo-w" role="img" aria-label="s4digital"></div><span>Earl Duncan</span><a href="mailto:earl@s4digi.com">earl@s4digi.com</a><a href="https://s4digi.com">s4digi.com</a></div>
   <p class="private">Prepared privately for Sandton. Please don't share this link.</p>
 </div></section>
 
 </main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lb-x" type="button" aria-label="Close video">&times;</button>
+  <figure><video controls playsinline preload="auto"></video><figcaption></figcaption></figure>
+</div>
 
 <nav class="nav" aria-label="Slides">
   <button type="button" id="prev">Back</button>
@@ -588,7 +602,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   btn.addEventListener('click',function(){root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('pitch-theme',root.dataset.theme)}catch(e){}label()});
   label();
 
-  // Click-to-play: YouTube films and Instagram reels load only when tapped, and go back to their poster when you leave the slide.
+  // Click-to-play: YouTube films load only when tapped, and go back to their poster when you leave the slide.
   function swap(b,f){f._poster=b;b.replaceWith(f)}
   document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){
     var f=document.createElement('iframe');
@@ -596,12 +610,26 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen=true; f.referrerPolicy='strict-origin'; f.title=b.getAttribute('aria-label');
     swap(b,f);
   })});
-  document.querySelectorAll('.reel').forEach(function(b){b.addEventListener('click',function(){
-    var f=document.createElement('iframe');
-    f.className='reel-embed'; f.src='https://www.instagram.com/reel/'+b.dataset.ig+'/embed/';
-    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.title=b.getAttribute('aria-label'); f.setAttribute('scrolling','no');
-    swap(b,f);
-  })});
+
+  // Every short clip opens big in one full-screen player, sized to the height of the screen.
+  var lb=document.getElementById('lb'), lv=lb.querySelector('video'), lc=lb.querySelector('figcaption'), opener=null;
+  function openClip(b){
+    var ar=(b.dataset.ar||'9/16').split('/'), r=ar[1]/ar[0];
+    lv.style.aspectRatio=ar[0]+'/'+ar[1];
+    lv.style.height='min(calc(100vh - 80px), calc((100vw - 32px) * '+r+'))';
+    lv.poster=b.querySelector('img').src; lv.src=b.dataset.src;
+    lc.textContent=b.getAttribute('aria-label').replace(/^Play /,'');
+    lb.hidden=false; body.classList.add('lb-open'); opener=b;
+    var p=lv.play(); if(p&&p.catch)p.catch(function(){}); lv.focus();
+  }
+  function closeClip(){
+    if(lb.hidden)return;
+    lv.pause(); lv.removeAttribute('src'); lv.load();
+    lb.hidden=true; body.classList.remove('lb-open');
+    if(opener){opener.focus({preventScroll:true});opener=null}
+  }
+  document.querySelectorAll('.clip').forEach(function(b){b.addEventListener('click',function(){openClip(b)})});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.tagName==='FIGURE'||e.target.closest('.lb-x'))closeClip()});
 
   // Slides
   var slides=[].slice.call(document.querySelectorAll('.slide')), n=slides.length, cur=-1;
@@ -611,6 +639,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     s.querySelectorAll('iframe').forEach(function(f){if(f._poster)f.replaceWith(f._poster)});
   }
   function go(i){
+    closeClip();
     i=Math.max(0,Math.min(n-1,i)); if(i===cur)return;
     if(cur>-1){leave(slides[cur]);slides[cur].classList.remove('active')}
     cur=i; var s=slides[i]; s.classList.add('active'); s.scrollTop=0;
@@ -623,6 +652,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   prev.addEventListener('click',function(){go(cur-1)});
   next.addEventListener('click',function(){go(cur+1)});
   document.addEventListener('keydown',function(e){
+    if(!lb.hidden){if(e.key==='Escape'){e.preventDefault();closeClip()}return}
     var t=e.target.tagName; if(t==='VIDEO'||t==='INPUT')return;
     if(['ArrowRight','PageDown'].indexOf(e.key)>-1||(e.key===' '&&t!=='BUTTON')){e.preventDefault();go(cur+1)}
     else if(['ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
