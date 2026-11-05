@@ -125,9 +125,27 @@ const server = createServer(async (req, res) => {
     }
 
     // Local parity with vercel.json: templates are only read by the server renderer.
-    if (bare === '/templates' || bare.startsWith('/templates/')) {
+    if (bare === '/templates' || bare.startsWith('/templates/') || bare === '/private' || bare.startsWith('/private/')) {
       res.writeHead(302, { Location: '/' });
       res.end();
+      return;
+    }
+
+    // Local parity with api/pitch.mjs: passcode-protected pitches at /p/<slug>
+    const pitch = bare.match(/^\/p\/([^/]+)(?:\/media\/([^/]+))?$/);
+    if (pitch) {
+      const { handlePitch } = await import(new URL('./lib/pitch.mjs', import.meta.url));
+      const raw = req.method === 'POST' ? await readBody(req) : '';
+      const out = await handlePitch({
+        slug: pitch[1],
+        file: pitch[2] || '',
+        method: req.method,
+        passcode: new URLSearchParams(raw).get('passcode'),
+        req,
+        secure: false,             // localhost is http, so no Secure flag
+      });
+      res.writeHead(out.status, out.headers);
+      res.end(out.body);
       return;
     }
 

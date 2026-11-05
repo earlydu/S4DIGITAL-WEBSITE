@@ -10,6 +10,9 @@
     },
     "api/work.mjs": {
       "includeFiles": "{templates/**,404.html,content/**}"
+    },
+    "api/pitch.mjs": {
+      "includeFiles": "{private/**,404.html}"
     }
   },
   "rewrites": [
@@ -44,6 +47,14 @@
     {
       "source": "/work/:slug",
       "destination": "/api/work?slug=:slug"
+    },
+    {
+      "source": "/p/:slug/media/:file",
+      "destination": "/api/pitch?slug=:slug&file=:file"
+    },
+    {
+      "source": "/p/:slug",
+      "destination": "/api/pitch?slug=:slug"
     },
     {
       "source": "/admin",
@@ -90,6 +101,16 @@
       "permanent": false
     },
     {
+      "source": "/private/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/private",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/:file(.*\\.md)",
       "destination": "/",
       "permanent": false
@@ -131,7 +152,13 @@
     },
     {
       "source": "/post",
-      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>[a-z0-9-]+)" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "(?<slug>[a-z0-9-]+)"
+        }
+      ],
       "destination": "/blog/:slug",
       "permanent": true
     },
@@ -142,7 +169,13 @@
     },
     {
       "source": "/case-study",
-      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>[a-z0-9-]+)" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "(?<slug>[a-z0-9-]+)"
+        }
+      ],
       "destination": "/work/:slug",
       "permanent": true
     },
@@ -246,6 +279,19 @@
     },
     {
       "source": "/preview/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    },
+    {
+      "source": "/p/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
