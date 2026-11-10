@@ -158,8 +158,6 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
 .plan{padding:24px}
 .plan.rec{background:var(--tint);border-radius:8px}
-.plan .flag{font-size:15px;line-height:24px;font-weight:600;color:var(--blue);margin-bottom:6px}
-.plan:not(.rec) h3{margin-top:30px}
 .plan h3{font-size:24px;margin-bottom:12px}
 .plan .price{font:400 48px/1 var(--serif);margin-bottom:6px}
 .plan .vat{font-size:15px;color:var(--soft);margin-bottom:18px}
@@ -170,7 +168,6 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 /* close */
 .slide.close{background:var(--dark);color:#fff}
 .close .points li{font-size:20px}
-.close .nextimg{height:min(56vh,500px);width:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px;margin-left:auto}
 .close .contact{margin-top:clamp(24px,4vh,44px);display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;font-size:17px}
 .close .contact .logo-w{width:150px;height:35px;background:url('/assets/s4digital-logo-white.png') left center/contain no-repeat}
 .close .private{font-size:14px;color:#A39E95;margin-top:18px}
@@ -183,7 +180,6 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 @media (max-height:820px) and (min-width:861px){
   .slide{padding-top:62px;padding-bottom:84px}
   .reel{height:min(38vh,430px)}
-  .close .nextimg{height:min(48vh,500px)}
 }
 @media (max-width:1100px){
   .ads{grid-template-columns:repeat(4,max-content)}
@@ -219,8 +215,6 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .ads{grid-template-columns:1fr 1fr}
   .vreel{height:auto;width:100%}
   .plans{grid-template-columns:1fr}
-  .plan:not(.rec) h3{margin-top:0}
-  .close .nextimg{height:auto;width:100%;max-width:320px;margin:0}
   .nav button{min-width:92px;padding:11px 16px}
 }
 </style>
@@ -260,7 +254,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
       <li><span class="num">2</span><p>Content so far has happened when someone had half a day spare, and the prep landed on you: printing scripts and getting ready took time out of your day.</p></li>
       <li><span class="num">3</span><p>What you need now is structure: a plan you can see, a team that does the prep for you, and content that sounds like you.</p></li>
     </ol>
-    <figure><img class="photo" src="/p/sandton/media/01-nexblue-interview.jpg" alt="s4digital crew filming an interview on location" loading="lazy"><figcaption class="cap">Our crew on location, set up before the interview&nbsp;starts</figcaption></figure>
+    <figure><img class="photo" src="/p/sandton/media/01-nexblue-interview.jpg" alt="s4digital crew filming an interview on location" loading="lazy"></figure>
   </div>
 </div></section>
 
@@ -560,7 +554,6 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
       <ul><li>One half-day shoot a month</li><li>5 short videos and 10 photos</li><li>Scripts written by us and run on our teleprompter</li><li>Captions in your voice</li><li>Scheduled on Instagram, Facebook, LinkedIn and TikTok</li><li>Monthly report</li></ul>
     </div>
     <div class="plan rec">
-      <div class="flag">The one we'd recommend</div>
       <h3>Twice a month</h3>
       <div class="price">&pound;1,750</div><div class="vat">+ VAT a month</div>
       <ul><li>Two half-day shoots a month</li><li>10 short videos and 20 photos</li><li>A monthly SM4 market update for YouTube and your website</li><li>Film tours for up to two listings</li><li>Client video reviews</li><li>Scheduled on six channels, Google included</li><li>Monthly review call</li></ul>
@@ -577,18 +570,15 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 <!-- 20 -->
 <section class="slide close" data-dark><div class="in">
   <h2>Next steps</h2>
-  <div class="two">
-    <ol class="points small">
-      <li><span class="num">1</span><p>Agree a plan today</p></li>
-      <li><span class="num">2</span><p>Planning call next week to set the first topics</p></li>
-      <li><span class="num">3</span><p>First shoot in early December at Crown Lane</p></li>
-      <li><span class="num">4</span><p>First videos live within a week of the shoot</p></li>
-      <li><span class="num">5</span><p>Review together at 90 days</p></li>
-    </ol>
-    <button class="nextimg clip" type="button" data-src="/p/sandton/media/sandton-1020.mp4" aria-label="Play Sandton reel, 20 Oct"><img src="/p/sandton/media/her-nextsteps.jpg" alt="Beenish on camera in one of her own reels" loading="lazy"></button>
-  </div>
+  <ol class="points small">
+    <li><span class="num">1</span><p>Agree a plan today</p></li>
+    <li><span class="num">2</span><p>Planning call next week to set the first topics</p></li>
+    <li><span class="num">3</span><p>First shoot in early December at Crown Lane</p></li>
+    <li><span class="num">4</span><p>First videos live within a week of the shoot</p></li>
+    <li><span class="num">5</span><p>Review together at 90 days</p></li>
+  </ol>
   <div class="contact"><div class="logo-w" role="img" aria-label="s4digital"></div><span>Earl Duncan</span><a href="mailto:earl@s4digi.com">earl@s4digi.com</a><a href="https://s4digi.com">s4digi.com</a></div>
-  <p class="private">Prepared privately for Sandton. Please don't share this link.</p>
+  <p class="private">Prepared privately for Sandton.</p>
 </div></section>
 
 </main>
