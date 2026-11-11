@@ -221,16 +221,14 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .month-side p{font-size:16px}
 
 /* about Earl */
-.me{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center}
-.me-pics{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:min(60vh,540px)}
-.me-pics img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
-.me-pics .tall{grid-row:1/3;object-position:50% 20%}
-.me-text p{font-size:17px}
-.facts{list-style:none;margin:14px 0 16px;padding:0;border-top:1px solid var(--line)}
-.facts li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.35}
-.facts b{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);padding-top:2px}
-.values{display:flex;flex-wrap:wrap;gap:8px}
-.values span{background:var(--blue);color:#fff;border-radius:999px;padding:7px 15px;font-size:15px;font-weight:600}
+.me{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,56px);align-items:center}
+.me-pic{height:min(58vh,520px);width:auto;max-width:100%;border-radius:8px;display:block}
+.facts{list-style:none;margin:0 0 22px;padding:0}
+.facts li{position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--line);font-size:clamp(17px,1.5vw,20px);line-height:1.4}
+.facts li:first-child{border-top:1px solid var(--line)}
+.facts li::before{content:"";position:absolute;left:2px;top:21px;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.stand{font-size:clamp(17px,1.5vw,20px)}
+.stand strong{color:var(--ink)}
 /* where this can go next */
 .later{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(18px,3vh,30px)}
 .later>div{background:var(--tint);border-radius:10px;padding:clamp(20px,2.4vw,28px)}
@@ -244,13 +242,15 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .close .contact{margin-top:clamp(24px,4vh,44px);display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;font-size:17px}
 .close .contact .logo-w{width:150px;height:35px;background:url('/assets/s4digital-logo-white.png') left center/contain no-repeat}
 .close-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
-.first{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:clamp(22px,3vw,34px)}
-.first .tag{display:inline-block;font:700 12px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.first .row{display:flex;gap:18px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}
-.first .tag+.row{border-top:0}
-.first svg{flex:0 0 48px;width:48px;height:48px;padding:11px;border-radius:50%;background:var(--blue);fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.first b{display:block;font:400 clamp(20px,1.8vw,24px)/1.2 var(--serif);color:#fff}
-.first span{font-size:15px;color:#A39E95}
+.first{position:relative;padding:20px 0 0}
+.first__note{position:relative;background:var(--paper);color:var(--ink);border-radius:4px;padding:clamp(24px,2.6vw,34px) 43% clamp(20px,2.4vw,28px) clamp(24px,2.6vw,34px);transform:rotate(-1.2deg);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.first__note::before{content:"";position:absolute;top:-12px;left:34px;width:96px;height:26px;background:rgba(46,156,255,.55);transform:rotate(-4deg)}
+.first h3{font:400 clamp(26px,2.4vw,32px)/1.1 var(--serif);color:var(--ink);margin:0 0 10px}
+.first .row{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-top:1px dashed var(--line)}
+.first .row b{font:italic 400 19px/1.3 var(--serif);color:var(--blue)}
+.first .row p{margin:0;font-weight:600;font-size:17px;line-height:1.3;color:var(--ink)}
+.first .row span{display:block;font-weight:400;font-size:15px;color:var(--soft);margin-top:3px}
+.first__me{position:absolute;right:-8px;bottom:0;height:calc(100% - 4px);width:auto;max-width:46%;object-fit:contain;object-position:bottom right;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
 tr:has(.agent) td{vertical-align:middle}
 .agent{display:flex;align-items:center;gap:12px}
 .agent img{width:40px;height:40px;flex:0 0 40px;border-radius:8px;box-shadow:0 0 0 1px var(--line)}
@@ -304,12 +304,12 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .stars{grid-template-columns:1fr}
   .scale{grid-template-columns:1fr;gap:4px}
   .close-grid{grid-template-columns:1fr}
+  .first{display:flex;flex-direction:column;padding:8px 0 0}
+  .first__me{position:static;order:-1;height:210px;max-width:none;align-self:flex-end;margin:0 18px -14px 0;z-index:1}
+  .first__note{padding:24px 22px 18px}
   .me{grid-template-columns:1fr}
+  .me-pic{height:auto;width:100%}
   .later{grid-template-columns:1fr}
-  .me-pics{height:auto;grid-template-rows:auto auto}
-  .me-pics img{aspect-ratio:4/3}
-  .me-pics .tall{aspect-ratio:auto}
-  .facts li{grid-template-columns:96px 1fr}
   .stars img{height:auto;width:100%;max-width:340px}
   .month{grid-template-columns:1fr}
   .month .dh,.day.empty{display:none}
@@ -616,24 +616,17 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 <section class="slide"><div class="in">
   <h2>And a bit about me</h2>
   <div class="me">
-    <div class="me-pics">
-      <img class="tall" src="/assets/earl/earl-pose-1.jpg" alt="Earl Duncan" loading="lazy">
-      <img src="/assets/earl/onset/05-norway-wrap.jpg" alt="Earl with the crew at the end of a shoot in Norway" loading="lazy">
-      <img src="/assets/earl/onset/02-sao-paulo-mats.jpg" alt="Filming on the mats in S&atilde;o Paulo for the documentary" loading="lazy">
-    </div>
+    <img class="me-pic" src="/assets/earl/earl-pose-1.jpg" alt="Earl Duncan" width="1200" height="1500" loading="lazy">
     <div class="me-text">
-      <p class="quote" style="margin-top:0">I'm not just a company. I'm your neighbour.</p>
-      <p>You found me on Nextdoor, so you know I'm local. I spent years leading content for global brands, and when I was made redundant, I backed myself and built s4digital.</p>
       <ul class="facts">
-        <li><b>Family</b><span>Husband to an amazing wife, and dad to an amazing six-month-old</span></li>
-        <li><b>Off camera</b><span>Boxing and combat sports</span></li>
-        <li><b>Filming now</b><span>A feature-length documentary, shot in London and S&atilde;o Paulo</span></li>
+        <li>Years leading content for global brands, then I built s4digital</li>
+        <li>Husband, and dad to a six-month-old</li>
+        <li>Big fan of boxing and combat sports</li>
+        <li>Filming a feature-length documentary right now</li>
       </ul>
-      <p>I care about doing good work, because when it goes wrong there's no redemption. So I stand on three&nbsp;things:</p>
-      <div class="values"><span>Transparency</span><span>Authenticity</span><span>Relationships that last</span></div>
+      <p class="stand">What I stand on: <strong>transparency</strong>, <strong>authenticity</strong> and <strong>relationships that&nbsp;last</strong>.</p>
     </div>
-  </div>
-</div></section>
+  </div></div></section>
 
 <!-- 13 -->
 <section class="slide"><div class="in">
@@ -702,13 +695,13 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   <h2>The ads behind it</h2>
   <div class="ads">
     <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-stock.mp4" aria-label="Play TED ad: EV installers. Stock problems. 25 sec"><img src="/p/sandton/media/pv-ev-stock.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Stock problems. 25 sec.</figcaption></figure>
-    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-wrong.mp4" aria-label="Play TED ad: EV installers. Wrong orders. 24 sec"><img src="/p/sandton/media/pv-ev-wrong.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Wrong orders. 24 sec.</figcaption></figure>
-    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-bms-pricing.mp4" aria-label="Play TED ad: BMS contractors. Pricing and margins. 25 sec"><img src="/p/sandton/media/pv-bms-pricing.jpg" alt="" loading="lazy"></button><figcaption><strong>BMS contractors.</strong><br>Pricing and margins. 25&nbsp;sec.</figcaption></figure>
-    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-bms-margins.mp4" aria-label="Play TED ad: BMS contractors. Squeezed margins. 21 sec"><img src="/p/sandton/media/pv-bms-margins.jpg" alt="" loading="lazy"></button><figcaption><strong>BMS contractors.</strong><br>Squeezed margins. 21 sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-cable.mp4" aria-label="Play TED ad: EV installers. Cable cut to length. 26 sec"><img src="/p/sandton/media/pv-ev-cable.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Cable cut to length. 26&nbsp;sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-products.mp4" aria-label="Play TED ad: EV installers. Top five products. 44 sec"><img src="/p/sandton/media/pv-ev-products.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>Top five products. 44&nbsp;sec.</figcaption></figure>
+    <figure><button class="vreel clip" type="button" data-src="/p/sandton/media/ted-ev-giveaway.mp4" aria-label="Play TED ad: EV installers. A giveaway. 11 sec"><img src="/p/sandton/media/pv-ev-giveaway.jpg" alt="" loading="lazy"></button><figcaption><strong>EV installers.</strong><br>A giveaway. 11&nbsp;sec.</figcaption></figure>
     <div class="side">
-      <p class="quote">Each ad tackles one problem the customer has.</p>
-      <p>For TED we filmed Aaron on camera at their warehouse, taking on the four problems their trade customers kept running into: pricing, stock, wrong orders and squeezed margins. Each one became its own ad, cut for EV installers and for BMS contractors.</p>
-      <p>For Sandton it's the same idea, with you answering what sellers and landlords in SM4 are actually worried&nbsp;about.</p>
+      <p class="quote">Different ads for different moments.</p>
+      <p>For TED we filmed Aaron at their warehouse and made ads in different shapes: a problem their trade customers kept running into, the service behind it, a quick product run-through and a giveaway.</p>
+      <p>For Sandton it's the same idea: you answering what sellers and landlords in SM4 are worried about, a look at how you work, and a reason to get in touch&nbsp;now.</p>
     </div>
   </div>
 </div></section>
@@ -785,10 +778,13 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   <p class="private">Prepared privately for Sandton.</p>
   </div>
   <aside class="first">
-    <span class="tag">Your first month with us</span>
-    <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg><div><b>First shoot at Crown Lane</b><span>Early December, half a day</span></div></div>
-    <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><div><b>Scripts on our teleprompter</b><span>Nothing for you to write or print</span></div></div>
-    <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5 3.5-5 3.5z"/></svg><div><b>Videos live before Christmas</b><span>Approved on your phone first</span></div></div>
+    <div class="first__note">
+      <h3>Your first month</h3>
+      <div class="row"><b>1 Dec</b><p>First shoot at Crown Lane<span>Half a day. Scripts on our prompter, nothing to print.</span></p></div>
+      <div class="row"><b>7 Dec</b><p>First video goes live<span>You approve it on your phone first.</span></p></div>
+      <div class="row"><b>17 Dec</b><p>Review call<span>What's working and what we film next.</span></p></div>
+    </div>
+    <img class="first__me" src="/p/sandton/media/earl-cartoon.webp" alt="" width="509" height="800">
   </aside>
   </div>
 </div></section>
