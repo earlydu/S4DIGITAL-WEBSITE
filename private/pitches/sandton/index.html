@@ -144,7 +144,9 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .about h2{color:#fff}
 .about .quote{margin-top:0;margin-bottom:22px;color:#fff}
 .about p{font-size:17px}
-.about .logo-w{width:150px;height:35px;margin-top:24px;background:url('/assets/s4digital-logo-white.png') left center/contain no-repeat}
+.clients{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 28px;align-items:center;margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+.clients img{height:22px;width:auto;max-width:100%;object-fit:contain;object-position:left center;opacity:.92}
+.clients img.client-lg{height:34px}
 
 /* what's different */
 .cols h3{font-size:clamp(20px,1.8vw,24px);color:var(--blue);margin-bottom:16px}
@@ -240,6 +242,11 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .later .when{display:inline-block;font:700 12px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
 .later h3{font-size:22px;margin-bottom:6px}
 .later p{font-size:16px;margin:0}
+.thanks__mark{width:clamp(64px,7vw,96px);height:auto;margin-bottom:28px;transform:rotate(14deg)}
+.thanks h2{font-size:clamp(48px,7vw,96px);line-height:1.02;margin-bottom:18px}
+.thanks .sub{font-size:clamp(19px,1.9vw,24px);color:var(--soft);max-width:32ch;margin-bottom:36px}
+.thanks .who{font-size:16px;color:var(--soft)}
+.thanks .who a{color:var(--ink);margin-left:14px}
 /* close */
 .slide.close{background:var(--dark);color:#fff}
 .close .points li{font-size:20px}
@@ -300,6 +307,9 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .fmt .desc{min-height:0}
   .about video.bg{position:relative;height:38vh}
   .about .panel{width:100%;min-height:0;background:#141417;padding:24px 16px 100px}
+  .clients{gap:18px 20px}
+  .clients img{height:18px}
+  .clients img.client-lg{height:28px}
   .slide.about{flex-direction:column;padding-top:56px}
   .ads{grid-template-columns:1fr 1fr}
   .vreel{height:auto;width:100%}
@@ -614,7 +624,14 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     <p><strong>Monthly content.</strong> Plug In Stations, Super Efficient and Trade Electrical Distributors, from shoots to scheduling to ads.</p>
     <p><strong>Brand films.</strong> Easee, char.gy, NexBlue and Smart Home Charge.</p>
     <p><strong>Documentaries.</strong> La Fromagerie, Carreducker, Signwriting Jack, and Manxinha, a feature documentary in production.</p>
-    <div class="logo-w" role="img" aria-label="s4digital"></div>
+    <div class="clients">
+      <img src="/p/sandton/media/client-easee.png" alt="Easee" width="900" height="151">
+      <img src="/p/sandton/media/client-nexblue.png" alt="NexBlue" width="900" height="150">
+      <img class="client-lg" src="/p/sandton/media/client-chargy.png" alt="char.gy" width="380" height="160">
+      <img src="/p/sandton/media/client-fromagerie.png" alt="La Fromagerie" width="586" height="107">
+      <img class="client-lg" src="/p/sandton/media/client-pis.png" alt="Plug In Stations" width="567" height="160">
+      <img class="client-lg" src="/p/sandton/media/client-superefficient.png" alt="Super Efficient" width="615" height="160">
+    </div>
   </div>
 </section>
 
@@ -797,6 +814,14 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   </div>
 </div></section>
 
+<!-- 21: thank you -->
+<section class="slide thanks" aria-label="Thank you"><div class="in">
+  <img class="thanks__mark" src="/p/sandton/media/s4-asterisk.png" alt="" width="400" height="397">
+  <h2>Thank you, Beenish</h2>
+  <p class="sub">Let's make Sandton the name Morden thinks of first for&nbsp;property.</p>
+  <p class="who">Earl Duncan&ensp;<a href="mailto:earl@s4digi.com">earl@s4digi.com</a>&ensp;<a href="https://s4digi.com">s4digi.com</a></p>
+</div></section>
+
 </main>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Video player">
@@ -806,7 +831,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 
 <nav class="nav" aria-label="Slides">
   <button type="button" id="prev">Back</button>
-  <span class="count" id="count" aria-live="polite">1 / 24</span>
+  <span class="count" id="count" aria-live="polite">1 / 25</span>
   <button type="button" class="next" id="next">Next</button>
 </nav>
 
