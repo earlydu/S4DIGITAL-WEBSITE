@@ -232,11 +232,13 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .stand{font-size:clamp(17px,1.5vw,20px)}
 .stand strong{color:var(--ink)}
 /* where this can go next */
-.later{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(18px,3vh,30px)}
-.later>div{background:var(--tint);border-radius:10px;padding:clamp(20px,2.4vw,28px)}
-.later svg{width:52px;height:52px;padding:12px;border-radius:50%;background:var(--blue);fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:16px}
+.later{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:clamp(14px,2.4vh,26px)}
+.later>div{grid-column:span 2}
+.later>div:nth-child(n+4){grid-column:span 3}
+.later>div{background:var(--tint);border-radius:10px;padding:clamp(18px,2vw,24px)}
+.later svg{width:44px;height:44px;padding:10px;border-radius:50%;background:var(--blue);fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:12px}
 .later .when{display:inline-block;font:700 12px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.later h3{font-size:23px;margin-bottom:8px}
+.later h3{font-size:22px;margin-bottom:6px}
 .later p{font-size:16px;margin:0}
 /* close */
 .slide.close{background:var(--dark);color:#fff}
@@ -313,6 +315,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .me{grid-template-columns:1fr}
   .me-pic{height:auto;width:100%}
   .later{grid-template-columns:1fr}
+  .later>div,.later>div:nth-child(n+4){grid-column:auto}
   .stars img{height:auto;width:100%;max-width:340px}
   .month{grid-template-columns:1fr}
   .month .dh,.day.empty{display:none}
@@ -758,10 +761,12 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 <!-- 19b: where this can go next -->
 <section class="slide"><div class="in">
   <h2>Where this can go next</h2>
-  <p class="lead" style="margin-top:0">Once the monthly content is running, three things build on it. Nothing to decide&nbsp;today.</p>
+  <p class="lead" style="margin-top:0">Once the monthly content is running, these build on it. Nothing to decide&nbsp;today.</p>
   <div class="later">
     <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg><span class="when">Part of the setup</span><h3>One Sandton everywhere</h3><p>Instagram, your Google profile and your website looking and sounding like one business, with your videos on your own site.</p></div>
+    <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="when">Once the videos are live</span><h3>Letters and emails</h3><p>Letters to the streets around each listing and sale, and emails to past clients and old valuations, each with one of your&nbsp;videos.</p></div>
     <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h10"/></svg><span class="when">After our 90-day review</span><h3>Local press</h3><p>Your monthly SM4 market update sent to local papers, so journalists quote Morden's chartered surveyor.</p></div>
+    <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="9" r="2.2"/><path d="M8.5 14a3.5 3.5 0 0 1 7 0"/></svg><span class="when">After our 90-day review</span><h3>Webinars, filled by ads</h3><p>A free online talk for SM4 sellers or landlords, with ads filling the seats. One hour of you, in front of many people at&nbsp;once.</p></div>
     <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span class="when">After our 90-day review</span><h3>Podcasts</h3><p>Guest spots on property and business podcasts, once a few months of videos show how good you are on camera.</p></div>
   </div>
 </div></section>
