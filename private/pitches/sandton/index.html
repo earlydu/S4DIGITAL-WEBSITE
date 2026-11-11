@@ -165,6 +165,44 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .plan li{margin-bottom:6px;font-size:16px}
 .terms{font-size:15px;color:var(--soft);margin-top:18px}
 
+/* north stars */
+.stars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.stars img{height:min(40vh,380px);width:auto;max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.stars h3{font-size:21px;margin:12px 0 6px}
+.stars ul{margin:0;padding-left:18px;font-size:15px;line-height:1.4}
+.stars li{margin-bottom:4px}
+
+/* a month, day by day */
+.key{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--soft);margin-bottom:12px}
+.key span{display:inline-flex;align-items:center;gap:7px}
+.key i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.month{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.month .dh{font-size:13px;font-weight:600;color:var(--soft);padding:0 8px}
+.day{background:var(--tint);border-radius:6px;padding:7px 8px;min-height:clamp(58px,9.4vh,92px);display:flex;flex-direction:column;gap:4px}
+.day.next{opacity:.5}
+.day .d{font:400 16px/1 var(--serif);color:var(--soft)}
+.day .wd{display:none}
+.t{display:block;font-size:13px;line-height:1.25;border-radius:4px;padding:3px 6px}
+.t.you,.key .you{background:var(--blue);color:#fff}
+.t.us,.key .us{background:var(--paper);color:var(--ink);border:1px dashed var(--line)}
+.t.live,.key .live{background:var(--purple);color:#fff}
+.key .us{border-color:var(--soft)}
+.month-side .quote{margin-top:0}
+
+/* how the ads work */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{position:relative;background:var(--tint);border-radius:8px;padding:20px 18px}
+.step .n{display:block;font:400 34px/1 var(--serif);color:var(--blue);margin-bottom:10px}
+.step h3{font-size:21px;margin-bottom:6px}
+.step p{font-size:15px;margin:0}
+.step:not(:last-child)::after{content:"\2192";position:absolute;right:-17px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--blue);color:#fff;font:600 15px/26px var(--sans);text-align:center;z-index:1}
+.money{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.money div{border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.money span{font-size:14px;color:var(--soft)}
+.money b{display:block;font:400 28px/1.1 var(--serif);margin:4px 0 6px}
+.money p{font-size:15px;margin:0}
+.month-side p{font-size:16px}
+
 /* close */
 .slide.close{background:var(--dark);color:#fff}
 .close .points li{font-size:20px}
@@ -215,6 +253,15 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .ads{grid-template-columns:1fr 1fr}
   .vreel{height:auto;width:100%}
   .plans{grid-template-columns:1fr}
+  .flow,.money{grid-template-columns:1fr}
+  .step:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-20px;margin:0 0 0 -13px}
+  .stars{grid-template-columns:1fr}
+  .stars img{height:auto;width:100%;max-width:340px}
+  .month{grid-template-columns:1fr}
+  .month .dh,.day.empty{display:none}
+  .day{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:center}
+  .day .d{width:100%}
+  .day .wd{display:inline}
   .nav button{min-width:92px;padding:11px 16px}
 }
 </style>
@@ -421,6 +468,23 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   </div>
 </div></section>
 
+<!-- 10b: north stars -->
+<section class="slide"><div class="in">
+  <h2>Three accounts to aim for</h2>
+  <div class="stars">
+    <div><img src="/p/sandton/media/ns-tanyabaker.jpg" alt="Tanya Baker's Instagram profile and grid" loading="lazy">
+      <h3>Tanya Baker, 157K</h3>
+      <ul><li>An independent agent whose bio leads with one result: 36% of their homes sell through Instagram.</li><li>Every home shot the same warm, styled way, so the grid looks like one brand.</li></ul></div>
+    <div><img src="/p/sandton/media/ns-hortons.jpg" alt="Hortons' Instagram profile and grid" loading="lazy">
+      <h3>Hortons, 12.6K</h3>
+      <ul><li>A one-line promise: "Work with the agent who knows your market best."</li><li>Agents on camera, out on the street in front of the homes.</li></ul></div>
+    <div><img src="/p/sandton/media/ns-daggers.jpg" alt="Daniel Daggers' Instagram profile and grid" loading="lazy">
+      <h3>Daniel Daggers, 110K</h3>
+      <ul><li>His face is the brand: most posts are him talking straight to camera.</li><li>Advice and opinions, not listings, with recurring series like "Thoughts from the past week".</li></ul></div>
+  </div>
+  <p class="lead">For Sandton: you on camera like Daggers, Morden first like Hortons, and homes shot like Tanya&nbsp;Baker's.</p>
+</div></section>
+
 <!-- 11 -->
 <section class="slide"><div class="in">
   <h2>How each month runs</h2>
@@ -434,6 +498,50 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
       <li><span class="num">5</span><p><strong>Posted for you.</strong> Scheduled across Instagram, Facebook, LinkedIn, TikTok, YouTube and Google.</p></li>
       <li><span class="num">6</span><p><strong>Monthly review.</strong> A one-page report on what worked and what we'll change next month.</p></li>
     </ol>
+  </div>
+</div></section>
+
+<!-- 11b: a month, day by day -->
+<section class="slide"><div class="in">
+  <h2>What November would look like</h2>
+  <div class="two w-wide" style="align-items:start">
+    <div>
+      <div class="key"><span><i class="you"></i>Needs you</span><span><i class="us"></i>Our work</span><span><i class="live"></i>Goes live</span></div>
+      <div class="month">
+        <div class="dh">Mon</div><div class="dh">Tue</div><div class="dh">Wed</div><div class="dh">Thu</div><div class="dh">Fri</div>
+        <div class="day"><b class="d"><span class="wd">Mon </span>2</b><span class="t you">Planning call, 30 min</span></div>
+        <div class="day empty"><b class="d">3</b></div>
+        <div class="day"><b class="d"><span class="wd">Wed </span>4</b><span class="t us">Scripts for content day 1 sent to your phone</span></div>
+        <div class="day empty"><b class="d">5</b></div>
+        <div class="day empty"><b class="d">6</b></div>
+        <div class="day"><b class="d"><span class="wd">Mon </span>9</b><span class="t you">Content day 1 at Crown Lane, 2 hours</span></div>
+        <div class="day"><b class="d"><span class="wd">Tue </span>10</b><span class="t us">Editing</span></div>
+        <div class="day"><b class="d"><span class="wd">Wed </span>11</b><span class="t us">Editing</span></div>
+        <div class="day"><b class="d"><span class="wd">Thu </span>12</b><span class="t you">Approve 5 videos on your phone</span></div>
+        <div class="day"><b class="d"><span class="wd">Fri </span>13</b><span class="t us">Changes made, all 5 scheduled</span></div>
+        <div class="day"><b class="d"><span class="wd">Mon </span>16</b><span class="t live">Video 1</span></div>
+        <div class="day empty"><b class="d">17</b></div>
+        <div class="day"><b class="d"><span class="wd">Wed </span>18</b><span class="t live">Video 2</span><span class="t us">Scripts for content day 2</span></div>
+        <div class="day empty"><b class="d">19</b></div>
+        <div class="day"><b class="d"><span class="wd">Fri </span>20</b><span class="t live">Video 3</span></div>
+        <div class="day"><b class="d"><span class="wd">Mon </span>23</b><span class="t you">Content day 2 around Morden, 2 hours</span><span class="t live">Video 4</span></div>
+        <div class="day"><b class="d"><span class="wd">Tue </span>24</b><span class="t us">Editing</span></div>
+        <div class="day"><b class="d"><span class="wd">Wed </span>25</b><span class="t us">Editing</span><span class="t live">Video 5</span></div>
+        <div class="day"><b class="d"><span class="wd">Thu </span>26</b><span class="t you">Approve 5 videos and the market update</span></div>
+        <div class="day"><b class="d"><span class="wd">Fri </span>27</b><span class="t us">All scheduled</span><span class="t live">SM4 market update</span></div>
+        <div class="day"><b class="d"><span class="wd">Mon </span>30</b><span class="t live">Video 6</span><span class="t you">Review call, 30 min</span></div>
+        <div class="day next empty"><b class="d">1 Dec</b></div>
+        <div class="day next"><b class="d"><span class="wd">Wed </span>2 Dec</b><span class="t live">Video 7</span></div>
+        <div class="day next empty"><b class="d">3 Dec</b></div>
+        <div class="day next"><b class="d"><span class="wd">Fri </span>4 Dec</b><span class="t live">Video 8</span></div>
+      </div>
+    </div>
+    <div class="month-side">
+      <p class="quote">Under six hours of your time in the month.</p>
+      <p>Two content days, a planning call, two rounds of approvals on your phone and a review call. Scripts, filming, editing, captions and scheduling are on us.</p>
+      <p>Each content day takes about a week to edit, approve and schedule, then posts three times a week. Content day 2 carries on into December, so there's never a&nbsp;gap.</p>
+      <p class="soft">Shown on the twice-a-month plan. Once a month runs the same way, with one content day and five&nbsp;videos.</p>
+    </div>
   </div>
 </div></section>
 
@@ -528,6 +636,21 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   </div>
 </div></section>
 
+<!-- 17b: how the ads work -->
+<section class="slide"><div class="in">
+  <h2>How the ads work</h2>
+  <div class="flow">
+    <div class="step"><span class="n">1</span><h3>We film it</h3><p>Your content day gives us the videos, like a market update or a local tip. No extra filming for ads.</p></div>
+    <div class="step"><span class="n">2</span><h3>We pick the winner</h3><p>The video that does best on your page becomes the ad, because people have already shown they like it.</p></div>
+    <div class="step"><span class="n">3</span><h3>SM4 sees it</h3><p>Facebook and Instagram show it to homeowners and landlords within a few miles of Crown Lane.</p></div>
+    <div class="step"><span class="n">4</span><h3>They get in touch</h3><p>A "Book a valuation" button sends their details straight to you. Each month we report what came in.</p></div>
+  </div>
+  <div class="money">
+    <div><span>You pay s4digital</span><b>&pound;250 + VAT a month</b><p>Setup, targeting, testing which video works best, and the monthly report.</p></div>
+    <div><span>You pay Facebook and Instagram directly</span><b>We suggest &pound;10 a day</b><p>About &pound;300 a month, on your own card. Pause or change it any time.</p></div>
+  </div>
+</div></section>
+
 <!-- 18 -->
 <section class="slide"><div class="in">
   <h2>When a story deserves more time</h2>
@@ -560,7 +683,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
     <div class="plan">
       <h3>Add paid ads</h3>
       <div class="price">from &pound;250</div><div class="vat">+ VAT a month, on top of either plan</div>
-      <ul><li>Your best videos boosted to SM4 homeowners and landlords</li><li>Set up, managed and reported monthly</li><li>Ad spend paid by you, from &pound;5 a day</li></ul>
+      <ul><li>Your best videos boosted to SM4 homeowners and landlords</li><li>Set up, managed and reported monthly</li><li>Ad spend paid by you straight to Meta, we suggest &pound;10 a day</li></ul>
     </div>
   </div>
   <p class="terms">Independent agent rates, held for your first 12 months. Three-month minimum, then 30 days' notice. Kit, scripts, editing and local travel included.</p>
@@ -589,7 +712,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 
 <nav class="nav" aria-label="Slides">
   <button type="button" id="prev">Back</button>
-  <span class="count" id="count" aria-live="polite">1 / 20</span>
+  <span class="count" id="count" aria-live="polite">1 / 23</span>
   <button type="button" class="next" id="next">Next</button>
 </nav>
 
