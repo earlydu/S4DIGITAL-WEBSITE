@@ -1,7 +1,8 @@
 // Minimal zero-dependency static server for the s4digital build (incl. PlanPulse).
 // Run: node serve.mjs  →  http://localhost:4000   |  PlanPulse: http://localhost:4000/planpulse
 import { createServer } from 'node:http';
-import { stat, readFile } from 'node:fs/promises';
+import { stat, readFile, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
 import { createReadStream } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -131,6 +132,52 @@ const server = createServer(async (req, res) => {
       return;
     }
 
+    // Local only: the deck editor (.tools/pitch-edit.js) reads, saves and publishes a pitch's index.html.
+    const ed = bare.match(/^\/__pitch(?:\/([a-z0-9-]+)\/(source|save|publish)|-edit\.js)$/);
+    if (ed) {
+      const json = (status, body) => { res.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(body)); };
+      if (!ed[1]) {
+        res.writeHead(200, { 'content-type': TYPES['.js'], 'cache-control': 'no-store' });
+        res.end(await readFile(join(ROOT, '.tools', 'pitch-edit.js')));
+        return;
+      }
+      const file = join(ROOT, 'private', 'pitches', ed[1], 'index.html');
+      if (ed[2] === 'source') {
+        res.writeHead(200, { 'content-type': TYPES['.html'], 'cache-control': 'no-store' });
+        res.end(await readFile(file, 'utf8'));
+        return;
+      }
+      if (req.method !== 'POST') return json(405, { ok: false, error: 'POST only' });
+      if (ed[2] === 'save') {
+        const chunks = [];
+        for await (const c of req) chunks.push(c);
+        const html = Buffer.concat(chunks).toString('utf8');
+        if (!/^<!doctype html>/i.test(html) || !html.includes('id="deck"')) return json(400, { ok: false, error: 'That does not look like the deck' });
+        await writeFile(file, html, 'utf8');
+        return json(200, { ok: true });
+      }
+      // publish: rebuild the PDF from the running deck, then commit just this pitch and push.
+      const run = (cmd, args, env) => new Promise((resolve, reject) => execFile(cmd, args, { cwd: ROOT, env: { ...process.env, ...env }, timeout: 600000 },
+        (err, stdout, stderr) => err ? reject(new Error((stderr || stdout || err.message).trim().split('\n').slice(-3).join(' '))) : resolve(stdout)));
+      try {
+        const pdf = ((await readFile(file, 'utf8')).match(new RegExp(`/p/${ed[1]}/media/([^"]+\\.pdf)`)) || [])[1];
+        const paths = [`private/pitches/${ed[1]}/index.html`];
+        if (pdf) {
+          await run('python', [join(ROOT, '.tools', 'pitch-pdf.py'), ed[1], pdf], { PITCH_COOKIE: req.headers.cookie || '' });
+          paths.push(`private/pitches/${ed[1]}/media/${pdf}`);
+        }
+        if (!(await run('git', ['status', '--porcelain', '--', ...paths])).trim()) return json(200, { ok: true, note: 'Nothing new to publish' });
+        const msg = join(ROOT, '.tools', 'pitch-commit.txt');
+        await writeFile(msg, `${ed[1]} pitch: text edits from the deck editor\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n`);
+        await run('git', ['add', '--', ...paths]);
+        await run('git', ['commit', '-F', msg, '--', ...paths]);
+        await run('git', ['push']);
+        return json(200, { ok: true });
+      } catch (e) {
+        return json(500, { ok: false, error: e.message });
+      }
+    }
+
     // Local parity with api/pitch.mjs: passcode-protected pitches at /p/<slug>
     const pitch = bare.match(/^\/p\/([^/]+)(?:\/media\/([^/]+))?$/);
     if (pitch) {
@@ -144,8 +191,11 @@ const server = createServer(async (req, res) => {
         req,
         secure: false,             // localhost is http, so no Secure flag
       });
+      // Local only: add the deck editor to a signed-in deck page.
+      let body = out.body;
+      if (!pitch[2] && typeof body === 'string' && body.includes('id="deck"')) body = body.replace('</body>', '<script src="/__pitch-edit.js"></script>\n</body>');
       res.writeHead(out.status, out.headers);
-      res.end(out.body);
+      res.end(body);
       return;
     }
 
