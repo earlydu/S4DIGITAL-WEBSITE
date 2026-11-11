@@ -220,6 +220,17 @@ body.lb-open .nav,body.lb-open .bar{visibility:hidden}
 .note .badge{position:absolute;top:-13px;left:22px;background:var(--paper);color:var(--blue);border:2px solid var(--blue);border-radius:999px;padding:3px 12px;font:700 12px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .month-side p{font-size:16px}
 
+/* about Earl */
+.me{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center}
+.me-pics{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:min(60vh,540px)}
+.me-pics img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+.me-pics .tall{grid-row:1/3;object-position:50% 20%}
+.me-text p{font-size:17px}
+.facts{list-style:none;margin:14px 0 16px;padding:0;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.35}
+.facts b{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);padding-top:2px}
+.values{display:flex;flex-wrap:wrap;gap:8px}
+.values span{background:var(--blue);color:#fff;border-radius:999px;padding:7px 15px;font-size:15px;font-weight:600}
 /* close */
 .slide.close{background:var(--dark);color:#fff}
 .close .points li{font-size:20px}
@@ -286,6 +297,11 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   .stars{grid-template-columns:1fr}
   .scale{grid-template-columns:1fr;gap:4px}
   .close-grid{grid-template-columns:1fr}
+  .me{grid-template-columns:1fr}
+  .me-pics{height:auto;grid-template-rows:auto auto}
+  .me-pics img{aspect-ratio:4/3}
+  .me-pics .tall{aspect-ratio:auto}
+  .facts li{grid-template-columns:96px 1fr}
   .stars img{height:auto;width:100%;max-width:340px}
   .month{grid-template-columns:1fr}
   .month .dh,.day.empty{display:none}
@@ -398,7 +414,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
         <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1024.mp4" aria-label="Play Sandton reel, 24 Oct"><img src="/p/sandton/media/her-hook.jpg" alt="A current reel: Beenish small in a wide frame" loading="lazy"></button>
         <button class="tall clip" type="button" data-src="/p/sandton/media/sandton-1017.mp4" aria-label="Play Sandton reel, 17 Oct"><img src="/p/sandton/media/stock-commercial.jpg" alt="A current reel built from stock footage" loading="lazy"></button>
       </div>
-      <figcaption class="cap" style="text-align:center">Two of your current reels</figcaption>
+      
     </figure>
     <ol class="points small">
       <li><span class="num">1</span><p><strong>Sound.</strong> Outdoor phone audio picks up wind and traffic. Clip-on mics and a quieter spot fix it.</p></li>
@@ -588,6 +604,29 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
   </div>
 </section>
 
+<!-- 12b: about Earl -->
+<section class="slide"><div class="in">
+  <h2>And a bit about me</h2>
+  <div class="me">
+    <div class="me-pics">
+      <img class="tall" src="/assets/earl/earl-pose-1.jpg" alt="Earl Duncan" loading="lazy">
+      <img src="/assets/earl/onset/05-norway-wrap.jpg" alt="Earl with the crew at the end of a shoot in Norway" loading="lazy">
+      <img src="/assets/earl/onset/02-sao-paulo-mats.jpg" alt="Filming on the mats in S&atilde;o Paulo for the documentary" loading="lazy">
+    </div>
+    <div class="me-text">
+      <p class="quote" style="margin-top:0">I'm not just a company. I'm your neighbour.</p>
+      <p>You found me on Nextdoor, so you know I'm local. I spent years leading content for global brands, and when I was made redundant, I backed myself and built s4digital.</p>
+      <ul class="facts">
+        <li><b>Family</b><span>Husband to an amazing wife, and dad to an amazing six-month-old</span></li>
+        <li><b>Off camera</b><span>Boxing and combat sports</span></li>
+        <li><b>Filming now</b><span>A feature-length documentary, shot in London and S&atilde;o Paulo</span></li>
+      </ul>
+      <p>I care about doing good work, because when it goes wrong there's no redemption. So I stand on three&nbsp;things:</p>
+      <div class="values"><span>Transparency</span><span>Authenticity</span><span>Relationships that last</span></div>
+    </div>
+  </div>
+</div></section>
+
 <!-- 13 -->
 <section class="slide"><div class="in">
   <h2>What's different about working with us</h2>
@@ -744,7 +783,7 @@ body.on-dark .toggle{background:rgba(20,20,23,.7);color:#fff;border-color:#4a474
 
 <nav class="nav" aria-label="Slides">
   <button type="button" id="prev">Back</button>
-  <span class="count" id="count" aria-live="polite">1 / 22</span>
+  <span class="count" id="count" aria-live="polite">1 / 23</span>
   <button type="button" class="next" id="next">Next</button>
 </nav>
 
