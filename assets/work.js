@@ -325,6 +325,11 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
       '</div></section>'
     : '';
 
+  // An optional partner (e.g. the installer on a manufacturer film) gets a meta cell and a link on its first mention.
+  const pt = w.partner;
+  const ptLink = pt ? '<a href="' + esc(pt.href) + '" target="_blank" rel="noopener">' + esc(pt.name) + '</a>' : '';
+  const withPartner = t => pt ? esc(t).replace(esc(pt.name), ptLink) : esc(t);
+
   page.innerHTML =
     '<section class="phero">' +
       '<span class="ast phero__bg" aria-hidden="true"></span>' +
@@ -340,6 +345,7 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
       '<div class="shell">' +
         '<div class="cs__meta">' +
           '<div><span>Client</span><strong>' + esc(w.client) + '</strong></div>' +
+          (pt ? '<div><span>' + esc(pt.label || 'Partner') + '</span><strong>' + ptLink + '</strong></div>' : '') +
           '<div><span>Industry</span><strong>' + esc(w.industry) + '</strong></div>' +
           '<div><span>Categories</span><strong>' + esc(w.categories.join(', ')) + '</strong></div>' +
         '</div>' +
@@ -347,7 +353,7 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
         '<div class="cs__body">' +
           '<div class="prose">' +
             '<h2 style="font-weight:900;font-size:clamp(26px,3vw,38px);letter-spacing:-.03em">Client overview</h2>' +
-            '<p>' + esc(w.overview) + '</p>' +
+            '<p>' + withPartner(w.overview) + '</p>' +
             '<h3>The challenge</h3>' +
             '<p>' + esc(w.challenge) + '</p>' +
             '<h3>What we delivered</h3>' +

@@ -1491,6 +1491,11 @@
       "title": "A tethered charger launch, told by the installer who fitted it",
       "client": "NexBlue Point 2 Tethered",
       "industry": "EV charging",
+      "partner": {
+        "label": "Installer",
+        "name": "Essex Vehicle Charging",
+        "href": "https://www.essexvehiclecharging.com/"
+      },
       "sector": "Case study film",
       "collection": "commercial",
       "featured": false,
