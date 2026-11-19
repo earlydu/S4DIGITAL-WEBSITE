@@ -247,7 +247,11 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
             (w.thumbs.note ? '<p>' + esc(w.thumbs.note) + '</p>' : '') + '</div>' +
           '<div class="cs__thumbs">' +
             w.thumbs.items.map(t =>
-              '<figure><img src="' + esc(url(t.src)) + '" alt="' + esc(t.alt) + '" loading="lazy" />' +
+              // A thumb with a video loops silently, for before/after clips where the
+              // movement is the proof.
+              '<figure>' + (t.video
+                ? '<video autoplay muted loop playsinline preload="metadata" poster="' + esc(url(t.src)) + '" src="' + esc(url(t.video)) + '" aria-label="' + esc(t.alt) + '"></video>'
+                : '<img src="' + esc(url(t.src)) + '" alt="' + esc(t.alt) + '" loading="lazy" />') +
                 (t.label ? '<figcaption>' + esc(t.label) + '</figcaption>' : '') +
               '</figure>').join('') +
           '</div>' +

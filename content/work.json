@@ -97,7 +97,7 @@
       },
       "videos": [
         {
-          "youtube": "lmCg27D7xkA",
+          "youtube": "DuI3dlVH0KM",
           "poster": "assets/work/signwriting-jack.jpg",
           "title": "Signwriting Jack"
         }
@@ -152,7 +152,7 @@
       },
       "videos": [
         {
-          "youtube": "QO3w0LUQiJs",
+          "youtube": "JnrmhsAiO20",
           "poster": "assets/work/la-fromagerie/patricia-talking.jpg",
           "title": "La Fromagerie"
         }
@@ -235,7 +235,7 @@
       },
       "videos": [
         {
-          "youtube": "1snYkU72u4w",
+          "youtube": "Pfaicoat1B8",
           "poster": "assets/work/barry-road/door.jpg",
           "title": "The renovation, told by the client"
         }
@@ -291,7 +291,7 @@
       },
       "videos": [
         {
-          "youtube": "aaymq8TYJdE",
+          "youtube": "pURr_FsPH5k",
           "poster": "assets/work/nimrod-road/living-bay.jpg",
           "title": "The renovation, told by the homeowners"
         }
@@ -344,7 +344,7 @@
       },
       "videos": [
         {
-          "youtube": "QKw74LrV4XY",
+          "youtube": "6UAvZ0VMogA",
           "poster": "assets/work/carreducker/interview.jpg",
           "title": "Carreducker"
         }
@@ -399,7 +399,7 @@
       },
       "videos": [
         {
-          "youtube": "pIAuuQhrbSY",
+          "youtube": "WAAFrgvVdV0",
           "poster": "assets/work/catherine-marche/earring-worn.jpg",
           "title": "Catherine Marche Designs"
         }
@@ -447,12 +447,12 @@
       },
       "videos": [
         {
-          "youtube": "gjiGWO4vmjE",
+          "youtube": "fuu1wfCQ67k",
           "poster": "assets/work/boxraw-2.jpg",
           "title": "Boxing training, one"
         },
         {
-          "youtube": "aQjySMKR4T0",
+          "youtube": "FKbakwBKz0E",
           "poster": "assets/work/boxraw-1.jpg",
           "title": "Boxing training, two"
         }
@@ -585,7 +585,7 @@
       },
       "videos": [
         {
-          "youtube": "hquSZFhe7t4",
+          "youtube": "QeNzQyX-OEM",
           "poster": "assets/work/aliyah-art.jpg",
           "title": "Aliyah Art"
         }
@@ -641,12 +641,12 @@
       },
       "videos": [
         {
-          "youtube": "gY-vQZQ8qGo",
+          "youtube": "zCQEgog-PsQ",
           "poster": "assets/work/southwick-opening.jpg",
           "title": "The opening ceremony"
         },
         {
-          "youtube": "QKOVKMhJ4AM",
+          "youtube": "uZ7BGZG3iPc",
           "poster": "assets/work/southwick-panel.jpg",
           "title": "The D-Day talk, in full"
         }
@@ -809,7 +809,7 @@
       },
       "videos": [
         {
-          "youtube": "1ZkF3jS62BU",
+          "youtube": "IjDxkh7PVm8",
           "poster": "assets/work/lovato-seminar.jpg",
           "title": "Seminar highlights"
         }
@@ -1279,17 +1279,17 @@
       },
       "videos": [
         {
-          "youtube": "iXIqa3V53yY",
+          "youtube": "DPhti4fPHeA",
           "poster": "assets/work/easee-landlords.jpg",
           "title": "Chargepoint grants for landlords"
         },
         {
-          "youtube": "YJ5lYnnRhLc",
+          "youtube": "yFtr1piLqUA",
           "poster": "assets/work/easee-couple.jpg",
           "title": "A couple moving house"
         },
         {
-          "youtube": "-_cQhvmg4Rk",
+          "youtube": "n4pQCLhtiPM",
           "poster": "assets/work/easee-learner.jpg",
           "title": "A learner driver"
         }
@@ -1371,7 +1371,7 @@
       },
       "videos": [
         {
-          "youtube": "nqqjFQTQRDQ",
+          "youtube": "fiE4eWHMCAo",
           "poster": "assets/work/musk-city-16.jpg",
           "title": "Musk City"
         }
@@ -1420,7 +1420,7 @@
       },
       "videos": [
         {
-          "youtube": "wtI_QMPPcrg",
+          "youtube": "QD6SY5vO8uw",
           "poster": "assets/work/easee-500k.jpg",
           "title": "The 500,000th install"
         }
@@ -1480,9 +1480,154 @@
       },
       "videos": [
         {
-          "youtube": "haDGeQzfQKI",
+          "youtube": "1yBzx14d9Ew",
           "poster": "assets/work/fifth-gear.jpg",
           "title": "Quick fire, with Fifth Gear"
+        }
+      ]
+    },
+    {
+      "slug": "nexblue-point-2-tethered",
+      "title": "A tethered charger launch, told by the installer who fitted it",
+      "client": "NexBlue Point 2 Tethered",
+      "industry": "EV charging",
+      "sector": "Case study film",
+      "collection": "commercial",
+      "featured": false,
+      "categories": [
+        "Commercial Content",
+        "Trades and Construction",
+        "Video Production",
+        "Photography"
+      ],
+      "cover": {
+        "src": "assets/work/nexblue-point2.jpg",
+        "loop": "assets/work/gifs/nexblue-point2.mp4",
+        "alt": "A tethered NexBlue Point 2 fitted to a brick wall with the cable coiled on its hook"
+      },
+      "summary": "A case study film for the tethered version of NexBlue's Point 2, shot on a real swap-out install in Suffolk with the installer doing the talking.",
+      "overview": "NexBlue added a tethered option to its Point 2 home charger and wanted to launch it on a real job rather than in a studio. The film spent a day in Shotley Gate, Suffolk, with Richard Gould of Essex Vehicle Charging, following the install from the van to the first charge and letting Richard explain why around 80% of his customers would rather have the cable fixed to the wall.",
+      "challenge": "Installers trust other installers, not product copy. The film had to sound like a man on a driveway talking about a charger he fits every week, and one day on site had to supply a hero film, a separate product film, five verticals and the photography. The sun was hard and bright from start to finish, which is the least forgiving light there is for shooting a black charger on red brick. There was a curveball too. Richard normally works in his own company uniform, but on the day he chose to wear a NexBlue polo he'd been gifted, with a fleece over it that he took off as the day went on. It was only in the edit that we realised those shots couldn't go on wholesaler branch screens or social with the logo on show. Normally that's something you'd catch on set, but real sites don't always go to plan, so we found a way to fix it in post.",
+      "delivered": [
+        "A 1:33 hero film built around Richard's interview",
+        "A standalone 27 second product film",
+        "Five verticals for Reels, TikTok and Shorts",
+        "Clean versions of both films with no captions",
+        "Over 40 edited photographs, plus a set with the charger lit up",
+        "A one minute cut for wholesaler branch screens, added after delivery",
+        "The NexBlue logo removed from Richard's polo in every shot of the verticals and that cut"
+      ],
+      "outputs": [
+        {
+          "value": "One day",
+          "label": "Hero film, product film, verticals and photos from a single install"
+        },
+        {
+          "value": "Installer led",
+          "label": "Told by the person who fitted it, not the brand"
+        },
+        {
+          "value": "14 shots",
+          "label": "Logo tracked out frame by frame, with no edge left to spot"
+        }
+      ],
+      "cta": {
+        "label": "Talk to us about case study films",
+        "href": "/contact"
+      },
+      "videos": [
+        {
+          "youtube": "jd9hCVO3Jkw",
+          "poster": "assets/work/nexblue-point2.jpg",
+          "title": "NexBlue Point 2 Tethered"
+        },
+        {
+          "youtube": "od7Hd_jbowQ",
+          "poster": "assets/work/nexblue-point2/unit.jpg",
+          "title": "Point 2 Tethered product film"
+        }
+      ],
+      "thumbs": {
+        "heading": "Taking the logo off the polo",
+        "note": "Comping, short for compositing, means laying a patch over part of the frame so something disappears without anyone noticing. Here that meant tracking the logo through 14 shots across the five verticals and every shot in the one minute cut, frame by frame, on the original 4K files. Each patch is clean shirt taken from the same shot, feathered so there's no edge, colour matched to the fabric around it and placed under the grade so it's graded with everything else. The NEXBLUE print on the back of his collar came out too, and every frame was checked at full size. A handful of shots couldn't be cleaned without it showing, so rather than ship a patch you could spot, we cut them and let the shots either side run on.",
+        "items": [
+          {
+            "src": "assets/work/nexblue-point2/polo-before-after.jpg",
+            "video": "assets/work/nexblue-point2/polo-before-after.mp4",
+            "alt": "The same shot of Richard playing twice side by side: on the left his navy polo shows the NexBlue logo, on the right the logo is gone and the shirt looks untouched as his hands move across it",
+            "label": "The same shot, playing side by side. His hands pass right over where the logo was, and the shirt holds up."
+          }
+        ]
+      },
+      "shorts": {
+        "heading": "The verticals",
+        "note": "Five cuts for Reels, TikTok and Shorts, each built around one thing Richard says. These are the final versions, with the logo taken off his polo.",
+        "items": [
+          {
+            "src": "assets/work/nexblue-point2/reel-1.mp4",
+            "poster": "assets/work/nexblue-point2/reel-1.jpg",
+            "title": "Adding a tethered option",
+            "href": "https://www.youtube.com/shorts/VuQdDMu_taU"
+          },
+          {
+            "src": "assets/work/nexblue-point2/reel-2.mp4",
+            "poster": "assets/work/nexblue-point2/reel-2.jpg",
+            "title": "The app",
+            "href": "https://www.youtube.com/shorts/4p4RYT8Rh1Y"
+          },
+          {
+            "src": "assets/work/nexblue-point2/reel-3.mp4",
+            "poster": "assets/work/nexblue-point2/reel-3.jpg",
+            "title": "The support",
+            "href": "https://www.youtube.com/shorts/Td-Vl5fYHz0"
+          },
+          {
+            "src": "assets/work/nexblue-point2/reel-4.mp4",
+            "poster": "assets/work/nexblue-point2/reel-4.jpg",
+            "title": "Why tethered",
+            "href": "https://www.youtube.com/shorts/uSpORkUEeVA"
+          },
+          {
+            "src": "assets/work/nexblue-point2/reel-5.mp4",
+            "poster": "assets/work/nexblue-point2/reel-5.jpg",
+            "title": "Plug in and charge",
+            "href": "https://www.youtube.com/shorts/xyq91cwntRM"
+          }
+        ]
+      },
+      "galleryNote": "From the install day in Shotley Gate.",
+      "gallery": [
+        {
+          "src": "assets/work/nexblue-point2/fitting.jpg",
+          "alt": "Richard Gould wiring the Point 2 back plate to the wall"
+        },
+        {
+          "src": "assets/work/nexblue-point2/unit.jpg",
+          "alt": "The tethered Point 2 and its cable on the driveway before fitting"
+        },
+        {
+          "src": "assets/work/nexblue-point2/detail.jpg",
+          "alt": "Close up of the Point 2 casing in the sun"
+        },
+        {
+          "src": "assets/work/nexblue-point2/cable.jpg",
+          "alt": "Richard coiling the tethered cable onto its wall hook"
+        },
+        {
+          "src": "assets/work/nexblue-point2/wide.jpg",
+          "alt": "Richard kneeling on the driveway beside the finished install"
+        },
+        {
+          "src": "assets/work/nexblue-point2/setup.jpg",
+          "alt": "Setting up the charger at the wall after fitting"
+        },
+        {
+          "src": "assets/work/nexblue-point2/richard.jpg",
+          "alt": "Richard Gould of Essex Vehicle Charging during his interview"
+        },
+        {
+          "src": "assets/work/nexblue-point2/plug-in.jpg",
+          "alt": "Plugging the tethered cable into the car for the first charge"
         }
       ]
     },
@@ -1529,7 +1674,7 @@
       },
       "videos": [
         {
-          "youtube": "9-k2HXAKWiY",
+          "youtube": "1E78Tdc_Q-Q",
           "poster": "assets/work/virtus-energy.jpg",
           "title": "Virtus Energy and NexBlue"
         }
@@ -1650,7 +1795,7 @@
       },
       "videos": [
         {
-          "youtube": "kVic0fId1vU",
+          "youtube": "8g0R9gnT4Zs",
           "poster": "assets/work/alpha-manufacturing.jpg",
           "title": "Easee at Alpha Manufacturing"
         }
@@ -1898,7 +2043,7 @@
       },
       "videos": [
         {
-          "youtube": "-oUsUbJ3Uhs",
+          "youtube": "n8i6X-uPteQ",
           "poster": "assets/work/easee-rcd-1.jpg",
           "title": "The installation, with the RCD test"
         }
@@ -1950,7 +2095,7 @@
       },
       "videos": [
         {
-          "youtube": "ijdkPp_2VE0",
+          "youtube": "PjApz_i8QBU",
           "poster": "assets/work/easee-equalizer.jpg",
           "title": "The Equalizer announcement"
         }
@@ -2195,7 +2340,7 @@
       },
       "videos": [
         {
-          "youtube": "wKMhvUaWGOs",
+          "youtube": "kW2aDAq-m68",
           "poster": "assets/work/ohme-raffle.jpg",
           "title": "The campaign film"
         }
