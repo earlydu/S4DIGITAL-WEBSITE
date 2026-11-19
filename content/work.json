@@ -1507,7 +1507,7 @@
       ],
       "cover": {
         "src": "assets/work/nexblue-point2.jpg",
-        "loop": "assets/work/gifs/nexblue-point2.mp4",
+        "loop": "assets/work/gifs/nexblue-point2-clean.mp4",
         "alt": "A tethered NexBlue Point 2 fitted to a brick wall with the cable coiled on its hook"
       },
       "summary": "A case study film for the tethered version of NexBlue's Point 2, shot on a real swap-out install in Suffolk with the installer doing the talking.",
@@ -1598,8 +1598,8 @@
       "galleryNote": "From the install day in Shotley Gate.",
       "gallery": [
         {
-          "src": "assets/work/nexblue-point2/fitting.jpg",
-          "alt": "Richard Gould wiring the Point 2 back plate to the wall"
+          "src": "assets/work/nexblue-point2/fitting-clean.jpg",
+          "alt": "Richard Gould lining the Point 2 up on its wall bracket"
         },
         {
           "src": "assets/work/nexblue-point2/unit.jpg",
@@ -1614,15 +1614,15 @@
           "alt": "Richard coiling the tethered cable onto its wall hook"
         },
         {
-          "src": "assets/work/nexblue-point2/wide.jpg",
-          "alt": "Richard kneeling on the driveway beside the finished install"
+          "src": "assets/work/nexblue-point2/wide-clean.jpg",
+          "alt": "The Essex Vehicle Charging van on the driveway, with the kit coming out"
         },
         {
           "src": "assets/work/nexblue-point2/setup.jpg",
           "alt": "Setting up the charger at the wall after fitting"
         },
         {
-          "src": "assets/work/nexblue-point2/richard.jpg",
+          "src": "assets/work/nexblue-point2/richard-clean.jpg",
           "alt": "Richard Gould of Essex Vehicle Charging during his interview"
         },
         {
