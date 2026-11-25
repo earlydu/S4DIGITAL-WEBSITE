@@ -131,8 +131,8 @@ def page(p):
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="{SITE}/assets/og-card.jpg" />
-<link rel="icon" type="image/png" href="/assets/32wh.png" />
-<link rel="apple-touch-icon" href="/assets/32wh.png" />
+<link rel="icon" type="image/png" href="/assets/32wh-video-production-s4digital-1017x1010.png" />
+<link rel="apple-touch-icon" href="/assets/32wh-video-production-s4digital-1017x1010.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />

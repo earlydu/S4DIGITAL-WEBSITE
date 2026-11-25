@@ -161,8 +161,22 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
       '</svg>' +
     '</button>';
 
-  const figures = gallery.map(g =>
-    '<figure><img src="' + esc(url(g.src)) + '" alt="' + esc(g.alt) + '" loading="lazy" /></figure>').join('');
+  // Gallery and stills open in the site lightbox and click through as one set each.
+  const zoom = (p, group) =>
+    '<figure><a class="cs__zoom" href="' + esc(url(p.full || p.src)) + '" data-lightbox="' + group + '">' +
+      '<img src="' + esc(url(p.src)) + '" alt="' + esc(p.alt) + '" loading="lazy" /></a></figure>';
+  const figures = gallery.map(g => zoom(g, 'gallery')).join('');
+
+  // A marquee is one full-width line that drifts on its own and loops, for sets too big
+  // to grid. The set is drawn twice so the loop has no seam; the second copy is hidden
+  // from screen readers and the keyboard but still clickable, and the lightbox skips it.
+  const marquee = (items, group, rev) =>
+    '<div class="marquee' + (rev ? ' marquee--rev' : '') + '" style="--dur:' + Math.max(30, items.length * 5) + 's">' +
+      '<div class="marquee__track">' +
+        '<div class="marquee__set">' + items.map(p => zoom(p, group).replace('<img ', '<img draggable="false" ')).join('') + '</div>' +
+        '<div class="marquee__set" aria-hidden="true">' + items.map(p => zoom(p, group).replace('<a ', '<a tabindex="-1" ').replace('<img ', '<img draggable="false" ')).join('') + '</div>' +
+      '</div>' +
+    '</div>';
 
   const galleryBody = w.galleryRow
     ? '<div class="rail">' + railBtn('prev') +
@@ -175,8 +189,9 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     ? '<section class="sec sec--paper">' +
         '<div class="shell">' +
           '<div class="sec__head"><h2>' + esc(w.galleryHeading || 'Photography') + '</h2>' + (w.galleryNote ? '<p>' + esc(w.galleryNote) + '</p>' : '') + '</div>' +
-          galleryBody +
+          (w.galleryMarquee ? '' : galleryBody) +
         '</div>' +
+        (w.galleryMarquee ? marquee(gallery, 'gallery', false) : '') +
       '</section>'
     : '';
 
@@ -228,14 +243,15 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
         '<div class="shell">' +
           '<div class="sec__head"><h2>' + esc(w.photos.heading || 'Photography') + '</h2>' +
             (w.photos.note ? '<p>' + esc(w.photos.note) + '</p>' : '') + '</div>' +
+          (w.photos.marquee ? '' :
           '<div class="rail">' + railBtn('prev') +
             '<div class="cs__gallery cs__gallery--row cs__gallery--wide" tabindex="0">' +
-              w.photos.items.map(p =>
-                '<figure><img src="' + esc(url(p.src)) + '" alt="' + esc(p.alt) + '" loading="lazy" /></figure>').join('') +
+              w.photos.items.map(p => zoom(p, 'photos')).join('') +
             '</div>' +
             railBtn('next') +
-          '</div>' +
+          '</div>') +
         '</div>' +
+        (w.photos.marquee ? marquee(w.photos.items, 'photos', true) : '') +
       '</section>'
     : '';
 
@@ -245,14 +261,17 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
         '<div class="shell">' +
           '<div class="sec__head"><h2>' + esc(w.thumbs.heading || 'The thumbnails') + '</h2>' +
             (w.thumbs.note ? '<p>' + esc(w.thumbs.note) + '</p>' : '') + '</div>' +
-          '<div class="cs__thumbs">' +
-            w.thumbs.items.map(t =>
+          '<div class="cs__thumbs' + (w.thumbs.pair ? ' cs__thumbs--pair' : '') + '">' +
+            w.thumbs.items.map((t, n) =>
               // A thumb with a video loops silently, for before/after clips where the
-              // movement is the proof.
-              '<figure>' + (t.video
+              // movement is the proof. In a pair, each image keeps its own shape and
+              // grows by its aspect ratio, so the two sit at the same height.
+              '<figure' + (w.thumbs.pair && t.ratio ? ' style="flex:' + (t.ratio.split('/')[0] / t.ratio.split('/')[1]).toFixed(4) + ' 1 0;--r:' + esc(t.ratio) + '"' : '') + '>' + (t.video
                 ? '<video autoplay muted loop playsinline preload="metadata" poster="' + esc(url(t.src)) + '" src="' + esc(url(t.video)) + '" aria-label="' + esc(t.alt) + '"></video>'
                 : '<img src="' + esc(url(t.src)) + '" alt="' + esc(t.alt) + '" loading="lazy" />') +
                 (t.label ? '<figcaption>' + esc(t.label) + '</figcaption>' : '') +
+                // In a pair, an arrow on the seam reads "this became that".
+                (w.thumbs.pair && n === 0 && w.thumbs.items.length > 1 ? '<span class="cs__pair-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>' : '') +
               '</figure>').join('') +
           '</div>' +
         '</div>' +
@@ -269,6 +288,19 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
           '</button>'
         : '<video controls playsinline preload="metadata" poster="' + esc(url(v.poster)) + '" src="' + esc(url(v.src)) + '"></video>') +
     '</figure>';
+
+  // A sting or logo animation plays on its own, looping and muted until someone wants the sound.
+  const stingSection = (w.sting && w.sting.src)
+    ? '<section class="sec sec--tight">' +
+        '<div class="shell">' +
+          '<div class="sec__head"><h2>' + esc(w.sting.heading || 'The animation') + '</h2>' +
+            (w.sting.note ? '<p>' + esc(w.sting.note) + '</p>' : '') + '</div>' +
+          '<figure class="cs__video cs__sting">' +
+            '<video autoplay muted loop playsinline controls preload="metadata" poster="' + esc(url(w.sting.poster)) + '" src="' + esc(url(w.sting.src)) + '" aria-label="' + esc(w.sting.alt || '') + '"></video>' +
+          '</figure>' +
+        '</div>' +
+      '</section>'
+    : '';
 
   const videoSection = videos.length
     ? '<section class="sec sec--tight">' +
@@ -359,15 +391,21 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
             '<h3>What we delivered</h3>' +
             list(w.delivered, '') +
             (w.results ? '<h3>Results</h3>' + list(w.results, '') : '') +
+            // Where the work lives on the client's own channels, linked out rather than embedded.
+            (w.links && w.links.length ? '<h3>' + esc(w.linksHeading || 'See it live') + '</h3><ul>' +
+              w.links.map(l => '<li><a href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + '</a></li>').join('') + '</ul>' : '') +
           '</div>' +
 
           '<aside class="cs__aside">' +
+            // Earl rises over the card as it comes into view, so there's a face behind the ask.
+            '<div class="cscta-wrap">' +
+            '<span class="ast cscta__disc" aria-hidden="true"></span>' +
+            '<img class="cscta__earl" src="/assets/earl/earl-duncan-filmmaker-arms-folded-cutout-s4digital-720x692.webp" alt="Earl Duncan, filmmaker and founder of s4digital, smiling with his arms folded" width="720" height="692" loading="lazy" />' +
             '<div class="cscta">' +
-              '<span class="ast cscta__ast" aria-hidden="true"></span>' +
               '<h3>Want something like this?</h3>' +
               '<p>Tell us what you need and roughly when. We come back within one working day with a clear next step.</p>' +
               '<a class="btn btn--orange btn--lg cscta__btn" href="#" data-quickform="' + esc(w.client) + '"><span>' + esc(w.cta.label) + '</span><span class="arrow">&rarr;</span></a>' +
-              '<span class="cscta__note">Three fields. Takes about a minute.</span>' +
+            '</div>' +
             '</div>' +
           '</aside>' +
         '</div>' +
@@ -378,6 +416,7 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     // then the static formats, then the photography.
     siteSection +
     videoSection +
+    stingSection +
     thumbsSection +
     shortsSection +
     gallerySection +
@@ -385,7 +424,17 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     photosSection +
     quoteSection +
 
-    '<section class="sec sec--tight" style="padding-top:0">' +
+    // A second ask once they've seen everything, before the page sends them elsewhere.
+    '<section class="sec sec--tight csend">' +
+      '<div class="shell csend__inner">' +
+        '<h2>Want films like these for your team?</h2>' +
+        '<p>Tell us what you need and roughly when. We come back within one working day.</p>' +
+        '<a class="btn btn--orange btn--lg" href="#" data-quickform="' + esc(w.client) + '"><span>' + esc((w.cta && w.cta.label) || 'Start a project') + '</span><span class="arrow">&rarr;</span></a>' +
+        '<a class="csend__guide" href="/guide">Not ready to talk? Get our free guide to planning a brand film</a>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="sec sec--tight">' +
       '<div class="shell">' +
         '<div class="sec__head"><h2>More work</h2></div>' +
         '<div class="wgrid">' + (function () {
@@ -421,6 +470,85 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     window.addEventListener('resize', sync);
     if ('ResizeObserver' in window) new ResizeObserver(sync).observe(track);
     sync();
+  });
+
+  // Marquees drift on their own. Grab one and drag or flick it to speed through, and
+  // it carries on from wherever it's let go, easing back to its cruising pace. Hovering
+  // slows it to a stop so a photo can be clicked, and a drag never counts as a click.
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  page.querySelectorAll('.marquee').forEach(m => {
+    const track = m.querySelector('.marquee__track');
+    const dir = m.classList.contains('marquee--rev') ? 1 : -1;
+    const cruise = still ? 0 : 40; // px a second
+    let x = 0, v = dir * cruise, half = 0, hover = false, press = null, moved = 0, last = 0, onScreen = true;
+    const measure = () => { half = track.scrollWidth / 2; };
+    measure();
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(track);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { onScreen = es[0].isIntersecting; }).observe(m);
+    if (dir > 0) x = -half / 2;
+
+    const tick = now => {
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+      last = now;
+      if (onScreen && !press) {
+        const target = hover ? 0 : dir * cruise;
+        // A flick slows gently; the pause on hover is quicker.
+        v += (target - v) * Math.min(1, dt * (Math.abs(v) > cruise * 1.5 ? 1.6 : 4));
+        x += v * dt;
+      }
+      if (half) x = ((x % half) + half) % half - half;
+      track.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    m.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
+    m.addEventListener('pointerleave', () => { hover = false; });
+    m.addEventListener('focusin', () => { hover = true; });
+    m.addEventListener('focusout', () => { hover = false; });
+    m.addEventListener('dragstart', e => e.preventDefault());
+
+    m.addEventListener('pointerdown', e => {
+      if (e.button !== 0) return;
+      press = { id: e.pointerId, lastX: e.clientX, lastT: performance.now(), captured: false };
+      moved = 0;
+      v = 0;
+    });
+    m.addEventListener('pointermove', e => {
+      if (!press || e.pointerId !== press.id) return;
+      const t = performance.now(), dx = e.clientX - press.lastX, dts = (t - press.lastT) / 1000;
+      x += dx;
+      moved += Math.abs(dx);
+      if (dts > 0) v = Math.max(-4000, Math.min(4000, 0.8 * (dx / dts) + 0.2 * v));
+      press.lastX = e.clientX;
+      press.lastT = t;
+      // Capture only once it's clearly a drag, so a plain click still reaches the photo.
+      if (!press.captured && moved > 6) {
+        press.captured = true;
+        m.setPointerCapture(e.pointerId);
+        m.classList.add('is-dragging');
+      }
+    });
+    const release = () => {
+      if (!press) return;
+      // Held still before letting go: no flick.
+      if (performance.now() - press.lastT > 80) v = 0;
+      press = null;
+      m.classList.remove('is-dragging');
+    };
+    m.addEventListener('pointerup', release);
+    m.addEventListener('pointercancel', release);
+    m.addEventListener('click', e => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+  });
+
+  // The CTA portrait waits behind the card until the card scrolls into view.
+  document.querySelectorAll('.cscta-wrap').forEach(el => {
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    el.classList.add('is-waiting');
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { el.classList.remove('is-waiting'); io.disconnect(); }
+    }), { threshold: 0.35 });
+    io.observe(el);
   });
 
   // The browser frame drifts down the page on its own, but the moment anyone

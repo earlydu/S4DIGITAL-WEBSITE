@@ -26,7 +26,7 @@
         "Fitness and Combat Sports"
       ],
       "cover": {
-        "src": "assets/work/documentary-manxinha.jpg",
+        "src": "assets/work/title-card-reading-documentary-earl-duncan-manxinha-video-production-s4digital-1500x844.jpg",
         "alt": "Title card reading Manxinha, a documentary by Earl Duncan",
         "loop": "assets/work/gifs/manxinha.mp4"
       },
@@ -68,7 +68,7 @@
         "Documentary"
       ],
       "cover": {
-        "src": "assets/work/signwriting-jack.jpg",
+        "src": "assets/work/hand-painted-filmed-workshop-street-signwriting-jack-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/signwriting-jack.mp4",
         "alt": "Hand painted signwriting, filmed in the workshop and on the street"
       },
@@ -98,7 +98,7 @@
       "videos": [
         {
           "youtube": "DuI3dlVH0KM",
-          "poster": "assets/work/signwriting-jack.jpg",
+          "poster": "assets/work/hand-painted-filmed-workshop-street-signwriting-jack-video-production-s4digital-1280x720.jpg",
           "title": "Signwriting Jack"
         }
       ]
@@ -119,7 +119,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/la-fromagerie/patricia-talking.jpg",
+        "src": "assets/work/la-fromagerie/founder-filmed-counter-own-shop-la-fromagerie-video-production-s4digital-1920x1080.jpg",
         "loop": "assets/work/gifs/la-fromagerie.mp4",
         "alt": "The founder of La Fromagerie, filmed at the counter in her own shop"
       },
@@ -153,7 +153,7 @@
       "videos": [
         {
           "youtube": "JnrmhsAiO20",
-          "poster": "assets/work/la-fromagerie/patricia-talking.jpg",
+          "poster": "assets/work/la-fromagerie/founder-filmed-counter-own-shop-la-fromagerie-video-production-s4digital-1920x1080.jpg",
           "title": "La Fromagerie"
         }
       ]
@@ -174,7 +174,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/barry-road/door.jpg",
+        "src": "assets/work/barry-road/sliding-doors-open-garden-barry-road-renovation-video-production-s4digital-1500x844.jpg",
         "loop": "assets/work/gifs/barry-road.mp4",
         "alt": "Sliding the doors open onto the garden at the Barry Road renovation"
       },
@@ -191,27 +191,27 @@
       "galleryNote": "The finished property.",
       "gallery": [
         {
-          "src": "assets/work/barry-road/f176.jpg",
+          "src": "assets/work/barry-road/kitchen-dining-space-opening-garden-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "The kitchen and dining space opening onto the garden"
         },
         {
-          "src": "assets/work/barry-road/f132.jpg",
+          "src": "assets/work/barry-road/finished-kitchen-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "The finished kitchen"
         },
         {
-          "src": "assets/work/barry-road/f110.jpg",
+          "src": "assets/work/barry-road/hallway-exposed-brickwork-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "The hallway with exposed brickwork"
         },
         {
-          "src": "assets/work/barry-road/f66.jpg",
+          "src": "assets/work/barry-road/finished-bathroom-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "The finished bathroom"
         },
         {
-          "src": "assets/work/barry-road/f198.jpg",
+          "src": "assets/work/barry-road/detail-fitted-units-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "Detail of the fitted units"
         },
         {
-          "src": "assets/work/barry-road/skylight.jpg",
+          "src": "assets/work/barry-road/skylight-retained-brickwork-extension-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "alt": "A skylight over the retained brickwork in the extension"
         }
       ],
@@ -236,7 +236,7 @@
       "videos": [
         {
           "youtube": "Pfaicoat1B8",
-          "poster": "assets/work/barry-road/door.jpg",
+          "poster": "assets/work/barry-road/sliding-doors-open-garden-barry-road-renovation-video-production-s4digital-1500x844.jpg",
           "title": "The renovation, told by the client"
         }
       ]
@@ -257,7 +257,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/nimrod-road/living-bay.jpg",
+        "src": "assets/work/nimrod-road/finished-front-living-room-owners-settling-nimrod-road-tooting-video-production-s4digital-1500x844.jpg",
         "loop": "assets/work/gifs/nimrod-road.mp4",
         "alt": "The finished front living room at Nimrod Road, with one of the owners settling in to read"
       },
@@ -292,7 +292,7 @@
       "videos": [
         {
           "youtube": "pURr_FsPH5k",
-          "poster": "assets/work/nimrod-road/living-bay.jpg",
+          "poster": "assets/work/nimrod-road/finished-front-living-room-owners-settling-nimrod-road-tooting-video-production-s4digital-1500x844.jpg",
           "title": "The renovation, told by the homeowners"
         }
       ]
@@ -311,7 +311,7 @@
         "Documentary"
       ],
       "cover": {
-        "src": "assets/work/carreducker/interview.jpg",
+        "src": "assets/work/carreducker/deborah-carre-james-ducker-laughing-end-carreducker-video-production-s4digital-1500x844.jpg",
         "loop": "assets/work/gifs/carreducker.mp4",
         "alt": "Deborah Carre and James Ducker laughing at the end of the interview, in front of their wall of lasts"
       },
@@ -345,7 +345,7 @@
       "videos": [
         {
           "youtube": "6UAvZ0VMogA",
-          "poster": "assets/work/carreducker/interview.jpg",
+          "poster": "assets/work/carreducker/deborah-carre-james-ducker-laughing-end-carreducker-video-production-s4digital-1500x844.jpg",
           "title": "Carreducker"
         }
       ]
@@ -366,7 +366,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/catherine-marche/earring-worn.jpg",
+        "src": "assets/work/catherine-marche/handmade-earring-worn-filmed-shop-catherine-marche-designs-video-production-s4digital-1500x844.jpg",
         "loop": "assets/work/gifs/catherine-marche.mp4",
         "alt": "A handmade earring being worn, filmed in the shop"
       },
@@ -400,7 +400,7 @@
       "videos": [
         {
           "youtube": "WAAFrgvVdV0",
-          "poster": "assets/work/catherine-marche/earring-worn.jpg",
+          "poster": "assets/work/catherine-marche/handmade-earring-worn-filmed-shop-catherine-marche-designs-video-production-s4digital-1500x844.jpg",
           "title": "Catherine Marche Designs"
         }
       ]
@@ -419,7 +419,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/boxraw-pads.jpg",
+        "src": "assets/work/working-pads-filmed-isaac-chamberlain-for-boxraw-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/boxraw-pads.mp4",
         "alt": "Isaac Chamberlain working the pads, filmed for Boxraw"
       },
@@ -448,12 +448,12 @@
       "videos": [
         {
           "youtube": "fuu1wfCQ67k",
-          "poster": "assets/work/boxraw-2.jpg",
+          "poster": "assets/work/boxing-training-isaac-chamberlain-for-boxraw-video-production-s4digital-1280x720-2.jpg",
           "title": "Boxing training, one"
         },
         {
           "youtube": "FKbakwBKz0E",
-          "poster": "assets/work/boxraw-1.jpg",
+          "poster": "assets/work/boxing-training-isaac-chamberlain-for-boxraw-video-production-s4digital-1280x720.jpg",
           "title": "Boxing training, two"
         }
       ]
@@ -519,12 +519,12 @@
         "versions": [
           {
             "label": "About us",
-            "src": "assets/web/chargy-about.jpg",
+            "src": "assets/web/chargy-about-web-design-s4digital-1200x8483.jpg",
             "alt": "The char.gy About us page, with the B Corp film as its principal video"
           },
           {
             "label": "Local Government",
-            "src": "assets/web/chargy-local-gov.jpg",
+            "src": "assets/web/chargy-local-gov-web-design-s4digital-1200x8359.jpg",
             "alt": "The char.gy Local Government page, running the same film"
           }
         ]
@@ -532,12 +532,12 @@
       "videosHeld": [
         {
           "src": "assets/work/chargy-bcorp.mp4",
-          "poster": "assets/work/chargy-bcorp.jpg",
+          "poster": "assets/work/woman-interviewee-seated-large-office-windows-video-production-s4digital-1280x720.jpg",
           "title": "The B Corp film"
         },
         {
           "src": "assets/work/chargy-bcorp-ad.mp4",
-          "poster": "assets/work/chargy-bcorp-ad.jpg",
+          "poster": "assets/work/woman-quilted-jacket-lapel-mic-stands-video-production-s4digital-1280x720.jpg",
           "title": "The same film, audio described"
         }
       ]
@@ -556,7 +556,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/aliyah-art.jpg",
+        "src": "assets/work/exhibition-film-shot-gallery-aliyah-art-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/aliyah-art.mp4",
         "alt": "The exhibition film shot in the gallery"
       },
@@ -586,7 +586,7 @@
       "videos": [
         {
           "youtube": "QeNzQyX-OEM",
-          "poster": "assets/work/aliyah-art.jpg",
+          "poster": "assets/work/exhibition-film-shot-gallery-aliyah-art-video-production-s4digital-1280x720.jpg",
           "title": "Aliyah Art"
         }
       ]
@@ -607,7 +607,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/southwick-panel.jpg",
+        "src": "assets/work/panel-discussion-filmed-back-marquee-southwick-d-day-80-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/southwick-panel.mp4",
         "alt": "The D-Day 80 panel discussion at Southwick, filmed from the back of the marquee"
       },
@@ -642,12 +642,12 @@
       "videos": [
         {
           "youtube": "zCQEgog-PsQ",
-          "poster": "assets/work/southwick-opening.jpg",
+          "poster": "assets/work/opening-ceremony-southwick-d-day-80-video-production-s4digital-1280x720.jpg",
           "title": "The opening ceremony"
         },
         {
           "youtube": "uZ7BGZG3iPc",
-          "poster": "assets/work/southwick-panel.jpg",
+          "poster": "assets/work/panel-discussion-filmed-back-marquee-southwick-d-day-80-video-production-s4digital-1280x720.jpg",
           "title": "The D-Day talk, in full"
         }
       ],
@@ -668,7 +668,7 @@
         "Trades and Construction"
       ],
       "cover": {
-        "src": "assets/work/carplanet/cover.jpg",
+        "src": "assets/work/carplanet/myenergi-zappi-charger-fixed-wall-supermarket-car-planet-x-plug-in-stations-video-production-s4digital-1280x720.jpg",
         "alt": "A myenergi zappi charger fixed to the wall of a car supermarket",
         "loop": "assets/work/gifs/carplanet.mp4"
       },
@@ -709,7 +709,7 @@
       "videos": [
         {
           "youtube": "T4OsZZe0elQ",
-          "poster": "assets/work/carplanet/T4OsZZe0elQ.jpg",
+          "poster": "assets/work/carplanet/2-500-cars-zero-disruption-ev-car-planet-x-plug-in-stations-video-production-s4digital-1280x720.jpg",
           "title": "2,500 Cars, Zero Disruption: EV Charger Install at Car Planet"
         }
       ],
@@ -724,12 +724,12 @@
         "items": [
           {
             "src": "assets/work/carplanet/social-cut.mp4",
-            "poster": "assets/work/carplanet/social-cut.jpg",
+            "poster": "assets/work/carplanet/hand-drill-fitting-charger-cover-grey-video-production-s4digital-720x1280.jpg",
             "title": "The install, start to finish"
           },
           {
             "src": "assets/work/carplanet/social-cut-charger.mp4",
-            "poster": "assets/work/carplanet/social-cut-charger.jpg",
+            "poster": "assets/work/carplanet/vertical-crop-zappi-charger-display-socket-video-production-s4digital-720x1280.jpg",
             "title": "The charger alone, ten seconds. See it on Instagram",
             "href": "https://www.instagram.com/p/Db8Og1zjJxr/"
           }
@@ -740,23 +740,23 @@
         "note": "Frames from the film. Nearly every setup sits close to the work, because what was behind it was off limits. Shot that way, an isolator or a run of conduit could have come from any install, and that is exactly what let older b-roll sit next to the new material without a seam showing.",
         "items": [
           {
-            "src": "assets/work/carplanet/still-02.jpg",
+            "src": "assets/work/carplanet/engineer-holding-open-outdoor-enclosure-fixed-car-planet-x-plug-in-stations-video-production-s4digital-1500x844.jpg",
             "alt": "An engineer holding open an outdoor enclosure fixed to the cladding"
           },
           {
-            "src": "assets/work/carplanet/still-03.jpg",
+            "src": "assets/work/carplanet/engineer-running-cable-below-existing-switchgear-car-planet-x-plug-in-stations-video-production-s4digital-1500x844.jpg",
             "alt": "An engineer running cable below existing switchgear inside the building"
           },
           {
-            "src": "assets/work/carplanet/still-04.jpg",
+            "src": "assets/work/carplanet/engineer-working-charger-once-wall-car-planet-x-plug-in-stations-video-production-s4digital-1500x844.jpg",
             "alt": "An engineer working at the charger once it is on the wall"
           },
           {
-            "src": "assets/work/carplanet/still-05.jpg",
+            "src": "assets/work/carplanet/engineer-testing-distribution-board-car-planet-x-plug-in-stations-video-production-s4digital-1500x844.jpg",
             "alt": "An engineer testing at the distribution board"
           },
           {
-            "src": "assets/work/carplanet/still-06.jpg",
+            "src": "assets/work/carplanet/engineer-working-height-run-containment-through-car-planet-x-plug-in-stations-video-production-s4digital-1500x844.jpg",
             "alt": "An engineer working at height to run containment through the roof structure"
           }
         ]
@@ -776,7 +776,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/lovato-seminar.jpg",
+        "src": "assets/work/packed-mat-lovato-maia-seminar-london-fight-factory-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/lovato-seminar.mp4",
         "alt": "A packed mat during the Lovato and Maia seminar at London Fight Factory"
       },
@@ -810,10 +810,324 @@
       "videos": [
         {
           "youtube": "IjDxkh7PVm8",
-          "poster": "assets/work/lovato-seminar.jpg",
+          "poster": "assets/work/packed-mat-lovato-maia-seminar-london-fight-factory-video-production-s4digital-1280x720.jpg",
           "title": "Seminar highlights"
         }
       ]
+    },
+    {
+      "slug": "london-fight-factory-coach-profiles",
+      "seoTitle": "Coach profiles, portraits and class photography for a London martial arts gym",
+      "seoDescription": "A content refresh for London Fight Factory near Old Street: a portrait and a short video profile of every coach, a gym highlight film, and 472 edited class photographs.",
+      "title": "Every coach on camera, so new members know who they'll train with",
+      "client": "London Fight Factory",
+      "industry": "Martial arts gym",
+      "sector": "Coach profiles, gym film and photography",
+      "collection": "commercial",
+      "featured": false,
+      "categories": [
+        "Fitness and Combat Sports",
+        "Video Production",
+        "Photography"
+      ],
+      "cover": {
+        "src": "assets/work/muay-thai-fighter-throwing-high-kick-london-fight-factory-video-production-s4digital-1280x720.jpg",
+        "loop": "assets/work/gifs/lff-coaches.mp4",
+        "alt": "A Muay Thai fighter throwing a high kick during a class at London Fight Factory"
+      },
+      "summary": "A content refresh for London Fight Factory: a new portrait and a short video profile of every coach, a highlight film for the gym, and a fresh library of class photography.",
+      "overview": "London Fight Factory is a martial arts gym just off Old Street, teaching Brazilian jiu jitsu, Muay Thai, boxing, wrestling, judo and MMA. We've photographed and filmed for them since 2019. By 2026 the gym's content had fallen behind the gym itself. The team had changed, the mats had changed, and someone thinking about joining had no easy way to see who'd actually be teaching them. So the brief was a foundation: introduce every coach properly, show what the gym feels like on a normal night, and give the marketing team a bank of new photographs to work from.",
+      "challenge": "Seventeen people, most of whom don't spend their lives in front of a camera, filmed and photographed around a live timetable. Two mats run at once, classes don't stop for anyone, and the gym is dark, so the photographs come off the camera at high ISO. Each profile had to sound like the person, not a script: every sentence heard in full, captions that match exactly what was said, and b-roll of that coach actually coaching. The look of the photographs was agreed with the gym's marketing lead over several rounds, from a set of test grades to a clean, natural finish that keeps the character of the room, with the noise taken out properly rather than smoothed over.",
+      "delivered": [
+        "Seventeen short video profiles, around 40 seconds each: the founder, the head BJJ coach, coaches for every discipline, and some long-standing members",
+        "Each profile captioned word for word, with a name card and the coach's role",
+        "A 90 second highlight film of the gym, in 16:9 for the website and 9:16 for social",
+        "A new portrait of every coach, all shot against the gym's cog wall so they read as one team",
+        "472 edited photographs from classes across July and August, every discipline covered",
+        "A colour grade built for the gym and signed off by their marketing lead, then applied across the whole set",
+        "Every photograph checked and levelled where the lines should be straight"
+      ],
+      "outputs": [
+        {
+          "value": "17",
+          "label": "Short video profiles"
+        },
+        {
+          "value": "16",
+          "label": "Coach portraits on one backdrop"
+        },
+        {
+          "value": "472",
+          "label": "Edited class photographs"
+        },
+        {
+          "value": "1",
+          "label": "Gym highlight film, in 16:9 and 9:16"
+        }
+      ],
+      "results": [
+        "The gym now has a face and a voice for its coaches, ready to use on its website and social channels.",
+        "The photographs are already in use, including in the gym's student membership campaign on Instagram.",
+        "Every photograph on the gym's Google Business Profile is ours, so the first look most people get of London Fight Factory, before they ever visit, is our work.",
+        "Films from earlier projects with the gym run on its YouTube channel."
+      ],
+      "cta": {
+        "label": "Talk to us about content for your gym",
+        "href": "/contact"
+      },
+      "videoNote": "The gym film first, then eleven of the seventeen profiles. In each one, someone from the gym tells you who they are, what they teach and what it's like to train with them.",
+      "videos": [
+        {
+          "youtube": "y64aw7MmzW8",
+          "poster": "assets/work/lff-coaches/inside-gym-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "London Fight Factory, inside the gym"
+        },
+        {
+          "youtube": "x6hCUeWtELk",
+          "poster": "assets/work/lff-coaches/luiz-manxinha-ribeiro-founder-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Luiz \"Manxinha\" Ribeiro, Founder"
+        },
+        {
+          "youtube": "jDRh0hI0g3g",
+          "poster": "assets/work/lff-coaches/tiago-sharpey-valente-head-bjj-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Tiago \"Sharpey\" Valente, Head BJJ Coach"
+        },
+        {
+          "youtube": "c3ahetmAT4Q",
+          "poster": "assets/work/lff-coaches/china-bajerski-muay-thai-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "China Bajerski, Muay Thai Coach"
+        },
+        {
+          "youtube": "pr-CVsogXbc",
+          "poster": "assets/work/lff-coaches/mohsen-jamadi-wrestling-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Mohsen Jamadi, Wrestling Coach"
+        },
+        {
+          "youtube": "1g2LmjOqCc0",
+          "poster": "assets/work/lff-coaches/jeremy-petley-mma-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Jeremy Petley, MMA Coach"
+        },
+        {
+          "youtube": "yuaCP80Zvcg",
+          "poster": "assets/work/lff-coaches/arash-boxing-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Arash, Boxing Coach"
+        },
+        {
+          "youtube": "7ehFUWZmrt4",
+          "poster": "assets/work/lff-coaches/shah-mutalimov-mma-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Shah Mutalimov, MMA Coach"
+        },
+        {
+          "youtube": "N0w0xU4HG4w",
+          "poster": "assets/work/lff-coaches/anton-muay-thai-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Anton, Muay Thai Coach"
+        },
+        {
+          "youtube": "wqgDnB723o8",
+          "poster": "assets/work/lff-coaches/matteo-albanese-boxing-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Matteo Albanese, Boxing Coach"
+        },
+        {
+          "youtube": "ddtTLfr5DJk",
+          "poster": "assets/work/lff-coaches/glauco-almeida-bjj-coach-london-fight-factory-video-production-s4digital-1280x720.jpg",
+          "title": "Glauco Almeida, BJJ Coach"
+        }
+      ],
+      "thumbs": {
+        "heading": "In use",
+        "note": "The gym picked one of our class photographs for its student membership campaign on Instagram, September 2026.",
+        "pair": true,
+        "items": [
+          {
+            "src": "assets/work/lff-coaches/london-fight-factory-student-membership-instagram-post.jpg",
+            "ratio": "1466/1213",
+            "alt": "London Fight Factory's Instagram post for its student membership, built around the same photograph"
+          }
+        ]
+      },
+      "galleryHeading": "The coach portraits",
+      "galleryNote": "Every coach photographed against the same wall, the gym's cog, so the set works together on the website and lines up with the video profiles.",
+      "gallery": [
+        {
+          "src": "assets/work/lff-coaches/jeremy-petley-mma-coach-black-teal-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Jeremy Petley, MMA coach at London Fight Factory, in a black and teal rash guard in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/arash-boxing-coach-arms-folded-white-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Arash, boxing coach at London Fight Factory, arms folded in a white Boxing Team T-shirt in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/matteo-albanese-boxing-coach-fists-black-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Matteo Albanese, boxing coach at London Fight Factory, fists up in a black COACH zip top in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/vinny-bjj-coach-black-gi-lff-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Vinny, BJJ coach at London Fight Factory, in a black gi with the LFF patch in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/glauco-almeida-bjj-coach-navy-rash-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Glauco Almeida, BJJ coach at London Fight Factory, in a navy rash guard in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/china-bajerski-muay-thai-coach-arms-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "China Bajerski, Muay Thai coach at London Fight Factory, arms folded in a lilac sports top in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/mohsen-jamadi-wrestling-coach-black-rash-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Mohsen Jamadi, wrestling coach at London Fight Factory, in a black rash guard in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/tiago-valente-head-bjj-coach-white-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Tiago Valente, head BJJ coach at London Fight Factory, in a white BJJ Team T-shirt in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/anna-rasmussen-kids-assistant-coach-black-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Anna Rasmussen, kids assistant coach at London Fight Factory, in a black gi and purple belt in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/phillip-michael-no-gi-coach-white-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Phillip Michael, no-gi coach at London Fight Factory, in a white T-shirt in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/luiz-ribeiro-founder-crossing-tattooed-forearms-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Luiz Ribeiro, founder of London Fight Factory, crossing his tattooed forearms in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/anderson-gavioli-dos-santos-bjj-black-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Anderson Gavioli dos Santos, BJJ black belt at London Fight Factory, in a white gi in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/shah-mutalimov-mma-coach-grey-black-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Shah Mutalimov, MMA coach at London Fight Factory, in a grey and black track top in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/torun-bjj-brown-belt-dark-gi-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Torun, BJJ brown belt at London Fight Factory, in a dark gi in front of the gym's cog"
+        },
+        {
+          "src": "assets/work/lff-coaches/anton-muay-thai-coach-orange-thai-london-fight-factory-photography-s4digital-720x960.jpg",
+          "alt": "Anton, Muay Thai coach at London Fight Factory, in an orange Thai fight shirt in front of the gym's cog"
+        }
+      ],
+      "photos": {
+        "heading": "The classes",
+        "note": "A selection from the 472. Classes were shot as they ran, across both mats, so the gym can show a real night of training rather than a staged one.",
+        "items": [
+          {
+            "src": "assets/work/lff-coaches/muay-thai-fighter-throwing-high-kick-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A Muay Thai fighter throwing a high kick on a packed mat"
+          },
+          {
+            "src": "assets/work/lff-coaches/fighters-clinched-against-padded-wall-t-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Two fighters clinched against the padded wall, one in a London Fight Factory T-shirt"
+          },
+          {
+            "src": "assets/work/lff-coaches/muay-thai-class-mid-kick-fighters-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A Muay Thai class mid-kick, a fighter's leg at head height in the middle of the room"
+          },
+          {
+            "src": "assets/work/lff-coaches/grappler-white-gi-laughing-pins-training-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A grappler in a white gi laughing as she pins her training partner, who's laughing too"
+          },
+          {
+            "src": "assets/work/lff-coaches/boxing-coach-white-t-shirt-hands-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A boxing coach in a white T-shirt with his hands up, showing a student the guard"
+          },
+          {
+            "src": "assets/work/lff-coaches/muay-thai-fighter-landing-body-kick-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A Muay Thai fighter landing a body kick as his partner covers up"
+          },
+          {
+            "src": "assets/work/lff-coaches/grapplers-white-gis-tangled-together-mat-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Two grapplers in white gis tangled together on the mat, both grinning"
+          },
+          {
+            "src": "assets/work/lff-coaches/bald-bearded-fighter-tucked-behind-gloves-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A bald, bearded fighter tucked behind his gloves, looking straight down the lens"
+          },
+          {
+            "src": "assets/work/lff-coaches/pad-work-muay-thai-class-holder-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Pad work in a Muay Thai class, the holder laughing between rounds"
+          },
+          {
+            "src": "assets/work/lff-coaches/grappler-blue-gi-pinned-face-down-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A grappler in a blue gi pinned face down on the mat, looking straight at the camera"
+          },
+          {
+            "src": "assets/work/lff-coaches/bjj-coach-blue-gi-gyms-cog-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A BJJ coach in a blue gi with the gym's cog on the sleeve, smiling as he walks on to the mat"
+          },
+          {
+            "src": "assets/work/lff-coaches/wall-framed-magazine-covers-gyms-corridor-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "The wall of framed fight magazine covers in the gym's corridor"
+          },
+          {
+            "src": "assets/work/lff-coaches/grapplers-locked-together-no-gi-faces-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Two grapplers locked together in no-gi, faces pressed close"
+          },
+          {
+            "src": "assets/work/lff-coaches/stairwell-mural-you-dont-see-whole-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "The stairwell mural: you don't have to see the whole staircase, just take the first step"
+          },
+          {
+            "src": "assets/work/lff-coaches/kids-class-sat-mat-coach-demonstrates-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A kids' class sat on the mat while the coach demonstrates, a yellow cog on one child's gi"
+          },
+          {
+            "src": "assets/work/lff-coaches/head-kick-landing-partners-guard-muay-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A head kick landing on a partner's guard in a Muay Thai class"
+          },
+          {
+            "src": "assets/work/lff-coaches/fighter-driving-knee-thai-pad-kit-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A fighter driving a knee into a Thai pad by the kit shelves"
+          },
+          {
+            "src": "assets/work/lff-coaches/full-bjj-class-lined-welcome-home-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A full BJJ class lined up under the WELCOME HOME sign after training"
+          },
+          {
+            "src": "assets/work/lff-coaches/no-gi-grappler-locking-choke-mat-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A no-gi grappler locking in a choke on the mat"
+          },
+          {
+            "src": "assets/work/lff-coaches/student-throwing-straight-punch-front-gyms-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A student throwing a straight punch in front of the gym's cog logo"
+          },
+          {
+            "src": "assets/work/lff-coaches/friends-laughing-mat-round-arm-round-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Two friends laughing on the mat after a round, one with his arm round the other"
+          },
+          {
+            "src": "assets/work/lff-coaches/boxer-blue-gloves-heavy-bag-coach-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A boxer in blue gloves on the heavy bag, the coach watching from behind"
+          },
+          {
+            "src": "assets/work/lff-coaches/sign-door-ebenezer-street-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "The London Fight Factory sign over the door on Ebenezer Street"
+          },
+          {
+            "src": "assets/work/lff-coaches/muay-thai-class-posing-together-gyms-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "A Muay Thai class posing together under the gym's championship belts"
+          },
+          {
+            "src": "assets/work/lff-coaches/grapplers-black-rash-guards-locked-tight-london-fight-factory-photography-s4digital-1400x934.jpg",
+            "alt": "Two grapplers in black rash guards, one locked in a tight head control"
+          }
+        ],
+        "marquee": true
+      },
+      "galleryMarquee": true,
+      "date": "2026-11-25",
+      "thirdParty": [
+        "assets/work/lff-coaches/london-fight-factory-student-membership-instagram-post.jpg"
+      ],
+      "sting": {
+        "heading": "The logo sting",
+        "note": "We animated the gym's cog logo in After Effects for the coach films.",
+        "src": "assets/work/lff-coaches/london-fight-factory-logo-sting-animation-video-production-s4digital-1280x720.mp4",
+        "poster": "assets/work/lff-coaches/london-fight-factory-logo-sting-animation-video-production-s4digital-1280x720.jpg",
+        "alt": "London Fight Factory's cog logo spinning into place, the animated sting from the coach films"
+      }
     },
     {
       "slug": "combat-sports-event-photography",
@@ -831,7 +1145,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/bjj-cover.jpg",
+        "src": "assets/work/competition-mats-grappling-event-all-stars-bjj-and-mat-masters-video-production-s4digital-1400x934.jpg",
         "alt": "The competition mats at a Mat Masters grappling event"
       },
       "summary": "Full day coverage of two London grappling competitions, delivered as published athlete galleries, an overview video for the organisers and a set of vertical reels the competitors share themselves.",
@@ -848,39 +1162,39 @@
       "galleryNote": "Selected frames from the two competition days. The full sets are published as athlete galleries.",
       "gallery": [
         {
-          "src": "assets/work/bjj-venue-wide.jpg",
+          "src": "assets/work/wide-view-competition-hall-mats-fill-all-stars-bjj-and-mat-masters-photography-s4digital-1400x934.jpg",
           "alt": "A wide view of the competition hall before the mats fill up"
         },
         {
-          "src": "assets/work/bjj-young-competitor.jpg",
+          "src": "assets/work/young-competitor-concentrating-between-matches-all-stars-bjj-and-mat-masters-photography-s4digital-1333x2000.jpg",
           "alt": "A young competitor concentrating between matches"
         },
         {
-          "src": "assets/work/bjj-tight-grapple.jpg",
+          "src": "assets/work/competitors-locked-together-shot-close-all-stars-bjj-and-mat-masters-photography-s4digital-1333x2000.jpg",
           "alt": "Two competitors locked together on the mat, shot close"
         },
         {
-          "src": "assets/work/bjj-the-corner.jpg",
+          "src": "assets/work/coaches-calling-instructions-side-all-stars-bjj-and-mat-masters-photography-s4digital-1400x934.jpg",
           "alt": "Coaches calling instructions from the side of the mat"
         },
         {
-          "src": "assets/work/bjj-girl-portrait.jpg",
+          "src": "assets/work/young-competitor-gi-watching-all-stars-bjj-and-mat-masters-photography-s4digital-1333x2000.jpg",
           "alt": "A young competitor in her gi watching the mat"
         },
         {
-          "src": "assets/work/bjj-team-backs.jpg",
+          "src": "assets/work/three-teammates-arms-round-each-other-all-stars-bjj-and-mat-masters-photography-s4digital-1400x934.jpg",
           "alt": "Three teammates with arms round each other, team patches across their backs"
         },
         {
-          "src": "assets/work/bjj-coach-tension.jpg",
+          "src": "assets/work/coach-hand-face-close-match-all-stars-bjj-and-mat-masters-photography-s4digital-1400x934.jpg",
           "alt": "A coach with his hand over his face during a close match"
         },
         {
-          "src": "assets/work/bjj-young-grappler.jpg",
+          "src": "assets/work/young-grappler-working-position-match-all-stars-bjj-and-mat-masters-photography-s4digital-1333x2000.jpg",
           "alt": "A young grappler working for position during a match"
         },
         {
-          "src": "assets/work/bjj-winner.jpg",
+          "src": "assets/work/competitor-having-hand-raised-win-all-stars-bjj-and-mat-masters-photography-s4digital-1400x934.jpg",
           "alt": "A competitor having their hand raised after the win"
         }
       ],
@@ -927,7 +1241,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/super-efficient-drainage.jpg",
+        "src": "assets/work/engineer-lifting-manhole-cover-london-back-super-efficient-video-production-s4digital-1280x720.jpg",
         "alt": "A Super Efficient engineer lifting a manhole cover in a London back yard",
         "loop": "assets/work/gifs/super-efficient.mp4"
       },
@@ -969,7 +1283,7 @@
       "videos": [
         {
           "youtube": "-Hi0IKAhAZ4",
-          "poster": "assets/work/se/thumb-didnt-expect.jpg",
+          "poster": "assets/work/se/didnt-expect-thumbnail-jetting-work-super-efficient-video-production-s4digital-1280x720.jpg",
           "title": "Blocked and Cracked Drain - The Full Job, Start to Finish, No Digging"
         }
       ],
@@ -982,31 +1296,31 @@
       "galleryNote": "Instagram first, sized 4:5, written to be saved rather than scrolled past. It carries the same information as the shorts, so the two formats reinforce each other instead of competing for the same thirty seconds.",
       "gallery": [
         {
-          "src": "assets/work/se/carousel-1-01.jpg",
+          "src": "assets/work/se/carousel-cover-5-things-block-drains-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "Carousel cover: 5 things that block drains"
         },
         {
-          "src": "assets/work/se/carousel-1-02.jpg",
+          "src": "assets/work/se/fat-oil-grease-sets-hard-inside-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "One, fat, oil and grease. It sets hard inside the pipe and restricts flow"
         },
         {
-          "src": "assets/work/se/carousel-1-03.jpg",
+          "src": "assets/work/se/wipes-do-not-break-down-quickly-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "Two, wipes. They do not break down and quickly cause blockages"
         },
         {
-          "src": "assets/work/se/carousel-1-04.jpg",
+          "src": "assets/work/se/three-tree-roots-grow-small-cracks-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "Three, tree roots. They grow into small cracks and block the pipe"
         },
         {
-          "src": "assets/work/se/carousel-1-05.jpg",
+          "src": "assets/work/se/four-silt-debris-builds-time-reduces-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "Four, silt and debris. It builds up over time and reduces flow"
         },
         {
-          "src": "assets/work/se/carousel-1-06.jpg",
+          "src": "assets/work/se/five-hair-soap-scum-clings-pipe-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "Five, hair and soap scum. It clings to pipe walls and creates stubborn clogs"
         },
         {
-          "src": "assets/work/se/carousel-1-07.jpg",
+          "src": "assets/work/se/end-card-logo-24-7-emergency-super-efficient-video-production-s4digital-1080x1350.jpg",
           "alt": "End card with the Super Efficient logo and the 24/7 emergency number"
         }
       ],
@@ -1017,35 +1331,35 @@
           "note": "LinkedIn first, aimed at facilities managers, managing agents and anyone running a commercial kitchen. Same job, same footage, completely different argument: planned maintenance only looks expensive until you price the emergency.",
           "slides": [
             {
-              "src": "assets/work/se/carousel-2-01.jpg",
+              "src": "assets/work/se/social-slide-planned-maintenance-versus-emergency-video-production-s4digital-1080x1350.jpg",
               "alt": "Cover: planned maintenance versus emergency call-out, swipe to see the difference"
             },
             {
-              "src": "assets/work/se/carousel-2-02.jpg",
+              "src": "assets/work/se/social-slide-text-photo-drain-workers-video-production-s4digital-1080x1350.jpg",
               "alt": "The planned version: booked in, normal hours, known cost, no disruption"
             },
             {
-              "src": "assets/work/se/carousel-2-03.jpg",
+              "src": "assets/work/se/social-slide-text-dark-photo-emergency-video-production-s4digital-1080x1350.jpg",
               "alt": "The emergency version: out of hours, urgent rate, plus the damage"
             },
             {
-              "src": "assets/work/se/carousel-2-04.jpg",
+              "src": "assets/work/se/social-slide-text-man-kitchen-worktop-video-production-s4digital-1080x1350.jpg",
               "alt": "Other costs: downtime, tenant complaints, damaged flooring, a closed kitchen"
             },
             {
-              "src": "assets/work/se/carousel-2-05.jpg",
+              "src": "assets/work/se/social-slide-text-worker-drain-camera-video-production-s4digital-1080x1350.jpg",
               "alt": "What a planned schedule covers"
             },
             {
-              "src": "assets/work/se/carousel-2-06.jpg",
+              "src": "assets/work/se/social-slide-comparison-table-costs-video-production-s4digital-1080x1350.jpg",
               "alt": "Why it matters for compliance and for your maintenance budget, with emergency call-out costs set against planned maintenance line by line"
             },
             {
-              "src": "assets/work/se/carousel-2-07.jpg",
+              "src": "assets/work/se/social-slide-text-branded-van-accreditation-video-production-s4digital-1080x1350.jpg",
               "alt": "One contractor for drainage, plumbing, heating and gas certificates, shown on the Super Efficient van with its accreditations"
             },
             {
-              "src": "assets/work/se/carousel-2-08.jpg",
+              "src": "assets/work/se/dark-branded-social-slide-cartoon-logo-video-production-s4digital-1080x1350.jpg",
               "alt": "End card with the Super Efficient logo and the 24/7 emergency number"
             }
           ]
@@ -1056,17 +1370,17 @@
         "note": "The thumbnail and the title do different jobs. The title carries the search term, so the thumbnail is free to carry the curiosity, and repeating one in the other wastes the only space either of them has. Every frame here is pulled from the day itself rather than staged afterwards, the text is short enough to read at the size a phone actually shows it, and each one opens a different loop: the whole job, the thing nobody expected, and the thing we pulled out. Rather than pick a favourite and hope, all three go live as a test and the numbers settle it.",
         "items": [
           {
-            "src": "assets/work/se/thumb-full-job.jpg",
+            "src": "assets/work/se/full-job-thumbnail-fat-filled-chamber-super-efficient-video-production-s4digital-1280x720.jpg",
             "alt": "FULL JOB thumbnail over the fat filled chamber being rodded",
             "label": "The full job. Promises the whole thing, start to finish."
           },
           {
-            "src": "assets/work/se/thumb-didnt-expect.jpg",
+            "src": "assets/work/se/didnt-expect-thumbnail-jetting-work-super-efficient-video-production-s4digital-1280x720.jpg",
             "alt": "THEY DIDNT EXPECT THIS thumbnail over the jetting work",
             "label": "The surprise. The blockage was not the real problem."
           },
           {
-            "src": "assets/work/se/thumb-what-did-we-find.jpg",
+            "src": "assets/work/se/what-did-we-find-thumbnail-blurred-super-efficient-video-production-s4digital-1280x720.jpg",
             "alt": "WHAT DID WE FIND thumbnail with a blurred object pulled from the drain",
             "label": "The reveal. Blurred on purpose, and the title pays it off."
           }
@@ -1098,19 +1412,19 @@
         "note": "Shot alongside the video rather than on a separate day, which is the whole point of a content day. The van is the thing most of their customers see first, so it is worth having proper photographs of it rather than a phone snap in a car park.",
         "items": [
           {
-            "src": "assets/work/se/photo-01.jpg",
+            "src": "assets/work/se/close-superhero-logo-side-van-super-efficient-video-production-s4digital-1600x1068.jpg",
             "alt": "Close up of the Super Efficient superhero logo on the side of the van"
           },
           {
-            "src": "assets/work/se/photo-02.jpg",
+            "src": "assets/work/se/van-profile-tree-lined-residential-street-super-efficient-video-production-s4digital-1600x1068.jpg",
             "alt": "The Super Efficient van in profile on a tree lined residential street"
           },
           {
-            "src": "assets/work/se/photo-03.jpg",
+            "src": "assets/work/se/van-front-three-quarter-now-hiring-super-efficient-video-production-s4digital-1600x1068.jpg",
             "alt": "The van from the front three quarter, with the now hiring panel and accreditations visible"
           },
           {
-            "src": "assets/work/se/photo-04.jpg",
+            "src": "assets/work/se/van-rear-three-quarter-dappled-sunlight-super-efficient-video-production-s4digital-1068x1600.jpg",
             "alt": "The van from the rear three quarter in dappled sunlight"
           }
         ]
@@ -1132,7 +1446,7 @@
         "Photography"
       ],
       "cover": {
-        "src": "assets/work/event-summer-party.jpg",
+        "src": "assets/work/guests-talking-gazebos-company-summer-event-plug-in-stations-video-production-s4digital-1600x900.jpg",
         "alt": "Guests talking under gazebos at a company summer event",
         "loop": "assets/work/gifs/pis.mp4"
       },
@@ -1175,52 +1489,52 @@
       "videos": [
         {
           "youtube": "RbM57J6y448",
-          "poster": "assets/work/pis/RbM57J6y448.jpg",
+          "poster": "assets/work/pis/we-dropped-crushed-shot-ev-charger-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "We Dropped, Crushed and Shot an EV Charger. Here is What Happened"
         },
         {
           "youtube": "cRpxA8uiaQw",
-          "poster": "assets/work/pis/cRpxA8uiaQw.jpg",
+          "poster": "assets/work/pis/official-ev-charger-tier-list-2025-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "The Official EV Charger Tier List (2025 Update)"
         },
         {
           "youtube": "7C21LpRveag",
-          "poster": "assets/work/pis/7C21LpRveag.jpg",
+          "poster": "assets/work/pis/complete-ohme-app-tutorial-save-money-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Complete Ohme App Tutorial: Save Money and Control Your EV Charging"
         },
         {
           "youtube": "1ZAIRj0ff9k",
-          "poster": "assets/work/pis/1ZAIRj0ff9k.jpg",
+          "poster": "assets/work/pis/ohme-epod-vs-home-pro-which-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Ohme ePod vs Home Pro: Which EV Charger is Best for Your Home?"
         },
         {
           "youtube": "G9KdNYckXko",
-          "poster": "assets/work/pis/G9KdNYckXko.jpg",
+          "poster": "assets/work/pis/ohme-home-pro-charger-review-andy-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Ohme Home Pro Charger Review with Andy"
         },
         {
           "youtube": "F8wbt9P7Zqk",
-          "poster": "assets/work/pis/F8wbt9P7Zqk.jpg",
+          "poster": "assets/work/pis/smartest-commercial-ev-charger-easee-charge-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Is This the Smartest Commercial EV Charger? Easee Charge Review"
         },
         {
           "youtube": "305otceAnKw",
-          "poster": "assets/work/pis/305otceAnKw.jpg",
+          "poster": "assets/work/pis/mg-mg4-honest-ev-review-natalya-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "MG MG4 Honest EV Review with Natalya"
         },
         {
           "youtube": "u4Omt_10zoQ",
-          "poster": "assets/work/pis/u4Omt_10zoQ.jpg",
+          "poster": "assets/work/pis/new-kia-niro-ev-honest-review-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "New Kia Niro EV HONEST review"
         },
         {
           "youtube": "n-LndMkTC0w",
-          "poster": "assets/work/pis/n-LndMkTC0w.jpg",
+          "poster": "assets/work/pis/optimising-housing-estate-ev-chargers-easee-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Optimising your Housing Estate with EV Chargers is Easee"
         },
         {
           "youtube": "Bhmhdq8BzGo",
-          "poster": "assets/work/pis/Bhmhdq8BzGo.jpg",
+          "poster": "assets/work/pis/x-ae-summer-party-highlight-plug-in-stations-video-production-s4digital-960x540.jpg",
           "title": "Plug x AE Summer Party Highlight"
         }
       ],
@@ -1250,7 +1564,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/easee-couple.jpg",
+        "src": "assets/work/couple-moving-new-home-easee-brand-films-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/easee-couple.mp4",
         "alt": "A couple moving into a new home, from the Easee brand films"
       },
@@ -1280,17 +1594,17 @@
       "videos": [
         {
           "youtube": "DPhti4fPHeA",
-          "poster": "assets/work/easee-landlords.jpg",
+          "poster": "assets/work/chargepoint-grants-landlords-easee-brand-films-video-production-s4digital-1280x720.jpg",
           "title": "Chargepoint grants for landlords"
         },
         {
           "youtube": "yFtr1piLqUA",
-          "poster": "assets/work/easee-couple.jpg",
+          "poster": "assets/work/couple-moving-new-home-easee-brand-films-video-production-s4digital-1280x720.jpg",
           "title": "A couple moving house"
         },
         {
           "youtube": "n4pQCLhtiPM",
-          "poster": "assets/work/easee-learner.jpg",
+          "poster": "assets/work/learner-driver-easee-brand-films-video-production-s4digital-1280x720.jpg",
           "title": "A learner driver"
         }
       ]
@@ -1311,7 +1625,7 @@
         "Documentary"
       ],
       "cover": {
-        "src": "assets/work/gifs/musk-city.jpg",
+        "src": "assets/work/gifs/scenes-campaign-musk-city-video-production-s4digital-640x360.jpg",
         "loop": "assets/work/gifs/musk-city.mp4",
         "alt": "Scenes from the Musk City campaign"
       },
@@ -1327,27 +1641,27 @@
       ],
       "gallery": [
         {
-          "src": "assets/work/musk-city-16.jpg",
+          "src": "assets/work/lit-set-built-campaign-shot-evening-musk-city-photography-s4digital-1400x934.jpg",
           "alt": "A lit set built for the campaign, shot in the evening"
         },
         {
-          "src": "assets/work/musk-city-22.jpg",
+          "src": "assets/work/crew-filming-scene-behind-camera-monitor-musk-city-photography-s4digital-1400x934.jpg",
           "alt": "The crew filming a scene behind a camera and monitor"
         },
         {
-          "src": "assets/work/musk-city-6.jpg",
+          "src": "assets/work/cast-member-filmed-home-campaign-musk-city-photography-s4digital-1400x934.jpg",
           "alt": "A cast member filmed at home during the campaign"
         },
         {
-          "src": "assets/work/musk-city-19.jpg",
+          "src": "assets/work/boom-operator-crew-lighting-kitchen-set-musk-city-photography-s4digital-1400x934.jpg",
           "alt": "A boom operator and crew lighting a kitchen set"
         },
         {
-          "src": "assets/work/documentary-field.jpg",
+          "src": "assets/work/cast-table-field-sunset-musk-city-photography-s4digital-1600x900.jpg",
           "alt": "Two of the cast at a table in a field at sunset"
         },
         {
-          "src": "assets/work/documentary-fire.jpg",
+          "src": "assets/work/night-scene-lit-fire-campaign-shoot-musk-city-photography-s4digital-1600x900.jpg",
           "alt": "A night scene lit by fire during the campaign shoot"
         }
       ],
@@ -1372,7 +1686,7 @@
       "videos": [
         {
           "youtube": "fiE4eWHMCAo",
-          "poster": "assets/work/musk-city-16.jpg",
+          "poster": "assets/work/lit-set-built-campaign-shot-evening-musk-city-photography-s4digital-1400x934.jpg",
           "title": "Musk City"
         }
       ]
@@ -1391,7 +1705,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/easee-500k.jpg",
+        "src": "assets/work/filming-500-000th-easee-installation-500k-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/easee-500k.mp4",
         "alt": "Filming the 500,000th Easee installation"
       },
@@ -1421,26 +1735,26 @@
       "videos": [
         {
           "youtube": "QD6SY5vO8uw",
-          "poster": "assets/work/easee-500k.jpg",
+          "poster": "assets/work/filming-500-000th-easee-installation-500k-video-production-s4digital-1280x720.jpg",
           "title": "The 500,000th install"
         }
       ],
       "galleryNote": "The installation, the installer and the property in Cornwall.",
       "gallery": [
         {
-          "src": "assets/work/500k/1.jpg",
+          "src": "assets/work/500k/installer-outside-holiday-let-van-500k-video-production-s4digital-1600x1066.jpg",
           "alt": "The installer outside the holiday let with the van"
         },
         {
-          "src": "assets/work/500k/13.jpg",
+          "src": "assets/work/500k/500-000th-easee-charging-unit-wall-500k-video-production-s4digital-1600x1066.jpg",
           "alt": "The 500,000th Easee charging unit on the wall"
         },
         {
-          "src": "assets/work/500k/5.jpg",
+          "src": "assets/work/500k/portrait-installer-fitted-500-000th-unit-500k-video-production-s4digital-1600x1066.jpg",
           "alt": "Portrait of the installer who fitted the 500,000th unit"
         },
         {
-          "src": "assets/work/500k/21.jpg",
+          "src": "assets/work/500k/property-cornwall-where-milestone-install-took-500k-video-production-s4digital-1600x1066.jpg",
           "alt": "The property in Cornwall where the milestone install took place"
         }
       ]
@@ -1459,7 +1773,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/fifth-gear.jpg",
+        "src": "assets/work/quick-fire-interview-filmed-easee-fifth-gear-recharged-video-production-s4digital-1280x675.jpg",
         "loop": "assets/work/gifs/fifth-gear.mp4",
         "alt": "The Quick Fire interview filmed for Fifth Gear and Easee"
       },
@@ -1481,7 +1795,7 @@
       "videos": [
         {
           "youtube": "1yBzx14d9Ew",
-          "poster": "assets/work/fifth-gear.jpg",
+          "poster": "assets/work/quick-fire-interview-filmed-easee-fifth-gear-recharged-video-production-s4digital-1280x675.jpg",
           "title": "Quick fire, with Fifth Gear"
         }
       ]
@@ -1506,7 +1820,7 @@
         "Photography"
       ],
       "cover": {
-        "src": "assets/work/nexblue-point2.jpg",
+        "src": "assets/work/fitted-brick-wall-cable-coiled-hook-nexblue-point-2-tethered-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/nexblue-point2-clean.mp4",
         "alt": "A tethered NexBlue Point 2 fitted to a brick wall with the cable coiled on its hook"
       },
@@ -1543,7 +1857,7 @@
       "videos": [
         {
           "youtube": "5_yRnTqypJE",
-          "poster": "assets/work/nexblue-point2.jpg",
+          "poster": "assets/work/fitted-brick-wall-cable-coiled-hook-nexblue-point-2-tethered-video-production-s4digital-1280x720.jpg",
           "title": "NexBlue Point 2 Tethered"
         }
       ],
@@ -1552,7 +1866,7 @@
         "note": "Comping, short for compositing, means laying a patch over part of the frame so something disappears without anyone noticing. Here that meant tracking the logo through 14 shots across the five verticals and every shot in the one minute cut, frame by frame, on the original 4K files. Each patch is clean shirt taken from the same shot, feathered so there's no edge, colour matched to the fabric around it and placed under the grade so it's graded with everything else. The NEXBLUE print on the back of his collar came out too, and every frame was checked at full size. A handful of shots couldn't be cleaned without it showing, so rather than ship a patch you could spot, we cut them and let the shots either side run on.",
         "items": [
           {
-            "src": "assets/work/nexblue-point2/polo-before-after.jpg",
+            "src": "assets/work/nexblue-point2/same-shot-richard-playing-twice-side-nexblue-point-2-tethered-video-production-s4digital-1500x844.jpg",
             "video": "assets/work/nexblue-point2/polo-before-after.mp4",
             "alt": "The same shot of Richard playing twice side by side: on the left his navy polo shows the NexBlue logo, on the right the logo is gone and the shirt looks untouched as his hands move across it",
             "label": "The same shot, playing side by side. His hands pass right over where the logo was, and the shirt holds up."
@@ -1565,31 +1879,31 @@
         "items": [
           {
             "src": "assets/work/nexblue-point2/reel-1.mp4",
-            "poster": "assets/work/nexblue-point2/reel-1.jpg",
+            "poster": "assets/work/nexblue-point2/reel-1-video-production-s4digital-720x1280.jpg",
             "title": "Adding a tethered option",
             "href": "https://www.youtube.com/shorts/VuQdDMu_taU"
           },
           {
             "src": "assets/work/nexblue-point2/reel-2.mp4",
-            "poster": "assets/work/nexblue-point2/reel-2.jpg",
+            "poster": "assets/work/nexblue-point2/reel-2-video-production-s4digital-720x1280.jpg",
             "title": "The app",
             "href": "https://www.youtube.com/shorts/4p4RYT8Rh1Y"
           },
           {
             "src": "assets/work/nexblue-point2/reel-3.mp4",
-            "poster": "assets/work/nexblue-point2/reel-3.jpg",
+            "poster": "assets/work/nexblue-point2/reel-3-video-production-s4digital-720x1280.jpg",
             "title": "The support",
             "href": "https://www.youtube.com/shorts/Td-Vl5fYHz0"
           },
           {
             "src": "assets/work/nexblue-point2/reel-4.mp4",
-            "poster": "assets/work/nexblue-point2/reel-4.jpg",
+            "poster": "assets/work/nexblue-point2/reel-4-video-production-s4digital-720x1280.jpg",
             "title": "Why tethered",
             "href": "https://www.youtube.com/shorts/uSpORkUEeVA"
           },
           {
             "src": "assets/work/nexblue-point2/reel-5.mp4",
-            "poster": "assets/work/nexblue-point2/reel-5.jpg",
+            "poster": "assets/work/nexblue-point2/reel-5-video-production-s4digital-720x1280.jpg",
             "title": "Plug in and charge",
             "href": "https://www.youtube.com/shorts/xyq91cwntRM"
           }
@@ -1598,35 +1912,35 @@
       "galleryNote": "From the install day in Shotley Gate.",
       "gallery": [
         {
-          "src": "assets/work/nexblue-point2/fitting-clean.jpg",
+          "src": "assets/work/nexblue-point2/richard-gould-lining-wall-bracket-nexblue-point-2-tethered-photography-s4digital-1500x844.jpg",
           "alt": "Richard Gould lining the Point 2 up on its wall bracket"
         },
         {
-          "src": "assets/work/nexblue-point2/unit.jpg",
+          "src": "assets/work/nexblue-point2/cable-driveway-fitting-nexblue-point-2-tethered-photography-s4digital-1500x843.jpg",
           "alt": "The tethered Point 2 and its cable on the driveway before fitting"
         },
         {
-          "src": "assets/work/nexblue-point2/detail.jpg",
+          "src": "assets/work/nexblue-point2/close-casing-sun-nexblue-point-2-tethered-photography-s4digital-1500x844.jpg",
           "alt": "Close up of the Point 2 casing in the sun"
         },
         {
-          "src": "assets/work/nexblue-point2/cable.jpg",
+          "src": "assets/work/nexblue-point2/richard-coiling-cable-wall-hook-nexblue-point-2-tethered-photography-s4digital-1500x843.jpg",
           "alt": "Richard coiling the tethered cable onto its wall hook"
         },
         {
-          "src": "assets/work/nexblue-point2/wide-clean.jpg",
+          "src": "assets/work/nexblue-point2/essex-vehicle-charging-van-driveway-kit-nexblue-point-2-tethered-photography-s4digital-1500x844.jpg",
           "alt": "The Essex Vehicle Charging van on the driveway, with the kit coming out"
         },
         {
-          "src": "assets/work/nexblue-point2/setup.jpg",
+          "src": "assets/work/nexblue-point2/setting-charger-wall-fitting-nexblue-point-2-tethered-photography-s4digital-1500x844.jpg",
           "alt": "Setting up the charger at the wall after fitting"
         },
         {
-          "src": "assets/work/nexblue-point2/richard-clean.jpg",
+          "src": "assets/work/nexblue-point2/richard-gould-essex-vehicle-charging-interview-nexblue-point-2-tethered-photography-s4digital-1500x844.jpg",
           "alt": "Richard Gould of Essex Vehicle Charging during his interview"
         },
         {
-          "src": "assets/work/nexblue-point2/plug-in.jpg",
+          "src": "assets/work/nexblue-point2/plugging-cable-car-first-charge-nexblue-point-2-tethered-photography-s4digital-1500x843.jpg",
           "alt": "Plugging the tethered cable into the car for the first charge"
         }
       ]
@@ -1645,7 +1959,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/virtus-energy.jpg",
+        "src": "assets/work/partnership-film-virtus-energy-x-nexblue-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/virtus-energy.mp4",
         "alt": "The Virtus Energy and NexBlue partnership film"
       },
@@ -1675,7 +1989,7 @@
       "videos": [
         {
           "youtube": "1E78Tdc_Q-Q",
-          "poster": "assets/work/virtus-energy.jpg",
+          "poster": "assets/work/partnership-film-virtus-energy-x-nexblue-video-production-s4digital-1280x720.jpg",
           "title": "Virtus Energy and NexBlue"
         }
       ]
@@ -1694,7 +2008,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/fusion-wall.jpg",
+        "src": "assets/work/director-interviewed-office-fusion-x-nexblue-video-production-s4digital-1400x788.jpg",
         "alt": "A director being interviewed in the Fusion office",
         "loop": "assets/work/gifs/fusion.mp4"
       },
@@ -1728,25 +2042,25 @@
       "videosHeld": [
         {
           "src": "assets/work/vertical/fusion-jan.mp4",
-          "poster": "assets/work/vertical/fusion-jan.jpg",
+          "poster": "assets/work/vertical/bald-man-talks-sofa-vertical-frame-video-production-s4digital-720x1280.jpg",
           "title": "Jan Selcuk, Company Director",
           "vertical": true
         },
         {
           "src": "assets/work/vertical/fusion-kaan.mp4",
-          "poster": "assets/work/vertical/fusion-kaan.jpg",
+          "poster": "assets/work/vertical/bald-man-looks-vertical-frame-name-video-production-s4digital-720x1280.jpg",
           "title": "Kaan Selcuk, Managing Director",
           "vertical": true
         },
         {
           "src": "assets/work/vertical/fusion-kris.mp4",
-          "poster": "assets/work/vertical/fusion-kris.jpg",
+          "poster": "assets/work/vertical/engineer-fitting-charger-brick-wall-vertical-video-production-s4digital-720x1280.jpg",
           "title": "Kris Carter, Lead Engineer",
           "vertical": true
         },
         {
           "src": "assets/work/vertical/fusion-peter.mp4",
-          "poster": "assets/work/vertical/fusion-peter.jpg",
+          "poster": "assets/work/vertical/bearded-man-sits-beige-jacket-vertical-video-production-s4digital-720x1280.jpg",
           "title": "Peter Dutton, Operations Director",
           "vertical": true
         }
@@ -1766,7 +2080,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/alpha-manufacturing.jpg",
+        "src": "assets/work/easee-installation-filmed-alpha-manufacturing-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/alpha-manufacturing.mp4",
         "alt": "The Easee installation filmed at Alpha Manufacturing"
       },
@@ -1796,7 +2110,7 @@
       "videos": [
         {
           "youtube": "8g0R9gnT4Zs",
-          "poster": "assets/work/alpha-manufacturing.jpg",
+          "poster": "assets/work/easee-installation-filmed-alpha-manufacturing-video-production-s4digital-1280x720.jpg",
           "title": "Easee at Alpha Manufacturing"
         }
       ]
@@ -1815,7 +2129,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/gifs/bbc-coffee.jpg",
+        "src": "assets/work/gifs/scenes-commercial-case-study-bbc-coffee-video-production-s4digital-640x360.jpg",
         "loop": "assets/work/gifs/bbc-coffee.mp4",
         "alt": "Scenes from the BBC Coffee commercial case study"
       },
@@ -1857,7 +2171,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/shc-drive.jpg",
+        "src": "assets/work/electric-car-driving-country-road-customer-smart-home-charge-video-production-s4digital-1200x675.jpg",
         "alt": "An electric car driving a country road, from the Smart Home Charge customer story",
         "loop": "assets/work/gifs/smart-home-charge.mp4"
       },
@@ -1941,27 +2255,27 @@
       "galleryNote": "The residents’ car park, before and during the install.",
       "gallery": [
         {
-          "src": "assets/work/wycombe/headlights.jpg",
+          "src": "assets/work/wycombe/car-pulling-charging-point-residents-car-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "A car pulling up to a charging point in the residents car park"
         },
         {
-          "src": "assets/work/wycombe/tesla.jpg",
+          "src": "assets/work/wycombe/electric-car-parked-underground-car-park-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "An electric car parked in the underground car park"
         },
         {
-          "src": "assets/work/wycombe/plugging-in.jpg",
+          "src": "assets/work/wycombe/engineer-fitting-charging-point-car-park-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "An engineer fitting a charging point to the car park wall"
         },
         {
-          "src": "assets/work/wycombe/charger.jpg",
+          "src": "assets/work/wycombe/charging-point-mounted-pillar-car-park-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "A charging point mounted on a pillar in the car park"
         },
         {
-          "src": "assets/work/wycombe/resident.jpg",
+          "src": "assets/work/wycombe/resident-car-beside-new-charging-point-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "A resident at their car beside the new charging point"
         },
         {
-          "src": "assets/work/wycombe/carpark.jpg",
+          "src": "assets/work/wycombe/residents-car-park-development-easee-kensington-mdu-video-production-s4digital-1600x1066.jpg",
           "alt": "The residents car park at the development"
         }
       ]
@@ -1983,7 +2297,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/gifs/easee-rcd.jpg",
+        "src": "assets/work/gifs/installer-running-live-rcd-test-car-easee-showroom-install-video-production-s4digital-640x360.jpg",
         "alt": "The installer running a live RCD test at a car showroom",
         "loop": "assets/work/gifs/easee-rcd.mp4"
       },
@@ -1999,27 +2313,27 @@
       ],
       "gallery": [
         {
-          "src": "assets/work/rcd-1.jpg",
+          "src": "assets/work/installer-site-high-visibility-clothing-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "The installer on site in high visibility clothing"
         },
         {
-          "src": "assets/work/rcd-2.jpg",
+          "src": "assets/work/forecourt-rows-cars-behind-charging-point-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "The showroom forecourt with rows of cars behind the charging point"
         },
         {
-          "src": "assets/work/rcd-3.jpg",
+          "src": "assets/work/installer-fitting-charge-point-cover-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "The installer fitting the charge point cover"
         },
         {
-          "src": "assets/work/rcd-4.jpg",
+          "src": "assets/work/close-view-rcd-test-meter-operated-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "A close view of the RCD test meter being operated"
         },
         {
-          "src": "assets/work/rcd-5.jpg",
+          "src": "assets/work/installer-running-live-rcd-test-unit-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "The installer running the live RCD test at the unit"
         },
         {
-          "src": "assets/work/rcd-6.jpg",
+          "src": "assets/work/installer-van-parked-forecourt-easee-showroom-install-photography-s4digital-1400x934.jpg",
           "alt": "The installer van parked on the showroom forecourt"
         }
       ],
@@ -2044,7 +2358,7 @@
       "videos": [
         {
           "youtube": "n8i6X-uPteQ",
-          "poster": "assets/work/easee-rcd-1.jpg",
+          "poster": "assets/work/installation-rcd-test-easee-showroom-install-video-production-s4digital-1400x788.jpg",
           "title": "The installation, with the RCD test"
         }
       ]
@@ -2062,7 +2376,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/easee-equalizer.jpg",
+        "src": "assets/work/easee-announcement-film-equalizer-load-balancer-uk-launch-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/easee-equalizer.mp4",
         "alt": "The Easee Equalizer announcement film"
       },
@@ -2096,7 +2410,7 @@
       "videos": [
         {
           "youtube": "PjApz_i8QBU",
-          "poster": "assets/work/easee-equalizer.jpg",
+          "poster": "assets/work/easee-announcement-film-equalizer-load-balancer-uk-launch-video-production-s4digital-1280x720.jpg",
           "title": "The Equalizer announcement"
         }
       ]
@@ -2116,7 +2430,7 @@
         "Photography"
       ],
       "cover": {
-        "src": "assets/work/gifs/fully-charged.jpg",
+        "src": "assets/work/gifs/highlights-show-floor-fully-charged-video-production-s4digital-640x360.jpg",
         "loop": "assets/work/gifs/fully-charged.mp4",
         "alt": "Highlights from the Fully Charged show floor"
       },
@@ -2132,35 +2446,35 @@
       ],
       "gallery": [
         {
-          "src": "assets/work/fully-charged/fc-1.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-2.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1068.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-3.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066-2.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-4.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066-3.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-5.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066-4.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-6.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1068-2.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-7.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066-5.jpg",
           "alt": "A moment from the Fully Charged show floor"
         },
         {
-          "src": "assets/work/fully-charged/fc-8.jpg",
+          "src": "assets/work/fully-charged/moment-show-floor-fully-charged-photography-s4digital-1600x1066-6.jpg",
           "alt": "A moment from the Fully Charged show floor"
         }
       ],
@@ -2203,7 +2517,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/road/stand-wide.jpg",
+        "src": "assets/work/road/stand-installer-show-nec-road-video-production-s4digital-1500x1000.jpg",
         "loop": "assets/work/gifs/road-stand.mp4",
         "alt": "The Road stand at the Installer Show, NEC"
       },
@@ -2221,17 +2535,17 @@
       "videos": [
         {
           "vimeo": "973104130",
-          "poster": "assets/work/road/nexblue.jpg",
+          "poster": "assets/work/road/interviews-nexblue-road-video-production-s4digital-1280x720.jpg",
           "title": "Road interviews NexBlue"
         },
         {
           "vimeo": "973110289",
-          "poster": "assets/work/road/zaptec.jpg",
+          "poster": "assets/work/road/interviews-zaptec-road-video-production-s4digital-1280x720.jpg",
           "title": "Road interviews Zaptec"
         },
         {
           "vimeo": "973109452",
-          "poster": "assets/work/road/myenergi.jpg",
+          "poster": "assets/work/road/interviews-myenergi-road-video-production-s4digital-1280x720.jpg",
           "title": "Road interviews myenergi"
         }
       ],
@@ -2256,39 +2570,39 @@
       "galleryNote": "Three days on the stand, shot around the meetings rather than through them.",
       "gallery": [
         {
-          "src": "assets/work/road/stand-wide.jpg",
+          "src": "assets/work/road/stand-installer-show-nec-road-video-production-s4digital-1500x1000.jpg",
           "alt": "The Road stand at the Installer Show"
         },
         {
-          "src": "assets/work/road/team.jpg",
+          "src": "assets/work/road/team-front-platform-uptime-figure-road-video-production-s4digital-1500x1000.jpg",
           "alt": "The Road team in front of the platform uptime figure"
         },
         {
-          "src": "assets/work/road/candid-laugh.jpg",
+          "src": "assets/work/road/team-laughing-stand-road-video-production-s4digital-1500x1000.jpg",
           "alt": "Two of the Road team laughing on the stand"
         },
         {
-          "src": "assets/work/road/conversation.jpg",
+          "src": "assets/work/road/conversation-visitors-stand-road-video-production-s4digital-1500x1000.jpg",
           "alt": "A conversation with visitors on the stand"
         },
         {
-          "src": "assets/work/road/brand-wall.jpg",
+          "src": "assets/work/road/brand-message-stand-wall-road-video-production-s4digital-1500x1000.jpg",
           "alt": "The Road brand message on the stand wall"
         },
         {
-          "src": "assets/work/road/stand-floor.jpg",
+          "src": "assets/work/road/visitors-stand-show-road-video-production-s4digital-1500x1000.jpg",
           "alt": "Visitors at the stand during the show"
         },
         {
-          "src": "assets/work/road/stand-angle.jpg",
+          "src": "assets/work/road/stand-seen-show-floor-road-video-production-s4digital-1500x1000.jpg",
           "alt": "The stand seen from the show floor"
         },
         {
-          "src": "assets/work/road/candid-two.jpg",
+          "src": "assets/work/road/visitors-talking-team-road-video-production-s4digital-1500x1000.jpg",
           "alt": "Two visitors talking to the Road team"
         },
         {
-          "src": "assets/work/road/charge-point.jpg",
+          "src": "assets/work/road/visitor-looking-charge-point-stand-road-video-production-s4digital-1500x1000.jpg",
           "alt": "A visitor looking at a charge point on the stand"
         }
       ]
@@ -2307,7 +2621,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/ohme-raffle.jpg",
+        "src": "assets/work/film-plug-stations-pis-x-ohme-christmas-raffle-video-production-s4digital-1280x720.jpg",
         "loop": "assets/work/gifs/ohme-raffle.mp4",
         "alt": "The Christmas raffle film for Plug In Stations and Ohme"
       },
@@ -2341,7 +2655,7 @@
       "videos": [
         {
           "youtube": "kW2aDAq-m68",
-          "poster": "assets/work/ohme-raffle.jpg",
+          "poster": "assets/work/film-plug-stations-pis-x-ohme-christmas-raffle-video-production-s4digital-1280x720.jpg",
           "title": "The campaign film"
         }
       ]
@@ -2360,7 +2674,7 @@
         "Video Production"
       ],
       "cover": {
-        "src": "assets/work/property-block.jpg",
+        "src": "assets/work/residential-street-charging-bays-marked-driveway-property-management-project-video-production-s4digital-1400x788.jpg",
         "alt": "A residential street with charging bays marked out on the driveway",
         "loop": "assets/work/gifs/mayflower.mp4"
       },
@@ -2406,7 +2720,7 @@
         "Commercial Content"
       ],
       "cover": {
-        "src": "assets/work/headshots/wevo-2.jpg",
+        "src": "assets/work/headshots/headshot-team-session-corporate-headshots-video-production-s4digital-1400x2100.jpg",
         "alt": "A corporate headshot from a team session"
       },
       "summary": "Team headshot sessions run on location for several companies, shot so every person looks like themselves while the set still reads as one company.",
@@ -2422,67 +2736,67 @@
       "galleryNote": "Sessions for Wevo, Trade Electrical Distributors and others.",
       "gallery": [
         {
-          "src": "assets/work/headshots/wevo-1.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-12.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/wevo-2.jpg",
+          "src": "assets/work/headshots/headshot-team-session-corporate-headshots-video-production-s4digital-1400x2100.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/wevo-3.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-13.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/wevo-4.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-14.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/wevo-5.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-15.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/ted-1.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-8.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/ted-2.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-9.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/ted-3.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-10.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/ted-4.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-11.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-1.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-2.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-2.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-3.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-3.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-4.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-4.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-5.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-5.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-6.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-6.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         },
         {
-          "src": "assets/work/headshots/se-7.jpg",
+          "src": "assets/work/headshots/headshot-shot-against-clean-backdrop-corporate-headshots-photography-s4digital-1400x2100-7.jpg",
           "alt": "A corporate headshot shot against a clean backdrop"
         }
       ],
@@ -2519,7 +2833,7 @@
         "Professional Services"
       ],
       "cover": {
-        "src": "assets/web/tuk-cover.jpg",
+        "src": "assets/web/product-catalogue-showing-cabling-categories-new-tuk-ltd-web-design-s4digital-1200x760.jpg",
         "alt": "The TUK Ltd product catalogue, showing cabling categories and new arrivals"
       },
       "summary": "A cabling manufacturer trading since 1984, running their trade catalogue on WordPress and being attacked through it. Rebuilt as a custom site of 371 pages, then moved onto infrastructure they own.",
@@ -2567,17 +2881,17 @@
         "versions": [
           {
             "label": "Before",
-            "src": "assets/web/tuk-v1.jpg",
+            "src": "assets/web/tuk-v1-web-design-s4digital-1200x858.jpg",
             "alt": "The TUK Ltd website before the rebuild"
           },
           {
             "label": "First rebuild",
-            "src": "assets/web/tuk-v2.jpg",
+            "src": "assets/web/tuk-v2-web-design-s4digital-1200x3356.jpg",
             "alt": "The first rebuild of the TUK Ltd website"
           },
           {
             "label": "Live now",
-            "src": "assets/web/tuk-v3.jpg",
+            "src": "assets/web/tuk-v3-web-design-s4digital-1200x4170.jpg",
             "alt": "The TUK Ltd website as it stands today"
           }
         ]
@@ -2597,7 +2911,7 @@
         "Professional Services"
       ],
       "cover": {
-        "src": "assets/web/rh-cover.jpg",
+        "src": "assets/web/rebuilt-website-rh-ltd-web-design-s4digital-1200x760.jpg",
         "alt": "The rebuilt RH Ltd website"
       },
       "summary": "A London electrical and building contractor with three distinct arms and a website that only really spoke about one of them.",
@@ -2636,12 +2950,12 @@
         "versions": [
           {
             "label": "Before",
-            "src": "assets/web/rh-v1.jpg",
+            "src": "assets/web/rh-v1-web-design-s4digital-1200x1270.jpg",
             "alt": "The RH Ltd website before the rebuild"
           },
           {
             "label": "Our design",
-            "src": "assets/web/rh-v2.jpg",
+            "src": "assets/web/rh-v2-web-design-s4digital-1200x3278.jpg",
             "alt": "The RH Ltd website after the rebuild"
           }
         ]
@@ -2661,7 +2975,7 @@
         "Commercial Content"
       ],
       "cover": {
-        "src": "assets/web/ted-cover.jpg",
+        "src": "assets/web/ted-ev-website-trade-electrical-distributors-web-design-s4digital-1200x760.jpg",
         "alt": "The TED EV website"
       },
       "summary": "A family-run electrical wholesaler in North London with over fifty years in the trade. TED EV is an ecommerce site selling to registered installers, and TED BMS is a separate brand built to reach commercial building automation projects.",
@@ -2711,12 +3025,12 @@
         "versions": [
           {
             "label": "TED EV",
-            "src": "assets/web/ted-v2.jpg",
+            "src": "assets/web/ted-v2-web-design-s4digital-1200x4001.jpg",
             "alt": "The TED EV wholesale homepage"
           },
           {
             "label": "TED BMS",
-            "src": "assets/web/ted-bms.jpg",
+            "src": "assets/web/ted-bms-web-design-s4digital-1200x4333.jpg",
             "alt": "The TED BMS homepage, built for commercial building automation projects"
           }
         ]
@@ -2724,7 +3038,7 @@
       "videosHeld": [
         {
           "src": "assets/work/ted-intro.mp4",
-          "poster": "assets/work/ted-intro.jpg",
+          "poster": "assets/work/men-phone-desks-busy-office-subtitle-video-production-s4digital-1280x720.jpg",
           "title": "Who TED are, in ninety seconds"
         }
       ]

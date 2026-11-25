@@ -15,22 +15,34 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://s4digi.com/assets/og-card.jpg" />
-<link rel="icon" type="image/png" href="/assets/32wh.png" />
-<link rel="apple-touch-icon" href="/assets/32wh.png" />
+<link rel="icon" type="image/png" href="/assets/32wh-video-production-s4digital-1017x1010.png" />
+<link rel="apple-touch-icon" href="/assets/32wh-video-production-s4digital-1017x1010.png" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
-<link rel="stylesheet" href="/assets/site.css?v=202610051000" />
+<link rel="stylesheet" href="/assets/site.css?v=202611252315" />
 <style>
   .ghero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
   .ghero__cover img{width:100%;max-width:460px;display:block;margin:0 auto}
   .ghero h1{font-weight:900;font-size:clamp(40px,5.4vw,72px);line-height:.98;letter-spacing:-.035em;margin:12px 0 18px}
   .ghero h1 .kw{color:var(--blue)}
   .ghero__kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--orange)}
-  .ghero__sub{font-size:18px;line-height:1.6;color:var(--ink-2);max-width:52ch;margin-bottom:26px}
+  .ghero__sub{font-size:18px;line-height:1.6;color:var(--ink-2);max-width:52ch;margin-bottom:26px;text-wrap:balance}
   .gform{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px}
   .gform input{font:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
-  .gform input:focus{outline:2px solid var(--blue);border-color:transparent}
+  .gform input:focus,.gform select:focus{outline:2px solid var(--blue);border-color:transparent}
+  .gform select{grid-column:1 / -1;font:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+  .gform select:invalid{color:var(--muted)}
+  .gpeek{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .gpeek figure{margin:0;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px -26px rgba(13,13,15,.4);background:#ecebe8}
+  .gpeek img{display:block;width:100%;height:auto;aspect-ratio:1000/707}
+  .gpeek a{display:block;cursor:zoom-in}
+  .gpeek figcaption em{font-style:normal;font-weight:600;color:var(--muted);margin-left:6px}
+  .gpeek figcaption{font-size:13px;font-weight:700;color:var(--ink-2);padding:10px 12px;background:var(--paper)}
+  .gpeek__lock{position:absolute;inset:0 0 auto;aspect-ratio:1000/707;display:grid;place-items:center;text-align:center;padding:16px}
+  .gpeek__lock a{background:#0d0d0f;color:#fff;font-size:13.5px;font-weight:800;padding:12px 18px;border-radius:999px;text-decoration:none}
+  @media (max-width:560px){.gpeek{grid-template-columns:1fr}}
+  [data-theme="dark"] .gpeek figcaption{background:#15171c}
   .gform .btn{grid-column:1 / -1;justify-content:center}
   .gform small{grid-column:1 / -1;font-size:12.5px;color:var(--muted)}
   .gform__hp{position:absolute;left:-9999px}
@@ -105,16 +117,32 @@
       <p class="ghero__sub">A free 56-page playbook. Everything I&rsquo;d want you to know before you spend a penny on a film. The questions we ask, what things really cost, the templates we use and the mistakes that land businesses with copyright letters. Free, no strings.</p>
       <form class="gform" id="guideForm" action="https://formsubmit.co/ajax/005f38c83e0554279919ce0dff944657" method="POST">
         <input type="hidden" name="_subject" value="Guide download">
+        <input type="hidden" name="Came for" id="guideFrom" value="The full guide">
         <input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" class="gform__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="text" name="Name" placeholder="Your name" autocomplete="name" required aria-label="Your name">
         <input type="email" name="Email" placeholder="Email address" autocomplete="email" required aria-label="Email address">
+        <select name="Role" required aria-label="What best describes you?"><option value="" disabled selected>What best describes you?</option><option>I run a business</option><option>I look after marketing</option><option>I work at an agency</option><option>I run a charity or organisation</option><option>Something else</option></select>
         <button type="submit" class="btn btn--orange btn--lg"><span>Get the free guide</span><span class="arrow">&rarr;</span></button>
         <small>The guide opens straight away. I&rsquo;ll send the odd useful note after that, and you can tell me to stop any time.</small>
       </form>
       <div class="gdone" id="guideDone" hidden><strong>It&rsquo;s yours.</strong><p style="margin:0 0 14px">If it didn&rsquo;t open, use the button below.</p><a class="btn btn--orange" href="/assets/guide/before-you-film.pdf?v=20261005" target="_blank" rel="noopener"><span>Open the guide</span><span class="arrow">&rarr;</span></a></div>
     </div>
-    <div class="ghero__cover"><img src="/assets/guide/guide-cover.png?v=20261005" alt="Before the Camera Comes Out, the free s4digital brand film playbook" /></div>
+    <div class="ghero__cover"><img src="/assets/guide/camera-comes-free-brand-film-playbook-video-production-s4digital-872x649.png?v=20261005" alt="Before the Camera Comes Out, the free s4digital brand film playbook" /></div>
+  </div>
+</section>
+
+<section class="sec sec--tight" style="padding-bottom:0">
+  <div class="shell">
+    <div class="sec__head"><h2>Have a <span class="kw">look inside</span>.</h2><p>Six of the 56 pages. Click any open page to read it full size, then fill in the form above and the whole guide opens straight away.</p></div>
+    <div class="gpeek">
+      <figure><a href="/assets/guide/preview/before-camera-comes-out-cover-page-01-full-brand-film-guide-s4digital-2200x1555.webp" data-lightbox="guide"><img src="/assets/guide/preview/before-camera-comes-out-cover-page-01-brand-film-guide-s4digital-1000x707.webp" alt="Page 1 of Before the Camera Comes Out, the s4digital brand film guide: The cover" width="1000" height="707" loading="lazy" /></a><figcaption>The cover<em>Click to read</em></figcaption></figure>
+      <figure><a href="/assets/guide/preview/before-camera-comes-out-contents-page-02-full-brand-film-guide-s4digital-2200x1555.webp" data-lightbox="guide"><img src="/assets/guide/preview/before-camera-comes-out-contents-page-02-brand-film-guide-s4digital-1000x707.webp" alt="Page 2 of Before the Camera Comes Out, the s4digital brand film guide: What&rsquo;s in it" width="1000" height="707" loading="lazy" /></a><figcaption>What&rsquo;s in it<em>Click to read</em></figcaption></figure>
+      <figure><a href="/assets/guide/preview/before-camera-comes-out-interview-question-bank-page-12-full-brand-film-guide-s4digital-2200x1555.webp" data-lightbox="guide"><img src="/assets/guide/preview/before-camera-comes-out-interview-question-bank-page-12-brand-film-guide-s4digital-1000x707.webp" alt="Page 12 of Before the Camera Comes Out, the s4digital brand film guide: The interview question bank" width="1000" height="707" loading="lazy" /></a><figcaption>The interview question bank<em>Click to read</em></figcaption></figure>
+      <figure><a href="/assets/guide/preview/before-camera-comes-out-what-brand-films-cost-page-17-full-brand-film-guide-s4digital-2200x1555.webp" data-lightbox="guide"><img src="/assets/guide/preview/before-camera-comes-out-what-brand-films-cost-page-17-brand-film-guide-s4digital-1000x707.webp" alt="Page 17 of Before the Camera Comes Out, the s4digital brand film guide: What brand films cost in the UK" width="1000" height="707" loading="lazy" /></a><figcaption>What brand films cost in the UK<em>Click to read</em></figcaption></figure>
+      <figure><img src="/assets/guide/preview/before-camera-comes-out-budget-planner-page-21-brand-film-guide-s4digital-1000x707.webp" alt="Page 21 of Before the Camera Comes Out, the s4digital brand film guide: The budget planner" width="1000" height="707" loading="lazy" /><div class="gpeek__lock"><a href="#guideForm">Unlock all 56 pages</a></div><figcaption>The budget planner</figcaption></figure>
+      <figure><img src="/assets/guide/preview/before-camera-comes-out-brand-film-brief-template-page-24-brand-film-guide-s4digital-1000x707.webp" alt="Page 24 of Before the Camera Comes Out, the s4digital brand film guide: The brief template" width="1000" height="707" loading="lazy" /><div class="gpeek__lock"><a href="#guideForm">Unlock all 56 pages</a></div><figcaption>The brief template</figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -128,6 +156,13 @@
 <script>
 (function () {
   var f = document.getElementById('guideForm'), done = document.getElementById('guideDone');
+  // Which resource card sent them, so a costs download can be followed up as a near-buyer.
+  var FROM = { guide: 'The full guide', questions: 'The interview question bank', brief: 'The brief template', costs: 'What brand films cost' };
+  var from = (location.search.match(/[?&]from=([a-z]+)/) || [])[1];
+  if (FROM[from]) {
+    document.getElementById('guideFrom').value = FROM[from];
+    f.querySelector('input[name="_subject"]').value = 'Guide download: ' + FROM[from];
+  }
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     f.querySelector('button').disabled = true;
@@ -176,6 +211,7 @@
           <li><a href="/work">Our Work</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/blog">Blog</a></li>
+          <li><a href="/resources">Free resources</a></li>
           <li><a href="/services#faq">FAQ</a></li>
           <li><a href="/planpulse">Content planning app</a></li>
           <li><a href="/#contact">Contact</a></li>
@@ -225,7 +261,7 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 14 12 8 18 14"/></svg>
 </button>
 
-<script src="/assets/site.js?v=202610052130"></script>
+<script src="/assets/site.js?v=202611252315"></script>
 <script src="/assets/form.js?v=202608181902"></script>
 </body>
 </html>

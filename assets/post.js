@@ -102,8 +102,8 @@
       fall.className = 'pfall';
       fall.setAttribute('aria-hidden', 'true');
       fall.innerHTML = '<span class="pfall__dust"><i></i><i></i><i></i></span>' +
-        '<img class="pfall__cam" src="/assets/blog/camera-intact.png" alt="" />' +
-        '<img class="pfall__broken" src="/assets/blog/camera-broken.png" alt="" loading="lazy" />';
+        '<img class="pfall__cam" src="/assets/blog/camera-intact-video-production-s4digital-520x278.png" alt="" />' +
+        '<img class="pfall__broken" src="/assets/blog/camera-broken-video-production-s4digital-640x364.png" alt="" loading="lazy" />';
       document.body.appendChild(fall);
       // It lands on the white page just above "Keep reading", then scrolls away with the page.
       let broken = false;

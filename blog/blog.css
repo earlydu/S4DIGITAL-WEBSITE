@@ -7,7 +7,7 @@
   --max:1320px;--gutter:clamp(20px,3.2vw,44px);
   --radius:22px;--radius-lg:28px;
   --sans:'Satoshi',-apple-system,BlinkMacSystemFont,Segoe UI,system-ui,sans-serif;
-  --ast-src:url('../assets/32wh.png');
+  --ast-src:url('../assets/32wh-video-production-s4digital-1017x1010.png');
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{color:var(--ink);font-family:var(--sans);font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}

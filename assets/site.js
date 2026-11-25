@@ -409,10 +409,11 @@
       .catch(() => { track.innerHTML = '<div class="gal__loading">Films are loading. Please refresh in a moment.</div>'; });
   })();
 
-  /* ---------- Lightbox for [data-lightbox] links (about page photos) ---------- */
+  /* ---------- Lightbox for [data-lightbox] links (about page photos, case study galleries) ---------- */
+  // Delegated, because case studies render their galleries after load. Links that share
+  // a data-lightbox value click through together; an empty value is its own group.
   (function () {
-    const links = Array.from(document.querySelectorAll('a[data-lightbox]'));
-    if (!links.length) return;
+    let links = [];
     const arrow = d => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="' + (d < 0 ? '15 18 9 12 15 6' : '9 18 15 12 9 6') + '"/></svg>';
     const box = document.createElement('div');
     box.className = 'lbox';
@@ -451,7 +452,15 @@
       if (opener) opener.focus();
     };
 
-    links.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); open(n); }));
+    document.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a[data-lightbox]');
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      const group = a.getAttribute('data-lightbox');
+      links = Array.from(document.querySelectorAll('a[data-lightbox]'))
+        .filter(l => l.getAttribute('data-lightbox') === group && !l.closest('[aria-hidden="true"]'));
+      open(Math.max(0, links.findIndex(l => l.href === a.href)));
+    });
     box.querySelector('.lbox__close').addEventListener('click', close);
     box.querySelector('.lbox__prev').addEventListener('click', () => show(i - 1));
     box.querySelector('.lbox__next').addEventListener('click', () => show(i + 1));

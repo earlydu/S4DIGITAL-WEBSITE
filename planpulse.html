@@ -110,7 +110,7 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .icon-btn:hover{transform:translateY(-1px);border-color:var(--blue);box-shadow:0 8px 20px -12px rgba(62,163,252,.6)}
 
 /* ---------- rotating s4d asterisk (brand motif) ---------- */
-.ast{display:inline-block;background-color:currentColor;-webkit-mask:url('assets/32wh.png') center/contain no-repeat;mask:url('assets/32wh.png') center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
+.ast{display:inline-block;background-color:currentColor;-webkit-mask:url('assets/32wh-video-production-s4digital-1017x1010.png') center/contain no-repeat;mask:url('assets/32wh-video-production-s4digital-1017x1010.png') center/contain no-repeat;-webkit-mask-mode:alpha;mask-mode:alpha}
 .hero__ast{position:absolute;z-index:-1;pointer-events:none;color:rgba(13,13,15,.06);animation:spin 80s linear infinite}
 .hero__ast.a1{top:-26px;right:6px;width:150px;height:150px}
 .hero__ast.a2{bottom:-46px;left:0;width:108px;height:108px;color:rgba(62,163,252,.10);animation-duration:110s;animation-direction:reverse}
@@ -911,11 +911,11 @@ imgToData("assets/s4digital-logo.png").then(d=>LOGO_S4=d);
 
 /* faint s4d asterisk watermark for the PDF (recoloured to a very light tint) */
 let AST_IMG=null;
-(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#e6edf7";x.fillRect(0,0,c.width,c.height);AST_IMG={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
+(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#e6edf7";x.fillRect(0,0,c.width,c.height);AST_IMG={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh-video-production-s4digital-1017x1010.png";})();
 
 /* bold brand-blue asterisk graphic for the PDF cover page */
 let COVER_AST=null;
-(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#3EA3FC";x.fillRect(0,0,c.width,c.height);COVER_AST={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh.png";})();
+(function(){const img=new Image();img.onload=()=>{try{const c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;const x=c.getContext("2d");x.drawImage(img,0,0);x.globalCompositeOperation="source-in";x.fillStyle="#3EA3FC";x.fillRect(0,0,c.width,c.height);COVER_AST={data:c.toDataURL("image/png")};}catch(e){}};img.onerror=()=>{};img.src="assets/32wh-video-production-s4digital-1017x1010.png";})();
 
 const PF_HEX={Instagram:"#E1306C",Facebook:"#1877F2",LinkedIn:"#0A66C2",TikTok:"#111111",YouTube:"#FF0000",X:"#111111",Twitter:"#111111",Email:"#F59E0B"};
 function hexRGB(h){h=(h||"#0A66C2").replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
