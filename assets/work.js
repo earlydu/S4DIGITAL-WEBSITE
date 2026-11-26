@@ -49,7 +49,6 @@ function render(DATA, CATEGORIES, COLLECTIONS) {
     '<a class="wcard" href="/work/' + esc(w.slug) + '">' +
       '<div class="wcard__media">' + cover(w.cover) + (w.comingSoon ? '<span class="wcard__soon">Coming soon</span>' : '') + '</div>' +
       '<div class="wcard__body">' +
-        '<span class="wcard__sector">' + esc(w.sector) + '</span>' +
         '<h3 class="wcard__title">' + esc(w.client) + '</h3>' +
         '<p class="wcard__desc">' + esc(w.summary) + '</p>' +
         '<span class="wcard__more">Read the case study<span class="arrow">&rarr;</span></span>' +

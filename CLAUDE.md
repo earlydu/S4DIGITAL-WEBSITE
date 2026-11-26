@@ -54,6 +54,7 @@ Workflows should evolve as you learn. When you find better methods, discover con
 ## Key Rule
 
 - Never assume deployment. Always wait for explicit instruction before committing or pushing changes.
+- No eyebrows and no highlighted words in titles (Earl, 26 Nov 2026). Never put a small uppercase label, kicker or tag line above a heading, and never colour part of a heading (no new `.kw` spans: site.css forces `.kw` to inherit the heading colour). Card details such as a price or a sector go under the title as plain sentence-case text, or they're left out.
 
 ## The Self-Improvement Loop
 

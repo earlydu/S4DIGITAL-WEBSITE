@@ -1665,3 +1665,6 @@ p,li,blockquote{text-wrap:pretty}
 .csend .btn--orange:hover .arrow,[data-theme="dark"] .csend .btn--orange:hover .arrow{color:#0d0d0f}
 .csend__guide{margin-top:4px;font-size:14px;font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.55)}
 .csend__guide:hover{text-decoration-color:#fff}
+
+/* No highlighted words in titles (Earl, 26 Nov 2026): .kw stays in the markup but reads as the rest of the line */
+.kw{color:inherit !important;font-weight:inherit !important;background:none !important;-webkit-text-fill-color:currentColor}

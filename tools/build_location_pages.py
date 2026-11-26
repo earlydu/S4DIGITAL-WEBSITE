@@ -54,7 +54,6 @@ def card(slug, sector):
     return f"""      <a class="wcard" href="/work/{slug}">
         <div class="wcard__media"><img src="{c['img']}" alt="{c['alt']}" loading="lazy" /></div>
         <div class="wcard__body">
-          <span class="wcard__sector">{sector}</span>
           <h3 class="wcard__title">{t(c['title'])}</h3>
           <p class="wcard__desc">{t(c['desc'])}</p>
           <span class="wcard__more">Read the case study<span class="arrow">&rarr;</span></span>

@@ -60,9 +60,9 @@ def card(item, href):
     return f'''      <a class="wcard kcard" data-group="{g}" href="{esc(SCOUTY + href)}" target="_blank" rel="noopener">
         <div class="wcard__media"><img src="{cover(item['slug'])}" alt="{esc(item['title'])}" loading="lazy" width="800" height="600" /></div>
         <div class="wcard__body">
-          <span class="wcard__sector">{esc(label)} &middot; &pound;{scouty_copy.day_rate(item)} a day</span>
           <h3 class="wcard__title">{esc(item['title'])}</h3>
           <p class="wcard__desc">{esc(sub)}</p>
+          <p class="kcard__price">&pound;{scouty_copy.day_rate(item)} a day</p>
           <span class="wcard__more">Book on Scouty<span class="arrow">&rarr;</span></span>
         </div>
       </a>'''
@@ -134,6 +134,8 @@ def main():
   .gal__head a{{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}}
   .kcard[hidden]{{display:none}}
   .kcard{{content-visibility:auto;contain-intrinsic-size:auto 520px}}
+  .kcard__price{{font-size:17px;font-weight:800;color:var(--ink);margin:2px 0 0}}
+  [data-theme="dark"] .kcard__price{{color:#fff}}
   .kcard .wcard__media{{background:#E3DDD3}}
   .kcard .wcard__media img{{object-fit:contain}}
   @media (max-width:900px){{.csvprose{{grid-template-columns:1fr}}}}
