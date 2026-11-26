@@ -20,6 +20,7 @@ PAGES = [
     ('/guide', 'guide.html', '0.7'),
     ('/resources', 'resources.html', '0.7'),
     ('/case-study-videos', 'case-study-videos.html', '0.8'),
+    ('/kit-hire', 'kit-hire.html', '0.6'),
     ('/planpulse', 'planpulse.html', '0.4'),
     ('/free-tools', 'free-tools.html', '0.6'),
     ('/free-tools/video-resizer', 'free-tools/video-resizer.html', '0.5'),

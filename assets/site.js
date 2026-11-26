@@ -505,7 +505,11 @@
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
-    document.querySelectorAll('section, .strip').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    // a section too tall for 10% of it to ever fit on screen (the kit hire grid) would never show, so skip those
+    document.querySelectorAll('section, .strip').forEach(el => {
+      if (el.offsetHeight * 0.1 > innerHeight - 80) return;
+      el.classList.add('reveal'); io.observe(el);
+    });
   })();
 })();
 
